@@ -15,12 +15,12 @@ The CHEAC AI Council provides advisory guidance to empower researchers, explore 
 
 ::: {.g-col-12 .g-col-md-4}
 ### [Best Practices](practices/code-and-data.qmd)
-Guidelines for writing scripts, literature discovery, data curation, and verifying non-deterministic model outputs.
+Guidelines for using agents, vibe coding, literature search.
 :::
 
 ::: {.g-col-12 .g-col-md-4}
 ### [Posts](cases/overview.qmd)
-A living repository of center workflows—both high-impact successes and blameless post-mortems of subtle failure modes.
+Archive of blog posts about AI for material science.
 :::
 
 ::: {.g-col-12 .g-col-md-4}
