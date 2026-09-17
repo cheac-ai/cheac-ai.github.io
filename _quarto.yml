@@ -21,7 +21,7 @@ book:
       chapters:
         - practices/manuscript-writing.qmd
         - practices/literature-search.qmd
-        - practices/evaluating-outputs.qmd
+        - practices/evaluating-output.qmd
 
     - part: "Archive: Case Studies"
       chapters:
@@ -32,10 +32,11 @@ book:
 
     - part: "Governance & Policies"
       chapters:
-        - policies/council-charter.qmd
-        - policies/university-guidelines.qmd
-        - policies/data-privacy-ip.qmd
-        - policies/publisher-standards.qmd
+        - guidlines/council-charter.qmd
+        - guidlines/ku-guidelines.qmd
+        - guidlines/data-privacy-ip.qmd
+        - guidlines/publisher-standards.qmd
+        - guidlines/transparency.qmd
 
     - references.qmd
 
