@@ -1,99 +1,100 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "cheac /btw",
+    "objectID": "posts/opening-2026-09-17.html",
+    "href": "posts/opening-2026-09-17.html",
+    "title": "How to?",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.",
-    "crumbs": [
-      "Preface"
-    ]
-  },
-  {
-    "objectID": "practices/manuscript-writing.html",
-    "href": "practices/manuscript-writing.html",
-    "title": "1  AI in scientific writing",
-    "section": "",
-    "text": "Writing is thinking.",
-    "crumbs": [
-      "Best usage practices",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>AI in scientific writing</span>"
-    ]
+    "text": "How to?\nWe can regularly post stories here, which we can put in different categories (sucess stories, failures, tips, new technical development, other things). Ideally, we can turn these posts into a newsletter sent out to CHEAC and automatically make a slide or two out of it to presnet in meetings.\nWe need to do some testing for this. Likely, each posts needs some share set of minimum requirements to do the above."
   },
   {
     "objectID": "practices/literature-search.html",
     "href": "practices/literature-search.html",
-    "title": "2  Searching the literature with AI",
+    "title": "Searching the literature with AI",
     "section": "",
-    "text": "There is too much literature on any given topic out there for anyone to read. AI can be a very useful tool to help you find information and summarize knowledge.",
-    "crumbs": [
-      "Best usage practices",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Searching the literature with AI</span>"
-    ]
+    "text": "Searching the literature with AI\nThere is too much literature on any given topic out there for anyone to read. AI can be a very useful tool to help you find information and summarize knowledge."
   },
   {
-    "objectID": "practices/evaluating-output.html",
-    "href": "practices/evaluating-output.html",
-    "title": "3  Evaluating output",
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "Summary",
     "section": "",
-    "text": "Understanding before prediction (Del Giudice et al. 2024; Messeri and Crockett 2024). Something about the difference between output that seems to work and output that has been rigorously evaluated before being presented in a talk or paper.\n\n\n\n\nDel Giudice, Marco et al. 2024. “The Prediction-Explanation Fallacy: A Pervasive Problem in Scientific Applications of Machine Learning.” Methodology 20 (1): 22–46.\n\n\nMesseri, Lisa, and Molly J Crockett. 2024. “Artificial Intelligence and Illusions of Understanding in Scientific Research.” Nature 627 (8002): 49–58.",
-    "crumbs": [
-      "Best usage practices",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Evaluating output</span>"
-    ]
-  },
-  {
-    "objectID": "posts/overview.html",
-    "href": "posts/overview.html",
-    "title": "4  How to?",
-    "section": "",
-    "text": "We can regularly post stories here, which we can put in different categories (sucess stories, failures, tips, new technical development, other things). Ideally, we can turn these posts into a newsletter sent out to CHEAC and automatically make a slide or two out of it to presnet in meetings.\nWe need to do some testing for this. Likely, each posts needs some share set of minimum requirements to do the above.",
-    "crumbs": [
-      "Posts",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>How to?</span>"
-    ]
+    "text": "Summary\nWe are part of the Center for High Entropy Alloy Catalysts (CHEAC) and we think about how to—and how not to—use AI in our daily work life. We think about the role of AI in science and eduction, and how the future chemist looks like."
   },
   {
     "objectID": "guidlines/publisher-standards.html",
     "href": "guidlines/publisher-standards.html",
-    "title": "7  AI rules & guides from publishers",
+    "title": "AI rules & guides from publishers",
     "section": "",
-    "text": "What are the AI policies of the big chemical scocieties and publishing houses (AAAS, Springer, ACS, Elsevier, RCS, GDCh, Wiley)",
-    "crumbs": [
-      "Guidlines",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>AI rules & guides from publishers</span>"
-    ]
+    "text": "AI rules & guides from publishers\nWhat are the AI policies of the big chemical scocieties and publishing houses (AAAS, Springer, ACS, Elsevier, RCS, GDCh, Wiley)"
   },
   {
-    "objectID": "guidlines/transparency.html",
-    "href": "guidlines/transparency.html",
-    "title": "8  Transparency",
+    "objectID": "guidlines/data-privacy-ip.html",
+    "href": "guidlines/data-privacy-ip.html",
+    "title": "Data privacy and intellectual property",
     "section": "",
-    "text": "How should be practice transparency of AI usage in our work, from usage in writing manuscripts, figures, codes, and educational material?",
-    "crumbs": [
-      "Guidlines",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Transparency</span>"
-    ]
+    "text": "Data privacy and intellectual property"
   },
   {
     "objectID": "contributing/contributing.html",
     "href": "contributing/contributing.html",
-    "title": "9  Contributing",
+    "title": "Contributing",
     "section": "",
-    "text": "Some templates and tutorials to help people with interest to contribute with posts/stories/design.",
-    "crumbs": [
-      "Contributing",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Contributing</span>"
-    ]
+    "text": "Contributing\nSome templates and tutorials to help people with interest to contribute with posts/stories/design."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "CHEAC AI Living Document",
+    "section": "",
+    "text": "NoteAdvisory Mandate\n\n\n\nThe CHEAC AI Council provides advisory guidance to empower researchers, explore workflows, and safeguard scientific integrity. We do not act as an enforcement body."
+  },
+  {
+    "objectID": "index.html#explore-the-document",
+    "href": "index.html#explore-the-document",
+    "title": "CHEAC AI Living Document",
+    "section": "Explore the Document",
+    "text": "Explore the Document\n\n\nBest Practices\nGuidelines for writing scripts, literature discovery, data curation, and verifying non-deterministic model outputs.\n\n\nPosts\nA living repository of center workflows—both high-impact successes and blameless post-mortems of subtle failure modes.\n\n\nPolicies & Ethics\nInstitutional KU declarations, data privacy standards regarding proprietary experimental data, and publisher rules.\n\n\n\n\nQuick Actions\n\nHave a story to share? Check out How to Contribute a Case Study.\nQuestions or feedback? Contact the council editor at ts@chem.ku.dk."
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Introduction\nThis is a book created from markdown and executable code.\nSee (knuth84?) for additional discussion of literate programming."
+  },
+  {
+    "objectID": "guidlines/transparency.html",
+    "href": "guidlines/transparency.html",
+    "title": "Transparency",
+    "section": "",
+    "text": "Transparency\nHow should be practice transparency of AI usage in our work, from usage in writing manuscripts, figures, codes, and educational material?"
+  },
+  {
+    "objectID": "guidlines/ku-guidelines.html",
+    "href": "guidlines/ku-guidelines.html",
+    "title": "KU guidelines on AI usage",
+    "section": "",
+    "text": "KU guidelines on AI usage"
   },
   {
     "objectID": "references.html",
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "Del Giudice, Marco et al. 2024. “The\nPrediction-Explanation Fallacy: A Pervasive Problem in Scientific\nApplications of Machine Learning.” Methodology 20 (1):\n22–46.\n\n\nMesseri, Lisa, and Molly J Crockett. 2024. “Artificial\nIntelligence and Illusions of Understanding in Scientific\nResearch.” Nature 627 (8002): 49–58.",
-    "crumbs": [
-      "References"
-    ]
+    "text": "References"
+  },
+  {
+    "objectID": "practices/evaluating-output.html",
+    "href": "practices/evaluating-output.html",
+    "title": "Evaluating output",
+    "section": "",
+    "text": "Evaluating output\nUnderstanding before prediction (Del Giudice et al. 2024; Messeri and Crockett 2024). Something about the difference between output that seems to work and output that has been rigorously evaluated before being presented in a talk or paper.\n\n\n\n\n\nReferences\n\nDel Giudice, Marco et al. 2024. “The Prediction-Explanation Fallacy: A Pervasive Problem in Scientific Applications of Machine Learning.” Methodology 20 (1): 22–46.\n\n\nMesseri, Lisa, and Molly J Crockett. 2024. “Artificial Intelligence and Illusions of Understanding in Scientific Research.” Nature 627 (8002): 49–58."
+  },
+  {
+    "objectID": "practices/manuscript-writing.html",
+    "href": "practices/manuscript-writing.html",
+    "title": "AI in scientific writing",
+    "section": "",
+    "text": "AI in scientific writing\nWriting is thinking."
   }
 ]
