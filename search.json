@@ -12,12 +12,12 @@
   {
     "objectID": "practices/manuscript-writing.html",
     "href": "practices/manuscript-writing.html",
-    "title": "1  Writing is thinking",
+    "title": "1  AI in scientific writing",
     "section": "",
-    "text": "Tips and tricks and things to avoid for the use of AI in writing.",
+    "text": "Writing is thinking.",
     "crumbs": [
-      "Advisory & Best Practices",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Writing is thinking</span>"
+      "Best usages practices",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>AI in scientific writing</span>"
     ]
   },
   {
@@ -27,7 +27,7 @@
     "section": "",
     "text": "There is too much literature on any given topic out there for anyone to read. AI can be a very useful tool to help you find information and summarize knowledge.",
     "crumbs": [
-      "Advisory & Best Practices",
+      "Best usages practices",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Searching the literature with AI</span>"
     ]
   },
@@ -38,7 +38,7 @@
     "section": "",
     "text": "The job of scientists is not only to create output that ‘works’, for instance an active catalyst or a software, we also to explain how and why it works. Our job goes beyond mere prediction—we need to generate output that is educational.",
     "crumbs": [
-      "Advisory & Best Practices",
+      "Best usages practices",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Understanding before prediction</span>"
     ]
   },
@@ -49,118 +49,118 @@
     "section": "",
     "text": "Success and failure stories of AI use in science and eduction.",
     "crumbs": [
-      "Archive: Case Studies",
+      "Success Stories & Failure Modes",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Overview</span>"
     ]
   },
   {
     "objectID": "cases/contribute-a-case.html",
     "href": "cases/contribute-a-case.html",
-    "title": "How to Contribute a Case Study",
+    "title": "7  How to Contribute a Case Study",
     "section": "",
-    "text": "Why Share Failures?\nSharing both breakthroughs and failures helps the entire center identify high-value workflows while avoiding costly pitfalls.\nAI promises to make us more efficient. To produce more output in less time. While AI is very good at generating output in a short time, testing and verifying still takes time. There are ways to make the AI run tests for you that help avoid the most damaging failures (false citations, unphysical predictions). Fruther, the human has a responsibility to test and understand the output, becuase accountability remains with the human scientist.",
+    "text": "7.1 Why Share Failures?\nSharing both breakthroughs and failures helps the entire center identify high-value workflows while avoiding costly pitfalls.\nAI promises to make us more efficient—to produce more output in less time. While AI is very good at generating output in a short time, testing and verifying still takes time. There are ways to make the AI run tests for you that help avoid the most damaging failures (false citations, unphysical predictions). Further, the human scientist retains ultimate responsibility to test and understand the output, because accountability cannot be delegated to an algorithm.",
     "crumbs": [
-      "Archive: Case Studies",
-      "How to Contribute a Case Study"
+      "Success Stories & Failure Modes",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>How to Contribute a Case Study</span>"
     ]
   },
   {
     "objectID": "cases/contribute-a-case.html#how-to-submit",
     "href": "cases/contribute-a-case.html#how-to-submit",
-    "title": "How to Contribute a Case Study",
-    "section": "How to Submit",
-    "text": "How to Submit\nYou can contribute using either of the following paths:\n\nGitHub Pull Request (Recommended):\n\nFork this repository.\nCopy the template below into a new file under cases/successes/ or cases/failures/ (e.g., cases/failures/hallucinated-solubility-data.qmd).\nSubmit a Pull Request. An AI Council member will review it for readability and format.\n\nEmail / Form Submission:\n\nCopy the template below, fill it out, and send it directly to the AI Council’s editor at ts@chem.ku.dk.\nNote whether you wish to remain anonymous or list your name and group.",
+    "title": "7  How to Contribute a Case Study",
+    "section": "7.2 How to Submit",
+    "text": "7.2 How to Submit\nYou can contribute using either of the following paths:\n\nGitHub Pull Request (Recommended):\n\nFork this repository.\nCopy the template below into a new file under cases/ (e.g., cases/failure-modes.qmd or a dedicated subfolder).\nSubmit a Pull Request. An AI Council member will review it for readability and format.\n\nEmail / Form Submission:\n\nCopy the template below, fill it out, and send it directly to the AI Council’s editor at ts@chem.ku.dk.\nNote whether you wish to remain anonymous or list your name and group.",
     "crumbs": [
-      "Archive: Case Studies",
-      "How to Contribute a Case Study"
+      "Success Stories & Failure Modes",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>How to Contribute a Case Study</span>"
     ]
   },
   {
     "objectID": "cases/contribute-a-case.html#submission-template",
     "href": "cases/contribute-a-case.html#submission-template",
-    "title": "How to Contribute a Case Study",
-    "section": "Submission Template",
-    "text": "Submission Template\nCopy the Markdown block below to start your submission:\n```markdown # [Title: Short, Descriptive Summary of the Case]\nContributor: [Name, Research Group] (or: “Anonymous”)\nDate: YYYY-MM-DD\nCategory: [Success Story | Failure Mode / Near Miss]\nPrimary Domain: [Synthesis / Spectroscopy / Simulation / Coding / Writing / Literature Search]\nTools Involved: [e.g., Claude 3.7 Sonnet, ChatGPT-4o, GitHub Copilot, DeepSeek, Custom ML Pipeline]",
+    "title": "7  How to Contribute a Case Study",
+    "section": "7.3 Submission Template",
+    "text": "7.3 Submission Template\nCopy the Markdown block below to start your submission:\n````markdown # [Title: Short, Descriptive Summary of the Case]\nContributor: [Name, Research Group] (or: “Anonymous”)\nDate: YYYY-MM-DD\nCategory: [Success Story | Failure Mode / Near Miss]\nPrimary Domain: [Synthesis / Spectroscopy / Simulation / Coding / Writing / Literature Search]\nTools Involved: [e.g., Claude 3.7 Sonnet, ChatGPT-4o, GitHub Copilot, DeepSeek, Custom ML Pipeline]",
     "crumbs": [
-      "Archive: Case Studies",
-      "How to Contribute a Case Study"
+      "Success Stories & Failure Modes",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>How to Contribute a Case Study</span>"
     ]
   },
   {
     "objectID": "cases/contribute-a-case.html#context-objective",
     "href": "cases/contribute-a-case.html#context-objective",
-    "title": "How to Contribute a Case Study",
-    "section": "1. Context & Objective",
-    "text": "1. Context & Objective\nWhat specific scientific or administrative task were you trying to accomplish?\n\nExample: Generating an automated Python routine to batch-process synchrotron 2D diffraction rings into 1D profiles.",
+    "title": "7  How to Contribute a Case Study",
+    "section": "7.4 1. Context & Objective",
+    "text": "7.4 1. Context & Objective\nWhat specific scientific or administrative task were you trying to accomplish?\n\nExample: Generating an automated Python routine to batch-process synchrotron 2D diffraction rings into 1D profiles.",
     "crumbs": [
-      "Archive: Case Studies",
-      "How to Contribute a Case Study"
+      "Success Stories & Failure Modes",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>How to Contribute a Case Study</span>"
     ]
   },
   {
     "objectID": "cases/contribute-a-case.html#approach-prompting-strategy",
     "href": "cases/contribute-a-case.html#approach-prompting-strategy",
-    "title": "How to Contribute a Case Study",
-    "section": "2. Approach & Prompting Strategy",
-    "text": "2. Approach & Prompting Strategy\nWhat model or tool did you use? What instructions or context did you provide? (Include sanitized sample prompts if available).",
+    "title": "7  How to Contribute a Case Study",
+    "section": "7.5 2. Approach & Prompting Strategy",
+    "text": "7.5 2. Approach & Prompting Strategy\nWhat model or tool did you use? What instructions or context did you provide? (Include sanitized sample prompts if available).",
     "crumbs": [
-      "Archive: Case Studies",
-      "How to Contribute a Case Study"
+      "Success Stories & Failure Modes",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>How to Contribute a Case Study</span>"
     ]
   },
   {
     "objectID": "cases/contribute-a-case.html#the-outcome-what-happened",
     "href": "cases/contribute-a-case.html#the-outcome-what-happened",
-    "title": "How to Contribute a Case Study",
-    "section": "3. The Outcome: What Happened?",
-    "text": "3. The Outcome: What Happened?\n\nFor Success Stories: What did the tool produce? How much time was saved, or what insight was unlocked?\nFor Failure Modes: Where did the output fail? Was there a silent bug, hallucinated value, erroneous mathematical derivation, or policy violation?",
+    "title": "7  How to Contribute a Case Study",
+    "section": "7.6 3. The Outcome: What Happened?",
+    "text": "7.6 3. The Outcome: What Happened?\n\nFor Success Stories: What did the tool produce? How much time was saved, or what insight was unlocked?\nFor Failure Modes: Where did the output fail? Was there a silent bug, hallucinated value, erroneous mathematical derivation, or policy violation?",
     "crumbs": [
-      "Archive: Case Studies",
-      "How to Contribute a Case Study"
+      "Success Stories & Failure Modes",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>How to Contribute a Case Study</span>"
     ]
   },
   {
     "objectID": "cases/contribute-a-case.html#how-the-output-was-verified",
     "href": "cases/contribute-a-case.html#how-the-output-was-verified",
-    "title": "How to Contribute a Case Study",
-    "section": "4. How the Output Was Verified",
-    "text": "4. How the Output Was Verified\nHow did you (or your lab) catch the issue or validate that the result was correct?\n\nExample: Manual spot-check against known standards, unit tests with synthetic datasets, cross-referencing primary literature, or running a dummy calculation.",
+    "title": "7  How to Contribute a Case Study",
+    "section": "7.7 4. How the Output Was Verified",
+    "text": "7.7 4. How the Output Was Verified\nHow did you (or your lab) catch the issue or validate that the result was correct?\n\nExample: Manual spot-check against known standards, unit tests with synthetic datasets, cross-referencing primary literature, or running a dummy calculation.",
     "crumbs": [
-      "Archive: Case Studies",
-      "How to Contribute a Case Study"
+      "Success Stories & Failure Modes",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>How to Contribute a Case Study</span>"
     ]
   },
   {
     "objectID": "cases/contribute-a-case.html#key-takeaways-recommendations",
     "href": "cases/contribute-a-case.html#key-takeaways-recommendations",
-    "title": "How to Contribute a Case Study",
-    "section": "5. Key Takeaways & Recommendations",
-    "text": "5. Key Takeaways & Recommendations\nWhat should other CHEAC researchers learn from this? What best practice does this motivate?\n\nDo: [e.g., Always plot residual differences against baseline data]\nDon’t: [e.g., Never ask LLMs to infer unit cell parameters without providing the raw CIF file]",
+    "title": "7  How to Contribute a Case Study",
+    "section": "7.8 5. Key Takeaways & Recommendations",
+    "text": "7.8 5. Key Takeaways & Recommendations\nWhat should other CHEAC researchers learn from this? What best practice does this motivate?\n\nDo: [e.g., Always plot residual differences against baseline data]\nDon’t: [e.g., Never ask LLMs to infer unit cell parameters without providing the raw CIF file]",
     "crumbs": [
-      "Archive: Case Studies",
-      "How to Contribute a Case Study"
+      "Success Stories & Failure Modes",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>How to Contribute a Case Study</span>"
     ]
   },
   {
     "objectID": "cases/contribute-a-case.html#references-supplementary-links",
     "href": "cases/contribute-a-case.html#references-supplementary-links",
-    "title": "How to Contribute a Case Study",
-    "section": "References & Supplementary Links",
-    "text": "References & Supplementary Links\nOptional links to code repositories, published papers, or relevant documentation.",
+    "title": "7  How to Contribute a Case Study",
+    "section": "7.9 References & Supplementary Links",
+    "text": "7.9 References & Supplementary Links\nOptional links to code repositories, published papers, or relevant documentation.```",
     "crumbs": [
-      "Archive: Case Studies",
-      "How to Contribute a Case Study"
+      "Success Stories & Failure Modes",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>How to Contribute a Case Study</span>"
     ]
   },
   {
     "objectID": "guidlines/publisher-standards.html",
     "href": "guidlines/publisher-standards.html",
-    "title": "10  What do publishers say?",
+    "title": "10  AI rules & guides from publishers",
     "section": "",
     "text": "What are the AI policies of the big chemical scocieties and publishing houses (AAAS, Springer, ACS, Elsevier, RCS, GDCh, Wiley)",
     "crumbs": [
       "Governance & Policies",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>What do publishers say?</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>AI rules & guides from publishers</span>"
     ]
   },
   {
