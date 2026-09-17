@@ -1,25 +1,51 @@
 project:
   type: book
+  output-dir: _site
 
 book:
   title: "cheac /btw"
-  author: "Norah Jones"
-  date: "9/17/2026"
+  author:
+    - "Jack Kirk Pedersen"
+    - "Melissa Marks"
+    - "Frederik Lizak Johansen"
+    - "Ahmad Tirmidzi"
+    - "Till Schertenleib"
+  date: today
+  search: true
+
+  # Grouped navigation
   chapters:
     - index.qmd
-    - intro.qmd
-    - summary.qmd
+
+    - part: "Advisory & Best Practices"
+      chapters:
+        - practices/code-and-data.qmd
+        - practices/manuscript-writing.qmd
+        - practices/literature-search.qmd
+        - practices/evaluating-outputs.qmd
+
+    - part: "Archive: Case Studies"
+      chapters:
+        - cases/overview.qmd
+        - cases/success-stories.qmd
+        - cases/failure-modes.qmd
+        - cases/contribute-a-case.qmd
+
+    - part: "Governance & Policies"
+      chapters:
+        - policies/council-charter.qmd
+        - policies/university-guidelines.qmd
+        - policies/data-privacy-ip.qmd
+        - policies/publisher-standards.qmd
+
     - references.qmd
 
 bibliography: references.bib
 
 format:
   html:
-    theme:
-      - cosmo
-      - brand
+    theme: cosmo
+    toc: true
+    code-copy: true
   pdf:
     documentclass: scrreprt
-
-
-

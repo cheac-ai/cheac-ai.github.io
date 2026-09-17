@@ -1,0 +1,4 @@
+# Understanding before prediction
+
+The job of scientists is not only to create output that 'works', for instance an active catalyst or a software, we also to explain how and why it works. 
+Our job goes beyond mere prediction---we need to generate output that is educational. 

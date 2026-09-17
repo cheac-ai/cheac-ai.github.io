@@ -1,0 +1,3 @@
+# Transparency
+
+How should be practice transparency of AI usage in our work, from usage in writing manuscripts, figures, codes, and educational material?
