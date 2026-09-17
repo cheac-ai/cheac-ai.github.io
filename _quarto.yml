@@ -1,44 +1,44 @@
 project:
-  type: book
+  type: website
   output-dir: _site
 
-book:
+website:
   title: "cheac /btw"
-  author:
-    - "Jack Kirk Pedersen"
-    - "Melissa Marks"
-    - "Frederik Lizak Johansen"
-    - "Ahmad Tirmidzi"
-    - "Till Schertenleib"
-  date: today
-  search: true
+  navbar:
+    background: primary
+    search: true
+    left: 
+      - href: index.qmd
+        text: Home
 
-  # Grouped navigation
-  chapters:
-    - index.qmd
-
-    - part: "Best usage practices"
-      chapters:
-        - practices/manuscript-writing.qmd
-        - practices/literature-search.qmd
-        - practices/evaluating-output.qmd
-
-    - part: "Posts"
-      chapters:
-        - posts/overview.qmd
-
-    - part: "Guidlines"
-      chapters:
-        - guidlines/ku-guidelines.qmd
-        - guidlines/data-privacy-ip.qmd
-        - guidlines/publisher-standards.qmd
-        - guidlines/transparency.qmd
-
-    - part: "Contributing"
-      chapters:
-        - contributing/contributing.qmd
-
-    - references.qmd
+      - text: "Best usage practices"
+        menu:
+          - href: practices/manuscript-writing.qmd
+            text: Manuscript writing
+          - href: practices/literature-search.qmd
+            text: Literature search
+          - href: practices/evaluating-output.qmd
+            text: Evaluating output
+      - text: "Guidlines"
+        menu:
+          - href: guidlines/ku-guidelines.qmd
+            text: KU Guidelines
+          - href: guidlines/data-privacy-ip.qmd
+            text: Data privacy and IP
+          - href: guidlines/publisher-standards.qmd
+            text: Publisher standards
+          - href: guidlines/transparency.qmd
+            text: Transparency
+      - text: "Posts"
+        menu:
+          - href: posts/opening-2026-09-17.qmd
+            text: 2026-09-17 Hello world
+      - text: "Contributing"
+        menu:
+          - href: contributing/contributing.qmd
+            text: Contributing
+      - href: references.qmd
+        text: References
 
 bibliography: references.bib
 

@@ -1,5 +1,38 @@
-# Preface {.unnumbered}
+---
+title: "CHEAC AI Living Document"
+subtitle: "Advisory guidance, best practices, and community case studies for artificial intelligence in research."
+toc: false
+---
 
-This is a Quarto book.
+::: {.callout-note appearance="simple"}
+## Advisory Mandate
+The CHEAC AI Council provides advisory guidance to empower researchers, explore workflows, and safeguard scientific integrity. We do not act as an enforcement body.
+:::
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+## Explore the Document
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-4}
+### [Best Practices](practices/code-and-data.qmd)
+Guidelines for writing scripts, literature discovery, data curation, and verifying non-deterministic model outputs.
+:::
+
+::: {.g-col-12 .g-col-md-4}
+### [Posts](cases/overview.qmd)
+A living repository of center workflows—both high-impact successes and blameless post-mortems of subtle failure modes.
+:::
+
+::: {.g-col-12 .g-col-md-4}
+### [Policies & Ethics](guidlines/council-charter.qmd)
+Institutional KU declarations, data privacy standards regarding proprietary experimental data, and publisher rules.
+:::
+
+:::
+
+---
+
+### Quick Actions
+
+* **Have a story to share?** Check out [How to Contribute a Case Study](cases/contribute-a-case.qmd).
+* **Questions or feedback?** Contact the council editor at `ts@chem.ku.dk`.
