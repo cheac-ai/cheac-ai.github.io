@@ -30,7 +30,7 @@ You can contribute using either of the following paths:
 
 Copy the Markdown block below to start your submission:
 
-````markdown
+```
 # [Title: Short, Descriptive Summary of the Case]
 
 **Contributor:** [Name, Research Group] *(or: "Anonymous")*  
@@ -65,4 +65,5 @@ Copy the Markdown block below to start your submission:
 - **Don't:** [e.g., Never ask LLMs to infer unit cell parameters without providing the raw CIF file]
 
 ## References & Supplementary Links
-*Optional links to code repositories, published papers, or relevant documentation.*```
+*Optional links to code repositories, published papers, or relevant documentation.*
+```
