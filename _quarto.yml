@@ -1,0 +1,25 @@
+project:
+  type: book
+
+book:
+  title: "cheac /btw"
+  author: "Norah Jones"
+  date: "9/17/2026"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: scrreprt
+
+
+
