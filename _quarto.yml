@@ -19,7 +19,6 @@ book:
 
     - part: "Advisory & Best Practices"
       chapters:
-        - practices/code-and-data.qmd
         - practices/manuscript-writing.qmd
         - practices/literature-search.qmd
         - practices/evaluating-outputs.qmd
