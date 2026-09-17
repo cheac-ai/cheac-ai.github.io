@@ -1,3 +1,0 @@
-# Searching the literature with AI
-
-There is too much literature on any given topic out there for anyone to read. AI can be a very useful tool to help you find information and summarize knowledge. 
