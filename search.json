@@ -80,73 +80,7 @@
     "href": "cases/contribute-a-case.html#submission-template",
     "title": "7  How to Contribute a Case Study",
     "section": "7.3 Submission Template",
-    "text": "7.3 Submission Template\nCopy the Markdown block below to start your submission:\n````markdown # [Title: Short, Descriptive Summary of the Case]\nContributor: [Name, Research Group] (or: “Anonymous”)\nDate: YYYY-MM-DD\nCategory: [Success Story | Failure Mode / Near Miss]\nPrimary Domain: [Synthesis / Spectroscopy / Simulation / Coding / Writing / Literature Search]\nTools Involved: [e.g., Claude 3.7 Sonnet, ChatGPT-4o, GitHub Copilot, DeepSeek, Custom ML Pipeline]",
-    "crumbs": [
-      "Success Stories & Failure Modes",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>How to Contribute a Case Study</span>"
-    ]
-  },
-  {
-    "objectID": "cases/contribute-a-case.html#context-objective",
-    "href": "cases/contribute-a-case.html#context-objective",
-    "title": "7  How to Contribute a Case Study",
-    "section": "7.4 1. Context & Objective",
-    "text": "7.4 1. Context & Objective\nWhat specific scientific or administrative task were you trying to accomplish?\n\nExample: Generating an automated Python routine to batch-process synchrotron 2D diffraction rings into 1D profiles.",
-    "crumbs": [
-      "Success Stories & Failure Modes",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>How to Contribute a Case Study</span>"
-    ]
-  },
-  {
-    "objectID": "cases/contribute-a-case.html#approach-prompting-strategy",
-    "href": "cases/contribute-a-case.html#approach-prompting-strategy",
-    "title": "7  How to Contribute a Case Study",
-    "section": "7.5 2. Approach & Prompting Strategy",
-    "text": "7.5 2. Approach & Prompting Strategy\nWhat model or tool did you use? What instructions or context did you provide? (Include sanitized sample prompts if available).",
-    "crumbs": [
-      "Success Stories & Failure Modes",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>How to Contribute a Case Study</span>"
-    ]
-  },
-  {
-    "objectID": "cases/contribute-a-case.html#the-outcome-what-happened",
-    "href": "cases/contribute-a-case.html#the-outcome-what-happened",
-    "title": "7  How to Contribute a Case Study",
-    "section": "7.6 3. The Outcome: What Happened?",
-    "text": "7.6 3. The Outcome: What Happened?\n\nFor Success Stories: What did the tool produce? How much time was saved, or what insight was unlocked?\nFor Failure Modes: Where did the output fail? Was there a silent bug, hallucinated value, erroneous mathematical derivation, or policy violation?",
-    "crumbs": [
-      "Success Stories & Failure Modes",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>How to Contribute a Case Study</span>"
-    ]
-  },
-  {
-    "objectID": "cases/contribute-a-case.html#how-the-output-was-verified",
-    "href": "cases/contribute-a-case.html#how-the-output-was-verified",
-    "title": "7  How to Contribute a Case Study",
-    "section": "7.7 4. How the Output Was Verified",
-    "text": "7.7 4. How the Output Was Verified\nHow did you (or your lab) catch the issue or validate that the result was correct?\n\nExample: Manual spot-check against known standards, unit tests with synthetic datasets, cross-referencing primary literature, or running a dummy calculation.",
-    "crumbs": [
-      "Success Stories & Failure Modes",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>How to Contribute a Case Study</span>"
-    ]
-  },
-  {
-    "objectID": "cases/contribute-a-case.html#key-takeaways-recommendations",
-    "href": "cases/contribute-a-case.html#key-takeaways-recommendations",
-    "title": "7  How to Contribute a Case Study",
-    "section": "7.8 5. Key Takeaways & Recommendations",
-    "text": "7.8 5. Key Takeaways & Recommendations\nWhat should other CHEAC researchers learn from this? What best practice does this motivate?\n\nDo: [e.g., Always plot residual differences against baseline data]\nDon’t: [e.g., Never ask LLMs to infer unit cell parameters without providing the raw CIF file]",
-    "crumbs": [
-      "Success Stories & Failure Modes",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>How to Contribute a Case Study</span>"
-    ]
-  },
-  {
-    "objectID": "cases/contribute-a-case.html#references-supplementary-links",
-    "href": "cases/contribute-a-case.html#references-supplementary-links",
-    "title": "7  How to Contribute a Case Study",
-    "section": "7.9 References & Supplementary Links",
-    "text": "7.9 References & Supplementary Links\nOptional links to code repositories, published papers, or relevant documentation.```",
+    "text": "7.3 Submission Template\nCopy the Markdown block below to start your submission:\n# [Title: Short, Descriptive Summary of the Case]\n\n**Contributor:** [Name, Research Group] *(or: \"Anonymous\")*  \n**Date:** YYYY-MM-DD  \n**Category:** [Success Story | Failure Mode / Near Miss]  \n**Primary Domain:** [Synthesis / Spectroscopy / Simulation / Coding / Writing / Literature Search]  \n**Tools Involved:** [e.g., Claude 3.7 Sonnet, ChatGPT-4o, GitHub Copilot, DeepSeek, Custom ML Pipeline]  \n\n---\n\n## 1. Context & Objective\n*What specific scientific or administrative task were you trying to accomplish?*\n\n&gt; *Example: Generating an automated Python routine to batch-process synchrotron 2D diffraction rings into 1D profiles.*\n\n## 2. Approach & Prompting Strategy\n*What model or tool did you use? What instructions or context did you provide? (Include sanitized sample prompts if available).*\n\n## 3. The Outcome: What Happened?\n* **For Success Stories:** What did the tool produce? How much time was saved, or what insight was unlocked?\n* **For Failure Modes:** Where did the output fail? Was there a silent bug, hallucinated value, erroneous mathematical derivation, or policy violation?\n\n## 4. How the Output Was Verified\n*How did you (or your lab) catch the issue or validate that the result was correct?*\n\n&gt; *Example: Manual spot-check against known standards, unit tests with synthetic datasets, cross-referencing primary literature, or running a dummy calculation.*\n\n## 5. Key Takeaways & Recommendations\n*What should other CHEAC researchers learn from this? What best practice does this motivate?*\n\n- **Do:** [e.g., Always plot residual differences against baseline data]\n- **Don't:** [e.g., Never ask LLMs to infer unit cell parameters without providing the raw CIF file]\n\n## References & Supplementary Links\n*Optional links to code repositories, published papers, or relevant documentation.*",
     "crumbs": [
       "Success Stories & Failure Modes",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>How to Contribute a Case Study</span>"
