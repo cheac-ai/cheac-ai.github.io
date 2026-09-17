@@ -47,5 +47,3 @@ format:
     theme: cosmo
     toc: true
     code-copy: true
-  pdf:
-    documentclass: scrreprt
