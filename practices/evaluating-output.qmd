@@ -1,4 +1,4 @@
-# Understanding before prediction
+# Evaluating output
 
-The job of scientists is not only to create output that 'works', for instance an active catalyst or a software, we also to explain how and why it works. 
-Our job goes beyond mere prediction---we need to generate output that is educational. 
+Understanding before prediction [@del2024prediction; @messeri2024artificial]. 
+Something about the difference between output that seems to work and output that has been rigorously evaluated before being presented in a talk or paper.

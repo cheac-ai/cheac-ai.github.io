@@ -1,0 +1,6 @@
+# How to?
+
+We can regularly post stories here, which we can put in different categories (sucess stories, failures, tips, new technical development, other things).
+Ideally, we can turn these posts into a newsletter sent out to CHEAC and automatically make a slide or two out of it to presnet in meetings. 
+
+We need to do some testing for this. Likely, each posts needs some share set of minimum requirements to do the above. 

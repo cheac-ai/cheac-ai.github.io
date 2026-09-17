@@ -17,20 +17,17 @@ book:
   chapters:
     - index.qmd
 
-    - part: "Best usages practices"
+    - part: "Best usage practices"
       chapters:
         - practices/manuscript-writing.qmd
         - practices/literature-search.qmd
         - practices/evaluating-output.qmd
 
-    - part: "Success Stories & Failure Modes"
+    - part: "Posts"
       chapters:
-        - cases/overview.qmd
-        - cases/success-stories.qmd
-        - cases/failure-modes.qmd
-        - cases/contribute-a-case.qmd
+        - posts/overview.qmd
 
-    - part: "Governance & Policies"
+    - part: "Guidlines"
       chapters:
         - guidlines/ku-guidelines.qmd
         - guidlines/data-privacy-ip.qmd
