@@ -1,4 +1,4 @@
-# How to Contribute a Case Study {.unnumbered}
+# How to Contribute a Case Study
 
 Sharing both breakthroughs and failures helps the entire center identify high-value workflows while avoiding costly pitfalls.
 
@@ -6,9 +6,9 @@ Sharing both breakthroughs and failures helps the entire center identify high-va
 
 ## Why Share Failures?
 
-AI promises to make us more efficient. To produce more output in less time. While AI is very good at generating output in a short time, testing and verifying still takes time.
+AI promises to make us more efficient—to produce more output in less time. While AI is very good at generating output in a short time, testing and verifying still takes time.
 There are ways to make the AI run tests for you that help avoid the most damaging **failures** (false citations, unphysical predictions). 
-Fruther, the human has a responsibility to test and understand the output, becuase accountability remains with the human scientist. 
+Further, the human scientist retains ultimate responsibility to test and understand the output, because accountability cannot be delegated to an algorithm. 
 
 ---
 
@@ -18,7 +18,7 @@ You can contribute using either of the following paths:
 
 1. **GitHub Pull Request (Recommended):**
    * Fork this repository.
-   * Copy the template below into a new file under `cases/successes/` or `cases/failures/` (e.g., `cases/failures/hallucinated-solubility-data.qmd`).
+   * Copy the template below into a new file under `cases/` (e.g., `cases/failure-modes.qmd` or a dedicated subfolder).
    * Submit a Pull Request. An AI Council member will review it for readability and format.
 2. **Email / Form Submission:**
    * Copy the template below, fill it out, and send it directly to the AI Council's editor at `ts@chem.ku.dk`.
@@ -30,7 +30,7 @@ You can contribute using either of the following paths:
 
 Copy the Markdown block below to start your submission:
 
-```markdown
+````markdown
 # [Title: Short, Descriptive Summary of the Case]
 
 **Contributor:** [Name, Research Group] *(or: "Anonymous")*  
@@ -65,4 +65,4 @@ Copy the Markdown block below to start your submission:
 - **Don't:** [e.g., Never ask LLMs to infer unit cell parameters without providing the raw CIF file]
 
 ## References & Supplementary Links
-*Optional links to code repositories, published papers, or relevant documentation.*
+*Optional links to code repositories, published papers, or relevant documentation.*```

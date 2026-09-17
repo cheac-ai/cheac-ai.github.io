@@ -17,13 +17,13 @@ book:
   chapters:
     - index.qmd
 
-    - part: "Advisory & Best Practices"
+    - part: "Best usages practices"
       chapters:
         - practices/manuscript-writing.qmd
         - practices/literature-search.qmd
         - practices/evaluating-output.qmd
 
-    - part: "Archive: Case Studies"
+    - part: "Success Stories & Failure Modes"
       chapters:
         - cases/overview.qmd
         - cases/success-stories.qmd
@@ -32,7 +32,6 @@ book:
 
     - part: "Governance & Policies"
       chapters:
-        - guidlines/council-charter.qmd
         - guidlines/ku-guidelines.qmd
         - guidlines/data-privacy-ip.qmd
         - guidlines/publisher-standards.qmd
