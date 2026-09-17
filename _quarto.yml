@@ -34,6 +34,10 @@ book:
         - guidlines/publisher-standards.qmd
         - guidlines/transparency.qmd
 
+    - part: "Contributing"
+      chapters:
+        - contributing/contributing.qmd
+
     - references.qmd
 
 bibliography: references.bib

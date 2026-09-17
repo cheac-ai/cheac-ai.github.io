@@ -1,0 +1,3 @@
+# Contributing
+
+Some templates and tutorials to help people with interest to contribute with posts/stories/design.
