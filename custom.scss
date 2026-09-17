@@ -1,0 +1,12 @@
+/*-- scss:defaults --*/
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+
+// Global body font
+$font-family-base: 'Newsreader', Georgia, serif;
+
+// Optional: Apply Newsreader to headings as well (Cosmo uses sans-serif by default)
+$headings-font-family: 'Newsreader', Georgia, serif;
+
+// Optional: Adjust base font size (editorial serif fonts often read better slightly larger)
+$font-size-base: 1.1rem;
+$line-height-base: 1.65;

@@ -44,6 +44,8 @@ bibliography: references.bib
 
 format:
   html:
-    theme: cosmo
+    theme: 
+      - cosmo
+      - custom.scss
     toc: true
     code-copy: true
