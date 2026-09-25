@@ -14,18 +14,53 @@
     "text": "Data privacy and intellectual property"
   },
   {
-    "objectID": "contributing/contributing.html",
-    "href": "contributing/contributing.html",
-    "title": "Contributing",
+    "objectID": "guidlines/cheac-dmp.html",
+    "href": "guidlines/cheac-dmp.html",
+    "title": "CHEAC Data Management Plan",
     "section": "",
-    "text": "Contributing\nSome templates and tutorials to help people with interest to contribute with posts/stories/design."
+    "text": "The official CHEAC Data Management Plan describes how research data at the Center for High Entropy Alloy Catalysis is structured, stored, backed up, and released.\nDownload the DMP (PDF)\n\n\nYour browser cannot display the PDF inline. Use the download link above."
   },
   {
-    "objectID": "posts/opening-2026-09-17.html",
-    "href": "posts/opening-2026-09-17.html",
-    "title": "How to?",
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
     "section": "",
-    "text": "How to?\nWe can regularly post stories here, which we can put in different categories (sucess stories, failures, tips, new technical development, other things). Ideally, we can turn these posts into a newsletter sent out to CHEAC and automatically make a slide or two out of it to presnet in meetings.\nWe need to do some testing for this. Likely, each posts needs some share set of minimum requirements to do the above."
+    "text": "References"
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "Summary",
+    "section": "",
+    "text": "Summary\nWe are part of the Center for High Entropy Alloy Catalysts (CHEAC) and we think about how to—and how not to—use AI in our daily work life. We think about the role of AI in science and eduction, and how the future chemist looks like."
+  },
+  {
+    "objectID": "practices/manuscript-writing.html",
+    "href": "practices/manuscript-writing.html",
+    "title": "AI in scientific writing",
+    "section": "",
+    "text": "AI in scientific writing\nWriting is thinking."
+  },
+  {
+    "objectID": "practices/evaluating-output.html",
+    "href": "practices/evaluating-output.html",
+    "title": "Evaluating output",
+    "section": "",
+    "text": "Evaluating output\nUnderstanding before prediction (Del Giudice et al. 2024; Messeri and Crockett 2024). Something about the difference between output that seems to work and output that has been rigorously evaluated before being presented in a talk or paper.\n\n\n\n\n\nReferences\n\nDel Giudice, Marco et al. 2024. “The Prediction-Explanation Fallacy: A Pervasive Problem in Scientific Applications of Machine Learning.” Methodology 20 (1): 22–46.\n\n\nMesseri, Lisa, and Molly J Crockett. 2024. “Artificial Intelligence and Illusions of Understanding in Scientific Research.” Nature 627 (8002): 49–58."
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Introduction\nThis is a book created from markdown and executable code.\nSee (knuth84?) for additional discussion of literate programming."
+  },
+  {
+    "objectID": "practices/literature-search.html",
+    "href": "practices/literature-search.html",
+    "title": "Searching the literature with AI",
+    "section": "",
+    "text": "Searching the literature with AI\nThere is too much literature on any given topic out there for anyone to read. AI can be a very useful tool to help you find information and summarize knowledge."
   },
   {
     "objectID": "index.html",
@@ -39,49 +74,21 @@
     "href": "index.html#explore-the-document",
     "title": "CHEAC \btw",
     "section": "Explore the Document",
-    "text": "Explore the Document\n\n\nBest Practices\nGuidelines for using agents, vibe coding, literature search.\n\n\nPosts\nArchive of blog posts about AI for material science.\n\n\nPolicies & Ethics\nInstitutional KU declarations, data privacy standards regarding proprietary experimental data, and publisher rules.\n\n\n\n\nQuick Actions\n\nHave a story to share? Check out How to Contribute a Case Study.\nQuestions or feedback? Contact the council editor at ts@chem.ku.dk."
+    "text": "Explore the Document\n\n\nBest Practices\nGuidelines for using agents, vibe coding, literature search.\n\n\nPosts\nArchive of blog posts about AI for material science.\n\n\nPolicies & Ethics\nInstitutional KU declarations, data privacy standards regarding proprietary experimental data, and publisher rules.\n\n\n\n\nQuick Actions\n\nHandling research data? Read the official CHEAC Data Management Plan.\nHave a story to share? Check out How to Contribute a Case Study.\nQuestions or feedback? Contact the council editor at ts@chem.ku.dk."
   },
   {
-    "objectID": "practices/literature-search.html",
-    "href": "practices/literature-search.html",
-    "title": "Searching the literature with AI",
+    "objectID": "posts/opening-2026-09-17.html",
+    "href": "posts/opening-2026-09-17.html",
+    "title": "How to?",
     "section": "",
-    "text": "Searching the literature with AI\nThere is too much literature on any given topic out there for anyone to read. AI can be a very useful tool to help you find information and summarize knowledge."
+    "text": "How to?\nWe can regularly post stories here, which we can put in different categories (sucess stories, failures, tips, new technical development, other things). Ideally, we can turn these posts into a newsletter sent out to CHEAC and automatically make a slide or two out of it to presnet in meetings.\nWe need to do some testing for this. Likely, each posts needs some share set of minimum requirements to do the above."
   },
   {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "Introduction",
+    "objectID": "contributing/contributing.html",
+    "href": "contributing/contributing.html",
+    "title": "Contributing",
     "section": "",
-    "text": "Introduction\nThis is a book created from markdown and executable code.\nSee (knuth84?) for additional discussion of literate programming."
-  },
-  {
-    "objectID": "practices/evaluating-output.html",
-    "href": "practices/evaluating-output.html",
-    "title": "Evaluating output",
-    "section": "",
-    "text": "Evaluating output\nUnderstanding before prediction (Del Giudice et al. 2024; Messeri and Crockett 2024). Something about the difference between output that seems to work and output that has been rigorously evaluated before being presented in a talk or paper.\n\n\n\n\n\nReferences\n\nDel Giudice, Marco et al. 2024. “The Prediction-Explanation Fallacy: A Pervasive Problem in Scientific Applications of Machine Learning.” Methodology 20 (1): 22–46.\n\n\nMesseri, Lisa, and Molly J Crockett. 2024. “Artificial Intelligence and Illusions of Understanding in Scientific Research.” Nature 627 (8002): 49–58."
-  },
-  {
-    "objectID": "practices/manuscript-writing.html",
-    "href": "practices/manuscript-writing.html",
-    "title": "AI in scientific writing",
-    "section": "",
-    "text": "AI in scientific writing\nWriting is thinking."
-  },
-  {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "Summary",
-    "section": "",
-    "text": "Summary\nWe are part of the Center for High Entropy Alloy Catalysts (CHEAC) and we think about how to—and how not to—use AI in our daily work life. We think about the role of AI in science and eduction, and how the future chemist looks like."
-  },
-  {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "References"
+    "text": "Contributing\nSome templates and tutorials to help people with interest to contribute with posts/stories/design."
   },
   {
     "objectID": "guidlines/transparency.html",
