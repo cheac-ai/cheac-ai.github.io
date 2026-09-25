@@ -4,10 +4,12 @@ toc: false
 listing:
   id: recent
   contents:
-    - practices/*.qmd
-    - guidlines/*.qmd
-    - posts/*.qmd
-    - "!*/index.qmd"
+    - "practices/**/*.{qmd,md}"
+    - "guidlines/**/*.{qmd,md}"
+    - "posts/**/*.{qmd,md}"
+    - "!practices/index.qmd"
+    - "!guidlines/index.qmd"
+    - "!posts/index.qmd"
   sort: "date desc"
   date-format: "D MMM YYYY"
   template: assets/templates/recent.ejs

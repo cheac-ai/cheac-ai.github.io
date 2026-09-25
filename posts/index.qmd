@@ -2,8 +2,8 @@
 title: "Posts"
 listing:
   contents:
-    - "*.qmd"
-    - "!index.qmd"
+    - "**/*.qmd"
+    - "**/*.md"
   type: default
   sort: "date desc"
   date-format: "D MMM YYYY"
