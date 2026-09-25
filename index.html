@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CHEAC \btw – \btw</title>
+<title>CHEAC – \btw</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -37,6 +37,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./assets/logos/cheac-logo-square-transparent.svg" rel="icon" type="image/svg+xml">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -46,7 +48,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-54daf6bf711cb0420cbbcca85a48e92d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-a7e2fc51d12423473e67d5c1accc47a9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,7 +76,65 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-recent .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-project','listing-website','listing-bibliography','listing-format','listing-engines','listing-language','listing-title','listing-pagetitle','listing-author','listing-date','listing-description','listing-image','listing-image-alt','listing-path','listing-outputHref','listing-date-modified','listing-filename','listing-file-modified','listing-reading-time','listing-word-count','listing-subtitle',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
+      
+      searchColumns: ["listing-project","listing-website","listing-bibliography","listing-format","listing-engines","listing-language","listing-title","listing-pagetitle","listing-author","listing-date","listing-description","listing-image","listing-image-alt","listing-path","listing-outputHref","listing-date-modified","listing-filename","listing-file-modified","listing-reading-time","listing-word-count","listing-subtitle"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-recent'] = new List('listing-recent', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -103,63 +163,18 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link active" href="./index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-best-usage-practices" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Best usage practices</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-best-usage-practices">    
-        <li>
-    <a class="dropdown-item" href="./practices/manuscript-writing.html">
- <span class="dropdown-text">Manuscript writing</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./practices/index.html"> 
+<span class="menu-text">Best usage practices</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./practices/literature-search.html">
- <span class="dropdown-text">Literature search</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./guidlines/index.html"> 
+<span class="menu-text">Guidlines</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./practices/evaluating-output.html">
- <span class="dropdown-text">Evaluating output</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./posts/index.html"> 
+<span class="menu-text">Posts</span></a>
   </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-guidlines" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Guidlines</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-guidlines">    
-        <li>
-    <a class="dropdown-item" href="./guidlines/ku-guidelines.html">
- <span class="dropdown-text">KU Guidelines</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./guidlines/data-privacy-ip.html">
- <span class="dropdown-text">Data privacy and IP</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./guidlines/publisher-standards.html">
- <span class="dropdown-text">Publisher standards</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./guidlines/transparency.html">
- <span class="dropdown-text">Transparency</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./guidlines/cheac-dmp.html">
- <span class="dropdown-text">CHEAC Data Management Plan</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-posts" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Posts</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-posts">    
-        <li>
-    <a class="dropdown-item" href="./posts/opening-2026-09-17.html">
- <span class="dropdown-text">2026-09-17 Hello world</span></a>
-  </li>  
-    </ul>
-  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-contributing" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Contributing</span>
@@ -214,17 +229,31 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="explore-the-document">Explore the Document</h2>
 <div class="grid">
 <section id="best-practices" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="best-practices"><a href="./practices/manuscript-writing.html">Best Practices</a></h3>
+<h3 class="anchored" data-anchor-id="best-practices"><a href="./practices/index.html">Best Practices</a></h3>
 <p>Guidelines for using agents, vibe coding, literature search.</p>
 </section>
 <section id="posts" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="posts"><a href="./posts/opening-2026-09-17.html">Posts</a></h3>
+<h3 class="anchored" data-anchor-id="posts"><a href="./posts/index.html">Posts</a></h3>
 <p>Archive of blog posts about AI for material science.</p>
 </section>
 <section id="policies-ethics" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="policies-ethics"><a href="./guidlines/ku-guidelines.html">Policies &amp; Ethics</a></h3>
+<h3 class="anchored" data-anchor-id="policies-ethics"><a href="./guidlines/index.html">Policies &amp; Ethics</a></h3>
 <p>Institutional KU declarations, data privacy standards regarding proprietary experimental data, and publisher rules.</p>
 </section>
+</div>
+</section>
+<section id="most-recent" class="level2">
+<h2 class="anchored" data-anchor-id="most-recent">Most recent</h2>
+<div id="listing-recent" class="quarto-listing quarto-listing-container-custom">
+<ul class="recent-list list-unstyled">
+<li class="recent-item">
+<span class="recent-date">25 Sep 2026</span> <a class="recent-title" href="./practices/agent-instructions.html">A CHEAC standard for AI agent instructions</a> <span class="recent-section">Best practice</span>
+</li>
+<li class="recent-item">
+<span class="recent-date">17 Sep 2026</span> <a class="recent-title" href="./posts/opening-2026-09-17.html">How to?</a> <span class="recent-section">Post</span>
+</li>
+</ul>
+<div class="listing-no-matching d-none">No matching items</div>
 </div>
 <hr>
 <section id="quick-actions" class="level3">
@@ -234,6 +263,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Have a story to share?</strong> Check out <a href="./contributing/contributing.html">How to Contribute</a>.</li>
 <li><strong>Questions or feedback?</strong> Contact the council editor at <code>ts@chem.ku.dk</code>.</li>
 </ul>
+
 
 
 </section>

@@ -1,59 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://cheac-ai.github.io/guidlines/publisher-standards.html</loc>
-    <lastmod>2026-09-25T12:40:49.018Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cheac-ai.github.io/guidlines/data-privacy-ip.html</loc>
-    <lastmod>2026-09-25T12:40:49.018Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cheac-ai.github.io/guidlines/cheac-dmp.html</loc>
-    <lastmod>2026-09-25T12:40:49.017Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cheac-ai.github.io/references.html</loc>
-    <lastmod>2026-09-25T12:40:49.018Z</lastmod>
-  </url>
-  <url>
     <loc>https://cheac-ai.github.io/summary.html</loc>
-    <lastmod>2026-09-25T12:40:49.018Z</lastmod>
+    <lastmod>2026-09-25T13:51:07.317Z</lastmod>
   </url>
   <url>
     <loc>https://cheac-ai.github.io/practices/manuscript-writing.html</loc>
-    <lastmod>2026-09-25T12:40:49.018Z</lastmod>
+    <lastmod>2026-09-25T13:51:07.317Z</lastmod>
   </url>
   <url>
-    <loc>https://cheac-ai.github.io/practices/evaluating-output.html</loc>
-    <lastmod>2026-09-25T12:40:49.018Z</lastmod>
+    <loc>https://cheac-ai.github.io/practices/index.html</loc>
+    <lastmod>2026-09-25T13:51:07.317Z</lastmod>
   </url>
   <url>
-    <loc>https://cheac-ai.github.io/intro.html</loc>
-    <lastmod>2026-09-25T12:40:49.018Z</lastmod>
+    <loc>https://cheac-ai.github.io/practices/agent-instructions.html</loc>
+    <lastmod>2026-09-25T13:51:07.316Z</lastmod>
   </url>
   <url>
-    <loc>https://cheac-ai.github.io/practices/literature-search.html</loc>
-    <lastmod>2026-09-25T12:40:49.018Z</lastmod>
+    <loc>https://cheac-ai.github.io/posts/index.html</loc>
+    <lastmod>2026-09-25T13:51:07.316Z</lastmod>
   </url>
   <url>
     <loc>https://cheac-ai.github.io/index.html</loc>
-    <lastmod>2026-09-25T12:40:49.018Z</lastmod>
+    <lastmod>2026-09-25T13:51:07.316Z</lastmod>
   </url>
   <url>
-    <loc>https://cheac-ai.github.io/posts/opening-2026-09-17.html</loc>
-    <lastmod>2026-09-25T12:40:49.018Z</lastmod>
+    <loc>https://cheac-ai.github.io/guidlines/publisher-standards.html</loc>
+    <lastmod>2026-09-25T13:51:07.316Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cheac-ai.github.io/guidlines/index.html</loc>
+    <lastmod>2026-09-25T13:51:07.316Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cheac-ai.github.io/guidlines/cheac-dmp.html</loc>
+    <lastmod>2026-09-25T13:51:07.315Z</lastmod>
   </url>
   <url>
     <loc>https://cheac-ai.github.io/contributing/contributing.html</loc>
-    <lastmod>2026-09-25T12:40:49.016Z</lastmod>
+    <lastmod>2026-09-25T13:51:07.315Z</lastmod>
   </url>
   <url>
-    <loc>https://cheac-ai.github.io/guidlines/transparency.html</loc>
-    <lastmod>2026-09-25T12:40:49.018Z</lastmod>
+    <loc>https://cheac-ai.github.io/guidlines/data-privacy-ip.html</loc>
+    <lastmod>2026-09-25T13:51:07.316Z</lastmod>
   </url>
   <url>
     <loc>https://cheac-ai.github.io/guidlines/ku-guidelines.html</loc>
-    <lastmod>2026-09-25T12:40:49.018Z</lastmod>
+    <lastmod>2026-09-25T13:51:07.316Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cheac-ai.github.io/guidlines/transparency.html</loc>
+    <lastmod>2026-09-25T13:51:07.316Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cheac-ai.github.io/intro.html</loc>
+    <lastmod>2026-09-25T13:51:07.316Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cheac-ai.github.io/posts/opening-2026-09-17.html</loc>
+    <lastmod>2026-09-25T13:51:07.316Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cheac-ai.github.io/practices/evaluating-output.html</loc>
+    <lastmod>2026-09-25T13:51:07.317Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cheac-ai.github.io/practices/literature-search.html</loc>
+    <lastmod>2026-09-25T13:51:07.317Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cheac-ai.github.io/references.html</loc>
+    <lastmod>2026-09-25T13:51:07.317Z</lastmod>
   </url>
 </urlset>

@@ -1,0 +1,42 @@
+[
+  {
+    "listing": "/practices/index.html",
+    "items": [
+      "/practices/evaluating-output.html",
+      "/practices/literature-search.html",
+      "/practices/manuscript-writing.html",
+      "/practices/agent-instructions.html"
+    ]
+  },
+  {
+    "listing": "/posts/index.html",
+    "items": [
+      "/posts/opening-2026-09-17.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/practices/evaluating-output.html",
+      "/practices/literature-search.html",
+      "/practices/manuscript-writing.html",
+      "/guidlines/cheac-dmp.html",
+      "/guidlines/data-privacy-ip.html",
+      "/guidlines/ku-guidelines.html",
+      "/guidlines/publisher-standards.html",
+      "/guidlines/transparency.html",
+      "/practices/agent-instructions.html",
+      "/posts/opening-2026-09-17.html"
+    ]
+  },
+  {
+    "listing": "/guidlines/index.html",
+    "items": [
+      "/guidlines/publisher-standards.html",
+      "/guidlines/cheac-dmp.html",
+      "/guidlines/data-privacy-ip.html",
+      "/guidlines/ku-guidelines.html",
+      "/guidlines/transparency.html"
+    ]
+  }
+]

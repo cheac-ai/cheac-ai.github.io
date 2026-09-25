@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>contributing – \btw</title>
+<title>Contributing – \btw</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -25,6 +25,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -46,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-54daf6bf711cb0420cbbcca85a48e92d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-a7e2fc51d12423473e67d5c1accc47a9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -103,63 +138,18 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-best-usage-practices" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Best usage practices</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-best-usage-practices">    
-        <li>
-    <a class="dropdown-item" href="../practices/manuscript-writing.html">
- <span class="dropdown-text">Manuscript writing</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="../practices/index.html"> 
+<span class="menu-text">Best usage practices</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../practices/literature-search.html">
- <span class="dropdown-text">Literature search</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="../guidlines/index.html"> 
+<span class="menu-text">Guidlines</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../practices/evaluating-output.html">
- <span class="dropdown-text">Evaluating output</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="../posts/index.html"> 
+<span class="menu-text">Posts</span></a>
   </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-guidlines" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Guidlines</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-guidlines">    
-        <li>
-    <a class="dropdown-item" href="../guidlines/ku-guidelines.html">
- <span class="dropdown-text">KU Guidelines</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../guidlines/data-privacy-ip.html">
- <span class="dropdown-text">Data privacy and IP</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../guidlines/publisher-standards.html">
- <span class="dropdown-text">Publisher standards</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../guidlines/transparency.html">
- <span class="dropdown-text">Transparency</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../guidlines/cheac-dmp.html">
- <span class="dropdown-text">CHEAC Data Management Plan</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-posts" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Posts</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-posts">    
-        <li>
-    <a class="dropdown-item" href="../posts/opening-2026-09-17.html">
- <span class="dropdown-text">2026-09-17 Hello world</span></a>
-  </li>  
-    </ul>
-  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-contributing" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Contributing</span>
@@ -191,19 +181,95 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#contributing" id="toc-contributing" class="nav-link active" data-scroll-target="#contributing">Contributing</a></li>
+  <li><a href="#adding-a-page" id="toc-adding-a-page" class="nav-link active" data-scroll-target="#adding-a-page">Adding a page</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#the-cheac-wordmark" id="toc-the-cheac-wordmark" class="nav-link" data-scroll-target="#the-cheac-wordmark">The CHEAC wordmark</a></li>
+  <li><a href="#previewing-locally" id="toc-previewing-locally" class="nav-link" data-scroll-target="#previewing-locally">Previewing locally</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Contributing</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="contributing" class="level1">
-<h1>Contributing</h1>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
 <p>Some templates and tutorials to help people with interest to contribute with posts/stories/design.</p>
+<section id="adding-a-page" class="level2">
+<h2 class="anchored" data-anchor-id="adding-a-page">Adding a page</h2>
+<p>Place a new <code>.qmd</code> (or <code>.md</code>) file in the folder of its section:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Section</th>
+<th>Folder</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Best usage practices</td>
+<td><code>practices/</code></td>
+</tr>
+<tr class="even">
+<td>Guidelines</td>
+<td><code>guidlines/</code></td>
+</tr>
+<tr class="odd">
+<td>Posts</td>
+<td><code>posts/</code></td>
+</tr>
+</tbody>
+</table>
+<p>A page can also live in its own subfolder, for example <code>posts/my-post/index.qmd</code>, next to its figures.</p>
+<p>The section list, the navbar link, and the <em>Most recent</em> list on the front page pick up new pages automatically. They read the header at the top of the file:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Short, descriptive title"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Your Name</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">affiliation</span><span class="kw">:</span><span class="at"> </span><span class="st">"Position, Group"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> 2026-10-01</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"One sentence shown under the title in the section list."</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">image</span><span class="kw">:</span><span class="at"> ../assets/figures/my-figure.svg</span><span class="co">   # optional cover figure</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><code>title</code> is required. Without it, the page appears in the lists without a name.</li>
+<li><code>date</code> places the page in the lists. Pages without a date sort as the oldest and do not appear under <em>Most recent</em>.</li>
+<li><code>image</code> sets the cover figure in the section list. Without it, the list uses the first image on the page, or none.</li>
+</ul>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<p>Add BibTeX entries to <code>references.bib</code> and cite them with <code>[@key]</code>. End the page with:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## References {.unnumbered}</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="the-cheac-wordmark" class="level2">
+<h2 class="anchored" data-anchor-id="the-cheac-wordmark">The CHEAC wordmark</h2>
+<p>Write <code>{{&lt; cheac &gt;}}</code> to insert the CHEAC wordmark in running text or a title.</p>
+</section>
+<section id="previewing-locally" class="level2">
+<h2 class="anchored" data-anchor-id="previewing-locally">Previewing locally</h2>
+<p>Install <a href="https://quarto.org/docs/get-started/">Quarto</a>, then run this in the repository folder:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview <span class="at">--port</span> 4321</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The site opens at <code>http://localhost:4321</code> and reloads when a file is saved.</p>
 
 
 </section>
