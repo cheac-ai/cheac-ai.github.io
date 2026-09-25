@@ -3,6 +3,9 @@ project:
   output-dir: _site
   render:
     - "*.qmd"
+    - "*.md"
+    - "!README.md"
+    - "!AGENTS.md"
   resources:
     - documents/*.pdf
     - assets/logos/*
@@ -21,41 +24,12 @@ website:
       - href: index.qmd
         text: Home
 
-      - text: "Best usage practices"
-        menu:
-          - href: practices/index.qmd
-            text: All best practices
-          - text: "---"
-          - href: practices/agent-instructions.qmd
-            text: Agent instructions (AGENTS.md)
-          - href: practices/manuscript-writing.qmd
-            text: Manuscript writing
-          - href: practices/literature-search.qmd
-            text: Literature search
-          - href: practices/evaluating-output.qmd
-            text: Evaluating output
-      - text: "Guidlines"
-        menu:
-          - href: guidlines/index.qmd
-            text: All guidelines
-          - text: "---"
-          - href: guidlines/ku-guidelines.qmd
-            text: KU Guidelines
-          - href: guidlines/data-privacy-ip.qmd
-            text: Data privacy and IP
-          - href: guidlines/publisher-standards.qmd
-            text: Publisher standards
-          - href: guidlines/transparency.qmd
-            text: Transparency
-          - href: guidlines/cheac-dmp.qmd
-            text: CHEAC Data Management Plan
-      - text: "Posts"
-        menu:
-          - href: posts/index.qmd
-            text: All posts
-          - text: "---"
-          - href: posts/opening-2026-09-17.qmd
-            text: 2026-09-17 Hello world
+      - href: practices/index.qmd
+        text: "Best usage practices"
+      - href: guidlines/index.qmd
+        text: "Guidlines"
+      - href: posts/index.qmd
+        text: "Posts"
       - text: "Contributing"
         menu:
           - href: contributing/contributing.qmd
