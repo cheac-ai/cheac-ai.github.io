@@ -1,0 +1,177 @@
+---
+title: 'A {{< cheac >}} standard for AI agent instructions'
+pagetitle: "A CHEAC standard for AI agent instructions"
+author:
+  - name: Frederik Lizak Johansen
+    affiliation: "Postdoc, Energy Conversion Interfaces Group"
+date: 2026-09-25
+---
+
+::: {.callout-tip appearance="simple"}
+**Only using the chat in your browser, or already comfortable with agents?** Skip straight to [the CHEAC standard instruction file](#cheac-standard). Chat users should also read [Using it in the web chat](#using-it-in-the-web-chat).
+:::
+
+## Why an instruction file?
+
+Most of us meet AI through a chat window: you type a question, the model types an answer. Newer AI tools can do more than answer. Installed on your own computer, they can open the files in a folder you point them to, read your data and scripts, write new scripts, run them, and look at the result. The AI world calls these tools **agents**. Claude Code, OpenAI Codex, and Gemini CLI are examples.
+
+Every conversation with an AI model starts from a blank slate. The model has no memory of your last session, your research group, or the rules you work by, so you end up repeating the same background every time. An **instruction file** solves this. It is a plain text file with your standing instructions, and the agent reads it automatically at the start of every session, as if you had pasted it in as the first message. Think of it as a **starting prompt** that you write once.
+
+This page proposes a **CHEAC standard instruction file**: a short list of rules built on the [CHEAC Data Management Plan](../guidlines/cheac-dmp.qmd) [@cheacdmp2026]. We suggest that you copy it into your own instruction file and adapt it to your work.
+
+::: {.callout-note}
+## This is advisory
+The council suggests these rules as a starting point. Adapt them to your own work, and share your experience via the [contributing page](../contributing/contributing.qmd).
+:::
+
+## A few terms first
+
+**Chat.** The web page you open at [claude.ai](https://claude.ai), [chatgpt.com](https://chatgpt.com), or [gemini.google.com](https://gemini.google.com). You type, the model answers, and nothing happens outside the browser unless you copy it out yourself.
+
+**Agent.** A model that can take actions on your computer: open files, edit them, run programs, and read the output, in a loop, until a task is done. You ask "make a plot of the XRD patterns in this folder", and the agent finds the files, writes a Python script, runs it, looks at the plot, and fixes the script if it fails.
+
+**Terminal and CLI.** The terminal is a window where you control the computer by typing commands instead of clicking. A program you use this way has a *command-line interface* (CLI). Most agents are CLI programs. If you have never used a terminal, start with one of these beginner guides:
+
+- macOS: Apple's [Terminal User Guide](https://support.apple.com/guide/terminal/welcome/mac).
+- Windows: Microsoft's [Windows Terminal overview](https://learn.microsoft.com/en-us/windows/terminal/).
+- Linux (and a good general introduction): Ubuntu's [The Linux command line for beginners](https://ubuntu.com/tutorials/command-line-for-beginners).
+- Inside VS Code: [Getting started with the terminal in VS Code](https://code.visualstudio.com/docs/terminal/getting-started).
+
+**Harness.** The program wrapped around the model. The model itself only produces text. The harness gives it tools (read a file, run a command, search the web), asks for your permission before risky actions, and loads your instruction file. Claude Code, Codex, and Gemini CLI are harnesses built by the model companies for their own models, and they also come as extensions for the code editor [VS Code](https://code.visualstudio.com). Independent harnesses such as [OpenCode](https://opencode.ai/docs/) and [OMP](https://github.com/can1357/oh-my-pi) work with models from many providers [@ohmypi].
+
+## Installing an agent
+
+An agent has to be installed before you can use it, and each one has its own installation guide and account or subscription. Pick one and follow its official guide from start to finish:
+
+| Agent | Installation guide | Account |
+|---|---|---|
+| Claude Code | [Quickstart](https://code.claude.com/docs/en/quickstart) and [VS Code extension](https://code.claude.com/docs/en/vs-code) | Claude subscription or API key |
+| OpenAI Codex | [Codex CLI](https://developers.openai.com/codex/cli) | ChatGPT subscription or API key |
+| Gemini CLI | [Get started](https://geminicli.com/docs/get-started/) | Google account |
+
+Once installed, you open a terminal, move into the folder you want the agent to work in, and start the agent with the command its guide gives you. The guides walk you through each step, including the first login.
+
+## What goes in an instruction file
+
+An instruction file is a [Markdown](https://www.markdownguide.org/basic-syntax/) file: plain text where `#` marks a heading and `-` marks a bullet point [@markdownguide]. You can write it in any text editor.
+
+Each tool looks for a specific file name. Most tools now read the shared name `AGENTS.md`, an open format supported by more than twenty tools [@agentsmd]:
+
+| Tool | File it reads | Documentation |
+|---|---|---|
+| Claude Code | `CLAUDE.md` (can also read `AGENTS.md`) | @claudecodememory |
+| OpenAI Codex | `AGENTS.md` | @codexagentsmd |
+| Gemini CLI | `GEMINI.md` | @geminicli |
+| OpenCode | `AGENTS.md` (falls back to `CLAUDE.md`) | @opencoderules |
+| OMP | `AGENTS.md`, and the files of the other tools | @ohmypi |
+| GitHub Copilot in VS Code | `.github/copilot-instructions.md` or `AGENTS.md` | @copilotinstructions |
+
+Files live at two levels:
+
+- **Global (personal).** Applies to everything you do with that tool, for example `~/.claude/CLAUDE.md` for Claude Code or `~/.config/opencode/AGENTS.md` for OpenCode [@claudecodememory; @opencoderules]. The `~` means your home folder.
+- **Project.** An `AGENTS.md` (or `CLAUDE.md`, `GEMINI.md`) in the top folder of a project. It applies only when the agent works in that folder, and it describes that project: its purpose, its data, and where things are.
+
+The CHEAC rules below ideally belong in your **global** file, since they apply to all your work. Project details go in the project file.
+
+::: {.callout-note}
+## Short and specific works best
+A study of AI coding agents on real software projects found that an `AGENTS.md` file cut the agents' median runtime by about 29 % and the text they produced by about 17 %, with the same rate of completed tasks [@lulla2026agentsmd]. The Claude Code documentation notes that the more concise and specific the file, the more consistently the model follows it [@claudecodememory; @claudecodebestpractices].
+:::
+
+::: {.callout-warning}
+## Instructions are requests, permissions are locks
+The model reads the instruction file as advice and can still get it wrong. Actions that must never happen, such as deleting raw data, also belong in the tool's **permission settings**. OpenCode, for example, marks every command as *allow*, *ask*, or *deny* [@opencodepermissions]. A sensible start is to deny deleting files, keep everything else on *ask*, and move commands to *allow* once you trust them. Claude Code has the same idea in its [permission settings](https://code.claude.com/docs/en/permissions).
+:::
+
+## Setting it up
+
+1. Install one agent (see [Installing an agent](#installing-an-agent)).
+2. Create the global instruction file for that tool (see the table above).
+3. Paste in the CHEAC standard below and fill in the *About me* section.
+4. For each research project, add a short `AGENTS.md` in the project folder that describes the project, the same way the DMP asks for a top-level README.
+5. Start a session and ask the agent: "Summarise the instructions you have been given." It should list your rules back to you.
+
+::: {.callout-important}
+## Let the agent edit the file for you
+The instruction file is an ordinary text file, so your agent can edit it. Ask it directly: "Add a rule to my instruction file that all figures use 300 dpi", or "Make my AGENTS.md shorter and clearer". Read the change before you accept it.
+:::
+
+## The {{< cheac >}} standard instruction file {#cheac-standard}
+
+Copy the block below with the copy button in its top right corner. The rules follow the C-L-E-A-R standard and the FAIR principles in the DMP [@cheacdmp2026; @wilkinson2016fair].
+
+```markdown
+# CHEAC agent instructions (v1, September 2026)
+
+## About me
+- I am a researcher at the Center for High Entropy Alloy Catalysis (CHEAC),
+  University of Copenhagen. My field: <fill in>.
+
+## Research data (follows the CHEAC Data Management Plan)
+- Never modify, move, rename, or delete raw data: instrument output,
+  simulation output, or files from external facilities. Treat them as
+  read-only.
+- Write processed data to a separate, clearly labelled folder
+  (e.g. `processed/`), never next to the raw file under a similar name.
+- Every project folder has a top-level README; every dataset folder has its
+  own README with instrument or software version, parameters, date,
+  responsible researcher, and purpose. Offer to create or update these when
+  you add data or scripts.
+- Save every analysis and figure script in the same folder as the data it
+  uses. A published figure must be reproducible from that folder alone.
+- Prefer plain text and open formats (CSV, JSON, Python scripts) over
+  binary or proprietary formats.
+- Record software versions and random seeds in scripts and READMEs.
+- Do not upload data to any external service without my approval.
+
+## Scientific integrity
+- Never invent data, numbers, references, or DOIs. If you do not know,
+  say so.
+- Every literature claim needs a source I can check. Give the DOI or URL.
+- State units, uncertainties, and assumptions explicitly.
+- When a result looks surprising, say so and suggest how to check it
+  before I rely on it.
+
+## Code
+- Keep scripts short, commented, and runnable from the command line.
+- Ask before installing packages or changing my software environment.
+
+## Actions that need my approval
+- Deleting or overwriting any file.
+- Copying data off my machine (SFTP, cloud upload, git push).
+- Anything involving passwords, keys, or login details. Never print them.
+
+## When you finish a task
+- Summarise what you changed, which files you created, and anything I
+  should check by hand.
+```
+
+Add your own habits to the *Code* section, such as your preferred programming language and plotting style. Keep the file short: every line competes for the model's attention.
+
+## Using it in the web chat
+
+The same text works as a starting prompt in the web chat versions. There the model cannot touch your files, but the rules still shape its answers:
+
+- **Claude:** create a [Project](https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects) and paste the rules into its instructions.
+- **ChatGPT:** paste the rules into the custom instructions in your settings, or into the instructions of a project.
+- **Gemini:** create a [Gem](https://gemini.google/overview/gems/) with the rules as its instructions.
+- **Any chat:** paste the rules as your first message.
+
+The *Scientific integrity* section matters in chat as much as in an agent.
+
+## Skills: a topic for another time
+
+Instruction files hold rules that apply to everything. **Skills** hold know-how for one kind of task, such as "how to write a README for a new dataset", "how to make a publication-quality figure", or "how to check a reference list". A skill is a folder with a Markdown file of instructions and optional scripts, and the agent loads it only when the task calls for it [@agentskills]. Skills deserve their own post. Until then, see [agentskills.io](https://agentskills.io) and Anthropic's [introduction to skills](https://www.anthropic.com/news/skills).
+
+## Further reading
+
+- [agents.md](https://agents.md): the shared format and examples [@agentsmd].
+- [Claude Code best practices](https://www.anthropic.com/engineering/claude-code-best-practices) [@claudecodebestpractices].
+- [OpenCode rules](https://opencode.ai/docs/rules/) and [permissions](https://opencode.ai/docs/permissions/) [@opencoderules; @opencodepermissions].
+- [GO FAIR: the FAIR principles](https://www.go-fair.org/fair-principles/) [@wilkinson2016fair].
+- The [CHEAC Data Management Plan](../guidlines/cheac-dmp.qmd) [@cheacdmp2026].
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

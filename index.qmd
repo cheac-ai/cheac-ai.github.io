@@ -1,5 +1,5 @@
 ---
-pagetitle: 'CHEAC \\btw'
+pagetitle: 'CHEAC'
 toc: false
 ---
 
@@ -19,7 +19,7 @@ The CHEAC AI Council provides advisory guidance to empower researchers, explore 
 ::: {.grid}
 
 ::: {.g-col-12 .g-col-md-4}
-### [Best Practices](practices/manuscript-writing.qmd)
+### [Best Practices](practices/agent-instructions.qmd)
 Guidelines for using agents, vibe coding, literature search.
 :::
 
