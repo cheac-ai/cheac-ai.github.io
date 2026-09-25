@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: _site
+  resources:
+    - documents/*.pdf
 
 website:
   title: "cheac /btw"
@@ -29,6 +31,8 @@ website:
             text: Publisher standards
           - href: guidlines/transparency.qmd
             text: Transparency
+          - href: guidlines/cheac-dmp.qmd
+            text: CHEAC Data Management Plan
       - text: "Posts"
         menu:
           - href: posts/opening-2026-09-17.qmd

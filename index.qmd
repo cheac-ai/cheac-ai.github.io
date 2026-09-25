@@ -34,5 +34,6 @@ Institutional KU declarations, data privacy standards regarding proprietary expe
 
 ### Quick Actions
 
+* **Handling research data?** Read the official [CHEAC Data Management Plan](guidlines/cheac-dmp.qmd).
 * **Have a story to share?** Check out [How to Contribute a Case Study](cases/contribute-a-case.qmd).
 * **Questions or feedback?** Contact the council editor at `ts@chem.ku.dk`.

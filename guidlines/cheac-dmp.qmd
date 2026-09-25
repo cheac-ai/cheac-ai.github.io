@@ -1,0 +1,12 @@
+---
+title: "CHEAC Data Management Plan"
+subtitle: "Open Research Data Management Plan (DMP), version 1, April 2026"
+---
+
+The official CHEAC Data Management Plan describes how research data at the Center for High Entropy Alloy Catalysis is structured, stored, backed up, and released.
+
+[Download the DMP (PDF)](../documents/CHEAC-DMP-APRIL-2026-V1.pdf){.btn .btn-primary download="CHEAC-DMP-APRIL-2026-V1.pdf"}
+
+<object data="../documents/CHEAC-DMP-APRIL-2026-V1.pdf" type="application/pdf" width="100%" height="900px">
+  <p>Your browser cannot display the PDF inline. Use the download link above.</p>
+</object>
