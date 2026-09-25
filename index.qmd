@@ -1,5 +1,5 @@
 ---
-title: "CHEAC AI Living Document"
+title: "CHEAC \btw"
 subtitle: "Advisory guidance, best practices, and community case studies for artificial intelligence in research."
 toc: false
 ---
