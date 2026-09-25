@@ -1,26 +1,5 @@
 [
   {
-    "objectID": "posts/opening-2026-09-17.html",
-    "href": "posts/opening-2026-09-17.html",
-    "title": "How to?",
-    "section": "",
-    "text": "How to?\nWe can regularly post stories here, which we can put in different categories (sucess stories, failures, tips, new technical development, other things). Ideally, we can turn these posts into a newsletter sent out to CHEAC and automatically make a slide or two out of it to presnet in meetings.\nWe need to do some testing for this. Likely, each posts needs some share set of minimum requirements to do the above."
-  },
-  {
-    "objectID": "practices/literature-search.html",
-    "href": "practices/literature-search.html",
-    "title": "Searching the literature with AI",
-    "section": "",
-    "text": "Searching the literature with AI\nThere is too much literature on any given topic out there for anyone to read. AI can be a very useful tool to help you find information and summarize knowledge."
-  },
-  {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "Summary",
-    "section": "",
-    "text": "Summary\nWe are part of the Center for High Entropy Alloy Catalysts (CHEAC) and we think about how to—and how not to—use AI in our daily work life. We think about the role of AI in science and eduction, and how the future chemist looks like."
-  },
-  {
     "objectID": "guidlines/publisher-standards.html",
     "href": "guidlines/publisher-standards.html",
     "title": "AI rules & guides from publishers",
@@ -42,18 +21,32 @@
     "text": "Contributing\nSome templates and tutorials to help people with interest to contribute with posts/stories/design."
   },
   {
+    "objectID": "posts/opening-2026-09-17.html",
+    "href": "posts/opening-2026-09-17.html",
+    "title": "How to?",
+    "section": "",
+    "text": "How to?\nWe can regularly post stories here, which we can put in different categories (sucess stories, failures, tips, new technical development, other things). Ideally, we can turn these posts into a newsletter sent out to CHEAC and automatically make a slide or two out of it to presnet in meetings.\nWe need to do some testing for this. Likely, each posts needs some share set of minimum requirements to do the above."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "CHEAC AI Living Document",
+    "title": "CHEAC \btw",
     "section": "",
     "text": "NoteAdvisory Mandate\n\n\n\nThe CHEAC AI Council provides advisory guidance to empower researchers, explore workflows, and safeguard scientific integrity. We do not act as an enforcement body."
   },
   {
     "objectID": "index.html#explore-the-document",
     "href": "index.html#explore-the-document",
-    "title": "CHEAC AI Living Document",
+    "title": "CHEAC \btw",
     "section": "Explore the Document",
     "text": "Explore the Document\n\n\nBest Practices\nGuidelines for using agents, vibe coding, literature search.\n\n\nPosts\nArchive of blog posts about AI for material science.\n\n\nPolicies & Ethics\nInstitutional KU declarations, data privacy standards regarding proprietary experimental data, and publisher rules.\n\n\n\n\nQuick Actions\n\nHave a story to share? Check out How to Contribute a Case Study.\nQuestions or feedback? Contact the council editor at ts@chem.ku.dk."
+  },
+  {
+    "objectID": "practices/literature-search.html",
+    "href": "practices/literature-search.html",
+    "title": "Searching the literature with AI",
+    "section": "",
+    "text": "Searching the literature with AI\nThere is too much literature on any given topic out there for anyone to read. AI can be a very useful tool to help you find information and summarize knowledge."
   },
   {
     "objectID": "intro.html",
@@ -61,27 +54,6 @@
     "title": "Introduction",
     "section": "",
     "text": "Introduction\nThis is a book created from markdown and executable code.\nSee (knuth84?) for additional discussion of literate programming."
-  },
-  {
-    "objectID": "guidlines/transparency.html",
-    "href": "guidlines/transparency.html",
-    "title": "Transparency",
-    "section": "",
-    "text": "Transparency\nHow should be practice transparency of AI usage in our work, from usage in writing manuscripts, figures, codes, and educational material?"
-  },
-  {
-    "objectID": "guidlines/ku-guidelines.html",
-    "href": "guidlines/ku-guidelines.html",
-    "title": "KU guidelines on AI usage",
-    "section": "",
-    "text": "KU guidelines on AI usage"
-  },
-  {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "References"
   },
   {
     "objectID": "practices/evaluating-output.html",
@@ -96,5 +68,33 @@
     "title": "AI in scientific writing",
     "section": "",
     "text": "AI in scientific writing\nWriting is thinking."
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "Summary",
+    "section": "",
+    "text": "Summary\nWe are part of the Center for High Entropy Alloy Catalysts (CHEAC) and we think about how to—and how not to—use AI in our daily work life. We think about the role of AI in science and eduction, and how the future chemist looks like."
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "References"
+  },
+  {
+    "objectID": "guidlines/transparency.html",
+    "href": "guidlines/transparency.html",
+    "title": "Transparency",
+    "section": "",
+    "text": "Transparency\nHow should be practice transparency of AI usage in our work, from usage in writing manuscripts, figures, codes, and educational material?"
+  },
+  {
+    "objectID": "guidlines/ku-guidelines.html",
+    "href": "guidlines/ku-guidelines.html",
+    "title": "KU guidelines on AI usage",
+    "section": "",
+    "text": "KU guidelines on AI usage"
   }
 ]
