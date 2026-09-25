@@ -5,9 +5,12 @@ project:
     - documents/*.pdf
 
 website:
-  title: "cheac /btw"
+  title: "&#92;btw"
+  favicon: assets/logos/cheac-logo-square-transparent.svg
   navbar:
-    background: primary
+    logo: assets/logos/cheac-logo-long-transparent.svg
+    logo-alt: "CHEAC logo"
+    background: light
     search: true
     left: 
       - href: index.qmd

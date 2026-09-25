@@ -1,8 +1,13 @@
 ---
-title: "CHEAC \btw"
-subtitle: "Advisory guidance, best practices, and community case studies for artificial intelligence in research."
+pagetitle: 'CHEAC \\btw'
 toc: false
 ---
+
+::: {.home-title}
+![](assets/logos/cheac-logo-long-transparent.svg){.home-logo fig-alt="CHEAC"}[\\btw]{.home-btw}
+:::
+
+[Advisory guidance, best practices, and community case studies for artificial intelligence in research.]{.home-subtitle}
 
 ::: {.callout-note appearance="simple"}
 ## Advisory Mandate
@@ -14,17 +19,17 @@ The CHEAC AI Council provides advisory guidance to empower researchers, explore 
 ::: {.grid}
 
 ::: {.g-col-12 .g-col-md-4}
-### [Best Practices](practices/code-and-data.qmd)
+### [Best Practices](practices/manuscript-writing.qmd)
 Guidelines for using agents, vibe coding, literature search.
 :::
 
 ::: {.g-col-12 .g-col-md-4}
-### [Posts](cases/overview.qmd)
+### [Posts](posts/opening-2026-09-17.qmd)
 Archive of blog posts about AI for material science.
 :::
 
 ::: {.g-col-12 .g-col-md-4}
-### [Policies & Ethics](guidlines/council-charter.qmd)
+### [Policies & Ethics](guidlines/ku-guidelines.qmd)
 Institutional KU declarations, data privacy standards regarding proprietary experimental data, and publisher rules.
 :::
 
@@ -35,5 +40,5 @@ Institutional KU declarations, data privacy standards regarding proprietary expe
 ### Quick Actions
 
 * **Handling research data?** Read the official [CHEAC Data Management Plan](guidlines/cheac-dmp.qmd).
-* **Have a story to share?** Check out [How to Contribute a Case Study](cases/contribute-a-case.qmd).
+* **Have a story to share?** Check out [How to Contribute](contributing/contributing.qmd).
 * **Questions or feedback?** Contact the council editor at `ts@chem.ku.dk`.

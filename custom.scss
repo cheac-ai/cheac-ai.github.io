@@ -10,3 +10,30 @@ $headings-font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
 // Optional: Base sizing adjustments
 $font-size-base: 1.05rem;
 $line-height-base: 1.6;
+// CHEAC brand colours, sampled from the logo
+$cheac-red: #911a1e;
+$cheac-teal: #0e7c7b;
+$primary: $cheac-teal;
+$link-color: $cheac-teal;
+$navbar-bg: #ffffff;
+$navbar-fg: #111111;
+$navbar-hl: $cheac-red;
+
+// Callout boxes in logo colours
+$cheac-mint: #b1e6d6;
+$callout-color-note: $cheac-teal;
+$callout-color-tip: darken($cheac-mint, 25%);
+$callout-color-important: #111111;
+$callout-color-warning: $cheac-red;
+$callout-color-caution: $cheac-red;
+
+/*-- scss:rules --*/
+.navbar-brand img { max-height: 36px; }
+.navbar { border-bottom: 3px solid $cheac-red; }
+.navbar-title { font-weight: 600; color: $cheac-red !important; }
+
+.home-title { display: flex; align-items: flex-end; gap: 0.75rem; margin: 1.5rem 0 0.5rem; flex-wrap: wrap; }
+.home-title p { display: contents; }
+.home-logo { height: 90px; width: auto; }
+.home-btw { font-size: 3.4rem; font-weight: 600; line-height: 1; color: $cheac-red; }
+.home-subtitle { display: block; font-size: 1.2rem; color: #555; margin-bottom: 1.5rem; }
