@@ -1,3 +1,60 @@
-# Contributing
+---
+title: "Contributing"
+---
 
 Some templates and tutorials to help people with interest to contribute with posts/stories/design.
+
+## Adding a page
+
+Place a new `.qmd` (or `.md`) file in the folder of its section:
+
+| Section | Folder |
+|---|---|
+| Best usage practices | `practices/` |
+| Guidelines | `guidlines/` |
+| Posts | `posts/` |
+
+A page can also live in its own subfolder, for example `posts/my-post/index.qmd`, next to its figures.
+
+The section list, the navbar link, and the *Most recent* list on the front page pick up new pages automatically. They read the header at the top of the file:
+
+```yaml
+---
+title: "Short, descriptive title"
+author:
+  - name: Your Name
+    affiliation: "Position, Group"
+date: 2026-10-01
+description: "One sentence shown under the title in the section list."
+image: ../assets/figures/my-figure.svg   # optional cover figure
+---
+```
+
+- `title` is required. Without it, the page appears in the lists without a name.
+- `date` places the page in the lists. Pages without a date sort as the oldest and do not appear under *Most recent*.
+- `image` sets the cover figure in the section list. Without it, the list uses the first image on the page, or none.
+
+## References
+
+Add BibTeX entries to `references.bib` and cite them with `[@key]`. End the page with:
+
+```markdown
+## References {.unnumbered}
+
+::: {#refs}
+:::
+```
+
+## The CHEAC wordmark
+
+Write `{{{< cheac >}}}` to insert the CHEAC wordmark in running text or a title.
+
+## Previewing locally
+
+Install [Quarto](https://quarto.org/docs/get-started/), then run this in the repository folder:
+
+```bash
+quarto preview --port 4321
+```
+
+The site opens at `http://localhost:4321` and reloads when a file is saved.
