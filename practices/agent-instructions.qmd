@@ -5,7 +5,12 @@ author:
   - name: Frederik Lizak Johansen
     affiliation: "Postdoc, Energy Conversion Interfaces Group"
 date: 2026-09-25
+description: "A shared starting prompt for AI agents and chat assistants, built on the CHEAC Data Management Plan: what instruction files are, how to set one up, and a template to copy."
+image: ../assets/figures/agent-instructions-toc.svg
+image-alt: "One instruction file, AGENTS.md, feeds both a terminal agent and a web chat"
 ---
+
+![](../assets/figures/agent-instructions-toc.svg){fig-alt="One instruction file, AGENTS.md, feeds both a terminal agent and a web chat" width="60%" fig-align="center"}
 
 ::: {.callout-tip appearance="simple"}
 **Only using the chat in your browser, or already comfortable with agents?** Skip straight to [the CHEAC standard instruction file](#cheac-standard). Chat users should also read [Using it in the web chat](#using-it-in-the-web-chat).

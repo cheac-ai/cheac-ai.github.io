@@ -6,6 +6,7 @@ project:
   resources:
     - documents/*.pdf
     - assets/logos/*
+    - assets/figures/*
     - favicon.ico
 
 website:
