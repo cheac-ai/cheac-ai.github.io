@@ -1,6 +1,16 @@
 ---
 pagetitle: 'CHEAC'
 toc: false
+listing:
+  id: recent
+  contents:
+    - practices/*.qmd
+    - guidlines/*.qmd
+    - posts/*.qmd
+    - "!*/index.qmd"
+  sort: "date desc"
+  date-format: "D MMM YYYY"
+  template: assets/templates/recent.ejs
 ---
 
 ::: {.home-title}
@@ -33,6 +43,11 @@ Archive of blog posts about AI for material science.
 Institutional KU declarations, data privacy standards regarding proprietary experimental data, and publisher rules.
 :::
 
+:::
+
+## Most recent
+
+::: {#recent}
 :::
 
 ---

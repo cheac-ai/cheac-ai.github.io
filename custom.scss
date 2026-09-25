@@ -96,3 +96,22 @@ $callout-color-caution: $cheac-red;
 
 // Page descriptions are for listing cards only
 #title-block-header .description { display: none; }
+
+// Front page: most recent entries
+.recent-list { margin: 0.5rem 0 2rem; padding: 0; }
+.recent-item {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr auto;
+  column-gap: 1.5rem;
+  align-items: baseline;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid #e3e3e3;
+}
+.recent-item:first-child { border-top: 1px solid #e3e3e3; }
+.recent-date { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: #777; }
+.recent-title { color: #111; text-decoration: none; }
+.recent-title:hover { text-decoration: underline; text-underline-offset: 3px; }
+.recent-section { font-size: 0.85rem; font-style: italic; color: #777; }
+@media (max-width: 576px) {
+  .recent-item { grid-template-columns: 1fr; row-gap: 0.1rem; }
+}

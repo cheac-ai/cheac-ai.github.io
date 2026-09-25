@@ -1,0 +1,17 @@
+<%
+const sections = { practices: "Best practice", guidlines: "Guideline", posts: "Post" };
+// Titles may contain the {{< cheac >}} shortcode; show plain "CHEAC" in its place.
+const title = text => text.replace(/\{\{[^}]*\}\}/g, "CHEAC");
+const recent = items.filter(item => item.date).slice(0, 5);
+%>
+<ul class="recent-list list-unstyled">
+<% for (const item of recent) {
+  const section = sections[item.path.replace(/^\.?\//, "").split("/")[0]] || "";
+%>
+  <li class="recent-item">
+    <span class="recent-date"><%= item.date %></span>
+    <a class="recent-title" href="<%- item.path %>"><%= title(item.title) %></a>
+    <span class="recent-section"><%= section %></span>
+  </li>
+<% } %>
+</ul>
