@@ -1,4 +1,6 @@
-# Evaluating output
+---
+title: "Evaluating output"
+---
 
 Understanding before prediction [@del2024prediction; @messeri2024artificial]. 
 Something about the difference between output that seems to work and output that has been rigorously evaluated before being presented in a talk or paper.

@@ -1,0 +1,13 @@
+---
+title: "Guidelines"
+listing:
+  contents:
+    - "*.qmd"
+    - "!index.qmd"
+  type: default
+  sort: "title"
+  date-format: "D MMM YYYY"
+  sort-ui: true
+  filter-ui: true
+include-after-body: ../assets/js/undated-last.html
+---

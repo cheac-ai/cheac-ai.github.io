@@ -1,3 +1,5 @@
-# AI in scientific writing
+---
+title: "AI in scientific writing"
+---
 
 Writing is thinking. 

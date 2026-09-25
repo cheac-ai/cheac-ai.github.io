@@ -1,3 +1,5 @@
-# AI rules & guides from publishers
+---
+title: "AI rules & guides from publishers"
+---
 
 What are the AI policies of the big chemical scocieties and publishing houses (AAAS, Springer, ACS, Elsevier, RCS, GDCh, Wiley)

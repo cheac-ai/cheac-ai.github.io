@@ -1,2 +1,4 @@
-# Data privacy and intellectual property
+---
+title: "Data privacy and intellectual property"
+---
 

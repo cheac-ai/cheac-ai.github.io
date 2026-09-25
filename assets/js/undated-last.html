@@ -1,0 +1,12 @@
+<script>
+// Listing items without a date sort as the oldest entries.
+// Runs before the listing's sort is set up, so the sort menu uses the same rule.
+document.querySelectorAll(".quarto-listing .list").forEach(function (list) {
+  Array.from(list.children).forEach(function (item) {
+    if (!item.hasAttribute("data-listing-date-sort")) {
+      item.setAttribute("data-listing-date-sort", "0");
+      list.appendChild(item);
+    }
+  });
+});
+</script>

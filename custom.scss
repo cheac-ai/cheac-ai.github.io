@@ -40,3 +40,59 @@ $callout-color-caution: $cheac-red;
 
 // Inline CHEAC wordmark, used via the {{< cheac >}} shortcode
 .cheac-wordmark { height: 0.72em; width: auto; aspect-ratio: 169.976 / 39.072; vertical-align: baseline; display: inline; margin: 0 0.05em; }
+
+// Listing pages: editorial list, separated by thin rules
+.quarto-listing-default .list { display: block; }
+.quarto-listing-default .quarto-post {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr auto;
+  grid-template-areas: "meta body thumb";
+  column-gap: 2rem;
+  align-items: start;
+  margin: 0;
+  padding: 2.25rem 0;
+  border: 0;
+  border-top: 1px solid #e3e3e3;
+  background: none;
+}
+.quarto-listing-default .quarto-post:last-child { border-bottom: 1px solid #e3e3e3; }
+.quarto-listing-default .quarto-post .metadata {
+  grid-area: meta;
+  padding: 0.35rem 0 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #777;
+  line-height: 1.5;
+}
+.quarto-listing-default .quarto-post .metadata a { color: inherit; text-decoration: none; }
+.quarto-listing-default .quarto-post .listing-author { text-transform: none; letter-spacing: 0; font-style: italic; margin-top: 0.3rem; }
+.quarto-listing-default .quarto-post .body { grid-area: body; padding: 0; }
+.quarto-listing-default .quarto-post .listing-title { margin: 0; font-size: 1.45rem; font-weight: 500; line-height: 1.25; }
+.quarto-listing-default .quarto-post .listing-title a { color: #111; text-decoration: none; background-image: linear-gradient(currentColor, currentColor); background-size: 0 1px; background-position: 0 100%; background-repeat: no-repeat; transition: background-size 0.25s ease; }
+.quarto-listing-default .quarto-post:hover .listing-title a { background-size: 100% 1px; }
+.quarto-listing-default .quarto-post .listing-description { margin-top: 0.6rem; font-size: 0.88rem; font-style: italic; color: #666; line-height: 1.55; }
+.quarto-listing-default .quarto-post .listing-description a { color: inherit; text-decoration: none; }
+.quarto-listing-default .quarto-post .thumbnail { grid-area: thumb; width: 200px; margin: 0; }
+.quarto-listing-default .quarto-post .thumbnail img { width: 200px; height: auto; aspect-ratio: 16 / 9; object-fit: contain; border: 0; border-radius: 0; }
+// Pages without a cover image get no thumbnail at all
+.quarto-listing-default .quarto-post .thumbnail:has(.listing-item-img-placeholder),
+.quarto-listing-default .listing-item-img-placeholder { display: none; }
+
+// Sort and search controls
+.quarto-listing-filter-sort, .listing-actions-group { margin-bottom: 1.5rem; }
+.quarto-listing-filter input, .listing-actions-group .form-control {
+  border: 0; border-bottom: 1px solid #111; border-radius: 0; box-shadow: none; background: transparent; font-style: italic;
+}
+.listing-actions-group .form-select, .quarto-listing-sort select {
+  border: 0; border-bottom: 1px solid #111; border-radius: 0; box-shadow: none; background-color: transparent; font-size: 0.85rem;
+}
+.listing-actions-group .input-group-text { border: 0; background: transparent; }
+
+@media (max-width: 767px) {
+  .quarto-listing-default .quarto-post { grid-template-columns: 1fr; grid-template-areas: "meta" "body" "thumb"; row-gap: 0.75rem; }
+  .quarto-listing-default .quarto-post .thumbnail, .quarto-listing-default .quarto-post .thumbnail img { width: 100%; max-width: 360px; }
+}
+
+// Page descriptions are for listing cards only
+#title-block-header .description { display: none; }

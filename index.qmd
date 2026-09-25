@@ -19,17 +19,17 @@ The CHEAC AI Council provides advisory guidance to empower researchers, explore 
 ::: {.grid}
 
 ::: {.g-col-12 .g-col-md-4}
-### [Best Practices](practices/agent-instructions.qmd)
+### [Best Practices](practices/index.qmd)
 Guidelines for using agents, vibe coding, literature search.
 :::
 
 ::: {.g-col-12 .g-col-md-4}
-### [Posts](posts/opening-2026-09-17.qmd)
+### [Posts](posts/index.qmd)
 Archive of blog posts about AI for material science.
 :::
 
 ::: {.g-col-12 .g-col-md-4}
-### [Policies & Ethics](guidlines/ku-guidelines.qmd)
+### [Policies & Ethics](guidlines/index.qmd)
 Institutional KU declarations, data privacy standards regarding proprietary experimental data, and publisher rules.
 :::
 

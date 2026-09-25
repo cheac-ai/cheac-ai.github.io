@@ -1,4 +1,7 @@
-# How to?
+---
+title: "How to?"
+date: 2026-09-17
+---
 
 We can regularly post stories here, which we can put in different categories (sucess stories, failures, tips, new technical development, other things).
 Ideally, we can turn these posts into a newsletter sent out to CHEAC and automatically make a slide or two out of it to presnet in meetings. 

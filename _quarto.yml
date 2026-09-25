@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: _site
+  render:
+    - "*.qmd"
   resources:
     - documents/*.pdf
     - assets/logos/*
@@ -20,6 +22,9 @@ website:
 
       - text: "Best usage practices"
         menu:
+          - href: practices/index.qmd
+            text: All best practices
+          - text: "---"
           - href: practices/agent-instructions.qmd
             text: Agent instructions (AGENTS.md)
           - href: practices/manuscript-writing.qmd
@@ -30,6 +35,9 @@ website:
             text: Evaluating output
       - text: "Guidlines"
         menu:
+          - href: guidlines/index.qmd
+            text: All guidelines
+          - text: "---"
           - href: guidlines/ku-guidelines.qmd
             text: KU Guidelines
           - href: guidlines/data-privacy-ip.qmd
@@ -42,6 +50,9 @@ website:
             text: CHEAC Data Management Plan
       - text: "Posts"
         menu:
+          - href: posts/index.qmd
+            text: All posts
+          - text: "---"
           - href: posts/opening-2026-09-17.qmd
             text: 2026-09-17 Hello world
       - text: "Contributing"

@@ -1,2 +1,4 @@
-# KU guidelines on AI usage
+---
+title: "KU guidelines on AI usage"
+---
 
