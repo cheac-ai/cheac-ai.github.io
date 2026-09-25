@@ -4,6 +4,7 @@ project:
   resources:
     - documents/*.pdf
     - assets/logos/*
+    - favicon.ico
 
 website:
   title: "&#92;btw"
