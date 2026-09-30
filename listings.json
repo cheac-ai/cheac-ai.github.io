@@ -34,13 +34,6 @@
   },
   {
     "listing": "/suggestions/index.html",
-    "items": [
-      "/suggestions/manuscript-writing.html",
-      "/suggestions/publisher-standards.html",
-      "/suggestions/data-privacy-ip.html",
-      "/suggestions/evaluating-output.html",
-      "/suggestions/literature-search.html",
-      "/suggestions/transparency.html"
-    ]
+    "items": []
   }
 ]

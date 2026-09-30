@@ -7,48 +7,6 @@
     "text": "No matching items"
   },
   {
-    "objectID": "suggestions/publisher-standards.html",
-    "href": "suggestions/publisher-standards.html",
-    "title": "AI rules and guides from publishers",
-    "section": "",
-    "text": "The chemical societies and publishing houses have each written their own AI policies. An overview in one place would help when preparing a manuscript or writing a review."
-  },
-  {
-    "objectID": "suggestions/publisher-standards.html#open-questions",
-    "href": "suggestions/publisher-standards.html#open-questions",
-    "title": "AI rules and guides from publishers",
-    "section": "Open questions",
-    "text": "Open questions\n\nWhat do AAAS, Springer Nature, ACS, Elsevier, RSC, GDCh, and Wiley allow and require?\nHow must AI use be disclosed, and where in the manuscript?\nWhat are the rules for AI-generated or AI-edited figures and images?\nMay reviewers use AI tools on manuscripts they review?"
-  },
-  {
-    "objectID": "suggestions/literature-search.html",
-    "href": "suggestions/literature-search.html",
-    "title": "Searching the literature with AI",
-    "section": "",
-    "text": "There is too much literature on any topic for anyone to read. AI tools can help find relevant papers and summarise what is known, and they can also produce references that do not exist or misstate what a paper says."
-  },
-  {
-    "objectID": "suggestions/literature-search.html#open-questions",
-    "href": "suggestions/literature-search.html#open-questions",
-    "title": "Searching the literature with AI",
-    "section": "Open questions",
-    "text": "Open questions\n\nWhich AI search tools work well for chemistry and materials science?\nHow do we verify that every reference exists and supports the claim it is cited for?\nWhen is an AI summary of a field good enough, and when do we need to read the papers?\nHow do we report the use of AI in a literature review?"
-  },
-  {
-    "objectID": "suggestions/evaluating-output.html",
-    "href": "suggestions/evaluating-output.html",
-    "title": "Evaluating output",
-    "section": "",
-    "text": "Understanding comes before prediction (Del Giudice et al. 2024; Messeri and Crockett 2024). An AI tool can produce code that runs, a plot that looks right, or a summary that reads well. Before any of it reaches a talk or a paper, someone has to check it rigorously."
-  },
-  {
-    "objectID": "suggestions/evaluating-output.html#open-questions",
-    "href": "suggestions/evaluating-output.html#open-questions",
-    "title": "Evaluating output",
-    "section": "Open questions",
-    "text": "Open questions\n\nWhat counts as a sufficient check for AI-generated code, analysis, and text?\nHow do we avoid the illusion of understanding a result because the explanation sounds convincing?\nWhich checks can be automated, and which need a person who knows the chemistry?\nHow do we document what was checked, and by whom?"
-  },
-  {
     "objectID": "practices/index.html",
     "href": "practices/index.html",
     "title": "Best Practices",
@@ -210,52 +168,10 @@
     "text": "References\n\n\nAgent Skills. 2025. Agent Skills. Https://agentskills.io.\n\n\nAgentic AI Foundation. 2025. AGENTS.md: A Simple, Open Format for Guiding Coding Agents. Https://agents.md.\n\n\nAnthropic. 2025. Claude Code: Best Practices for Agentic Coding. Https://www.anthropic.com/engineering/claude-code-best-practices.\n\n\nAnthropic. 2026. How Claude Remembers Your Project. Claude Code documentation, https://code.claude.com/docs/en/memory.\n\n\nCenter for High Entropy Alloy Catalysis. 2026. Open Research Data Management Plan (DMP). University of Copenhagen.\n\n\nCone, Matt. 2026. Markdown Guide: Getting Started. Https://www.markdownguide.org/getting-started/.\n\n\nGoogle. 2026. Provide Context with GEMINI.md Files. Gemini CLI documentation, https://geminicli.com/docs/cli/gemini-md/.\n\n\nLulla, Jai Lal, Seyedmoein Mohsenimofidi, Matthias Galster, Jie M. Zhang, Sebastian Baltes, and Christoph Treude. 2026. “On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents.” arXiv Preprint arXiv:2601.20404. https://arxiv.org/abs/2601.20404.\n\n\nMicrosoft. 2026. Use Custom Instructions in VS Code. Visual Studio Code documentation, https://code.visualstudio.com/docs/copilot/customization/custom-instructions.\n\n\nOpenAI. 2026. Custom Instructions with AGENTS.md. Codex documentation, https://learn.chatgpt.com/docs/agent-configuration/agents-md.\n\n\nOpenCode. 2026a. Permissions. OpenCode documentation, https://opencode.ai/docs/permissions/.\n\n\nOpenCode. 2026b. Rules. OpenCode documentation, https://opencode.ai/docs/rules/.\n\n\nStencil Labs. 2026. Oh-My-Pi (OMP): Coding Agent with the IDE Wired in. Https://github.com/can1357/oh-my-pi.\n\n\nWilkinson, Mark D., Michel Dumontier, IJsbrand Jan Aalbersberg, et al. 2016. “The FAIR Guiding Principles for Scientific Data Management and Stewardship.” Scientific Data 3: 160018. https://doi.org/10.1038/sdata.2016.18."
   },
   {
-    "objectID": "suggestions/data-privacy-ip.html",
-    "href": "suggestions/data-privacy-ip.html",
-    "title": "Data privacy and intellectual property",
-    "section": "",
-    "text": "Every prompt sends text, data, or files to a company’s servers. For unpublished results, manuscripts under review, and ideas that may lead to patents, this raises questions of privacy and ownership."
-  },
-  {
-    "objectID": "suggestions/data-privacy-ip.html#open-questions",
-    "href": "suggestions/data-privacy-ip.html#open-questions",
-    "title": "Data privacy and intellectual property",
-    "section": "Open questions",
-    "text": "Open questions\n\nWhich kinds of material are safe to share with AI tools: published papers, unpublished data, draft manuscripts, grant proposals, reviews?\nHow do institutional accounts differ from personal accounts in how providers store and use what we send?\nDoes sharing an idea or dataset with an AI tool affect later patent applications or publication?\nWhich tools does the University of Copenhagen approve for which kinds of data?"
-  },
-  {
     "objectID": "suggestions/index.html",
     "href": "suggestions/index.html",
     "title": "Suggestion box",
     "section": "",
-    "text": "Topics that someone thinks the council should discuss and write about. Any topic on this list can become a best practice, a guideline, or a post.\nSuggest a topic\nSuggestions open as a short form on GitHub (a free GitHub account is needed) and appear on this list shortly after.\nTo work on a topic, open its page, expand it, and move it to the section where it belongs (see Contributing).\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\nTopic\n\n\n\nQuestion\n\n\n\n\n\n\n\n\nAI in scientific writing\n\n\nWriting is thinking. Where does AI help, and where does it take the thinking away?\n\n\n\n\n\n\nAI in scientific writing\n\n\nWriting is thinking. Where does AI help, and where does it take the thinking away? Writing a paper is how we find out what we actually think about our results. AI tools can polish language, restru…\n\n\n\n\n\n\nAI rules and guides from publishers\n\n\nAn overview of what the journals we publish in allow and require.\n\n\n\n\n\n\nAI rules and guides from publishers\n\n\nAn overview of what the journals we publish in allow and require. The chemical societies and publishing houses have each written their own AI policies. An overview in one place would help when pre…\n\n\n\n\n\n\nData privacy and intellectual property\n\n\nWhat can safely go into an AI tool, and what stays out?\n\n\n\n\n\n\nData privacy and intellectual property\n\n\nWhat can safely go into an AI tool, and what stays out? Every prompt sends text, data, or files to a company’s servers. For unpublished results, manuscripts under review, and ideas that may lead t…\n\n\n\n\n\n\nEvaluating output\n\n\nOutput that seems to work still needs a rigorous check.\n\n\n\n\n\n\nEvaluating output\n\n\nOutput that seems to work still needs a rigorous check. Understanding comes before prediction. An AI tool can produce code that runs, a plot that looks right, or a summary that reads well. Before…\n\n\n\n\n\n\nSearching the literature with AI\n\n\nUsing AI to find and summarise papers without inventing any.\n\n\n\n\n\n\nSearching the literature with AI\n\n\nUsing AI to find and summarise papers without inventing any. There is too much literature on any topic for anyone to read. AI tools can help find relevant papers and summarise what is known, and t…\n\n\n\n\n\n\nTransparency\n\n\nHow we report AI use in manuscripts, figures, code, and teaching.\n\n\n\n\n\n\nTransparency\n\n\nHow we report AI use in manuscripts, figures, code, and teaching. AI tools now play a part in writing manuscripts, making figures, writing code, and preparing teaching material. Readers, reviewers…\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "suggestions/manuscript-writing.html",
-    "href": "suggestions/manuscript-writing.html",
-    "title": "AI in scientific writing",
-    "section": "",
-    "text": "Writing a paper is how we find out what we actually think about our results. AI tools can polish language, restructure paragraphs, and draft whole sections."
-  },
-  {
-    "objectID": "suggestions/manuscript-writing.html#open-questions",
-    "href": "suggestions/manuscript-writing.html#open-questions",
-    "title": "AI in scientific writing",
-    "section": "Open questions",
-    "text": "Open questions\n\nWhich writing tasks can we hand to AI: language editing, translation, structure, first drafts?\nHow do we keep our own argument and voice when AI edits the text?\nWhat do co-authors and supervisors need to know about AI use in a shared manuscript?\nHow does this differ for theses, where the text is part of the assessment?"
-  },
-  {
-    "objectID": "suggestions/transparency.html",
-    "href": "suggestions/transparency.html",
-    "title": "Transparency",
-    "section": "",
-    "text": "AI tools now play a part in writing manuscripts, making figures, writing code, and preparing teaching material. Readers, reviewers, and students deserve to know when and how."
-  },
-  {
-    "objectID": "suggestions/transparency.html#open-questions",
-    "href": "suggestions/transparency.html#open-questions",
-    "title": "Transparency",
-    "section": "Open questions",
-    "text": "Open questions\n\nWhat level of detail should an AI disclosure contain?\nShould the prompts, tool names, and versions be archived with the data, as the DMP does for software?\nHow do we disclose AI use in code and analysis scripts?\nWhat should students be told about AI use in teaching material?"
+    "text": "Topics that someone thinks the council should discuss and write about. Any topic on this list can become a best practice, a guideline, or a post.\nSuggest a topic\nSuggestions open as a short form on GitHub (a free GitHub account is needed) and appear on this list shortly after.\nTo work on a topic, open its page, expand it, and move it to the section where it belongs (see Contributing).\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\nTopic\n\n\n\nQuestion\n\n\n\n\n\n\n\n\nAI in scientific writing\n\n\nWriting is thinking. Where does AI help, and where does it take the thinking away? Writing a paper is how we find out what we actually think about our results. AI tools can polish language, restru…\n\n\n\n\n\n\nAI rules and guides from publishers\n\n\nAn overview of what the journals we publish in allow and require. The chemical societies and publishing houses have each written their own AI policies. An overview in one place would help when pre…\n\n\n\n\n\n\nData privacy and intellectual property\n\n\nWhat can safely go into an AI tool, and what stays out? Every prompt sends text, data, or files to a company’s servers. For unpublished results, manuscripts under review, and ideas that may lead t…\n\n\n\n\n\n\nEvaluating output\n\n\nOutput that seems to work still needs a rigorous check. Understanding comes before prediction. An AI tool can produce code that runs, a plot that looks right, or a summary that reads well. Before…\n\n\n\n\n\n\nSearching the literature with AI\n\n\nUsing AI to find and summarise papers without inventing any. There is too much literature on any topic for anyone to read. AI tools can help find relevant papers and summarise what is known, and t…\n\n\n\n\n\n\nTransparency\n\n\nHow we report AI use in manuscripts, figures, code, and teaching. AI tools now play a part in writing manuscripts, making figures, writing code, and preparing teaching material. Readers, reviewers…\n\n\n\n\n\n\nNo matching items"
   }
 ]
