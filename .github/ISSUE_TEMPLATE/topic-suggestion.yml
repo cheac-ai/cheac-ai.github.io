@@ -22,9 +22,11 @@ body:
     attributes:
       label: Where could it go?
       options:
-        - Best usage practices
+        - Best Practices
         - Guidelines
-        - Posts
+        - AI in research
+        - Transparency
+        - AI News
         - Not sure
   - type: textarea
     id: links
