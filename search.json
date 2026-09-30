@@ -21,6 +21,41 @@
     "text": "No matching items"
   },
   {
+    "objectID": "guidelines/ku-guidelines.html",
+    "href": "guidelines/ku-guidelines.html",
+    "title": "KU guidelines on AI usage",
+    "section": "",
+    "text": "This summary will be reviewed periodically as KU updates their guidelines."
+  },
+  {
+    "objectID": "guidelines/ku-guidelines.html#ai-use-by-employees",
+    "href": "guidelines/ku-guidelines.html#ai-use-by-employees",
+    "title": "KU guidelines on AI usage",
+    "section": "1. AI use by employees",
+    "text": "1. AI use by employees\nThe employee guide (found in KUnet) is the most relevant starting point for staff. It includes rules for using AI tools, guidance on choosing tools, and instructions for accessing them securely.\n\nCopilot Chat is KU’s approved AI tool and must be used when handling the personal data covered by the guidance. This includes employee names, KU email addresses, education and employment details, job titles, areas of work, organisational affiliations and work phone numbers. You must be signed in with your KU account when entering this information.\nOther AI tools may be used where there are significant teaching or research reasons for choosing them. According to the guidelines, confidential, personal or copyrighted data must not be entered into these alternative tools.\nAlthough much of our research in  does not involve personal data, these rules may be relevant to consider for administrative tasks, or when sharing working files with an AI agent.\nThe guide includes instructions for securely accessing and using Copilot Chat, and for assessing the security of alternative tools.\n\nKU employee guide: AI"
+  },
+  {
+    "objectID": "guidelines/ku-guidelines.html#ai-use-in-phd-theses",
+    "href": "guidelines/ku-guidelines.html#ai-use-in-phd-theses",
+    "title": "KU guidelines on AI usage",
+    "section": "2. AI use in PhD theses",
+    "text": "2. AI use in PhD theses\nKU permits appropriate use of AI-assisted technologies, provided students carefully check the output and ensure that their use does not compromise the requirements for a PhD.\nThe main points are:\n\nVerify all facts and references. AI has a habit of confidently inventing information and publications. Never include any information provided to you that you cannot verify.\nLimit the freedom given to generative AI. KU recommends limiting the freedom of generative AI by giving specific and appropriate prompts - don’t just provide blocks of text and ask for general improvements.\nDisclose and describe AI use clearly. An exhaustive account of prompts and responses is not necessary, but it is necessary to describe how you have used AI. Analytical AI tools should be described or referenced like other analytical software.\nAI cannot be listed as a co-author. You remain responsible for the accuracy, integrity and originality of the entire work, including any errors or plagiarism.\n\nKU guidance: AI-assisted technologies in PhD theses"
+  },
+  {
+    "objectID": "guidelines/ku-guidelines.html#ai-use-in-teaching-at-science",
+    "href": "guidelines/ku-guidelines.html#ai-use-in-teaching-at-science",
+    "title": "KU guidelines on AI usage",
+    "section": "3. AI use in teaching at SCIENCE",
+    "text": "3. AI use in teaching at SCIENCE\nA compilation of guidelines relating to AI use in the context of teaching, assignments and exams is available (on KUnet) for staff in the SCIENCE faculty. Topics include:\n\nWhat to do if you suspect AI-related cheating\nHow AI use should be documented by students\nGuidance on declarations of AI use in exams and assignments\n\nSCIENCE guidelines on generative AI for teachers"
+  },
+  {
+    "objectID": "guidelines/ku-guidelines.html#general-guidance-on-ai-in-education",
+    "href": "guidelines/ku-guidelines.html#general-guidance-on-ai-in-education",
+    "title": "KU guidelines on AI usage",
+    "section": "4. General guidance on AI in education",
+    "text": "4. General guidance on AI in education\nKU’s Good academic practice and generative AI page sets out broader principles for AI use in education: reliability, honesty, respect and accountability. It emphasises transparency about AI use and students’ responsibility for their work. This provides useful background alongside the more practical guidance above.\nKU guidance: Good academic practice and generative AI"
+  },
+  {
     "objectID": "guidelines/cheac-dmp.html",
     "href": "guidelines/cheac-dmp.html",
     "title": "CHEAC Data Management Plan",
@@ -74,7 +109,7 @@
     "href": "guidelines/index.html",
     "title": "Guidelines",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nCHEAC Data Management Plan\n\n\nOpen Research Data Management Plan (DMP), version 1, April 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nKU guidelines on AI usage\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nCHEAC Data Management Plan\n\n\nOpen Research Data Management Plan (DMP), version 1, April 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nKU guidelines on AI usage\n\n\n\n\n\nA practical summary of KU guidelines on AI usage for employees and students\n\n\n\n\n\n30 Sep 2026\n\n\nMelissa Jane Marks\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -95,7 +130,7 @@
     "href": "index.html#most-recent",
     "title": "&#92;btw",
     "section": "Most recent",
-    "text": "Most recent\n\n\n\n25 Sep 2026 A CHEAC standard for AI agent instructions Best practice\n\n\nNo matching items\n\n\n\nQuick Actions\n\nHandling research data? Read the official CHEAC Data Management Plan.\nHave a story to share? Check out How to Contribute.\nQuestions or feedback? Contact the council editor at ts@chem.ku.dk."
+    "text": "Most recent\n\n\n\n30 Sep 2026 KU guidelines on AI usage Guideline\n\n\n25 Sep 2026 A CHEAC standard for AI agent instructions Best practice\n\n\nNo matching items\n\n\n\nQuick Actions\n\nHandling research data? Read the official CHEAC Data Management Plan.\nHave a story to share? Check out How to Contribute.\nQuestions or feedback? Contact the council editor at ts@chem.ku.dk."
   },
   {
     "objectID": "practices/agent-instructions.html#why-an-instruction-file",
