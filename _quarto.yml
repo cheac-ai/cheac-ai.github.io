@@ -54,6 +54,9 @@ website:
 
 bibliography: references.bib
 
+language:
+  title-block-modified: "Last updated"
+
 format:
   html:
     theme: 
@@ -61,3 +64,6 @@ format:
       - custom.scss
     toc: true
     code-copy: true
+    date-format: "D MMM YYYY"
+    filters:
+      - filters/last-modified.lua
