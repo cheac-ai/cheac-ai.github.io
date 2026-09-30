@@ -10,11 +10,14 @@ Place a new `.qmd` (or `.md`) file in the folder of its section:
 
 | Section | Folder |
 |---|---|
-| Best usage practices | `practices/` |
-| Guidelines | `guidlines/` |
-| Posts | `posts/` |
+| Best Practices | `practices/` |
+| Guidelines | `guidelines/` |
+| AI in research | `ai-in-research/` |
+| Transparency | `transparency/` |
+| AI News | `news/` |
+| Suggestion box | `suggestions/` |
 
-A page can also live in its own subfolder, for example `posts/my-post/index.qmd`, next to its figures.
+A page can also live in its own subfolder, for example `news/my-story/index.qmd`, next to its figures.
 
 The section list, the navbar link, and the *Most recent* list on the front page pick up new pages automatically. They read the header at the top of the file:
 

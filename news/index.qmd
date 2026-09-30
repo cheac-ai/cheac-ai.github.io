@@ -1,5 +1,5 @@
 ---
-title: "Best Practices"
+title: "AI News"
 listing:
   contents:
     - "**/*.qmd"

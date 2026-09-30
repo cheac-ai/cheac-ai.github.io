@@ -5,11 +5,15 @@ listing:
   id: recent
   contents:
     - "practices/**/*.{qmd,md}"
-    - "guidlines/**/*.{qmd,md}"
-    - "posts/**/*.{qmd,md}"
+    - "guidelines/**/*.{qmd,md}"
+    - "ai-in-research/**/*.{qmd,md}"
+    - "transparency/**/*.{qmd,md}"
+    - "news/**/*.{qmd,md}"
     - "!practices/index.qmd"
-    - "!guidlines/index.qmd"
-    - "!posts/index.qmd"
+    - "!guidelines/index.qmd"
+    - "!ai-in-research/index.qmd"
+    - "!transparency/index.qmd"
+    - "!news/index.qmd"
   sort: "date desc"
   date-format: "D MMM YYYY"
   template: assets/templates/recent.ejs
@@ -26,23 +30,38 @@ listing:
 The CHEAC AI Council provides advisory guidance to empower researchers, explore workflows, and safeguard scientific integrity. We do not act as an enforcement body.
 :::
 
-## Explore the Document
+## Explore
 
 ::: {.grid}
 
-::: {.g-col-12 .g-col-md-4}
+::: {.g-col-12 .g-col-md-6 .g-col-lg-4}
 ### [Best Practices](practices/index.qmd)
-Guidelines for using agents, vibe coding, literature search.
+How to use AI tools well in daily research, from agent instructions to literature search.
 :::
 
-::: {.g-col-12 .g-col-md-4}
-### [Posts](posts/index.qmd)
-Archive of blog posts about AI for material science.
+::: {.g-col-12 .g-col-md-6 .g-col-lg-4}
+### [Guidelines](guidelines/index.qmd)
+KU guidelines on AI use and the CHEAC Data Management Plan.
 :::
 
-::: {.g-col-12 .g-col-md-4}
-### [Policies & Ethics](guidlines/index.qmd)
-Institutional KU declarations, data privacy standards regarding proprietary experimental data, and publisher rules.
+::: {.g-col-12 .g-col-md-6 .g-col-lg-4}
+### [AI in research](ai-in-research/index.qmd)
+How AI changes the way we do chemistry and materials science.
+:::
+
+::: {.g-col-12 .g-col-md-6 .g-col-lg-4}
+### [Transparency](transparency/index.qmd)
+How to report AI use in manuscripts, figures, code, and teaching.
+:::
+
+::: {.g-col-12 .g-col-md-6 .g-col-lg-4}
+### [AI News](news/index.qmd)
+New tools, policies, and papers worth knowing about.
+:::
+
+::: {.g-col-12 .g-col-md-6 .g-col-lg-4}
+### [Suggestion box](suggestions/index.qmd)
+Topics the council should discuss next. Add your own.
 :::
 
 :::
@@ -56,6 +75,6 @@ Institutional KU declarations, data privacy standards regarding proprietary expe
 
 ### Quick Actions
 
-* **Handling research data?** Read the official [CHEAC Data Management Plan](guidlines/cheac-dmp.qmd).
+* **Handling research data?** Read the official [CHEAC Data Management Plan](guidelines/cheac-dmp.qmd).
 * **Have a story to share?** Check out [How to Contribute](contributing/contributing.qmd).
-* **Questions or feedback?** Contact the council editor at `ts@chem.ku.dk`.
+* **Questions or feedback?** Contact the council editor at [ts@chem.ku.dk](mailto:ts@chem.ku.dk).

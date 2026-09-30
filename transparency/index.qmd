@@ -1,5 +1,5 @@
 ---
-title: "Best Practices"
+title: "Transparency"
 listing:
   contents:
     - "**/*.qmd"

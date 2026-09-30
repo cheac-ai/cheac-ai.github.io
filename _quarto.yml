@@ -1,6 +1,7 @@
 project:
   type: website
   output-dir: _site
+  pre-render: scripts/fetch_suggestions.py
   render:
     - "*.qmd"
     - "*.md"
@@ -20,22 +21,24 @@ website:
     logo-alt: "CHEAC logo"
     background: light
     search: true
-    left: 
+    left:
       - href: index.qmd
         text: Home
-
       - href: practices/index.qmd
-        text: "Best usage practices"
-      - href: guidlines/index.qmd
-        text: "Guidlines"
-      - href: posts/index.qmd
-        text: "Posts"
-      - text: "Contributing"
-        menu:
-          - href: contributing/contributing.qmd
-            text: Contributing
-      - href: references.qmd
-        text: References
+        text: "Best Practices"
+      - href: guidelines/index.qmd
+        text: "Guidelines"
+      - href: ai-in-research/index.qmd
+        text: "AI in research"
+      - href: transparency/index.qmd
+        text: "Transparency"
+      - href: news/index.qmd
+        text: "AI News"
+    right:
+      - href: suggestions/index.qmd
+        text: "Suggestion box"
+      - href: contributing/contributing.qmd
+        text: "Contributing"
 
 bibliography: references.bib
 

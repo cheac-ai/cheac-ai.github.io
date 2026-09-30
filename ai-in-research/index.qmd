@@ -1,5 +1,5 @@
 ---
-title: "Best Practices"
+title: "AI in research"
 listing:
   contents:
     - "**/*.qmd"

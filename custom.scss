@@ -115,3 +115,22 @@ $callout-color-caution: $cheac-red;
 @media (max-width: 576px) {
   .recent-item { grid-template-columns: 1fr; row-gap: 0.1rem; }
 }
+
+// Suggestion box: condensed table, no images
+.quarto-listing-table table { border-top: 1px solid #111; }
+.quarto-listing-table thead th { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: #777; font-weight: 500; border-bottom: 1px solid #e3e3e3; }
+.quarto-listing-table td { padding: 0.6rem 0.75rem 0.6rem 0; border-bottom: 1px solid #e3e3e3; vertical-align: baseline; }
+.quarto-listing-table td:first-child a { color: #111; text-decoration: none; font-weight: 500; }
+.quarto-listing-table tr:hover td:first-child a { text-decoration: underline; text-underline-offset: 3px; }
+.quarto-listing-table td.listing-description, .quarto-listing-table td:nth-child(2) { font-size: 0.88rem; font-style: italic; color: #666; }
+.quarto-listing-table .table-hover > tbody > tr:hover > * { --bs-table-bg-state: transparent; }
+
+// Navbar groups: Home | sections | Suggestion box, Contributing
+@media (min-width: 992px) {
+  .navbar-nav.navbar-nav-scroll.me-auto > .nav-item:first-child {
+    margin-right: 0.6rem;
+    padding-right: 0.6rem;
+    border-right: 1px solid #d6d6d6;
+  }
+  .navbar-nav.navbar-nav-scroll.ms-auto > .nav-item:first-child { margin-left: 1.5rem; }
+}
