@@ -1,4 +1,56 @@
 ---
 title: "KU guidelines on AI usage"
+author:
+  - name: Melissa Jane Marks
+    affiliation: "Postdoctoral researcher, Pittkowski Group"
+date: 2026-09-30
+description: "A practical summary of KU guidelines on AI usage for employees and students"
 ---
 
+*This summary will be reviewed periodically as KU updates their guidelines.*
+
+## 1. AI use by employees
+
+The employee guide (found in KUnet) is the most relevant starting point for staff. It includes rules for using AI tools, guidance on choosing tools, and instructions for accessing them securely.
+
+- **Copilot Chat is KU’s approved AI tool** and must be used when handling the personal data covered by the guidance. This includes employee names, KU email addresses, education and employment details, job titles, areas of work, organisational affiliations and work phone numbers. You must be signed in with your KU account when entering this information.
+
+- **Other AI tools may be used where there are significant teaching or research reasons for choosing them.** According to the guidelines, confidential, personal or copyrighted data must not be entered into these alternative tools. 
+
+- Although much of our research in {{< cheac >}} does not involve personal data, these rules may be relevant to consider for administrative tasks, or when sharing working files with an AI agent.
+
+- The guide includes instructions for securely accessing and using Copilot Chat, and for assessing the security of alternative tools.
+
+[KU employee guide: AI](https://kunet.ku.dk/employee-guide/Pages/IT/AI.aspx)
+
+## 2. AI use in PhD theses 
+
+KU permits appropriate use of AI-assisted technologies, provided students carefully check the output and ensure that their use does not compromise the requirements for a PhD.
+
+The main points are:
+
+- **Verify all facts and references.** AI has a habit of confidently inventing information and publications. Never include any information provided to you that you cannot verify.
+
+- **Limit the freedom given to generative AI.** KU recommends limiting the freedom of generative AI by giving specific and appropriate prompts - don’t just provide blocks of text and ask for general improvements.
+
+- **Disclose and describe AI use clearly.** An exhaustive account of prompts and responses is not necessary, but it is necessary to describe how you have used AI. Analytical AI tools should be described or referenced like other analytical software.
+
+- **AI cannot be listed as a co-author.** You remain responsible for the accuracy, integrity and originality of the entire work, including any errors or plagiarism.
+
+[KU guidance: AI-assisted technologies in PhD theses](https://phd.ku.dk/english/regulations/ai-assisted-technologies/)
+
+## 3. AI use in teaching at SCIENCE
+
+A compilation of guidelines relating to AI use in the context of teaching, assignments and exams is available (on KUnet) for staff in the SCIENCE faculty. Topics include:
+
+- What to do if you suspect AI-related cheating
+- How AI use should be documented by students
+- Guidance on declarations of AI use in exams and assignments
+
+[SCIENCE guidelines on generative AI for teachers](https://kunet.ku.dk/work-areas/teaching/digital-learning/chatgpt-and-ai/gai-teachers/gai-science/Pages/default.aspx)
+
+## 4. General guidance on AI in education 
+
+KU’s *Good academic practice and generative AI* page sets out broader principles for AI use in education: reliability, honesty, respect and accountability. It emphasises transparency about AI use and students’ responsibility for their work. This provides useful background alongside the more practical guidance above.
+
+[KU guidance: Good academic practice and generative AI](https://fbu.ku.dk/english/generative-ai/)
