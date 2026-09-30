@@ -12,10 +12,19 @@ project:
     - assets/logos/*
     - assets/figures/*
     - favicon.ico
+    - assets/social-card.png
 
 website:
   title: "&#92;btw"
+  site-url: https://cheac-ai.github.io
+  description: "Advisory guidance and best practices for AI in research from the CHEAC AI Council, University of Copenhagen and University of Bern."
   favicon: assets/logos/cheac-logo-square-transparent.svg
+  image: /assets/social-card.png
+  open-graph: true
+  twitter-card:
+    card-style: summary_large_image
+  page-footer:
+    center: "CHEAC AI Council · University of Copenhagen · University of Bern"
   navbar:
     logo: assets/logos/cheac-logo-long-transparent.svg
     logo-alt: "CHEAC logo"

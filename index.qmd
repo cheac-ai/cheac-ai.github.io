@@ -1,6 +1,7 @@
 ---
 pagetitle: 'CHEAC'
 toc: false
+image: assets/social-card.png
 listing:
   id: recent
   contents:
