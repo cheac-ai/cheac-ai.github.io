@@ -9,5 +9,5 @@ listing:
   date-format: "D MMM YYYY"
   sort-ui: true
   filter-ui: true
-include-after-body: ../assets/js/undated-last.html
+include-after-body: ../assets/js/listing.html
 ---

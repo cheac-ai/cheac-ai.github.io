@@ -8,5 +8,15 @@ document.querySelectorAll(".quarto-listing .list").forEach(function (list) {
       list.appendChild(item);
     }
   });
+  // An empty section invites the first contribution.
+  if (list.children.length === 0) {
+    var root = document.querySelector("meta[name='quarto:offset']");
+    var offset = root ? root.getAttribute("content") : "../";
+    var note = document.createElement("p");
+    note.className = "listing-empty";
+    note.innerHTML = "Nothing here yet. <a href='" + offset + "suggestions/index.html'>Suggest a topic</a> " +
+      "or <a href='" + offset + "contributing/contributing.html'>write the first page</a>.";
+    list.closest(".quarto-listing").replaceChildren(note);
+  }
 });
 </script>
