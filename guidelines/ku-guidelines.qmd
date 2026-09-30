@@ -29,7 +29,7 @@ KU permits appropriate use of AI-assisted technologies, provided students carefu
 
 The main points are:
 
-- **Verify all facts and references.** AI has a habit of confidentally inventing information and publications. Never include any information provided to you that you cannot verify.
+- **Verify all facts and references.** AI has a habit of confidently inventing information and publications. Never include any information provided to you that you cannot verify.
 
 - **Limit the freedom given to generative AI.** KU recommends limiting the freedom of generative AI by giving specific and appropriate prompts - don’t just provide blocks of text and ask for general improvements.
 
