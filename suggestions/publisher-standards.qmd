@@ -1,0 +1,13 @@
+---
+title: "AI rules and guides from publishers"
+description: "An overview of what the journals we publish in allow and require."
+---
+
+The chemical societies and publishing houses have each written their own AI policies. An overview in one place would help when preparing a manuscript or writing a review.
+
+## Open questions
+
+- What do AAAS, Springer Nature, ACS, Elsevier, RSC, GDCh, and Wiley allow and require?
+- How must AI use be disclosed, and where in the manuscript?
+- What are the rules for AI-generated or AI-edited figures and images?
+- May reviewers use AI tools on manuscripts they review?

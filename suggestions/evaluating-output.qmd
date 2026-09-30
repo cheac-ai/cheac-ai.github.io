@@ -1,0 +1,13 @@
+---
+title: "Evaluating output"
+description: "Output that seems to work still needs a rigorous check."
+---
+
+Understanding comes before prediction [@del2024prediction; @messeri2024artificial]. An AI tool can produce code that runs, a plot that looks right, or a summary that reads well. Before any of it reaches a talk or a paper, someone has to check it rigorously.
+
+## Open questions
+
+- What counts as a sufficient check for AI-generated code, analysis, and text?
+- How do we avoid the illusion of understanding a result because the explanation sounds convincing?
+- Which checks can be automated, and which need a person who knows the chemistry?
+- How do we document what was checked, and by whom?

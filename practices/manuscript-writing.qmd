@@ -1,5 +1,0 @@
----
-title: "AI in scientific writing"
----
-
-Writing is thinking. 

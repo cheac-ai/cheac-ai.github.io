@@ -1,0 +1,13 @@
+---
+title: "AI in scientific writing"
+description: "Writing is thinking. Where does AI help, and where does it take the thinking away?"
+---
+
+Writing a paper is how we find out what we actually think about our results. AI tools can polish language, restructure paragraphs, and draft whole sections.
+
+## Open questions
+
+- Which writing tasks can we hand to AI: language editing, translation, structure, first drafts?
+- How do we keep our own argument and voice when AI edits the text?
+- What do co-authors and supervisors need to know about AI use in a shared manuscript?
+- How does this differ for theses, where the text is part of the assessment?

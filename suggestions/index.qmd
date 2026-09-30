@@ -1,0 +1,25 @@
+---
+title: "Suggestion box"
+listing:
+  contents:
+    - "**/*.qmd"
+    - "**/*.md"
+    - issues.yml
+  type: table
+  fields: [title, description]
+  field-display-names:
+    title: "Topic"
+    description: "Question"
+  sort: "title"
+  sort-ui: false
+  filter-ui: true
+  table-hover: true
+---
+
+Topics that someone thinks the council should discuss and write about. Any topic on this list can become a best practice, a guideline, or a post.
+
+[Suggest a topic](https://github.com/cheac-ai/cheac-ai.github.io/issues/new?template=topic-suggestion.yml){.btn .btn-outline-dark .btn-sm}
+
+Suggestions open as a short form on GitHub (a free GitHub account is needed) and appear on this list shortly after.
+
+To work on a topic, open its page, expand it, and move it to the section where it belongs (see [Contributing](../contributing/contributing.qmd)).

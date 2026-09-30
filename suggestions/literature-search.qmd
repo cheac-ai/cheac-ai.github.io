@@ -1,0 +1,13 @@
+---
+title: "Searching the literature with AI"
+description: "Using AI to find and summarise papers without inventing any."
+---
+
+There is too much literature on any topic for anyone to read. AI tools can help find relevant papers and summarise what is known, and they can also produce references that do not exist or misstate what a paper says.
+
+## Open questions
+
+- Which AI search tools work well for chemistry and materials science?
+- How do we verify that every reference exists and supports the claim it is cited for?
+- When is an AI summary of a field good enough, and when do we need to read the papers?
+- How do we report the use of AI in a literature review?

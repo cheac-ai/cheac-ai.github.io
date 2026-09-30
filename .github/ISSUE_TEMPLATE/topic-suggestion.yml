@@ -1,0 +1,33 @@
+name: Topic suggestion
+description: Suggest a topic the CHEAC AI Council should discuss and write about.
+title: "[Topic]: "
+labels: ["suggestion"]
+body:
+  - type: input
+    id: topic
+    attributes:
+      label: Topic
+      description: A short title for the topic.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: What should be discussed?
+      description: The question, problem, or experience behind the suggestion.
+    validations:
+      required: true
+  - type: dropdown
+    id: section
+    attributes:
+      label: Where could it go?
+      options:
+        - Best usage practices
+        - Guidelines
+        - Posts
+        - Not sure
+  - type: textarea
+    id: links
+    attributes:
+      label: Links or references
+      description: Optional papers, policies, or examples.
