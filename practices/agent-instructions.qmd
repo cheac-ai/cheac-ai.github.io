@@ -110,7 +110,7 @@ Copy the block below with the copy button in its top right corner. The rules fol
 
 ## About me
 - I am a researcher at the Center for High Entropy Alloy Catalysis (CHEAC),
-  University of Copenhagen. My field: <fill in>.
+  University of Copenhagen / University of Bern. My field: <fill in>.
 
 ## Research data (follows the CHEAC Data Management Plan)
 - Never modify, move, rename, or delete raw data: instrument output,

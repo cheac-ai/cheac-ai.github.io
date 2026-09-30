@@ -2,7 +2,11 @@
 title: "Contributing"
 ---
 
-Some templates and tutorials to help people with interest to contribute with posts/stories/design.
+Everyone at CHEAC can contribute: a best practice that works for you, a guideline you have looked into, an experience from your research, or a piece of AI news.
+
+- **No GitHub account?** Email your text and figures to the council editor at [ts@chem.ku.dk](mailto:ts@chem.ku.dk), and we put it on the site.
+- **Have an idea but no text yet?** Add it to the [Suggestion box](../suggestions/index.qmd).
+- **Comfortable with GitHub?** Add the page yourself as described below and open a pull request on [GitHub](https://github.com/cheac-ai/cheac-ai.github.io).
 
 ## Adding a page
 
@@ -15,7 +19,6 @@ Place a new `.qmd` (or `.md`) file in the folder of its section:
 | AI in research | `ai-in-research/` |
 | Transparency | `transparency/` |
 | AI News | `news/` |
-| Suggestion box | `suggestions/` |
 
 A page can also live in its own subfolder, for example `news/my-story/index.qmd`, next to its figures.
 
