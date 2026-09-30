@@ -7,7 +7,7 @@ date: 2026-09-30
 description: "A practical summary of KU guidelines on AI usage for employees and students"
 ---
 
-*Updated on 30 September 2026. This summary will be reviewed periodically as KU updates their guidelines.*
+*This summary will be reviewed periodically as KU updates their guidelines.*
 
 ## 1. AI use by employees
 
