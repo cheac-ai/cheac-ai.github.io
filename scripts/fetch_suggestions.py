@@ -57,14 +57,15 @@ def main():
     lines = []
     for issue in issues:
         title = form_field(issue["body"], "Topic") or issue["title"].removeprefix(PREFIX).strip()
-        question = form_field(issue["body"], "What should be discussed?")
+        # The list shows the first paragraph; the issue holds the rest.
+        question = form_field(issue["body"], "What should be discussed?").split("\n\n")[0]
         if len(question) > 200:
             question = question[:197].rstrip() + "…"
         lines += [
             f"- title: {quote(title)}",
             f"  description: {quote(question)}",
             f"  path: {issue['html_url']}",
-            f"  date: {issue['created_at'][:10]}",
+            f"  date: {issue['created_at']}",
         ]
     with open(OUT, "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n" if lines else "[]\n")

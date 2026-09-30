@@ -2,15 +2,15 @@
 title: "Suggestion box"
 listing:
   contents:
-    - "**/*.qmd"
-    - "**/*.md"
     - issues.yml
   type: table
-  fields: [title, description]
+  fields: [date, title, description]
   field-display-names:
+    date: "Added"
     title: "Topic"
     description: "Question"
-  sort: "title"
+  date-format: "D MMM YYYY"
+  sort: "date desc"
   sort-ui: false
   filter-ui: true
   table-hover: true
@@ -22,4 +22,4 @@ Topics that someone thinks the council should discuss and write about. Any topic
 
 Suggestions open as a short form on GitHub (a free GitHub account is needed) and appear on this list shortly after.
 
-To work on a topic, open its page, expand it, and move it to the section where it belongs (see [Contributing](../contributing/contributing.qmd)).
+Each topic links to its GitHub issue, where anyone can comment. To write about a topic, add a page to the section where it belongs (see [Contributing](../contributing/contributing.qmd)) and close the issue.
