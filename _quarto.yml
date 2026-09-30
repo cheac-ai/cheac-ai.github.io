@@ -48,6 +48,9 @@ website:
         text: "Suggestion box"
       - href: contributing/contributing.qmd
         text: "Contributing"
+      - icon: github
+        href: https://github.com/cheac-ai/cheac-ai.github.io
+        aria-label: "GitHub repository"
 
 bibliography: references.bib
 
