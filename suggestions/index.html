@@ -48,7 +48,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-f00c05ff672e7bf9f72a7e975ebe1ccc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ae9169b290b818372f0896c0323bdf5d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -86,7 +86,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-title-sort'] },{ data: ['listing-date-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-title-sort'] },{ data: ['listing-date-sort'] }],
       
       searchColumns: ["listing-title","listing-description","listing-date"],
     };
@@ -136,6 +136,18 @@ window.Quarto = {
 };
 </script>
 
+<meta property="og:title" content="Suggestion box – \btw">
+<meta property="og:description" content="Advisory guidance and best practices for AI in research from the CHEAC AI Council, University of Copenhagen and University of Bern.">
+<meta property="og:image" content="https://cheac-ai.github.io/assets/social-card.png">
+<meta property="og:site_name" content="\btw">
+<meta property="og:image:height" content="630">
+<meta property="og:image:width" content="1200">
+<meta name="twitter:title" content="Suggestion box – \btw">
+<meta name="twitter:description" content="Advisory guidance and best practices for AI in research from the CHEAC AI Council, University of Copenhagen and University of Bern.">
+<meta name="twitter:image" content="https://cheac-ai.github.io/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="630">
+<meta name="twitter:image-width" content="1200">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -232,7 +244,7 @@ window.Quarto = {
 <p>Topics that someone thinks the council should discuss and write about. Any topic on this list can become a best practice, a guideline, or a post.</p>
 <p><a href="https://github.com/cheac-ai/cheac-ai.github.io/issues/new?template=topic-suggestion.yml" class="btn btn-outline-dark btn-sm">Suggest a topic</a></p>
 <p>Suggestions open as a short form on GitHub (a free GitHub account is needed) and appear on this list shortly after.</p>
-<p>To work on a topic, open its page, expand it, and move it to the section where it belongs (see <a href="../contributing/contributing.html">Contributing</a>).</p>
+<p>Each topic links to its GitHub issue, where anyone can comment. To write about a topic, add a page to the section where it belongs (see <a href="../contributing/contributing.html">Contributing</a>) and close the issue.</p>
 
 
 
@@ -249,6 +261,10 @@ window.Quarto = {
 <tr>
 
 <th>
+Added
+</th>
+
+<th>
 Topic
 </th>
 
@@ -260,68 +276,86 @@ Question
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-listing-date-sort="1790726400000" data-listing-title-sort="AI in scientific writing" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="0" data-listing-date-sort="1790770046000" data-listing-title-sort="Transparency" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
-<a href="https://github.com/cheac-ai/cheac-ai.github.io/issues/5" class="title listing-title">AI in scientific writing</a>
+<span class="listing-date">30 Sep 2026</span>
 </td>
-<td>
-<span class="listing-description">Writing is thinking. Where does AI help, and where does it take the thinking away? Writing a paper is how we find out what we actually think about our results. AI tools can polish language, restru…</span>
-</td>
-
-</tr>
-
-<tr data-index="1" data-listing-date-sort="1790726400000" data-listing-title-sort="AI rules and guides from publishers" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="https://github.com/cheac-ai/cheac-ai.github.io/issues/6" class="title listing-title">AI rules and guides from publishers</a>
-</td>
-<td>
-<span class="listing-description">An overview of what the journals we publish in allow and require. The chemical societies and publishing houses have each written their own AI policies. An overview in one place would help when pre…</span>
-</td>
-
-</tr>
-
-<tr data-index="2" data-listing-date-sort="1790726400000" data-listing-title-sort="Data privacy and intellectual property" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="https://github.com/cheac-ai/cheac-ai.github.io/issues/2" class="title listing-title">Data privacy and intellectual property</a>
-</td>
-<td>
-<span class="listing-description">What can safely go into an AI tool, and what stays out? Every prompt sends text, data, or files to a company’s servers. For unpublished results, manuscripts under review, and ideas that may lead t…</span>
-</td>
-
-</tr>
-
-<tr data-index="3" data-listing-date-sort="1790726400000" data-listing-title-sort="Evaluating output" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="https://github.com/cheac-ai/cheac-ai.github.io/issues/3" class="title listing-title">Evaluating output</a>
-</td>
-<td>
-<span class="listing-description">Output that seems to work still needs a rigorous check. Understanding comes before prediction. An AI tool can produce code that runs, a plot that looks right, or a summary that reads well. Before…</span>
-</td>
-
-</tr>
-
-<tr data-index="4" data-listing-date-sort="1790726400000" data-listing-title-sort="Searching the literature with AI" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="https://github.com/cheac-ai/cheac-ai.github.io/issues/4" class="title listing-title">Searching the literature with AI</a>
-</td>
-<td>
-<span class="listing-description">Using AI to find and summarise papers without inventing any. There is too much literature on any topic for anyone to read. AI tools can help find relevant papers and summarise what is known, and t…</span>
-</td>
-
-</tr>
-
-<tr data-index="5" data-listing-date-sort="1790726400000" data-listing-title-sort="Transparency" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
 <td>
 <a href="https://github.com/cheac-ai/cheac-ai.github.io/issues/7" class="title listing-title">Transparency</a>
 </td>
 <td>
-<span class="listing-description">How we report AI use in manuscripts, figures, code, and teaching. AI tools now play a part in writing manuscripts, making figures, writing code, and preparing teaching material. Readers, reviewers…</span>
+<span class="listing-description">How we report AI use in manuscripts, figures, code, and teaching.</span>
+</td>
+
+</tr>
+
+<tr data-index="1" data-listing-date-sort="1790770043000" data-listing-title-sort="AI rules and guides from publishers" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">30 Sep 2026</span>
+</td>
+<td>
+<a href="https://github.com/cheac-ai/cheac-ai.github.io/issues/6" class="title listing-title">AI rules and guides from publishers</a>
+</td>
+<td>
+<span class="listing-description">An overview of what the journals we publish in allow and require.</span>
+</td>
+
+</tr>
+
+<tr data-index="2" data-listing-date-sort="1790770039000" data-listing-title-sort="AI in scientific writing" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">30 Sep 2026</span>
+</td>
+<td>
+<a href="https://github.com/cheac-ai/cheac-ai.github.io/issues/5" class="title listing-title">AI in scientific writing</a>
+</td>
+<td>
+<span class="listing-description">Writing is thinking. Where does AI help, and where does it take the thinking away?</span>
+</td>
+
+</tr>
+
+<tr data-index="3" data-listing-date-sort="1790770035000" data-listing-title-sort="Searching the literature with AI" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">30 Sep 2026</span>
+</td>
+<td>
+<a href="https://github.com/cheac-ai/cheac-ai.github.io/issues/4" class="title listing-title">Searching the literature with AI</a>
+</td>
+<td>
+<span class="listing-description">Using AI to find and summarise papers without inventing any.</span>
+</td>
+
+</tr>
+
+<tr data-index="4" data-listing-date-sort="1790770032000" data-listing-title-sort="Evaluating output" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">30 Sep 2026</span>
+</td>
+<td>
+<a href="https://github.com/cheac-ai/cheac-ai.github.io/issues/3" class="title listing-title">Evaluating output</a>
+</td>
+<td>
+<span class="listing-description">Output that seems to work still needs a rigorous check.</span>
+</td>
+
+</tr>
+
+<tr data-index="5" data-listing-date-sort="1790770028000" data-listing-title-sort="Data privacy and intellectual property" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">30 Sep 2026</span>
+</td>
+<td>
+<a href="https://github.com/cheac-ai/cheac-ai.github.io/issues/2" class="title listing-title">Data privacy and intellectual property</a>
+</td>
+<td>
+<span class="listing-description">What can safely go into an AI tool, and what stays out?</span>
 </td>
 
 </tr>
@@ -403,7 +437,7 @@ Question
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/cheac-ai\.github\.io\/");
+        var filterRegex = new RegExp("https:\/\/cheac-ai\.github\.io");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -731,6 +765,19 @@ Question
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>CHEAC AI Council · University of Copenhagen · University of Bern</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 

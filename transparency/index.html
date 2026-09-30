@@ -48,7 +48,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-f00c05ff672e7bf9f72a7e975ebe1ccc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ae9169b290b818372f0896c0323bdf5d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -136,6 +136,16 @@ window.Quarto = {
 };
 </script>
 
+<meta property="og:title" content="Transparency – \btw">
+<meta property="og:image" content="https://cheac-ai.github.io/assets/social-card.png">
+<meta property="og:site_name" content="\btw">
+<meta property="og:image:height" content="630">
+<meta property="og:image:width" content="1200">
+<meta name="twitter:title" content="Transparency – \btw">
+<meta name="twitter:image" content="https://cheac-ai.github.io/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="630">
+<meta name="twitter:image-width" content="1200">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -245,6 +255,28 @@ window.Quarto = {
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div></main> <!-- /main -->
+<script>
+// Listing items without a date sort as the oldest entries.
+// Runs before the listing's sort is set up, so the sort menu uses the same rule.
+document.querySelectorAll(".quarto-listing .list").forEach(function (list) {
+  Array.from(list.children).forEach(function (item) {
+    if (!item.hasAttribute("data-listing-date-sort")) {
+      item.setAttribute("data-listing-date-sort", "0");
+      list.appendChild(item);
+    }
+  });
+  // An empty section invites the first contribution.
+  if (list.children.length === 0) {
+    var root = document.querySelector("meta[name='quarto:offset']");
+    var offset = root ? root.getAttribute("content") : "../";
+    var note = document.createElement("p");
+    note.className = "listing-empty";
+    note.innerHTML = "Nothing here yet. <a href='" + offset + "suggestions/index.html'>Suggest a topic</a> " +
+      "or <a href='" + offset + "contributing/contributing.html'>write the first page</a>.";
+    list.closest(".quarto-listing").replaceChildren(note);
+  }
+});
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -318,7 +350,7 @@ window.Quarto = {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/cheac-ai\.github\.io\/");
+        var filterRegex = new RegExp("https:\/\/cheac-ai\.github\.io");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -646,6 +678,19 @@ window.Quarto = {
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>CHEAC AI Council · University of Copenhagen · University of Bern</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 
