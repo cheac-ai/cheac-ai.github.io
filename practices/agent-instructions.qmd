@@ -22,7 +22,7 @@ Most of us meet AI through a chat window: you type a question, the model types a
 
 Every conversation with an AI model starts from a blank slate. The model has no memory of your last session, your research group, or the rules you work by, so you end up repeating the same background every time. An **instruction file** solves this. It is a plain text file with your standing instructions, and the agent reads it automatically at the start of every session, as if you had pasted it in as the first message. Think of it as a **starting prompt** that you write once.
 
-This page proposes a **CHEAC standard instruction file**: a short list of rules built on the [CHEAC Data Management Plan](../guidlines/cheac-dmp.qmd) [@cheacdmp2026]. We suggest that you copy it into your own instruction file and adapt it to your work.
+This page proposes a **CHEAC standard instruction file**: a short list of rules built on the [CHEAC Data Management Plan](../guidelines/cheac-dmp.qmd) [@cheacdmp2026]. We suggest that you copy it into your own instruction file and adapt it to your work.
 
 ::: {.callout-note}
 ## This is advisory
@@ -174,7 +174,7 @@ Instruction files hold rules that apply to everything. **Skills** hold know-how 
 - [Claude Code best practices](https://www.anthropic.com/engineering/claude-code-best-practices) [@claudecodebestpractices].
 - [OpenCode rules](https://opencode.ai/docs/rules/) and [permissions](https://opencode.ai/docs/permissions/) [@opencoderules; @opencodepermissions].
 - [GO FAIR: the FAIR principles](https://www.go-fair.org/fair-principles/) [@wilkinson2016fair].
-- The [CHEAC Data Management Plan](../guidlines/cheac-dmp.qmd) [@cheacdmp2026].
+- The [CHEAC Data Management Plan](../guidelines/cheac-dmp.qmd) [@cheacdmp2026].
 
 ## References {.unnumbered}
 
