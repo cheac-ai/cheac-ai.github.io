@@ -51,6 +51,36 @@ quarto preview --port 4321
 
 The site opens at `http://localhost:4321` and reloads on save. Every push to `main` publishes the site through GitHub Actions, and so does every change to a suggestion issue.
 
+## Email newsletter alerts
+
+You can generate branded, email-ready HTML alerts formatted with the site's styling (Source Serif typography, CHEAC colours, and card layout) to send out to the group.
+
+### Sending a post alert
+
+When a new post is published:
+
+```bash
+# In the cheac-ai conda environment
+python scripts/generate_newsletter.py practices/agent-instructions.qmd --copy
+```
+
+- **`--copy`**: Injects formatted rich HTML directly onto the Windows clipboard. Open a new message in Outlook Web and press **Ctrl + V** in the email body.
+- **`--open`**: Opens the generated HTML file in your browser to preview or manually copy (**Ctrl + A**, **Ctrl + C**).
+- **`--topic <text>`**: Customises the topic phrase in the announcement line (e.g. `--topic "AI agent instructions"`).
+- **`--intro <text>`**: Replaces the opening greeting with your own custom introductory text.
+
+### Sending the channel launch announcement
+
+To send an opening email announcing the **CHEAC \btw** channel without creating a blog post on the website:
+
+```bash
+python scripts/generate_newsletter.py --launch --copy
+```
+
+This uses a prefilled announcement draft in `_email/launch.md` (which links directly to the homepage). You can edit `_email/launch.md` anytime, or create new standalone drafts in `_email/`—Quarto completely ignores the `_email/` directory during website builds.
+
+Rendered HTML files are saved to `_email/` (ignored by git).
+
 ## License
 
 [MIT](LICENSE)

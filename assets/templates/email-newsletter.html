@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{{POST_TITLE}}</title>
+  <style type="text/css">
+    /* Embedded fonts for clients supporting @import */
+    @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap');
+
+    body, table, td, p, a, li, blockquote {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0 !important;
+      padding: 0 !important;
+      background-color: #f7f7f8;
+      font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+      color: #222222;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    table {
+      border-spacing: 0;
+      border-collapse: collapse;
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+    }
+
+    img {
+      border: 0;
+      line-height: 100%;
+      outline: none;
+      text-decoration: none;
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .wrapper {
+      width: 100%;
+      table-layout: fixed;
+      background-color: #f7f7f8;
+      padding: 24px 0 40px 0;
+    }
+
+    .main-container {
+      max-width: 620px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border: 1px solid #e3e3e3;
+      border-top: 4px solid #911a1e;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    /* Header */
+    .header-cell {
+      padding: 24px 32px 18px 32px;
+      border-bottom: 1px solid #eeeeee;
+      background-color: #ffffff;
+    }
+
+    .site-title {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #911a1e;
+      text-decoration: none;
+    }
+
+    .site-subtitle {
+      font-size: 13px;
+      color: #777777;
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    /* Intro message */
+    .intro-cell {
+      padding: 24px 32px 6px 32px;
+      color: #222222;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .intro-cell p {
+      margin: 0 0 14px 0;
+    }
+
+    .intro-cell p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Post Card */
+    .post-card-cell {
+      padding: 18px 32px 28px 32px;
+    }
+
+    .card-box {
+      background-color: #fafbfc;
+      border: 1px solid #e5e7eb;
+      border-left: 3px solid #0e7c7b;
+      border-radius: 4px;
+      padding: 22px 24px;
+    }
+
+    .post-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #0e7c7b;
+      margin-bottom: 8px;
+    }
+
+    .post-title {
+      font-size: 21px;
+      font-weight: 600;
+      line-height: 1.3;
+      color: #111111;
+      margin: 0 0 8px 0;
+    }
+
+    .card-box .post-title a, .post-title a {
+      color: #111111 !important;
+      text-decoration: none !important;
+    }
+
+    .post-meta {
+      font-size: 13px;
+      color: #666666;
+      font-style: italic;
+      margin-bottom: 14px;
+    }
+
+    .post-image {
+      margin: 14px 0 16px 0;
+      border-radius: 4px;
+      border: 1px solid #e5e7eb;
+      overflow: hidden;
+    }
+
+    .post-description {
+      font-size: 15px;
+      color: #444444;
+      line-height: 1.6;
+      margin: 0 0 20px 0;
+    }
+
+    .card-box h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #111111;
+      margin: 18px 0 8px 0;
+    }
+
+    .card-box ul, .card-box ol {
+      margin: 0 0 16px 0;
+      padding-left: 22px;
+    }
+
+    .card-box li {
+      margin-bottom: 6px;
+      color: #444444;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .card-box p {
+      margin: 0 0 14px 0;
+      font-size: 15px;
+      color: #444444;
+      line-height: 1.6;
+    }
+
+    .card-box strong {
+      color: #111111;
+    }
+
+    .card-box a {
+      color: #0e7c7b;
+      text-decoration: underline;
+    }
+
+    /* Button */
+    .button-container {
+      margin-top: 18px;
+    }
+
+    .card-box .cta-button, .cta-button {
+      display: inline-block;
+      background-color: #0e7c7b;
+      color: #ffffff !important;
+      text-decoration: none !important;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    /* Footer */
+    .footer-cell {
+      padding: 20px 32px 28px 32px;
+      border-top: 1px solid #eeeeee;
+      background-color: #ffffff;
+      text-align: center;
+      font-size: 12px;
+      color: #777777;
+      line-height: 1.6;
+    }
+
+    .footer-cell a {
+      color: #0e7c7b;
+      text-decoration: none;
+    }
+
+    /* Preheader preview text (hidden from view, shows in email client inbox snippet) */
+    .preheader {
+      display: none !important;
+      visibility: hidden;
+      mso-hide: all;
+      font-size: 1px;
+      line-height: 1px;
+      max-height: 0px;
+      max-width: 0px;
+      opacity: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <!-- Preheader text for inbox preview -->
+  <span class="preheader">{{PREHEADER}}</span>
+
+  <table role="presentation" class="wrapper" width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+      <td align="center">
+        <!-- Main Container -->
+        <table role="presentation" class="main-container" width="100%" cellpadding="0" cellspacing="0">
+          
+          <!-- Brand Header -->
+          <tr>
+            <td class="header-cell">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td>
+                    <a href="{{SITE_URL}}" class="site-title">CHEAC AI Council &middot; \btw</a>
+                    <div class="site-subtitle">University of Copenhagen &amp; University of Bern</div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+{{INTRO_SECTION}}
+
+          <!-- Article Highlight Card -->
+          <tr>
+            <td class="post-card-cell">
+              <div class="card-box">
+                <div class="post-tag">{{SECTION_TAG}} &middot; {{DATE}}</div>
+                <h2 class="post-title">
+                  <a href="{{POST_URL}}">{{POST_TITLE}}</a>
+                </h2>
+                <div class="post-meta">{{AUTHOR_LINE}}</div>
+                {{IMAGE_BLOCK}}
+                <div class="post-description">{{DESCRIPTION}}</div>
+                <div class="button-container">
+                  <a href="{{POST_URL}}" class="cta-button">{{BUTTON_TEXT}}</a>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td class="footer-cell">
+              <p style="margin: 0 0 6px 0;">
+                Advisory guidance and best practices for AI in research.
+              </p>
+              <p style="margin: 0;">
+                <a href="{{SITE_URL}}">cheac-ai.github.io</a> &middot; 
+                <a href="{{SITE_URL}}/practices/">Best Practices</a> &middot; 
+                <a href="{{SITE_URL}}/guidelines/">Guidelines</a> &middot; 
+                <a href="{{SITE_URL}}/news/">AI News</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+
