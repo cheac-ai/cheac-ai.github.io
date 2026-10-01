@@ -136,4 +136,8 @@ $callout-color-caution: $cheac-red;
   .navbar-nav.navbar-nav-scroll.ms-auto > .nav-item:first-child { margin-left: 1.5rem; }
 }
 
+.navbar-nav .nav-link {
+  white-space: nowrap;
+}
+
 .listing-empty { margin: 2rem 0; font-style: italic; color: #666; }
