@@ -11,126 +11,7 @@
     "href": "practices/index.html",
     "title": "Best Practices",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nA  standard for AI agent instructions\n\n\nA shared starting prompt for AI agents and chat assistants, built on the CHEAC Data Management Plan: what instruction files are, how to set one up, and a template to copy.\n\n\n\n\n\n25 Sep 2026\n\n\nFrederik Lizak Johansen\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "news/index.html",
-    "href": "news/index.html",
-    "title": "AI News",
-    "section": "",
-    "text": "No matching items"
-  },
-  {
-    "objectID": "guidelines/ku-guidelines.html",
-    "href": "guidelines/ku-guidelines.html",
-    "title": "KU guidelines on AI usage",
-    "section": "",
-    "text": "This summary will be reviewed periodically as KU updates their guidelines."
-  },
-  {
-    "objectID": "guidelines/ku-guidelines.html#ai-use-by-employees",
-    "href": "guidelines/ku-guidelines.html#ai-use-by-employees",
-    "title": "KU guidelines on AI usage",
-    "section": "1. AI use by employees",
-    "text": "1. AI use by employees\nThe employee guide (found in KUnet) is the most relevant starting point for staff. It includes rules for using AI tools, guidance on choosing tools, and instructions for accessing them securely.\n\nCopilot Chat is KU’s approved AI tool and must be used when handling the personal data covered by the guidance. This includes employee names, KU email addresses, education and employment details, job titles, areas of work, organisational affiliations and work phone numbers. You must be signed in with your KU account when entering this information.\nOther AI tools may be used where there are significant teaching or research reasons for choosing them. According to the guidelines, confidential, personal or copyrighted data must not be entered into these alternative tools.\nAlthough much of our research in  does not involve personal data, these rules may be relevant to consider for administrative tasks, or when sharing working files with an AI agent.\nThe guide includes instructions for securely accessing and using Copilot Chat, and for assessing the security of alternative tools.\n\nKU employee guide: AI"
-  },
-  {
-    "objectID": "guidelines/ku-guidelines.html#ai-use-in-phd-theses",
-    "href": "guidelines/ku-guidelines.html#ai-use-in-phd-theses",
-    "title": "KU guidelines on AI usage",
-    "section": "2. AI use in PhD theses",
-    "text": "2. AI use in PhD theses\nKU permits appropriate use of AI-assisted technologies, provided students carefully check the output and ensure that their use does not compromise the requirements for a PhD.\nThe main points are:\n\nVerify all facts and references. AI has a habit of confidently inventing information and publications. Never include any information provided to you that you cannot verify.\nLimit the freedom given to generative AI. KU recommends limiting the freedom of generative AI by giving specific and appropriate prompts - don’t just provide blocks of text and ask for general improvements.\nDisclose and describe AI use clearly. An exhaustive account of prompts and responses is not necessary, but it is necessary to describe how you have used AI. Analytical AI tools should be described or referenced like other analytical software.\nAI cannot be listed as a co-author. You remain responsible for the accuracy, integrity and originality of the entire work, including any errors or plagiarism.\n\nKU guidance: AI-assisted technologies in PhD theses"
-  },
-  {
-    "objectID": "guidelines/ku-guidelines.html#ai-use-in-teaching-at-science",
-    "href": "guidelines/ku-guidelines.html#ai-use-in-teaching-at-science",
-    "title": "KU guidelines on AI usage",
-    "section": "3. AI use in teaching at SCIENCE",
-    "text": "3. AI use in teaching at SCIENCE\nA compilation of guidelines relating to AI use in the context of teaching, assignments and exams is available (on KUnet) for staff in the SCIENCE faculty. Topics include:\n\nWhat to do if you suspect AI-related cheating\nHow AI use should be documented by students\nGuidance on declarations of AI use in exams and assignments\n\nSCIENCE guidelines on generative AI for teachers"
-  },
-  {
-    "objectID": "guidelines/ku-guidelines.html#general-guidance-on-ai-in-education",
-    "href": "guidelines/ku-guidelines.html#general-guidance-on-ai-in-education",
-    "title": "KU guidelines on AI usage",
-    "section": "4. General guidance on AI in education",
-    "text": "4. General guidance on AI in education\nKU’s Good academic practice and generative AI page sets out broader principles for AI use in education: reliability, honesty, respect and accountability. It emphasises transparency about AI use and students’ responsibility for their work. This provides useful background alongside the more practical guidance above.\nKU guidance: Good academic practice and generative AI"
-  },
-  {
-    "objectID": "guidelines/cheac-dmp.html",
-    "href": "guidelines/cheac-dmp.html",
-    "title": "CHEAC Data Management Plan",
-    "section": "",
-    "text": "The official CHEAC Data Management Plan describes how research data at the Center for High Entropy Alloy Catalysis is structured, stored, backed up, and released.\nDownload the DMP (PDF)\n\n\nYour browser cannot display the PDF inline. Use the download link above."
-  },
-  {
-    "objectID": "ai-in-research/index.html",
-    "href": "ai-in-research/index.html",
-    "title": "AI in research",
-    "section": "",
-    "text": "No matching items"
-  },
-  {
-    "objectID": "contributing/contributing.html",
-    "href": "contributing/contributing.html",
-    "title": "Contributing",
-    "section": "",
-    "text": "Everyone at CHEAC can contribute: a best practice that works for you, a guideline you have looked into, an experience from your research, or a piece of AI news."
-  },
-  {
-    "objectID": "contributing/contributing.html#adding-a-page",
-    "href": "contributing/contributing.html#adding-a-page",
-    "title": "Contributing",
-    "section": "Adding a page",
-    "text": "Adding a page\nPlace a new .qmd (or .md) file in the folder of its section:\n\n\n\nSection\nFolder\n\n\n\n\nBest Practices\npractices/\n\n\nGuidelines\nguidelines/\n\n\nAI in research\nai-in-research/\n\n\nTransparency\ntransparency/\n\n\nAI News\nnews/\n\n\n\nA page can also live in its own subfolder, for example news/my-story/index.qmd, next to its figures.\nThe section list, the navbar link, and the Most recent list on the front page pick up new pages automatically. They read the header at the top of the file:\n---\ntitle: \"Short, descriptive title\"\nauthor:\n  - name: Your Name\n    affiliation: \"Position, Group\"\ndate: 2026-10-01\ndescription: \"One sentence shown under the title in the section list.\"\nimage: ../assets/figures/my-figure.svg   # optional cover figure\n---\n\ntitle is required. Without it, the page appears in the lists without a name.\ndate places the page in the lists. Pages without a date sort as the oldest and do not appear under Most recent.\nimage sets the cover figure in the section list. Without it, the list uses the first image on the page, or none."
-  },
-  {
-    "objectID": "contributing/contributing.html#references",
-    "href": "contributing/contributing.html#references",
-    "title": "Contributing",
-    "section": "References",
-    "text": "References\nAdd BibTeX entries to references.bib and cite them with [@key]. End the page with:\n## References {.unnumbered}\n\n::: {#refs}\n:::"
-  },
-  {
-    "objectID": "contributing/contributing.html#the-cheac-wordmark",
-    "href": "contributing/contributing.html#the-cheac-wordmark",
-    "title": "Contributing",
-    "section": "The CHEAC wordmark",
-    "text": "The CHEAC wordmark\nWrite {{&lt; cheac &gt;}} to insert the CHEAC wordmark in running text or a title."
-  },
-  {
-    "objectID": "contributing/contributing.html#previewing-locally",
-    "href": "contributing/contributing.html#previewing-locally",
-    "title": "Contributing",
-    "section": "Previewing locally",
-    "text": "Previewing locally\nInstall Quarto, then run this in the repository folder:\nquarto preview --port 4321\nThe site opens at http://localhost:4321 and reloads when a file is saved."
-  },
-  {
-    "objectID": "guidelines/index.html",
-    "href": "guidelines/index.html",
-    "title": "Guidelines",
-    "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nCHEAC Data Management Plan\n\n\nOpen Research Data Management Plan (DMP), version 1, April 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nKU guidelines on AI usage\n\n\n\n\n\nA practical summary of KU guidelines on AI usage for employees and students\n\n\n\n\n\n30 Sep 2026\n\n\nMelissa Jane Marks\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "&#92;btw",
-    "section": "",
-    "text": "\\btw\nAdvisory guidance, best practices, and community case studies for artificial intelligence in research."
-  },
-  {
-    "objectID": "index.html#explore",
-    "href": "index.html#explore",
-    "title": "&#92;btw",
-    "section": "Explore",
-    "text": "Explore\n\n\nBest Practices\nHow to use AI tools well in daily research, from agent instructions to literature search.\n\n\nGuidelines\nKU guidelines on AI use and the CHEAC Data Management Plan.\n\n\nAI in research\nHow AI changes the way we do chemistry and materials science.\n\n\nTransparency\nHow to report AI use in manuscripts, figures, code, and teaching.\n\n\nAI News\nNew tools, policies, and papers worth knowing about.\n\n\nSuggestion box\nTopics the council should discuss next. Add your own."
-  },
-  {
-    "objectID": "index.html#most-recent",
-    "href": "index.html#most-recent",
-    "title": "&#92;btw",
-    "section": "Most recent",
-    "text": "Most recent\n\n\n\n30 Sep 2026 KU guidelines on AI usage Guideline\n\n\n25 Sep 2026 A CHEAC standard for AI agent instructions Best practice\n\n\nNo matching items\n\n\n\nQuick Actions\n\nHandling research data? Read the official CHEAC Data Management Plan.\nHave a story to share? Check out How to Contribute.\nQuestions or feedback? Contact the council editor at ts@chem.ku.dk."
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nOne folder to rule them all: a git workflow for research\n\n\nA practical introduction to git for researchers: keep one working copy of your scripts, find old versions, try things without making a mess, and review what AI agents change.\n\n\n\n\n\n25 Oct 2026\n\n\nFrederik Lizak Johansen\n\n\n\n\n\n\n\n\n\n\n\n\nA  standard for AI agent instructions\n\n\nA shared starting prompt for AI agents and chat assistants, built on the CHEAC Data Management Plan: what instruction files are, how to set one up, and a template to copy.\n\n\n\n\n\n25 Sep 2026\n\n\nFrederik Lizak Johansen\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "practices/agent-instructions.html#why-an-instruction-file",
@@ -201,6 +82,216 @@
     "title": "A  standard for AI agent instructions",
     "section": "References",
     "text": "References\n\n\nAgent Skills. 2025. Agent Skills. Https://agentskills.io.\n\n\nAgentic AI Foundation. 2025. AGENTS.md: A Simple, Open Format for Guiding Coding Agents. Https://agents.md.\n\n\nAnthropic. 2025. Claude Code: Best Practices for Agentic Coding. Https://www.anthropic.com/engineering/claude-code-best-practices.\n\n\nAnthropic. 2026. How Claude Remembers Your Project. Claude Code documentation, https://code.claude.com/docs/en/memory.\n\n\nCenter for High Entropy Alloy Catalysis. 2026. Open Research Data Management Plan (DMP). University of Copenhagen.\n\n\nCone, Matt. 2026. Markdown Guide: Getting Started. Https://www.markdownguide.org/getting-started/.\n\n\nGoogle. 2026. Provide Context with GEMINI.md Files. Gemini CLI documentation, https://geminicli.com/docs/cli/gemini-md/.\n\n\nLulla, Jai Lal, Seyedmoein Mohsenimofidi, Matthias Galster, Jie M. Zhang, Sebastian Baltes, and Christoph Treude. 2026. “On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents.” arXiv Preprint arXiv:2601.20404. https://arxiv.org/abs/2601.20404.\n\n\nMicrosoft. 2026. Use Custom Instructions in VS Code. Visual Studio Code documentation, https://code.visualstudio.com/docs/copilot/customization/custom-instructions.\n\n\nOpenAI. 2026. Custom Instructions with AGENTS.md. Codex documentation, https://learn.chatgpt.com/docs/agent-configuration/agents-md.\n\n\nOpenCode. 2026a. Permissions. OpenCode documentation, https://opencode.ai/docs/permissions/.\n\n\nOpenCode. 2026b. Rules. OpenCode documentation, https://opencode.ai/docs/rules/.\n\n\nStencil Labs. 2026. Oh-My-Pi (OMP): Coding Agent with the IDE Wired in. Https://github.com/can1357/oh-my-pi.\n\n\nWilkinson, Mark D., Michel Dumontier, IJsbrand Jan Aalbersberg, et al. 2016. “The FAIR Guiding Principles for Scientific Data Management and Stewardship.” Scientific Data 3: 160018. https://doi.org/10.1038/sdata.2016.18."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "&#92;btw",
+    "section": "",
+    "text": "\\btw\nAdvisory guidance, best practices, and community case studies for artificial intelligence in research."
+  },
+  {
+    "objectID": "index.html#explore",
+    "href": "index.html#explore",
+    "title": "&#92;btw",
+    "section": "Explore",
+    "text": "Explore\n\n\nBest Practices\nHow to use AI tools well in daily research, from agent instructions to literature search.\n\n\nGuidelines\nKU guidelines on AI use and the CHEAC Data Management Plan.\n\n\nAI in research\nHow AI changes the way we do chemistry and materials science.\n\n\nTransparency\nHow to report AI use in manuscripts, figures, code, and teaching.\n\n\nAI News\nNew tools, policies, and papers worth knowing about.\n\n\nSuggestion box\nTopics the council should discuss next. Add your own."
+  },
+  {
+    "objectID": "index.html#most-recent",
+    "href": "index.html#most-recent",
+    "title": "&#92;btw",
+    "section": "Most recent",
+    "text": "Most recent\n\n\n\n25 Oct 2026 One folder to rule them all: a git workflow for research Best practice\n\n\n30 Sep 2026 KU guidelines on AI usage Guideline\n\n\n25 Sep 2026 A CHEAC standard for AI agent instructions Best practice\n\n\nNo matching items\n\n\n\nQuick Actions\n\nHandling research data? Read the official CHEAC Data Management Plan.\nHave a story to share? Check out How to Contribute.\nQuestions or feedback? Contact the council editor at ts@chem.ku.dk."
+  },
+  {
+    "objectID": "guidelines/index.html",
+    "href": "guidelines/index.html",
+    "title": "Guidelines",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nCHEAC Data Management Plan\n\n\nOpen Research Data Management Plan (DMP), version 1, April 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nKU guidelines on AI usage\n\n\n\n\n\nA practical summary of KU guidelines on AI usage for employees and students\n\n\n\n\n\n30 Sep 2026\n\n\nMelissa Jane Marks\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "contributing/contributing.html",
+    "href": "contributing/contributing.html",
+    "title": "Contributing",
+    "section": "",
+    "text": "Everyone at CHEAC can contribute: a best practice that works for you, a guideline you have looked into, an experience from your research, or a piece of AI news."
+  },
+  {
+    "objectID": "contributing/contributing.html#adding-a-page",
+    "href": "contributing/contributing.html#adding-a-page",
+    "title": "Contributing",
+    "section": "Adding a page",
+    "text": "Adding a page\nPlace a new .qmd (or .md) file in the folder of its section:\n\n\n\nSection\nFolder\n\n\n\n\nBest Practices\npractices/\n\n\nGuidelines\nguidelines/\n\n\nAI in research\nai-in-research/\n\n\nTransparency\ntransparency/\n\n\nAI News\nnews/\n\n\n\nA page can also live in its own subfolder, for example news/my-story/index.qmd, next to its figures.\nThe section list, the navbar link, and the Most recent list on the front page pick up new pages automatically. They read the header at the top of the file:\n---\ntitle: \"Short, descriptive title\"\nauthor:\n  - name: Your Name\n    affiliation: \"Position, Group\"\ndate: 2026-10-01\ndescription: \"One sentence shown under the title in the section list.\"\nimage: ../assets/figures/my-figure.svg   # optional cover figure\n---\n\ntitle is required. Without it, the page appears in the lists without a name.\ndate places the page in the lists. Pages without a date sort as the oldest and do not appear under Most recent.\nimage sets the cover figure in the section list. Without it, the list uses the first image on the page, or none."
+  },
+  {
+    "objectID": "contributing/contributing.html#references",
+    "href": "contributing/contributing.html#references",
+    "title": "Contributing",
+    "section": "References",
+    "text": "References\nAdd BibTeX entries to references.bib and cite them with [@key]. End the page with:\n## References {.unnumbered}\n\n::: {#refs}\n:::"
+  },
+  {
+    "objectID": "contributing/contributing.html#the-cheac-wordmark",
+    "href": "contributing/contributing.html#the-cheac-wordmark",
+    "title": "Contributing",
+    "section": "The CHEAC wordmark",
+    "text": "The CHEAC wordmark\nWrite {{&lt; cheac &gt;}} to insert the CHEAC wordmark in running text or a title."
+  },
+  {
+    "objectID": "contributing/contributing.html#previewing-locally",
+    "href": "contributing/contributing.html#previewing-locally",
+    "title": "Contributing",
+    "section": "Previewing locally",
+    "text": "Previewing locally\nInstall Quarto, then run this in the repository folder:\nquarto preview --port 4321\nThe site opens at http://localhost:4321 and reloads when a file is saved."
+  },
+  {
+    "objectID": "ai-in-research/index.html",
+    "href": "ai-in-research/index.html",
+    "title": "AI in research",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "guidelines/cheac-dmp.html",
+    "href": "guidelines/cheac-dmp.html",
+    "title": "CHEAC Data Management Plan",
+    "section": "",
+    "text": "The official CHEAC Data Management Plan describes how research data at the Center for High Entropy Alloy Catalysis is structured, stored, backed up, and released.\nDownload the DMP (PDF)\n\n\nYour browser cannot display the PDF inline. Use the download link above."
+  },
+  {
+    "objectID": "guidelines/ku-guidelines.html",
+    "href": "guidelines/ku-guidelines.html",
+    "title": "KU guidelines on AI usage",
+    "section": "",
+    "text": "This summary will be reviewed periodically as KU updates their guidelines."
+  },
+  {
+    "objectID": "guidelines/ku-guidelines.html#ai-use-by-employees",
+    "href": "guidelines/ku-guidelines.html#ai-use-by-employees",
+    "title": "KU guidelines on AI usage",
+    "section": "1. AI use by employees",
+    "text": "1. AI use by employees\nThe employee guide (found in KUnet) is the most relevant starting point for staff. It includes rules for using AI tools, guidance on choosing tools, and instructions for accessing them securely.\n\nCopilot Chat is KU’s approved AI tool and must be used when handling the personal data covered by the guidance. This includes employee names, KU email addresses, education and employment details, job titles, areas of work, organisational affiliations and work phone numbers. You must be signed in with your KU account when entering this information.\nOther AI tools may be used where there are significant teaching or research reasons for choosing them. According to the guidelines, confidential, personal or copyrighted data must not be entered into these alternative tools.\nAlthough much of our research in  does not involve personal data, these rules may be relevant to consider for administrative tasks, or when sharing working files with an AI agent.\nThe guide includes instructions for securely accessing and using Copilot Chat, and for assessing the security of alternative tools.\n\nKU employee guide: AI"
+  },
+  {
+    "objectID": "guidelines/ku-guidelines.html#ai-use-in-phd-theses",
+    "href": "guidelines/ku-guidelines.html#ai-use-in-phd-theses",
+    "title": "KU guidelines on AI usage",
+    "section": "2. AI use in PhD theses",
+    "text": "2. AI use in PhD theses\nKU permits appropriate use of AI-assisted technologies, provided students carefully check the output and ensure that their use does not compromise the requirements for a PhD.\nThe main points are:\n\nVerify all facts and references. AI has a habit of confidently inventing information and publications. Never include any information provided to you that you cannot verify.\nLimit the freedom given to generative AI. KU recommends limiting the freedom of generative AI by giving specific and appropriate prompts - don’t just provide blocks of text and ask for general improvements.\nDisclose and describe AI use clearly. An exhaustive account of prompts and responses is not necessary, but it is necessary to describe how you have used AI. Analytical AI tools should be described or referenced like other analytical software.\nAI cannot be listed as a co-author. You remain responsible for the accuracy, integrity and originality of the entire work, including any errors or plagiarism.\n\nKU guidance: AI-assisted technologies in PhD theses"
+  },
+  {
+    "objectID": "guidelines/ku-guidelines.html#ai-use-in-teaching-at-science",
+    "href": "guidelines/ku-guidelines.html#ai-use-in-teaching-at-science",
+    "title": "KU guidelines on AI usage",
+    "section": "3. AI use in teaching at SCIENCE",
+    "text": "3. AI use in teaching at SCIENCE\nA compilation of guidelines relating to AI use in the context of teaching, assignments and exams is available (on KUnet) for staff in the SCIENCE faculty. Topics include:\n\nWhat to do if you suspect AI-related cheating\nHow AI use should be documented by students\nGuidance on declarations of AI use in exams and assignments\n\nSCIENCE guidelines on generative AI for teachers"
+  },
+  {
+    "objectID": "guidelines/ku-guidelines.html#general-guidance-on-ai-in-education",
+    "href": "guidelines/ku-guidelines.html#general-guidance-on-ai-in-education",
+    "title": "KU guidelines on AI usage",
+    "section": "4. General guidance on AI in education",
+    "text": "4. General guidance on AI in education\nKU’s Good academic practice and generative AI page sets out broader principles for AI use in education: reliability, honesty, respect and accountability. It emphasises transparency about AI use and students’ responsibility for their work. This provides useful background alongside the more practical guidance above.\nKU guidance: Good academic practice and generative AI"
+  },
+  {
+    "objectID": "news/index.html",
+    "href": "news/index.html",
+    "title": "AI News",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "practices/git-workflow.html#concerning-folders",
+    "href": "practices/git-workflow.html#concerning-folders",
+    "title": "One folder to rule them all: a git workflow for research",
+    "section": "Concerning folders",
+    "text": "Concerning folders\nA couple of weeks before handing in his thesis, Sam needs to update Figure 3. His supervisor wants to see the cyclic voltammograms before the latest corrections, because “the peaks looked nicer in that version”.\nFair enough. The problem is finding it.\nHEA_CVs/\n├── plot_cv.py\n├── plot_cv_new.py\n├── plot_cv_new_FINAL.py\n├── plot_cv_new_FINAL_v2_after_meeting.py\n├── plot_cv_new_FINAL_v2_after_meeting_REALLY.py\n├── fig3.png\n├── fig3_new.png\n├── fig3_new_new.png\n└── HEA17_CV_C01.mpr\nWhich script produced fig3_new.png? Does FINAL include the iR correction? Was the electrode area changed before or after that meeting? Sam can work it out, probably, but it’ll take an afternoon that could have been spent on the thesis.\nMost of us have made some version of this folder. It’s an understandable way to work: when a script finally produces a good figure, you make a copy before touching it again. Then another copy. Before long, the filenames are doing a very bad job of recording your decisions.\nGit lets you keep one working copy of the script while saving its history. You can see what changed, recover an older version, and try something new without making another FINAL_v2_REALLY.py. It also makes working with co-authors and AI coding agents considerably less chaotic.\nWe’ll follow Sam’s BioLogic data from the first plotting script to the version submitted with the paper. The point isn’t to turn everyone into a software developer. It’s to make it easy to answer a very ordinary research question: what exactly did I do to make this figure?\nThanks to Till Schertenleib for suggesting the topic in the Suggestion box."
+  },
+  {
+    "objectID": "practices/git-workflow.html#a-long-expected-commit",
+    "href": "practices/git-workflow.html#a-long-expected-commit",
+    "title": "One folder to rule them all: a git workflow for research",
+    "section": "A long-expected commit",
+    "text": "A long-expected commit\nGit records versions of files. Each saved version is called a commit: a snapshot of the files you chose, together with a short message about what you changed. You decide when to make one. Git doesn’t save every keystroke.\nThat gives you two things a folder full of copies doesn’t: a history you can inspect, and a way to move between versions without keeping them all on your desktop.\n\nGit is not GitHub\nThese two are often mentioned together, but they’re different things:\n\nGit runs on your computer. It keeps the history, even without an internet connection or an account.\nGitHub hosts a copy of a git repository online. It’s useful for sharing code, reviewing changes, and keeping another copy somewhere other than your laptop.\n\nYou can use git without GitHub. We’ll start there and add GitHub once we have something worth sharing.\n\n\nInstall git\n\nWindows: Install it from git-scm.com. The default settings are fine. The installer also includes Git Bash, where the commands below will work.\nmacOS: Open Terminal and run git --version. If git isn’t installed, macOS should offer to install the command-line tools.\nLinux: On Ubuntu, run sudo apt install git. Other distributions have equivalent packages.\n\nCheck that it works:\ngit --version\nThen set the name and email that will appear next to your commits (once per computer):\ngit config --global user.name \"Sam Gamgee\"\ngit config --global user.email \"sam@chem.ku.dk\"\ngit config --global init.defaultBranch main\nUse your own name and email, of course. The last line tells git to call the initial branch main.\n\n\n\n\n\n\nNoteDon’t like terminals?\n\n\n\nGitHub Desktop and VS Code’s Source Control panel let you do most of this with buttons. They’re perfectly good ways to use git. I’ll show commands because they’re easy to copy and work across operating systems."
+  },
+  {
+    "objectID": "practices/git-workflow.html#the-fellowship-of-the-folder",
+    "href": "practices/git-workflow.html#the-fellowship-of-the-folder",
+    "title": "One folder to rule them all: a git workflow for research",
+    "section": "The fellowship of the folder",
+    "text": "The fellowship of the folder\nBefore using git, Sam cleans up the project. The CHEAC Data Management Plan already has a sensible approach: explain the project in a README, keep the original measurements untouched, and separate data, scripts, and figures.\nLet’s give the CV analysis a home:\nhea17-orr/\n├── README.md              # what this project does and where the data is stored\n├── .gitignore             # files git should leave alone\n├── requirements.txt       # Python packages used for the analysis\n├── data/\n│   ├── raw/               # original BioLogic files, kept outside git\n│   └── processed/         # smaller files produced during analysis\n├── scripts/\n│   └── plot_cv.py\n└── figures/\n    └── fig3_cv.png\nIt’s still just an ordinary folder. Git doesn’t require a particular structure, but it helps if the folder makes sense before you start recording its history.\n\nWhat should git keep?\nGit works best with text files: Python scripts, notebooks, READMEs, configuration files, and reasonably small tables. Large binary files, especially ones that change often, can make a repository unnecessarily large.\nFor this project, we’ll keep the code and small analysis files in git, but leave the original .mpr measurements in the lab’s data storage on ASIMOV or ERDA. Sam creates a file called .gitignore:\n# Original measurements are archived separately\ndata/raw/\n*.mpr\n.env\n\n# Temporary Python and notebook files\n__pycache__/\n.ipynb_checkpoints/\nThe README should say exactly where to find the raw files, which measurements were used, and how to run the analysis. It’s fine to have a local data/raw/ folder containing copies of those files; git simply won’t include them in commits.\nThis distinction matters. Git keeps a history of your code, not a complete record of your experiment. Reproducing a figure also requires the right raw measurements, calibration values, metadata, and software environment. That’s why we keep requirements.txt alongside the script and archive the raw data separately.\nGitHub has ready-made .gitignore examples for common languages and tools. When your Python environment is working, you can record the installed versions with python -m pip freeze &gt; requirements.txt (ideally from an environment made just for this project).\n\n\n\n\n\n\nWarningKeep credentials out of git\n\n\n\nPasswords, access tokens, SSH keys, and anything else you wouldn’t want to publish should stay out of the repository. Put local credentials in a separate ignored file or an environment variable. Deleting a secret from a script later does not remove it from git’s history.\n\n\n\n\nYour first commit\nOpen a terminal in the project folder:\ncd hea17-orr\ngit init\ngit status\ngit init creates the repository. git status shows what’s currently going on. Before the first commit, you’ll see something like:\nOn branch main\nNo commits yet\n\nUntracked files:\n  .gitignore\n  README.md\n  requirements.txt\n  scripts/\nNotice that data/raw/ isn’t listed. That’s because we told git to ignore it. Empty folders won’t show up either: git tracks files, not folders on their own.\nNow save the first version:\ngit add .gitignore README.md requirements.txt scripts/\ngit commit -m \"Add initial HEA17 CV plotting script\"\ngit add chooses what goes into the next commit. git commit saves that version, and the text after -m is your note to your future self.\nThat’s the basic idea. No GitHub account, no special project setup, and no more copying scripts to keep the old versions."
+  },
+  {
+    "objectID": "practices/git-workflow.html#the-road-goes-ever-on",
+    "href": "practices/git-workflow.html#the-road-goes-ever-on",
+    "title": "One folder to rule them all: a git workflow for research",
+    "section": "The road goes ever on",
+    "text": "The road goes ever on\nHere’s a shortened version of Sam’s plotting script. It uses ixdat to load BioLogic measurements and plot the third CV cycle:\n# scripts/plot_cv.py\nfrom pathlib import Path\n\nimport matplotlib.pyplot as plt\nfrom ixdat import Measurement\n\nraw = Path(\"data/raw\")\nfiles = sorted(raw.glob(\"HEA17_CV_*.mpr\"))\nif not files:\n    raise FileNotFoundError(\"No HEA17 CV files found in data/raw/\")\n\nfig, ax = plt.subplots(figsize=(4, 3))\nfor path in files:\n    cv = Measurement.read(path, reader=\"biologic\").as_cv()\n    cv.calibrate_RE(RE_vs_RHE=0.92)  # V, from the RHE calibration\n    cv[3].plot_vs_potential(ax=ax, label=path.stem)\n\nax.legend(frameon=False, fontsize=7)\nPath(\"figures\").mkdir(exist_ok=True)\nfig.savefig(\"figures/fig3_cv.png\", dpi=300, bbox_inches=\"tight\")\nRun it from the project folder with python scripts/plot_cv.py. To install the packages used here:\npython -m pip install ixdat matplotlib galvani\nThe galvani package is needed for ixdat to read many BioLogic .mpr files. If yours doesn’t load, ixdat can also use eclabfiles, or you can export an .mpt text file from EC-Lab. The ixdat documentation covers the different readers, including working with ASIMOV.\nKeep requirements.txt updated when you change your Python packages. Together with the raw-data location, calibration values, and script, it gives someone else in the group a much better chance of reproducing the figure.\n\nThe everyday workflow\nA week later, Sam gets an impedance measurement and wants to add iR correction. The workflow is simple: edit, check, commit.\nAfter adding the correction, run:\ngit diff\nGit shows the difference between the working file and the last saved version:\n     cv.calibrate_RE(RE_vs_RHE=0.92)  # V, from the RHE calibration\n+    cv.correct_ohmic_drop(R_Ohm=45)  # ohm, from EIS\n     cv[3].plot_vs_potential(ax=ax, label=path.stem)\nA + means a line was added; a - means it was removed. Nothing mysterious happened here. Sam added the correction, checked that the change was what he intended, and saves it:\ngit add scripts/plot_cv.py\ngit commit -m \"Add iR correction using 45 ohm from EIS\"\nThat’s most of what you need to do on a normal day. You don’t have to commit every time you press Run. Commit when you’ve made a change you’d want to understand or recover later.\n\n\nCommit messages are for future you\nA useful message says what changed and, when it isn’t obvious, why. Compare these:\n\n\n\nNot very helpful\nMuch better\n\n\n\n\nupdate\nUse cycle 3; earlier cycles still show oxide reduction\n\n\nfix\nAdd iR correction using 45 ohm from EIS\n\n\nnew fig\nCompare HEA17 and Pt reference in Fig. 3\n\n\nasdf\nNormalise current by geometric area (0.196 cm²)\n\n\n\nTry to keep each commit about one thing. A change to the reference-electrode calibration and a change to the plot colours don’t need to be in the same commit.\nYou can see the history at any point:\ngit log --oneline\ne41f0a2 Compare HEA17 and Pt reference in Fig. 3\n9c3d7b1 Normalise current by geometric area (0.196 cm²)\n5b2a8e4 Add iR correction using 45 ohm from EIS\na1b2c3d Add initial HEA17 CV plotting script\nEach line is a commit. The short string on the left, such as 5b2a8e4, identifies the version. That’s what you’ll use when someone asks about the figure from two weeks ago."
+  },
+  {
+    "objectID": "practices/git-workflow.html#the-shadow-of-the-past",
+    "href": "practices/git-workflow.html#the-shadow-of-the-past",
+    "title": "One folder to rule them all: a git workflow for research",
+    "section": "The shadow of the past",
+    "text": "The shadow of the past\nAnd, sure enough, Sam’s supervisor does. They want to compare the latest CV with the version before area normalisation.\nThe good news is that Sam doesn’t have to guess which backup script was used. Git already knows. There are a few ways to go back, depending on what you want.\nUndo a change you haven’t committed. Say you’ve been editing plot_cv.py, it no longer runs, and you’d rather return to your last commit:\ngit restore scripts/plot_cv.py\nThis discards the uncommitted edits in that file. Check git diff first if you’re unsure.\nGet one file from an older commit. To run the version before area normalisation:\ngit restore --source=5b2a8e4 scripts/plot_cv.py\npython scripts/plot_cv.py\nNow Sam can regenerate the older figure with the same raw measurements. The old code is a temporary change in the working folder; the commit history hasn’t moved. When he’s finished comparing, he can restore the latest committed script:\ngit restore scripts/plot_cv.py\nBe careful with the figure itself: the script may overwrite figures/fig3_cv.png. Save the comparison under a different name if you want both copies. And if you later reproduce a much older analysis, remember that the Python environment and raw-data versions may matter too.\nVisit an older version of the entire project. First commit or set aside any work you want to keep. Then:\ngit switch --detach 5b2a8e4\n# inspect files or run the old analysis\ngit switch main\nGit calls this detached HEAD. The name sounds worse than it is. You’re looking at a particular commit instead of working on a branch. git switch main gets you back.\nReverse a commit without erasing the history. If the area normalisation turns out to have used the wrong electrode area:\ngit revert 9c3d7b1\nGit makes a new commit that undoes that change. You can still see both the mistake and the correction, much like in a proper lab notebook."
+  },
+  {
+    "objectID": "practices/git-workflow.html#side-quests-branches",
+    "href": "practices/git-workflow.html#side-quests-branches",
+    "title": "One folder to rule them all: a git workflow for research",
+    "section": "Side quests: branches",
+    "text": "Side quests: branches\nNow Sam wants to try a different baseline correction. It might reveal a small oxidation peak. Or it might just make the plot worse.\nThis is where branches are handy. A branch is a separate line of commits. You can try something without changing the version you’re currently happy with.\nStart with a clean working folder, then:\ngit switch -c try-baseline\n# edit and test the script\ngit add scripts/plot_cv.py\ngit commit -m \"Try linear baseline between 0.05 and 0.25 V\"\nThe main branch, main, is still where you left it.\nIf the idea works, bring it back:\ngit switch main\ngit merge try-baseline\ngit branch -d try-baseline\nIf it doesn’t, leave it behind:\ngit switch main\ngit branch -D try-baseline\nThe capital -D forces deletion even though the experiment wasn’t merged, so only use it when you’re happy to discard the branch. You can also simply keep the branch around until you’ve decided.\nEither way, there’s no need for plot_cv_baseline_TEST_dont_use.py.\n\n\n\n\n\n\nNoteWhat about merge conflicts?\n\n\n\nIf you changed the same lines on main and on your branch, git may need you to choose which edit to keep. It marks the disagreement in the file:\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\n    cv.correct_ohmic_drop(R_Ohm=45)\n=======\n    cv.correct_ohmic_drop(R_Ohm=47)  # re-measured\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; try-baseline\nEdit the file to keep the correct value, remove the marker lines, then run git add scripts/plot_cv.py and git commit. It’s annoying the first time, but it’s better than silently losing one person’s correction."
+  },
+  {
+    "objectID": "practices/git-workflow.html#git-and-ai-agents",
+    "href": "practices/git-workflow.html#git-and-ai-agents",
+    "title": "One folder to rule them all: a git workflow for research",
+    "section": "Git and AI agents",
+    "text": "Git and AI agents\nHere’s another situation that’s probably becoming familiar. You ask an AI coding agent to fix a legend. It fixes the legend, but it also renames two variables, reorganises a function, and starts testing a different smoothing window. The new figure looks fine. The problem is that six files changed, and you didn’t ask for most of it.\nGit makes these changes much easier to deal with, because you can inspect what the agent actually did rather than relying on its description.\nMy rules are fairly simple:\n\nCommit your own work before starting. If the agent makes a mess, you have a known-good version to return to. Check git status first; git restore . only discards unstaged changes to tracked files, not new untracked files or staged changes.\nUse a branch for larger experiments. Let the agent try a new smoothing method on try-smoothing, not on the version you’re preparing for the paper.\nAsk for small, focused changes. Fix the legend, check the plot, commit. Then decide whether to do anything else.\nRead git diff yourself. An agent’s summary can miss things. The diff tells you which lines really changed.\nDon’t let the agent decide what to investigate next. If it suggests another analysis, ask what question that analysis would answer. A plausible-sounding side quest is still a side quest.\n\nThe same habits are useful when you’re writing code yourself, but they’re especially valuable with agents because they can change a lot of code very quickly.\nIf you use an instruction file (see A CHEAC standard for AI agent instructions), you can put the rules there. For example, add this to AGENTS.md or CLAUDE.md:\n## Git\n- Check `git status` before editing. If I have uncommitted work, don't\n  overwrite it or make a commit without asking me.\n- Use a separate branch for experiments; don't modify `main` without asking.\n- Keep changes focused. Make small commits with messages saying what changed.\n- Never commit raw measurements, credentials, tokens, or other ignored files.\n- Show me the diff before treating a task as finished.\n- Ask before merging, rebasing, pushing, force-pushing, or deleting branches.\n- Don't suggest additional analyses unless you can explain what question\n  they would answer.\nOne important detail: don’t give an agent blanket permission to run destructive git commands. In particular, git restore, git reset --hard, and git clean can wipe out work that hasn’t been committed. Make sure you know what’s about to be discarded."
+  },
+  {
+    "objectID": "practices/git-workflow.html#the-fellowship-github-and-co-authors",
+    "href": "practices/git-workflow.html#the-fellowship-github-and-co-authors",
+    "title": "One folder to rule them all: a git workflow for research",
+    "section": "The fellowship: GitHub and co-authors",
+    "text": "The fellowship: GitHub and co-authors\nUntil now, the repository has lived entirely on Sam’s laptop. That works, but it’s risky. If the laptop disappears, the local git history goes with it.\nTime to put a copy online. GitHub is convenient, although it doesn’t replace the group’s proper data storage and backup arrangements.\n\nCreate an account at github.com.\nInstall the GitHub CLI and log in:\ngh auth login\nIn the project folder, create a private repository and push the existing history:\ngh repo create hea17-orr --private --source=. --remote=origin --push\n\nAfter that, the usual commands are:\ngit push    # send your commits to GitHub\ngit pull    # bring in commits from GitHub\nStart private, especially if the project contains unpublished work. Before making it public, check what you’ve committed, whether you have permission to share it, and whether the repository contains data or information that should stay internal.\n\nWorking with co-authors\nMerry is working on the DFT part of the paper and wants to change the plotting script. Rather than emailing an edited file to Sam, Merry makes a branch and opens a pull request on GitHub.\nA pull request is just a proposed change. Sam can look through the diff, comment on individual lines, ask Merry to adjust things, and merge it into main when they’re both happy. It’s a particularly nice way to review changes to analysis scripts without having to compare two attachments called final.py.\nThis website is updated through pull requests too."
+  },
+  {
+    "objectID": "practices/git-workflow.html#there-and-back-again",
+    "href": "practices/git-workflow.html#there-and-back-again",
+    "title": "One folder to rule them all: a git workflow for research",
+    "section": "There and back again",
+    "text": "There and back again\nThe paper is ready. The figures have been checked, the scripts are committed, and the raw data is stored where the group expects it. A few final steps make it easier to return to the submitted version later.\n\nMark the version you submitted\nA tag gives a particular commit a name. Sam tags the version used for submission:\ngit tag -a v1.0-submitted -m \"Version submitted to ACS Catalysis\"\ngit push origin v1.0-submitted\nWhen Reviewer 2 asks for another control experiment, Sam can do the revision work as usual and later tag v1.1-revision. The original submission stays easy to find.\n\n\nArchive the code alongside the data\nGit can package the tagged files into a zip:\ngit archive --format=zip -o hea17-orr-v1.0.zip v1.0-submitted\nThis contains the tracked files in that commit, not the git history and not the ignored raw measurements. Put it in the ERDA project archive alongside the raw data, relevant metadata, and anything else needed to rerun the analysis. Follow the CHEAC Data Management Plan for the full archiving requirements.\nIf you need the full git history in the archive as well, archive the repository separately; git archive intentionally makes a clean source snapshot.\n\n\nGive the code a DOI (optional)\nIf the code is going to be public, you can connect the GitHub repository to Zenodo, create a GitHub release from the tag, and have Zenodo archive that release with a DOI. GitHub has a guide. It’s an easy way to give readers a specific, citable version rather than a link to a repository that may keep changing.\nAnd that’s it. Sam still has one plotting script in his working folder. The difference is that all the earlier versions are in git, complete with the changes that got him from one to the next.\nHe can finally delete plot_cv_new_FINAL_v2_after_meeting_REALLY.py."
+  },
+  {
+    "objectID": "practices/git-workflow.html#when-things-go-wrong",
+    "href": "practices/git-workflow.html#when-things-go-wrong",
+    "title": "One folder to rule them all: a git workflow for research",
+    "section": "When things go wrong",
+    "text": "When things go wrong\n“I accidentally staged something.” Unstage it without deleting the file:\ngit restore --staged data/processed/results.csv\n“I committed a huge raw-data file.” First, stop tracking it and add it to .gitignore:\ngit rm --cached data/raw/huge_file.mpr\nIf you added the file in your most recent commit and haven’t pushed, you can amend that commit after updating .gitignore:\ngit add .gitignore\ngit commit --amend --no-edit\nIf the file was committed earlier, or has already been pushed, that doesn’t remove it from the old history. Cleaning the history takes extra steps and may affect collaborators. Get help before rewriting a shared repository’s history.\n“I committed a password or token.” Revoke or rotate it immediately. Even if you remove it from your latest file, the old value may still be accessible in the history.\n“Git says detached HEAD.” You’re looking at an old commit. If you’ve only been inspecting things, git switch main takes you back. If you’ve made commits there that you want to keep, make a branch before switching.\n“I broke the script and want the last committed version back.” Check what you’re throwing away with git diff, then:\ngit restore scripts/plot_cv.py\nFor everything else, Oh Shit, Git!?! is a very good collection of solutions to common git disasters."
+  },
+  {
+    "objectID": "practices/git-workflow.html#cheat-sheet",
+    "href": "practices/git-workflow.html#cheat-sheet",
+    "title": "One folder to rule them all: a git workflow for research",
+    "section": "Cheat sheet",
+    "text": "Cheat sheet\n\n\n\n\n\n\n\nWhat you want to do\nCommand\n\n\n\n\nStart a repository\ngit init\n\n\nCheck what’s changed\ngit status\n\n\nSee edits line by line\ngit diff\n\n\nStage a file\ngit add &lt;file&gt;\n\n\nUnstage a file\ngit restore --staged &lt;file&gt;\n\n\nSave a version\ngit commit -m \"What changed\"\n\n\nSee past versions\ngit log --oneline\n\n\nDiscard uncommitted edits to a tracked file\ngit restore &lt;file&gt;\n\n\nGet a file from an old commit\ngit restore --source=&lt;commit&gt; &lt;file&gt;\n\n\nVisit an old commit\ngit switch --detach &lt;commit&gt;\n\n\nReturn to main\ngit switch main\n\n\nReverse a commit with a new one\ngit revert &lt;commit&gt;\n\n\nStart an experimental branch\ngit switch -c try-&lt;name&gt;\n\n\nMerge the experiment\ngit switch main then git merge try-&lt;name&gt;\n\n\nDelete a merged branch\ngit branch -d try-&lt;name&gt;\n\n\nForce-delete an unmerged branch\ngit branch -D try-&lt;name&gt;\n\n\nSend commits to GitHub\ngit push\n\n\nGet changes from GitHub\ngit pull\n\n\nTag a version\ngit tag -a v1.0-submitted -m \"...\"\n\n\nExport tagged files as a zip\ngit archive --format=zip -o out.zip v1.0-submitted\n\n\n\nThere’s also a printable GitHub cheat sheet."
+  },
+  {
+    "objectID": "practices/git-workflow.html#further-reading",
+    "href": "practices/git-workflow.html#further-reading",
+    "title": "One folder to rule them all: a git workflow for research",
+    "section": "Further reading",
+    "text": "Further reading\n\nSoftware Carpentry: Version Control with Git is written for researchers and includes exercises you can follow.\nPro Git is a free book if you want to understand what happens underneath (Chacon and Straub 2014).\nShort introductions to git in research: (Blischak et al. 2016) and (Ram 2013).\nGood enough practices in scientific computing is a useful guide to keeping research projects manageable (Wilson et al. 2017)."
+  },
+  {
+    "objectID": "practices/git-workflow.html#references",
+    "href": "practices/git-workflow.html#references",
+    "title": "One folder to rule them all: a git workflow for research",
+    "section": "References",
+    "text": "References\n\n\nBlischak, John D., Emily R. Davenport, and Greg Wilson. 2016. “A Quick Introduction to Version Control with Git and GitHub.” PLOS Computational Biology 12 (1): e1004668. https://doi.org/10.1371/journal.pcbi.1004668.\n\n\nChacon, Scott, and Ben Straub. 2014. Pro Git. 2nd ed. Apress. https://git-scm.com/book/en/v2.\n\n\nRam, Karthik. 2013. “Git Can Facilitate Greater Reproducibility and Increased Transparency in Science.” Source Code for Biology and Medicine 8: 7. https://doi.org/10.1186/1751-0473-8-7.\n\n\nWilson, Greg, Jennifer Bryan, Karen Cranston, Justin Kitzes, Lex Nederbragt, and Tracy K. Teal. 2017. “Good Enough Practices in Scientific Computing.” PLOS Computational Biology 13 (6): e1005510. https://doi.org/10.1371/journal.pcbi.1005510."
   },
   {
     "objectID": "suggestions/index.html",

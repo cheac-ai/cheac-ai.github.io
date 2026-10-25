@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Frederik Lizak Johansen">
+<meta name="dcterms.date" content="2026-10-25">
+<meta name="description" content="A practical introduction to git for researchers: keep one working copy of your scripts, find old versions, try things without making a mess, and review what AI agents change.">
+
+<title>One folder to rule them all: a git workflow for research – \btw</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../assets/logos/cheac-logo-square-transparent.svg" rel="icon" type="image/svg+xml">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-d8349561a346a306576958138a23a562.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<meta property="og:title" content="One folder to rule them all: a git workflow for research – \btw">
+<meta property="og:description" content="A practical introduction to git for researchers: keep one working copy of your scripts, find old versions, try things without making a mess, and review what AI agents change.">
+<meta property="og:image" content="https://cheac-ai.github.io/assets/figures/git-workflow-toc.svg">
+<meta property="og:site_name" content="\btw">
+<meta property="og:image:alt" content="A road of commits from the Shire to Mount Doom, with a detour that rejoins the road and side quests that end nowhere">
+<meta name="twitter:title" content="One folder to rule them all: a git workflow for research – \btw">
+<meta name="twitter:description" content="A practical introduction to git for researchers: keep one working copy of your scripts, find old versions, try things without making a mess, and review what AI agents change.">
+<meta name="twitter:image" content="https://cheac-ai.github.io/assets/figures/git-workflow-toc.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:alt" content="A road of commits from the Shire to Mount Doom, with a detour that rejoins the road and side quests that end nowhere">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../assets/logos/cheac-logo-long-transparent.svg" alt="CHEAC logo" class="navbar-logo light-content">
+    <img src="../assets/logos/cheac-logo-long-transparent.svg" alt="CHEAC logo" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">\btw</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../practices/index.html"> 
+<span class="menu-text">Best Practices</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../guidelines/index.html"> 
+<span class="menu-text">Guidelines</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../ai-in-research/index.html"> 
+<span class="menu-text">AI in research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../transparency/index.html"> 
+<span class="menu-text">Transparency</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../news/index.html"> 
+<span class="menu-text">AI News</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../suggestions/index.html"> 
+<span class="menu-text">Suggestion box</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../contributing/contributing.html"> 
+<span class="menu-text">Contributing</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/cheac-ai/cheac-ai.github.io"> <i class="bi bi-github" role="img" aria-label="GitHub repository">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#concerning-folders" id="toc-concerning-folders" class="nav-link active" data-scroll-target="#concerning-folders">Concerning folders</a></li>
+  <li><a href="#a-long-expected-commit" id="toc-a-long-expected-commit" class="nav-link" data-scroll-target="#a-long-expected-commit">A long-expected commit</a>
+  <ul class="collapse">
+  <li><a href="#git-is-not-github" id="toc-git-is-not-github" class="nav-link" data-scroll-target="#git-is-not-github">Git is not GitHub</a></li>
+  <li><a href="#install-git" id="toc-install-git" class="nav-link" data-scroll-target="#install-git">Install git</a></li>
+  </ul></li>
+  <li><a href="#the-fellowship-of-the-folder" id="toc-the-fellowship-of-the-folder" class="nav-link" data-scroll-target="#the-fellowship-of-the-folder">The fellowship of the folder</a>
+  <ul class="collapse">
+  <li><a href="#what-should-git-keep" id="toc-what-should-git-keep" class="nav-link" data-scroll-target="#what-should-git-keep">What should git keep?</a></li>
+  <li><a href="#your-first-commit" id="toc-your-first-commit" class="nav-link" data-scroll-target="#your-first-commit">Your first commit</a></li>
+  </ul></li>
+  <li><a href="#the-road-goes-ever-on" id="toc-the-road-goes-ever-on" class="nav-link" data-scroll-target="#the-road-goes-ever-on">The road goes ever on</a>
+  <ul class="collapse">
+  <li><a href="#the-everyday-workflow" id="toc-the-everyday-workflow" class="nav-link" data-scroll-target="#the-everyday-workflow">The everyday workflow</a></li>
+  <li><a href="#commit-messages-are-for-future-you" id="toc-commit-messages-are-for-future-you" class="nav-link" data-scroll-target="#commit-messages-are-for-future-you">Commit messages are for future you</a></li>
+  </ul></li>
+  <li><a href="#the-shadow-of-the-past" id="toc-the-shadow-of-the-past" class="nav-link" data-scroll-target="#the-shadow-of-the-past">The shadow of the past</a></li>
+  <li><a href="#side-quests-branches" id="toc-side-quests-branches" class="nav-link" data-scroll-target="#side-quests-branches">Side quests: branches</a></li>
+  <li><a href="#git-and-ai-agents" id="toc-git-and-ai-agents" class="nav-link" data-scroll-target="#git-and-ai-agents">Git and AI agents</a></li>
+  <li><a href="#the-fellowship-github-and-co-authors" id="toc-the-fellowship-github-and-co-authors" class="nav-link" data-scroll-target="#the-fellowship-github-and-co-authors">The fellowship: GitHub and co-authors</a>
+  <ul class="collapse">
+  <li><a href="#working-with-co-authors" id="toc-working-with-co-authors" class="nav-link" data-scroll-target="#working-with-co-authors">Working with co-authors</a></li>
+  </ul></li>
+  <li><a href="#there-and-back-again" id="toc-there-and-back-again" class="nav-link" data-scroll-target="#there-and-back-again">There and back again</a>
+  <ul class="collapse">
+  <li><a href="#mark-the-version-you-submitted" id="toc-mark-the-version-you-submitted" class="nav-link" data-scroll-target="#mark-the-version-you-submitted">Mark the version you submitted</a></li>
+  <li><a href="#archive-the-code-alongside-the-data" id="toc-archive-the-code-alongside-the-data" class="nav-link" data-scroll-target="#archive-the-code-alongside-the-data">Archive the code alongside the data</a></li>
+  <li><a href="#give-the-code-a-doi-optional" id="toc-give-the-code-a-doi-optional" class="nav-link" data-scroll-target="#give-the-code-a-doi-optional">Give the code a DOI (optional)</a></li>
+  </ul></li>
+  <li><a href="#when-things-go-wrong" id="toc-when-things-go-wrong" class="nav-link" data-scroll-target="#when-things-go-wrong">When things go wrong</a></li>
+  <li><a href="#cheat-sheet" id="toc-cheat-sheet" class="nav-link" data-scroll-target="#cheat-sheet">Cheat sheet</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">One folder to rule them all: a git workflow for research</h1>
+</div>
+
+<div>
+  <div class="description">
+    A practical introduction to git for researchers: keep one working copy of your scripts, find old versions, try things without making a mess, and review what AI agents change.
+  </div>
+</div>
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Frederik Lizak Johansen </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Postdoc, Energy Conversion Interfaces Group
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">25 Oct 2026</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Last updated</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">25 Oct 2026</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../assets/figures/git-workflow-toc.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="A road of commits from the Shire to Mount Doom, with a detour that rejoins the road and side quests that end nowhere"></p>
+</figure>
+</div>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Already use git?</strong> Jump to <a href="#git-and-ai-agents">Git and AI agents</a> or the <a href="#cheat-sheet">cheat sheet</a>. Otherwise, start here. You can follow along with your own project folder.</p>
+</div>
+</div>
+</div>
+<section id="concerning-folders" class="level2">
+<h2 class="anchored" data-anchor-id="concerning-folders">Concerning folders</h2>
+<p>A couple of weeks before handing in his thesis, Sam needs to update Figure 3. His supervisor wants to see the cyclic voltammograms before the latest corrections, because “the peaks looked nicer in that version”.</p>
+<p>Fair enough. The problem is finding it.</p>
+<pre class="text"><code>HEA_CVs/
+├── plot_cv.py
+├── plot_cv_new.py
+├── plot_cv_new_FINAL.py
+├── plot_cv_new_FINAL_v2_after_meeting.py
+├── plot_cv_new_FINAL_v2_after_meeting_REALLY.py
+├── fig3.png
+├── fig3_new.png
+├── fig3_new_new.png
+└── HEA17_CV_C01.mpr</code></pre>
+<p>Which script produced <code>fig3_new.png</code>? Does <code>FINAL</code> include the iR correction? Was the electrode area changed before or after that meeting? Sam can work it out, probably, but it’ll take an afternoon that could have been spent on the thesis.</p>
+<p>Most of us have made some version of this folder. It’s an understandable way to work: when a script finally produces a good figure, you make a copy before touching it again. Then another copy. Before long, the filenames are doing a very bad job of recording your decisions.</p>
+<p><strong>Git lets you keep one working copy of the script while saving its history.</strong> You can see what changed, recover an older version, and try something new without making another <code>FINAL_v2_REALLY.py</code>. It also makes working with co-authors and AI coding agents considerably less chaotic.</p>
+<p>We’ll follow Sam’s BioLogic data from the first plotting script to the version submitted with the paper. The point isn’t to turn everyone into a software developer. It’s to make it easy to answer a very ordinary research question: <em>what exactly did I do to make this figure?</em></p>
+<p>Thanks to Till Schertenleib for suggesting the topic in the <a href="https://github.com/cheac-ai/cheac-ai.github.io/issues/13">Suggestion box</a>.</p>
+</section>
+<section id="a-long-expected-commit" class="level2">
+<h2 class="anchored" data-anchor-id="a-long-expected-commit">A long-expected commit</h2>
+<p>Git records versions of files. Each saved version is called a <strong>commit</strong>: a snapshot of the files you chose, together with a short message about what you changed. You decide when to make one. Git doesn’t save every keystroke.</p>
+<p>That gives you two things a folder full of copies doesn’t: a history you can inspect, and a way to move between versions without keeping them all on your desktop.</p>
+<section id="git-is-not-github" class="level3">
+<h3 class="anchored" data-anchor-id="git-is-not-github">Git is not GitHub</h3>
+<p>These two are often mentioned together, but they’re different things:</p>
+<ul>
+<li><strong>Git</strong> runs on your computer. It keeps the history, even without an internet connection or an account.</li>
+<li><strong>GitHub</strong> hosts a copy of a git repository online. It’s useful for sharing code, reviewing changes, and keeping another copy somewhere other than your laptop.</li>
+</ul>
+<p>You can use git without GitHub. We’ll start there and add GitHub once we have something worth sharing.</p>
+</section>
+<section id="install-git" class="level3">
+<h3 class="anchored" data-anchor-id="install-git">Install git</h3>
+<ul>
+<li><strong>Windows:</strong> Install it from <a href="https://git-scm.com/downloads">git-scm.com</a>. The default settings are fine. The installer also includes <em>Git Bash</em>, where the commands below will work.</li>
+<li><strong>macOS:</strong> Open Terminal and run <code>git --version</code>. If git isn’t installed, macOS should offer to install the command-line tools.</li>
+<li><strong>Linux:</strong> On Ubuntu, run <code>sudo apt install git</code>. Other distributions have equivalent packages.</li>
+</ul>
+<p>Check that it works:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then set the name and email that will appear next to your commits (once per computer):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Sam Gamgee"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"sam@chem.ku.dk"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> init.defaultBranch main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Use your own name and email, of course. The last line tells git to call the initial branch <code>main</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Don’t like terminals?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://desktop.github.com/">GitHub Desktop</a> and <a href="https://code.visualstudio.com/docs/sourcecontrol/overview">VS Code’s Source Control panel</a> let you do most of this with buttons. They’re perfectly good ways to use git. I’ll show commands because they’re easy to copy and work across operating systems.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="the-fellowship-of-the-folder" class="level2">
+<h2 class="anchored" data-anchor-id="the-fellowship-of-the-folder">The fellowship of the folder</h2>
+<p>Before using git, Sam cleans up the project. The <a href="../guidelines/cheac-dmp.html">CHEAC Data Management Plan</a> already has a sensible approach: explain the project in a README, keep the original measurements untouched, and separate data, scripts, and figures.</p>
+<p>Let’s give the CV analysis a home:</p>
+<pre class="text"><code>hea17-orr/
+├── README.md              # what this project does and where the data is stored
+├── .gitignore             # files git should leave alone
+├── requirements.txt       # Python packages used for the analysis
+├── data/
+│   ├── raw/               # original BioLogic files, kept outside git
+│   └── processed/         # smaller files produced during analysis
+├── scripts/
+│   └── plot_cv.py
+└── figures/
+    └── fig3_cv.png</code></pre>
+<p>It’s still just an ordinary folder. Git doesn’t require a particular structure, but it helps if the folder makes sense before you start recording its history.</p>
+<section id="what-should-git-keep" class="level3">
+<h3 class="anchored" data-anchor-id="what-should-git-keep">What should git keep?</h3>
+<p>Git works best with text files: Python scripts, notebooks, READMEs, configuration files, and reasonably small tables. Large binary files, especially ones that change often, can make a repository unnecessarily large.</p>
+<p>For this project, we’ll keep the code and small analysis files in git, but leave the original <code>.mpr</code> measurements in the lab’s data storage on ASIMOV or ERDA. Sam creates a file called <code>.gitignore</code>:</p>
+<pre class="gitignore"><code># Original measurements are archived separately
+data/raw/
+*.mpr
+.env
+
+# Temporary Python and notebook files
+__pycache__/
+.ipynb_checkpoints/</code></pre>
+<p>The README should say <strong>exactly where to find the raw files</strong>, which measurements were used, and how to run the analysis. It’s fine to have a local <code>data/raw/</code> folder containing copies of those files; git simply won’t include them in commits.</p>
+<p>This distinction matters. <strong>Git keeps a history of your code, not a complete record of your experiment.</strong> Reproducing a figure also requires the right raw measurements, calibration values, metadata, and software environment. That’s why we keep <code>requirements.txt</code> alongside the script and archive the raw data separately.</p>
+<p>GitHub has <a href="https://github.com/github/gitignore">ready-made <code>.gitignore</code> examples</a> for common languages and tools. When your Python environment is working, you can record the installed versions with <code>python -m pip freeze &gt; requirements.txt</code> (ideally from an environment made just for this project).</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Keep credentials out of git
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Passwords, access tokens, SSH keys, and anything else you wouldn’t want to publish should stay out of the repository. Put local credentials in a separate ignored file or an environment variable. Deleting a secret from a script later does <strong>not</strong> remove it from git’s history.</p>
+</div>
+</div>
+</section>
+<section id="your-first-commit" class="level3">
+<h3 class="anchored" data-anchor-id="your-first-commit">Your first commit</h3>
+<p>Open a terminal in the project folder:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> hea17-orr</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>git init</code> creates the repository. <code>git status</code> shows what’s currently going on. Before the first commit, you’ll see something like:</p>
+<pre class="text"><code>On branch main
+No commits yet
+
+Untracked files:
+  .gitignore
+  README.md
+  requirements.txt
+  scripts/</code></pre>
+<p>Notice that <code>data/raw/</code> isn’t listed. That’s because we told git to ignore it. Empty folders won’t show up either: git tracks files, not folders on their own.</p>
+<p>Now save the first version:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .gitignore README.md requirements.txt scripts/</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Add initial HEA17 CV plotting script"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>git add</code> chooses what goes into the next commit. <code>git commit</code> saves that version, and the text after <code>-m</code> is your note to your future self.</p>
+<p>That’s the basic idea. No GitHub account, no special project setup, and no more copying scripts to keep the old versions.</p>
+</section>
+</section>
+<section id="the-road-goes-ever-on" class="level2">
+<h2 class="anchored" data-anchor-id="the-road-goes-ever-on">The road goes ever on</h2>
+<p>Here’s a shortened version of Sam’s plotting script. It uses <a href="https://github.com/ixdat/ixdat">ixdat</a> to load BioLogic measurements and plot the third CV cycle:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># scripts/plot_cv.py</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ixdat <span class="im">import</span> Measurement</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>raw <span class="op">=</span> Path(<span class="st">"data/raw"</span>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>files <span class="op">=</span> <span class="bu">sorted</span>(raw.glob(<span class="st">"HEA17_CV_*.mpr"</span>))</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> files:</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">FileNotFoundError</span>(<span class="st">"No HEA17 CV files found in data/raw/"</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>))</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> path <span class="kw">in</span> files:</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    cv <span class="op">=</span> Measurement.read(path, reader<span class="op">=</span><span class="st">"biologic"</span>).as_cv()</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    cv.calibrate_RE(RE_vs_RHE<span class="op">=</span><span class="fl">0.92</span>)  <span class="co"># V, from the RHE calibration</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    cv[<span class="dv">3</span>].plot_vs_potential(ax<span class="op">=</span>ax, label<span class="op">=</span>path.stem)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>ax.legend(frameon<span class="op">=</span><span class="va">False</span>, fontsize<span class="op">=</span><span class="dv">7</span>)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>Path(<span class="st">"figures"</span>).mkdir(exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>fig.savefig(<span class="st">"figures/fig3_cv.png"</span>, dpi<span class="op">=</span><span class="dv">300</span>, bbox_inches<span class="op">=</span><span class="st">"tight"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Run it from the project folder with <code>python scripts/plot_cv.py</code>. To install the packages used here:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> pip install ixdat matplotlib galvani</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The <code>galvani</code> package is needed for ixdat to read many BioLogic <code>.mpr</code> files. If yours doesn’t load, ixdat can also use <code>eclabfiles</code>, or you can export an <code>.mpt</code> text file from EC-Lab. The <a href="https://ixdat.readthedocs.io/en/latest/">ixdat documentation</a> covers the different readers, including working with ASIMOV.</p>
+<p>Keep <code>requirements.txt</code> updated when you change your Python packages. Together with the raw-data location, calibration values, and script, it gives someone else in the group a much better chance of reproducing the figure.</p>
+<section id="the-everyday-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="the-everyday-workflow">The everyday workflow</h3>
+<p>A week later, Sam gets an impedance measurement and wants to add iR correction. The workflow is simple: <strong>edit, check, commit</strong>.</p>
+<p>After adding the correction, run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Git shows the difference between the working file and the last saved version:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode diff code-with-copy"><code class="sourceCode diff"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>     cv.calibrate_RE(RE_vs_RHE=0.92)  # V, from the RHE calibration</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="va">+    cv.correct_ohmic_drop(R_Ohm=45)  # ohm, from EIS</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>     cv[3].plot_vs_potential(ax=ax, label=path.stem)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A <code>+</code> means a line was added; a <code>-</code> means it was removed. Nothing mysterious happened here. Sam added the correction, checked that the change was what he intended, and saves it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add scripts/plot_cv.py</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Add iR correction using 45 ohm from EIS"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>That’s most of what you need to do on a normal day. You don’t have to commit every time you press Run. Commit when you’ve made a change you’d want to understand or recover later.</p>
+</section>
+<section id="commit-messages-are-for-future-you" class="level3">
+<h3 class="anchored" data-anchor-id="commit-messages-are-for-future-you">Commit messages are for future you</h3>
+<p>A useful message says what changed and, when it isn’t obvious, why. Compare these:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Not very helpful</th>
+<th>Much better</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>update</code></td>
+<td><code>Use cycle 3; earlier cycles still show oxide reduction</code></td>
+</tr>
+<tr class="even">
+<td><code>fix</code></td>
+<td><code>Add iR correction using 45 ohm from EIS</code></td>
+</tr>
+<tr class="odd">
+<td><code>new fig</code></td>
+<td><code>Compare HEA17 and Pt reference in Fig. 3</code></td>
+</tr>
+<tr class="even">
+<td><code>asdf</code></td>
+<td><code>Normalise current by geometric area (0.196 cm²)</code></td>
+</tr>
+</tbody>
+</table>
+<p>Try to keep each commit about one thing. A change to the reference-electrode calibration and a change to the plot colours don’t need to be in the same commit.</p>
+<p>You can see the history at any point:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>e41f0a2 Compare HEA17 and Pt reference in Fig. 3
+9c3d7b1 Normalise current by geometric area (0.196 cm²)
+5b2a8e4 Add iR correction using 45 ohm from EIS
+a1b2c3d Add initial HEA17 CV plotting script</code></pre>
+<p>Each line is a commit. The short string on the left, such as <code>5b2a8e4</code>, identifies the version. That’s what you’ll use when someone asks about the figure from two weeks ago.</p>
+</section>
+</section>
+<section id="the-shadow-of-the-past" class="level2">
+<h2 class="anchored" data-anchor-id="the-shadow-of-the-past">The shadow of the past</h2>
+<p>And, sure enough, Sam’s supervisor does. They want to compare the latest CV with the version before area normalisation.</p>
+<p>The good news is that Sam doesn’t have to guess which backup script was used. Git already knows. There are a few ways to go back, depending on what you want.</p>
+<p><strong>Undo a change you haven’t committed.</strong> Say you’ve been editing <code>plot_cv.py</code>, it no longer runs, and you’d rather return to your last commit:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore scripts/plot_cv.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This discards the uncommitted edits in that file. Check <code>git diff</code> first if you’re unsure.</p>
+<p><strong>Get one file from an older commit.</strong> To run the version before area normalisation:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore <span class="at">--source</span><span class="op">=</span>5b2a8e4 scripts/plot_cv.py</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/plot_cv.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Now Sam can regenerate the older figure with the same raw measurements. The old code is a temporary change in the working folder; the commit history hasn’t moved. When he’s finished comparing, he can restore the latest committed script:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore scripts/plot_cv.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Be careful with the figure itself: the script may overwrite <code>figures/fig3_cv.png</code>. Save the comparison under a different name if you want both copies. And if you later reproduce a much older analysis, remember that the Python environment and raw-data versions may matter too.</p>
+<p><strong>Visit an older version of the entire project.</strong> First commit or set aside any work you want to keep. Then:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch <span class="at">--detach</span> 5b2a8e4</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect files or run the old analysis</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Git calls this <em>detached HEAD</em>. The name sounds worse than it is. You’re looking at a particular commit instead of working on a branch. <code>git switch main</code> gets you back.</p>
+<p><strong>Reverse a commit without erasing the history.</strong> If the area normalisation turns out to have used the wrong electrode area:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> revert 9c3d7b1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Git makes a new commit that undoes that change. You can still see both the mistake and the correction, much like in a proper lab notebook.</p>
+</section>
+<section id="side-quests-branches" class="level2">
+<h2 class="anchored" data-anchor-id="side-quests-branches">Side quests: branches</h2>
+<p>Now Sam wants to try a different baseline correction. It might reveal a small oxidation peak. Or it might just make the plot worse.</p>
+<p>This is where <strong>branches</strong> are handy. A branch is a separate line of commits. You can try something without changing the version you’re currently happy with.</p>
+<p>Start with a clean working folder, then:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch <span class="at">-c</span> try-baseline</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># edit and test the script</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add scripts/plot_cv.py</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Try linear baseline between 0.05 and 0.25 V"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The main branch, <code>main</code>, is still where you left it.</p>
+<p><strong>If the idea works</strong>, bring it back:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch main</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge try-baseline</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-d</span> try-baseline</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>If it doesn’t</strong>, leave it behind:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch main</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-D</span> try-baseline</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The capital <code>-D</code> forces deletion even though the experiment wasn’t merged, so only use it when you’re happy to discard the branch. You can also simply keep the branch around until you’ve decided.</p>
+<p>Either way, there’s no need for <code>plot_cv_baseline_TEST_dont_use.py</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>What about merge conflicts?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you changed the same lines on <code>main</code> and on your branch, git may need you to choose which edit to keep. It marks the disagreement in the file:</p>
+<pre class="text"><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+    cv.correct_ohmic_drop(R_Ohm=45)
+=======
+    cv.correct_ohmic_drop(R_Ohm=47)  # re-measured
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; try-baseline</code></pre>
+<p>Edit the file to keep the correct value, remove the marker lines, then run <code>git add scripts/plot_cv.py</code> and <code>git commit</code>. It’s annoying the first time, but it’s better than silently losing one person’s correction.</p>
+</div>
+</div>
+</section>
+<section id="git-and-ai-agents" class="level2">
+<h2 class="anchored" data-anchor-id="git-and-ai-agents">Git and AI agents</h2>
+<p>Here’s another situation that’s probably becoming familiar. You ask an AI coding agent to fix a legend. It fixes the legend, but it also renames two variables, reorganises a function, and starts testing a different smoothing window. The new figure looks fine. The problem is that six files changed, and you didn’t ask for most of it.</p>
+<p>Git makes these changes much easier to deal with, because you can inspect what the agent actually did rather than relying on its description.</p>
+<p>My rules are fairly simple:</p>
+<ol type="1">
+<li><strong>Commit your own work before starting.</strong> If the agent makes a mess, you have a known-good version to return to. Check <code>git status</code> first; <code>git restore .</code> only discards unstaged changes to tracked files, not new untracked files or staged changes.</li>
+<li><strong>Use a branch for larger experiments.</strong> Let the agent try a new smoothing method on <code>try-smoothing</code>, not on the version you’re preparing for the paper.</li>
+<li><strong>Ask for small, focused changes.</strong> Fix the legend, check the plot, commit. <em>Then</em> decide whether to do anything else.</li>
+<li><strong>Read <code>git diff</code> yourself.</strong> An agent’s summary can miss things. The diff tells you which lines really changed.</li>
+<li><strong>Don’t let the agent decide what to investigate next.</strong> If it suggests another analysis, ask what question that analysis would answer. A plausible-sounding side quest is still a side quest.</li>
+</ol>
+<p>The same habits are useful when you’re writing code yourself, but they’re especially valuable with agents because they can change a lot of code very quickly.</p>
+<p>If you use an instruction file (see <a href="../practices/agent-instructions.html">A CHEAC standard for AI agent instructions</a>), you can put the rules there. For example, add this to <code>AGENTS.md</code> or <code>CLAUDE.md</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Git</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Check <span class="in">`git status`</span> before editing. If I have uncommitted work, don't</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  overwrite it or make a commit without asking me.</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use a separate branch for experiments; don't modify <span class="in">`main`</span> without asking.</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Keep changes focused. Make small commits with messages saying what changed.</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Never commit raw measurements, credentials, tokens, or other ignored files.</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Show me the diff before treating a task as finished.</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Ask before merging, rebasing, pushing, force-pushing, or deleting branches.</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Don't suggest additional analyses unless you can explain what question</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  they would answer.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>One important detail: don’t give an agent blanket permission to run destructive git commands. In particular, <code>git restore</code>, <code>git reset --hard</code>, and <code>git clean</code> can wipe out work that hasn’t been committed. Make sure you know what’s about to be discarded.</p>
+</section>
+<section id="the-fellowship-github-and-co-authors" class="level2">
+<h2 class="anchored" data-anchor-id="the-fellowship-github-and-co-authors">The fellowship: GitHub and co-authors</h2>
+<p>Until now, the repository has lived entirely on Sam’s laptop. That works, but it’s risky. If the laptop disappears, the local git history goes with it.</p>
+<p>Time to put a copy online. GitHub is convenient, although it doesn’t replace the group’s proper data storage and backup arrangements.</p>
+<ol type="1">
+<li><p>Create an account at <a href="https://github.com">github.com</a>.</p></li>
+<li><p>Install the <a href="https://cli.github.com">GitHub CLI</a> and log in:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> auth login</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>In the project folder, create a <strong>private</strong> repository and push the existing history:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo create hea17-orr <span class="at">--private</span> <span class="at">--source</span><span class="op">=</span>. <span class="at">--remote</span><span class="op">=</span>origin <span class="at">--push</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+</ol>
+<p>After that, the usual commands are:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push    <span class="co"># send your commits to GitHub</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull    <span class="co"># bring in commits from GitHub</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Start private, especially if the project contains unpublished work. Before making it public, check what you’ve committed, whether you have permission to share it, and whether the repository contains data or information that should stay internal.</p>
+<section id="working-with-co-authors" class="level3">
+<h3 class="anchored" data-anchor-id="working-with-co-authors">Working with co-authors</h3>
+<p>Merry is working on the DFT part of the paper and wants to change the plotting script. Rather than emailing an edited file to Sam, Merry makes a branch and opens a <strong>pull request</strong> on GitHub.</p>
+<p>A pull request is just a proposed change. Sam can look through the diff, comment on individual lines, ask Merry to adjust things, and merge it into <code>main</code> when they’re both happy. It’s a particularly nice way to review changes to analysis scripts without having to compare two attachments called <code>final.py</code>.</p>
+<p>This website is updated through pull requests too.</p>
+</section>
+</section>
+<section id="there-and-back-again" class="level2">
+<h2 class="anchored" data-anchor-id="there-and-back-again">There and back again</h2>
+<p>The paper is ready. The figures have been checked, the scripts are committed, and the raw data is stored where the group expects it. A few final steps make it easier to return to the submitted version later.</p>
+<section id="mark-the-version-you-submitted" class="level3">
+<h3 class="anchored" data-anchor-id="mark-the-version-you-submitted">Mark the version you submitted</h3>
+<p>A <strong>tag</strong> gives a particular commit a name. Sam tags the version used for submission:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> tag <span class="at">-a</span> v1.0-submitted <span class="at">-m</span> <span class="st">"Version submitted to ACS Catalysis"</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin v1.0-submitted</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>When Reviewer 2 asks for another control experiment, Sam can do the revision work as usual and later tag <code>v1.1-revision</code>. The original submission stays easy to find.</p>
+</section>
+<section id="archive-the-code-alongside-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="archive-the-code-alongside-the-data">Archive the code alongside the data</h3>
+<p>Git can package the tagged files into a zip:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> archive <span class="at">--format</span><span class="op">=</span>zip <span class="at">-o</span> hea17-orr-v1.0.zip v1.0-submitted</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This contains the <strong>tracked files in that commit</strong>, not the git history and not the ignored raw measurements. Put it in the ERDA project archive alongside the raw data, relevant metadata, and anything else needed to rerun the analysis. Follow the <a href="../guidelines/cheac-dmp.html">CHEAC Data Management Plan</a> for the full archiving requirements.</p>
+<p>If you need the full git history in the archive as well, archive the repository separately; <code>git archive</code> intentionally makes a clean source snapshot.</p>
+</section>
+<section id="give-the-code-a-doi-optional" class="level3">
+<h3 class="anchored" data-anchor-id="give-the-code-a-doi-optional">Give the code a DOI (optional)</h3>
+<p>If the code is going to be public, you can connect the GitHub repository to <a href="https://zenodo.org">Zenodo</a>, create a GitHub release from the tag, and have Zenodo archive that release with a DOI. <a href="https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content">GitHub has a guide</a>. It’s an easy way to give readers a specific, citable version rather than a link to a repository that may keep changing.</p>
+<p>And that’s it. Sam still has one plotting script in his working folder. The difference is that all the earlier versions are in git, complete with the changes that got him from one to the next.</p>
+<p>He can finally delete <code>plot_cv_new_FINAL_v2_after_meeting_REALLY.py</code>.</p>
+</section>
+</section>
+<section id="when-things-go-wrong" class="level2">
+<h2 class="anchored" data-anchor-id="when-things-go-wrong">When things go wrong</h2>
+<p><strong>“I accidentally staged something.”</strong> Unstage it without deleting the file:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore <span class="at">--staged</span> data/processed/results.csv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>“I committed a huge raw-data file.”</strong> First, stop tracking it and add it to <code>.gitignore</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rm <span class="at">--cached</span> data/raw/huge_file.mpr</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If you added the file <strong>in your most recent commit and haven’t pushed</strong>, you can amend that commit after updating <code>.gitignore</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .gitignore</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">--amend</span> <span class="at">--no-edit</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If the file was committed earlier, or has already been pushed, that doesn’t remove it from the old history. Cleaning the history takes extra steps and may affect collaborators. Get help before rewriting a shared repository’s history.</p>
+<p><strong>“I committed a password or token.”</strong> Revoke or rotate it immediately. Even if you remove it from your latest file, the old value may still be accessible in the history.</p>
+<p><strong>“Git says detached HEAD.”</strong> You’re looking at an old commit. If you’ve only been inspecting things, <code>git switch main</code> takes you back. If you’ve made commits there that you want to keep, make a branch before switching.</p>
+<p><strong>“I broke the script and want the last committed version back.”</strong> Check what you’re throwing away with <code>git diff</code>, then:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore scripts/plot_cv.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For everything else, <a href="https://ohshitgit.com">Oh Shit, Git!?!</a> is a very good collection of solutions to common git disasters.</p>
+</section>
+<section id="cheat-sheet" class="level2">
+<h2 class="anchored" data-anchor-id="cheat-sheet">Cheat sheet</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>What you want to do</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Start a repository</td>
+<td><code>git init</code></td>
+</tr>
+<tr class="even">
+<td>Check what’s changed</td>
+<td><code>git status</code></td>
+</tr>
+<tr class="odd">
+<td>See edits line by line</td>
+<td><code>git diff</code></td>
+</tr>
+<tr class="even">
+<td>Stage a file</td>
+<td><code>git add &lt;file&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Unstage a file</td>
+<td><code>git restore --staged &lt;file&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Save a version</td>
+<td><code>git commit -m "What changed"</code></td>
+</tr>
+<tr class="odd">
+<td>See past versions</td>
+<td><code>git log --oneline</code></td>
+</tr>
+<tr class="even">
+<td>Discard uncommitted edits to a tracked file</td>
+<td><code>git restore &lt;file&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Get a file from an old commit</td>
+<td><code>git restore --source=&lt;commit&gt; &lt;file&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Visit an old commit</td>
+<td><code>git switch --detach &lt;commit&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Return to <code>main</code></td>
+<td><code>git switch main</code></td>
+</tr>
+<tr class="even">
+<td>Reverse a commit with a new one</td>
+<td><code>git revert &lt;commit&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Start an experimental branch</td>
+<td><code>git switch -c try-&lt;name&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Merge the experiment</td>
+<td><code>git switch main</code> then <code>git merge try-&lt;name&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Delete a merged branch</td>
+<td><code>git branch -d try-&lt;name&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Force-delete an unmerged branch</td>
+<td><code>git branch -D try-&lt;name&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Send commits to GitHub</td>
+<td><code>git push</code></td>
+</tr>
+<tr class="even">
+<td>Get changes from GitHub</td>
+<td><code>git pull</code></td>
+</tr>
+<tr class="odd">
+<td>Tag a version</td>
+<td><code>git tag -a v1.0-submitted -m "..."</code></td>
+</tr>
+<tr class="even">
+<td>Export tagged files as a zip</td>
+<td><code>git archive --format=zip -o out.zip v1.0-submitted</code></td>
+</tr>
+</tbody>
+</table>
+<p>There’s also a printable <a href="https://education.github.com/git-cheat-sheet-education.pdf">GitHub cheat sheet</a>.</p>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://swcarpentry.github.io/git-novice/">Software Carpentry: Version Control with Git</a> is written for researchers and includes exercises you can follow.</li>
+<li><em>Pro Git</em> is a free book if you want to understand what happens underneath <span class="citation" data-cites="chacon2014progit">(<a href="#ref-chacon2014progit" role="doc-biblioref">Chacon and Straub 2014</a>)</span>.</li>
+<li>Short introductions to git in research: <span class="citation" data-cites="blischak2016quick">(<a href="#ref-blischak2016quick" role="doc-biblioref">Blischak et al. 2016</a>)</span> and <span class="citation" data-cites="ram2013git">(<a href="#ref-ram2013git" role="doc-biblioref">Ram 2013</a>)</span>.</li>
+<li><em>Good enough practices in scientific computing</em> is a useful guide to keeping research projects manageable <span class="citation" data-cites="wilson2017good">(<a href="#ref-wilson2017good" role="doc-biblioref">Wilson et al. 2017</a>)</span>.</li>
+</ul>
+</section>
+<section id="references" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-blischak2016quick" class="csl-entry" role="listitem">
+Blischak, John D., Emily R. Davenport, and Greg Wilson. 2016. <span>“A Quick Introduction to Version Control with <span>Git</span> and <span>GitHub</span>.”</span> <em>PLOS Computational Biology</em> 12 (1): e1004668. <a href="https://doi.org/10.1371/journal.pcbi.1004668">https://doi.org/10.1371/journal.pcbi.1004668</a>.
+</div>
+<div id="ref-chacon2014progit" class="csl-entry" role="listitem">
+Chacon, Scott, and Ben Straub. 2014. <em>Pro <span>Git</span></em>. 2nd ed. Apress. <a href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a>.
+</div>
+<div id="ref-ram2013git" class="csl-entry" role="listitem">
+Ram, Karthik. 2013. <span>“Git Can Facilitate Greater Reproducibility and Increased Transparency in Science.”</span> <em>Source Code for Biology and Medicine</em> 8: 7. <a href="https://doi.org/10.1186/1751-0473-8-7">https://doi.org/10.1186/1751-0473-8-7</a>.
+</div>
+<div id="ref-wilson2017good" class="csl-entry" role="listitem">
+Wilson, Greg, Jennifer Bryan, Karen Cranston, Justin Kitzes, Lex Nederbragt, and Tracy K. Teal. 2017. <span>“Good Enough Practices in Scientific Computing.”</span> <em>PLOS Computational Biology</em> 13 (6): e1005510. <a href="https://doi.org/10.1371/journal.pcbi.1005510">https://doi.org/10.1371/journal.pcbi.1005510</a>.
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/cheac-ai\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>CHEAC AI Council · University of Copenhagen · University of Bern</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
