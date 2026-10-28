@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Till Schertenleib">
+<meta name="dcterms.date" content="2026-10-28">
+<meta name="description" content="Set up a new computer for research coding at CHEAC: Miniconda with conda-forge, git and Git Bash, VS Code with conda environments, and Claude Code, including how sessions work and how to keep one inside a project folder.">
+
+<title>Onboarding – \btw</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../assets/logos/cheac-logo-square-transparent.svg" rel="icon" type="image/svg+xml">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8ecfa9a0b2e90686617a243d1b332428.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<meta property="og:title" content="Onboarding – \btw">
+<meta property="og:description" content="Set up a new computer for research coding at CHEAC: Miniconda with conda-forge, git and Git Bash, VS Code with conda environments, and Claude Code, including how sessions work and how to keep one inside a project folder.">
+<meta property="og:image" content="https://cheac-ai.github.io/assets/figures/onboarding-toc.svg">
+<meta property="og:site_name" content="\btw">
+<meta property="og:image:alt" content="A VS Code window standing on a Miniconda base, with a Git Bash terminal and a Claude Code session inside one dashed project folder">
+<meta name="twitter:title" content="Onboarding – \btw">
+<meta name="twitter:description" content="Set up a new computer for research coding at CHEAC: Miniconda with conda-forge, git and Git Bash, VS Code with conda environments, and Claude Code, including how sessions work and how to keep one inside a project folder.">
+<meta name="twitter:image" content="https://cheac-ai.github.io/assets/figures/onboarding-toc.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:alt" content="A VS Code window standing on a Miniconda base, with a Git Bash terminal and a Claude Code session inside one dashed project folder">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../assets/logos/cheac-logo-long-transparent.svg" alt="CHEAC logo" class="navbar-logo light-content">
+    <img src="../assets/logos/cheac-logo-long-transparent.svg" alt="CHEAC logo" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">\btw</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../practices/index.html"> 
+<span class="menu-text">Best Practices</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../guidelines/index.html"> 
+<span class="menu-text">Guidelines</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../ai-in-research/index.html"> 
+<span class="menu-text">AI in research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../transparency/index.html"> 
+<span class="menu-text">Transparency</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../news/index.html"> 
+<span class="menu-text">AI News</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../suggestions/index.html"> 
+<span class="menu-text">Suggestion box</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../contributing/contributing.html"> 
+<span class="menu-text">Contributing</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/cheac-ai/cheac-ai.github.io"> <i class="bi bi-github" role="img" aria-label="GitHub repository">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-youll-have-at-the-end" id="toc-what-youll-have-at-the-end" class="nav-link active" data-scroll-target="#what-youll-have-at-the-end">What you’ll have at the end</a></li>
+  <li><a href="#install-miniconda" id="toc-install-miniconda" class="nav-link" data-scroll-target="#install-miniconda">Install Miniconda</a>
+  <ul class="collapse">
+  <li><a href="#switch-to-conda-forge" id="toc-switch-to-conda-forge" class="nav-link" data-scroll-target="#switch-to-conda-forge">Switch to conda-forge</a></li>
+  </ul></li>
+  <li><a href="#install-git-and-git-bash" id="toc-install-git-and-git-bash" class="nav-link" data-scroll-target="#install-git-and-git-bash">Install git and Git Bash</a></li>
+  <li><a href="#make-conda-work-in-your-terminal" id="toc-make-conda-work-in-your-terminal" class="nav-link" data-scroll-target="#make-conda-work-in-your-terminal">Make conda work in your terminal</a>
+  <ul class="collapse">
+  <li><a href="#one-environment-per-project" id="toc-one-environment-per-project" class="nav-link" data-scroll-target="#one-environment-per-project">One environment per project</a></li>
+  </ul></li>
+  <li><a href="#install-vs-code" id="toc-install-vs-code" class="nav-link" data-scroll-target="#install-vs-code">Install VS Code</a>
+  <ul class="collapse">
+  <li><a href="#open-a-folder-not-a-file" id="toc-open-a-folder-not-a-file" class="nav-link" data-scroll-target="#open-a-folder-not-a-file">Open a folder, not a file</a></li>
+  <li><a href="#use-git-bash-as-the-terminal-windows" id="toc-use-git-bash-as-the-terminal-windows" class="nav-link" data-scroll-target="#use-git-bash-as-the-terminal-windows">Use Git Bash as the terminal (Windows)</a></li>
+  <li><a href="#activate-your-environment" id="toc-activate-your-environment" class="nav-link" data-scroll-target="#activate-your-environment">Activate your environment</a></li>
+  </ul></li>
+  <li><a href="#claude-code-in-vs-code" id="toc-claude-code-in-vs-code" class="nav-link" data-scroll-target="#claude-code-in-vs-code">Claude Code in VS Code</a>
+  <ul class="collapse">
+  <li><a href="#install-and-sign-in" id="toc-install-and-sign-in" class="nav-link" data-scroll-target="#install-and-sign-in">Install and sign in</a></li>
+  <li><a href="#your-first-prompts" id="toc-your-first-prompts" class="nav-link" data-scroll-target="#your-first-prompts">Your first prompts</a></li>
+  <li><a href="#how-sessions-work" id="toc-how-sessions-work" class="nav-link" data-scroll-target="#how-sessions-work">How sessions work</a></li>
+  <li><a href="#is-a-session-confined-to-its-folder" id="toc-is-a-session-confined-to-its-folder" class="nav-link" data-scroll-target="#is-a-session-confined-to-its-folder">Is a session confined to its folder?</a></li>
+  <li><a href="#keeping-a-session-inside-a-project" id="toc-keeping-a-session-inside-a-project" class="nav-link" data-scroll-target="#keeping-a-session-inside-a-project">Keeping a session inside a project</a></li>
+  </ul></li>
+  <li><a href="#checklist" id="toc-checklist" class="nav-link" data-scroll-target="#checklist">Checklist</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Onboarding</h1>
+</div>
+
+<div>
+  <div class="description">
+    Set up a new computer for research coding at CHEAC: Miniconda with conda-forge, git and Git Bash, VS Code with conda environments, and Claude Code, including how sessions work and how to keep one inside a project folder.
+  </div>
+</div>
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Till Schertenleib </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Postdoc, Nanostructure Group
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">28 Oct 2026</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Last updated</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">28 Oct 2026</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../assets/figures/onboarding-toc.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="A VS Code window standing on a Miniconda base, with a Git Bash terminal and a Claude Code session inside one dashed project folder"></p>
+</figure>
+</div>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Already have conda, git, and VS Code?</strong> Skip to <a href="#claude-code-in-vs-code">Claude Code in VS Code</a>, and in particular <a href="#how-sessions-work">How sessions work</a> and <a href="#keeping-a-session-inside-a-project">Keeping a session inside a project</a>.</p>
+</div>
+</div>
+</div>
+<section id="what-youll-have-at-the-end" class="level2">
+<h2 class="anchored" data-anchor-id="what-youll-have-at-the-end">What you’ll have at the end</h2>
+<p>This page takes a new laptop to a setup where you can write and run Python for your research, keep it under version control, and work with an AI agent in the same window. In order:</p>
+<ol type="1">
+<li><strong>Miniconda</strong>, to install Python and keep a separate environment for each project.</li>
+<li><strong>git</strong>, and on Windows <strong>Git Bash</strong>, so that everyone at CHEAC types the same commands.</li>
+<li><strong>conda inside that shell</strong>, so <code>conda activate</code> works wherever you type it.</li>
+<li><strong>VS Code</strong>, opened on a project folder, with your conda environment and Git Bash in its terminal.</li>
+<li><strong>Claude Code</strong> in VS Code, and how its sessions relate to the folder you have open.</li>
+</ol>
+<p>Every step has a Windows and a macOS version where they differ. Once you’re set up, two other posts take over: <a href="../practices/git-workflow.html">One folder to rule them all</a> for working with git, and <a href="../practices/agent-instructions.html">A CHEAC standard for AI agent instructions</a> for telling the agent how to behave.</p>
+</section>
+<section id="install-miniconda" class="level2">
+<h2 class="anchored" data-anchor-id="install-miniconda">Install Miniconda</h2>
+<p><a href="https://www.anaconda.com/docs/getting-started/miniconda/main">Miniconda</a> is a small installer for <strong>conda</strong>, a tool that installs Python and scientific packages into separate <em>environments</em>. One environment per project means that upgrading NumPy for your new project doesn’t break the script you wrote for last year’s paper.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">macOS</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<ol type="1">
+<li>Download the Windows installer from the <a href="https://www.anaconda.com/download/success#miniconda">Miniconda page</a>.</li>
+<li>Run it and choose <strong>Just Me</strong>. Keep the default folder, <code>C:\Users\&lt;you&gt;\miniconda3</code>.</li>
+<li>Leave <strong>Add Miniconda3 to my PATH</strong> unticked (the default). We’ll make conda available in Git Bash in a moment instead.</li>
+</ol>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Open Terminal and check which processor you have:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">uname</span> <span class="at">-m</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>arm64</code> means Apple Silicon (M1 and later); <code>x86_64</code> means Intel. Then download and run the matching installer into <code>~/miniconda3</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Apple Silicon. On an Intel Mac, replace arm64 with x86_64.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-O</span> https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> Miniconda3-latest-MacOSX-arm64.sh <span class="at">-b</span> <span class="at">-p</span> ~/miniconda3</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> Miniconda3-latest-MacOSX-arm64.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<section id="switch-to-conda-forge" class="level3">
+<h3 class="anchored" data-anchor-id="switch-to-conda-forge">Switch to conda-forge</h3>
+<p>Out of the box, conda downloads packages from Anaconda’s own <code>defaults</code> channel. Anaconda’s terms of service require a paid licence to use that channel in organisations with 200 or more employees <span class="citation" data-cites="anacondatos">(<a href="#ref-anacondatos" role="doc-biblioref">Anaconda, Inc. 2024</a>)</span>, and the University of Copenhagen is well past that. <strong>conda-forge</strong> is a community channel with the same scientific packages, free for everyone <span class="citation" data-cites="condaforge">(<a href="#ref-condaforge" role="doc-biblioref"><span class="nocase">conda-forge community</span> 2026</a>)</span>. Most of the scientific Python world already uses it.</p>
+<p>Once conda works in your terminal (next two sections), run these three commands once:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> config <span class="at">--add</span> channels conda-forge</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> config <span class="at">--set</span> channel_priority strict</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> config <span class="at">--remove</span> channels defaults</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then check:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> config <span class="at">--show</span> channels</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>channels:
+  - conda-forge</code></pre>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Prefer not to think about channels?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://conda-forge.org/download/">Miniforge</a> is Miniconda with conda-forge already set as the only channel. If you install Miniforge instead, skip this step. Everything else on this page is the same, apart from the folder name (<code>miniforge3</code> instead of <code>miniconda3</code>).</p>
+</div>
+</div>
+</section>
+</section>
+<section id="install-git-and-git-bash" class="level2">
+<h2 class="anchored" data-anchor-id="install-git-and-git-bash">Install git and Git Bash</h2>
+<p>Git keeps the history of your scripts. The <a href="../practices/git-workflow.html">git workflow post</a> explains why that’s useful. Here we only install it.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">macOS</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>Download git from <a href="https://git-scm.com/downloads/win">git-scm.com</a> and run the installer. The default settings are fine.</p>
+<p>The installer also gives you <strong>Git Bash</strong>, a terminal that understands the same commands as macOS and Linux (<code>ls</code>, <code>cd</code>, <code>cp</code>, and so on). That’s why we use it: the commands in the CHEAC posts, and most of what you’ll find online, work in Git Bash unchanged. Claude Code also uses Git Bash for its shell commands when it’s installed <span class="citation" data-cites="claudecodesetup">(<a href="#ref-claudecodesetup" role="doc-biblioref">Anthropic 2026a</a>)</span>.</p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>Open Terminal and run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If git isn’t installed, macOS offers to install the <em>Command Line Tools</em>. Accept, and run the command again. You don’t need Git Bash on a Mac: Terminal already speaks the same language.</p>
+</div>
+</div>
+</div>
+<p>Then set your name and email once, as described in <a href="../practices/git-workflow.html#install-git">Install git</a>.</p>
+</section>
+<section id="make-conda-work-in-your-terminal" class="level2">
+<h2 class="anchored" data-anchor-id="make-conda-work-in-your-terminal">Make conda work in your terminal</h2>
+<p>Conda needs a few lines in your shell’s start-up file before <code>conda activate</code> works. <code>conda init</code> writes them for you.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Windows (Git Bash)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">macOS</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>Open <strong>Git Bash</strong> from the Start menu and run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/miniconda3/Scripts/conda.exe</span> init bash</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Close Git Bash, open it again, and check:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> <span class="at">--version</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate base</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The prompt should now start with <code>(base)</code>. <code>conda init</code> added its lines to <code>~/.bash_profile</code>, which Git Bash reads every time it starts.</p>
+<p>If <code>conda</code> is still not found, add the line yourself and reopen Git Bash:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">'. ~/miniconda3/etc/profile.d/conda.sh'</span> <span class="op">&gt;&gt;</span> ~/.bash_profile</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>The default shell on a Mac is zsh. Run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/miniconda3/bin/conda</span> init zsh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Close Terminal, open it again, and check:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The prompt should now start with <code>(base)</code>.</p>
+</div>
+</div>
+</div>
+<p>Now go back and <a href="#switch-to-conda-forge">switch to conda-forge</a> if you haven’t yet.</p>
+<p>If you’d rather not have <code>(base)</code> activated in every new terminal, turn it off:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> config <span class="at">--set</span> auto_activate_base false</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="one-environment-per-project" class="level3">
+<h3 class="anchored" data-anchor-id="one-environment-per-project">One environment per project</h3>
+<p>Don’t install your packages into <code>base</code>. Make an environment for each project, named after it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> hea17 python=3.12 numpy scipy matplotlib</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate hea17</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Install more packages into it as you need them (<code>conda install pandas</code>, or <code>python -m pip install ixdat</code> for packages that aren’t on conda-forge). When the analysis works, save a list of what you asked for in the project folder:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env export <span class="at">--from-history</span> <span class="op">&gt;</span> environment.yml</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Someone else (or you, on a new laptop) can then rebuild the environment with <code>conda env create -f environment.yml</code>. Commit <code>environment.yml</code> together with your scripts. It does the same job as the <code>requirements.txt</code> in the <a href="../practices/git-workflow.html#what-should-git-keep">git workflow post</a>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Interactive Python in the Git Bash window
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If typing <code>python</code> in the standalone Git Bash window just hangs, start it with <code>winpty python</code> instead. Scripts (<code>python plot_cv.py</code>) run normally, and the VS Code terminal below doesn’t have this problem.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="install-vs-code" class="level2">
+<h2 class="anchored" data-anchor-id="install-vs-code">Install VS Code</h2>
+<p><a href="https://code.visualstudio.com">VS Code</a> is a free code editor. You get your files, a terminal, git, and Claude Code in one window.</p>
+<ol type="1">
+<li>Download and install it from <a href="https://code.visualstudio.com">code.visualstudio.com</a>. On macOS, drag it into <em>Applications</em>, open it, press <code>Cmd+Shift+P</code>, and run <strong>Shell Command: Install ‘code’ command in PATH</strong>. That lets you open a folder from Terminal with <code>code .</code>.</li>
+<li>Open the <strong>Extensions</strong> view (the four-squares icon on the left) and install <strong>Python</strong> (by Microsoft). Add <strong>Jupyter</strong> if you use notebooks.</li>
+</ol>
+<section id="open-a-folder-not-a-file" class="level3">
+<h3 class="anchored" data-anchor-id="open-a-folder-not-a-file">Open a folder, not a file</h3>
+<p>Always work in VS Code through <strong>File → Open Folder…</strong> and pick the project folder (<code>hea17-orr/</code>, say). When VS Code asks whether you trust the authors of the files in this folder, answer yes for your own projects.</p>
+<p>This matters more than it looks. The folder you open is what VS Code shows in its file explorer and opens its terminal in. It’s also the folder Claude Code treats as its workspace (more on that <a href="#keeping-a-session-inside-a-project">below</a>). Use one window per project.</p>
+</section>
+<section id="use-git-bash-as-the-terminal-windows" class="level3">
+<h3 class="anchored" data-anchor-id="use-git-bash-as-the-terminal-windows">Use Git Bash as the terminal (Windows)</h3>
+<p>VS Code’s terminal (<code>Ctrl+`</code>) starts PowerShell by default on Windows. To make it Git Bash:</p>
+<ol type="1">
+<li>Press <code>Ctrl+Shift+P</code> and run <strong>Terminal: Select Default Profile</strong>.</li>
+<li>Choose <strong>Git Bash</strong>.</li>
+<li>Close any open terminal (bin icon) and open a new one.</li>
+</ol>
+<p>The same setting in your user <code>settings.json</code> (<code>Ctrl+Shift+P</code> → <strong>Preferences: Open User Settings (JSON)</strong>):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="st">"terminal.integrated.defaultProfile.windows"</span><span class="er">:</span> <span class="st">"Git Bash"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>On macOS the terminal already uses zsh, and there’s nothing to change.</p>
+</section>
+<section id="activate-your-environment" class="level3">
+<h3 class="anchored" data-anchor-id="activate-your-environment">Activate your environment</h3>
+<p>Tell VS Code which conda environment belongs to this project:</p>
+<ol type="1">
+<li>Press <code>Ctrl+Shift+P</code> (<code>Cmd+Shift+P</code> on a Mac) and run <strong>Python: Select Interpreter</strong>.</li>
+<li>Pick the environment, e.g.&nbsp;<code>hea17</code> (it shows the path <code>~/miniconda3/envs/hea17</code>).</li>
+</ol>
+<p>VS Code uses that interpreter when you press Run on a Python file, and activates the environment in <strong>new</strong> terminals. Open a fresh terminal and check:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> info <span class="at">--envs</span>     <span class="co"># the active environment is marked with *</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> python          <span class="co"># should point into miniconda3/envs/hea17</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If the prompt doesn’t show <code>(hea17)</code>, run <code>conda activate hea17</code> yourself. That always works, because conda is set up in the shell.</p>
+</section>
+</section>
+<section id="claude-code-in-vs-code" class="level2">
+<h2 class="anchored" data-anchor-id="claude-code-in-vs-code">Claude Code in VS Code</h2>
+<p><a href="https://code.claude.com/docs/en/overview">Claude Code</a> is Anthropic’s AI agent. It can read the files in your project, edit them, and run commands, with your approval. The <a href="../practices/agent-instructions.html">agent instructions post</a> explains what agents are and how to give them standing instructions. Here we set it up in VS Code and look at how its sessions work.</p>
+<section id="install-and-sign-in" class="level3">
+<h3 class="anchored" data-anchor-id="install-and-sign-in">Install and sign in</h3>
+<ol type="1">
+<li>In the Extensions view, search for <strong>Claude Code</strong> and install the extension published by <strong>Anthropic</strong>.</li>
+<li>Click the <strong>Spark icon</strong> (✻) at the top right of an open file, or <strong>✻ Claude Code</strong> in the status bar at the bottom right.</li>
+<li>Click <strong>Sign in</strong> and finish in the browser. You need a paid Claude plan (Pro, Max, Team, or Enterprise) or an Anthropic Console account. The free plan doesn’t include Claude Code <span class="citation" data-cites="claudecodevscode">(<a href="#ref-claudecodevscode" role="doc-biblioref">Anthropic 2026d</a>)</span>.</li>
+</ol>
+<p>The extension includes everything it needs. You don’t have to install the command-line version separately. On Windows, it uses Git Bash for shell commands if git is installed, and PowerShell otherwise <span class="citation" data-cites="claudecodesetup">(<a href="#ref-claudecodesetup" role="doc-biblioref">Anthropic 2026a</a>)</span>.</p>
+<p>The extension also activates the project’s Python environment when it runs commands (the setting <code>claudeCode.usePythonEnvironment</code>, on by default). So once you’ve picked <code>hea17</code> with <strong>Python: Select Interpreter</strong>, a <code>python plot_cv.py</code> that Claude runs uses the same packages as yours.</p>
+</section>
+<section id="your-first-prompts" class="level3">
+<h3 class="anchored" data-anchor-id="your-first-prompts">Your first prompts</h3>
+<ul>
+<li><strong>Ask about a file.</strong> Type <code>@</code> and part of a file name to point Claude at it: “What does <code>@scripts/plot_cv.py</code> do with the reference electrode?” Selected text in the editor is passed along automatically.</li>
+<li><strong>Check the permission mode</strong> under the prompt box. Start in <strong>Manual</strong>: Claude shows every edit as a side-by-side diff and asks before applying it or running a command. <strong>Plan</strong> mode lets it read and propose a plan without editing anything, which is a good start for a larger task. <strong>Edit automatically</strong> and <strong>Auto</strong> skip most questions. Leave those until you know how Claude works in your project.</li>
+<li><strong>Undo.</strong> Hover over one of your earlier messages and choose <strong>Rewind code to here</strong> to roll back the files Claude changed after that point. Git is still the better safety net. See <a href="../practices/git-workflow.html#git-and-ai-agents">Git and AI agents</a>.</li>
+<li><strong>Give it standing instructions</strong> in a <code>CLAUDE.md</code> file, as described in <a href="../practices/agent-instructions.html#cheac-standard">the CHEAC standard</a>.</li>
+</ul>
+</section>
+<section id="how-sessions-work" class="level3">
+<h3 class="anchored" data-anchor-id="how-sessions-work">How sessions work</h3>
+<p>A <strong>session</strong> is one conversation with Claude: your messages, its replies, and every file it read or command it ran along the way. Everything in it counts toward the model’s context, the text it has in view when it answers.</p>
+<p><strong>A session belongs to the folder it started in.</strong> Claude Code saves each session on your computer as it goes, in a folder named after the project folder <span class="citation" data-cites="claudecodesessions">(<a href="#ref-claudecodesessions" role="doc-biblioref">Anthropic 2026c</a>)</span>:</p>
+<pre class="text"><code>~/.claude/projects/
+├── C--Users-sam-projects-hea17-orr/      # one folder per project folder
+│   ├── 3f2a…e81.jsonl                    # one file per session
+│   └── 9b07…c4d.jsonl
+└── C--Users-sam-projects-xrd-fits/
+    └── …</code></pre>
+<p>Some practical consequences:</p>
+<ul>
+<li><strong>History follows the folder.</strong> Click <strong>Session history</strong> at the top of the Claude panel, or the Spark icon in the left Activity Bar, to see past sessions for the folder you have open, and click one to continue it. Open a different project folder and you see that project’s sessions instead.</li>
+<li><strong>Each tab is a separate session.</strong> <strong>Claude Code: Open in New Tab</strong> from the Command Palette starts a second, independent conversation in the same folder. That’s handy for a side question, but two sessions editing the same files at once will get in each other’s way. Give them separate files or separate <a href="../practices/git-workflow.html#side-quests-branches">git branches</a>.</li>
+<li><strong>A new session starts blank.</strong> It knows nothing from earlier sessions except what’s in your instruction files (<code>CLAUDE.md</code> / <code>AGENTS.md</code>) and anything Claude has saved to its memory for this project. If a fact matters for every session, put it in the instruction file rather than repeating it.</li>
+<li><strong>Keep sessions short and focused.</strong> One task per session works best. Type <code>/clear</code> to start fresh when you change topic (the old session stays in the history), or <code>/compact</code> to have Claude summarise a long conversation and continue from the summary. Rename sessions you’ll come back to.</li>
+<li><strong>Sessions are local and temporary.</strong> They aren’t synced anywhere. The VS Code list archives a session after 14 days without activity, and Claude Code deletes saved sessions after 30 days by default (<code>cleanupPeriodDays</code> in the settings). A session is not a lab notebook. Results, decisions, and code belong in the project folder and in git.</li>
+</ul>
+</section>
+<section id="is-a-session-confined-to-its-folder" class="level3">
+<h3 class="anchored" data-anchor-id="is-a-session-confined-to-its-folder">Is a session confined to its folder?</h3>
+<p>Partly. The folder you have open is the session’s <strong>working directory</strong>, and Claude’s file tools treat it as a boundary <span class="citation" data-cites="claudecodepermissions">(<a href="#ref-claudecodepermissions" role="doc-biblioref">Anthropic 2026b</a>)</span>:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>What Claude does</th>
+<th>Inside the project folder</th>
+<th>Outside it</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Read a file</td>
+<td>No question asked</td>
+<td>Asks you first</td>
+</tr>
+<tr class="even">
+<td>Edit or create a file</td>
+<td>Asks you (in Manual mode)</td>
+<td>Asks you</td>
+</tr>
+<tr class="odd">
+<td>Run a shell command</td>
+<td>Asks you, except for read-only commands like <code>ls</code> or <code>git status</code></td>
+<td>Asks you</td>
+</tr>
+</tbody>
+</table>
+<p>The last row is the catch. <strong>A shell command runs with your own user rights.</strong> <code>python some_script.py</code> or <code>cp -r</code> can reach any file you can reach, wherever it is. The folder boundary is enforced for Claude’s file tools, not for the programs it starts. So the most important protection is still you, reading the command before you approve it.</p>
+</section>
+<section id="keeping-a-session-inside-a-project" class="level3">
+<h3 class="anchored" data-anchor-id="keeping-a-session-inside-a-project">Keeping a session inside a project</h3>
+<p>You can tighten things up in a few ways, from simplest to strictest:</p>
+<p><strong>1. Open one project folder per window.</strong> That folder is the working directory, so Claude reads freely there and asks about everything else. Don’t open your whole home folder or <code>Documents</code> as a workspace: then <em>everything</em> is “inside”.</p>
+<p><strong>2. Add other folders on purpose.</strong> If the analysis needs a folder elsewhere, such as raw data on a mapped ERDA drive, type <code>/add-dir &lt;path&gt;</code> in the session, or list it under <code>additionalDirectories</code> in the settings. Claude can then read there without asking, under the same rules as the project folder.</p>
+<p><strong>3. Block reads outside the project and protect raw data.</strong> Put a settings file in the project, <code>.claude/settings.json</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"permissions"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"blockReadsOutsideWorkingDirectories"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"deny"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Edit(/data/raw/**)"</span><span class="ot">,</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Read(/.env)"</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><code>blockReadsOutsideWorkingDirectories</code> makes Claude’s file tools refuse files outside the project folder (and any added folders), in every permission mode, instead of asking.</li>
+<li><code>deny</code> rules forbid specific actions. A path starting with <code>/</code> is relative to the project folder, so <code>Edit(/data/raw/**)</code> stops Claude from editing anything in <code>data/raw/</code>. That matches the “raw data is read-only” rule in the <a href="../guidelines/cheac-dmp.html">CHEAC Data Management Plan</a>.</li>
+</ul>
+<p>To apply the same rules to all your projects, put them in <code>~/.claude/settings.json</code> instead. You can also add and remove rules through the extension: type <code>/</code> in the prompt box to open the command menu and choose <strong>Permissions</strong> under <em>Customize</em>.</p>
+<p>Deny rules also cover the common file commands Claude runs in the shell, such as <code>cat</code>, <code>sed</code>, and redirects like <code>&gt; file</code>. They don’t cover a Python script that opens the file itself. Treat them as a strong guard rail, not a wall.</p>
+<p><strong>4. Sandbox shell commands (macOS).</strong> On macOS, type <code>/sandbox</code> to run Claude’s shell commands in an operating-system sandbox that limits them to the project folder and to network hosts you allow. This <em>does</em> hold for scripts Claude starts. Sandboxing isn’t available on native Windows (it is in WSL 2) <span class="citation" data-cites="claudecodesetup">(<a href="#ref-claudecodesetup" role="doc-biblioref">Anthropic 2026a</a>)</span>.</p>
+<p><strong>5. Don’t move sessions casually.</strong> <code>/cd &lt;path&gt;</code> moves a running session to a different folder, and from then on it treats that folder as its workspace. It’s useful when you really mean it, but it’s an easy way to lose track of what the session can touch.</p>
+<p>Whatever you set up, the <a href="../practices/git-workflow.html#git-and-ai-agents">git habits</a> still apply: commit before you start a session, and read <code>git diff</code> before you accept that it’s finished.</p>
+</section>
+</section>
+<section id="checklist" class="level2">
+<h2 class="anchored" data-anchor-id="checklist">Checklist</h2>
+<p>Open a new terminal in VS Code (Git Bash on Windows) and check each step:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Step</th>
+<th>Command</th>
+<th>You should see</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>conda</td>
+<td><code>conda --version</code></td>
+<td><code>conda 25.x</code> or similar</td>
+</tr>
+<tr class="even">
+<td>conda-forge</td>
+<td><code>conda config --show channels</code></td>
+<td>only <code>conda-forge</code></td>
+</tr>
+<tr class="odd">
+<td>Project environment</td>
+<td><code>conda activate hea17</code> then <code>which python</code></td>
+<td>a path inside <code>miniconda3/envs/hea17</code></td>
+</tr>
+<tr class="even">
+<td>git</td>
+<td><code>git --version</code></td>
+<td><code>git version 2.x</code></td>
+</tr>
+<tr class="odd">
+<td>git identity</td>
+<td><code>git config --global user.name</code></td>
+<td>your name</td>
+</tr>
+<tr class="even">
+<td>VS Code</td>
+<td><code>code --version</code></td>
+<td>a version number</td>
+</tr>
+<tr class="odd">
+<td>Claude Code</td>
+<td>type <code>/status</code> in the Claude panel</td>
+<td>your account, model, and version</td>
+</tr>
+</tbody>
+</table>
+<p>When all seven work, you’re set up. Next: <a href="../practices/git-workflow.html">put a project under git</a> and <a href="../practices/agent-instructions.html">write your instruction file</a>.</p>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">Conda: managing environments</a>, the official guide to creating, exporting, and removing environments.</li>
+<li><a href="https://code.visualstudio.com/docs/python/environments">Python environments in VS Code</a>.</li>
+<li><a href="https://code.claude.com/docs/en/vs-code">Use Claude Code in VS Code</a> <span class="citation" data-cites="claudecodevscode">(<a href="#ref-claudecodevscode" role="doc-biblioref">Anthropic 2026d</a>)</span>.</li>
+<li><a href="https://code.claude.com/docs/en/sessions">Manage sessions</a> and <a href="https://code.claude.com/docs/en/permissions">Configure permissions</a> in the Claude Code documentation <span class="citation" data-cites="claudecodesessions claudecodepermissions">(<a href="#ref-claudecodesessions" role="doc-biblioref">Anthropic 2026c</a>, <a href="#ref-claudecodepermissions" role="doc-biblioref">2026b</a>)</span>.</li>
+</ul>
+</section>
+<section id="references" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-anacondatos" class="csl-entry" role="listitem">
+Anaconda, Inc. 2024. <em>Anaconda Terms of Service</em>. <a href="https://www.anaconda.com/legal/terms/terms-of-service" class="uri">Https://www.anaconda.com/legal/terms/terms-of-service</a>.
+</div>
+<div id="ref-claudecodesetup" class="csl-entry" role="listitem">
+Anthropic. 2026a. <em>Advanced Setup</em>. Claude Code documentation, <a href="https://code.claude.com/docs/en/setup" class="uri">https://code.claude.com/docs/en/setup</a>.
+</div>
+<div id="ref-claudecodepermissions" class="csl-entry" role="listitem">
+Anthropic. 2026b. <em>Configure Permissions</em>. Claude Code documentation, <a href="https://code.claude.com/docs/en/permissions" class="uri">https://code.claude.com/docs/en/permissions</a>.
+</div>
+<div id="ref-claudecodesessions" class="csl-entry" role="listitem">
+Anthropic. 2026c. <em>Manage Sessions</em>. Claude Code documentation, <a href="https://code.claude.com/docs/en/sessions" class="uri">https://code.claude.com/docs/en/sessions</a>.
+</div>
+<div id="ref-claudecodevscode" class="csl-entry" role="listitem">
+Anthropic. 2026d. <em>Use <span>Claude Code</span> in <span>VS Code</span></em>. Claude Code documentation, <a href="https://code.claude.com/docs/en/vs-code" class="uri">https://code.claude.com/docs/en/vs-code</a>.
+</div>
+<div id="ref-condaforge" class="csl-entry" role="listitem">
+<span class="nocase">conda-forge community</span>. 2026. <em>Conda-Forge: A Community-Led Collection of Recipes, Build Infrastructure and Distributions for the Conda Package Manager</em>. <a href="https://conda-forge.org" class="uri">Https://conda-forge.org</a>.
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/cheac-ai\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>CHEAC AI Council · University of Copenhagen · University of Bern</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

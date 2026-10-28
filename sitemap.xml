@@ -2,50 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://cheac-ai.github.io/transparency/index.html</loc>
-    <lastmod>2026-10-25T13:26:40.527Z</lastmod>
+    <lastmod>2026-10-28T11:07:33.866Z</lastmod>
   </url>
   <url>
-    <loc>https://cheac-ai.github.io/practices/index.html</loc>
-    <lastmod>2026-10-25T13:26:40.526Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cheac-ai.github.io/practices/agent-instructions.html</loc>
-    <lastmod>2026-10-25T13:26:40.526Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cheac-ai.github.io/index.html</loc>
-    <lastmod>2026-10-25T13:26:40.526Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cheac-ai.github.io/guidelines/index.html</loc>
-    <lastmod>2026-10-25T13:26:40.526Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cheac-ai.github.io/contributing/contributing.html</loc>
-    <lastmod>2026-10-25T13:26:40.525Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cheac-ai.github.io/ai-in-research/index.html</loc>
-    <lastmod>2026-10-25T13:26:40.524Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cheac-ai.github.io/guidelines/cheac-dmp.html</loc>
-    <lastmod>2026-10-25T13:26:40.525Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cheac-ai.github.io/guidelines/ku-guidelines.html</loc>
-    <lastmod>2026-10-25T13:26:40.526Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cheac-ai.github.io/news/index.html</loc>
-    <lastmod>2026-10-25T13:26:40.526Z</lastmod>
+    <loc>https://cheac-ai.github.io/practices/onboarding.html</loc>
+    <lastmod>2026-10-28T11:07:33.866Z</lastmod>
   </url>
   <url>
     <loc>https://cheac-ai.github.io/practices/git-workflow.html</loc>
-    <lastmod>2026-10-25T13:26:40.526Z</lastmod>
+    <lastmod>2026-10-28T11:07:33.866Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cheac-ai.github.io/news/index.html</loc>
+    <lastmod>2026-10-28T11:07:33.865Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cheac-ai.github.io/guidelines/ku-guidelines.html</loc>
+    <lastmod>2026-10-28T11:07:33.865Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cheac-ai.github.io/guidelines/cheac-dmp.html</loc>
+    <lastmod>2026-10-28T11:07:33.865Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cheac-ai.github.io/ai-in-research/index.html</loc>
+    <lastmod>2026-10-28T11:07:33.863Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cheac-ai.github.io/contributing/contributing.html</loc>
+    <lastmod>2026-10-28T11:07:33.864Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cheac-ai.github.io/guidelines/index.html</loc>
+    <lastmod>2026-10-28T11:07:33.865Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cheac-ai.github.io/index.html</loc>
+    <lastmod>2026-10-28T11:07:33.865Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cheac-ai.github.io/practices/agent-instructions.html</loc>
+    <lastmod>2026-10-28T11:07:33.865Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cheac-ai.github.io/practices/index.html</loc>
+    <lastmod>2026-10-28T11:07:33.866Z</lastmod>
   </url>
   <url>
     <loc>https://cheac-ai.github.io/suggestions/index.html</loc>
-    <lastmod>2026-10-25T13:26:40.527Z</lastmod>
+    <lastmod>2026-10-28T11:07:33.866Z</lastmod>
   </url>
 </urlset>
