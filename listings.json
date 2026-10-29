@@ -4,12 +4,24 @@
     "items": []
   },
   {
-    "listing": "/news/index.html",
-    "items": []
+    "listing": "/practices/index.html",
+    "items": [
+      "/practices/nanostructure-group.html",
+      "/practices/onboarding.html",
+      "/practices/git-workflow.html",
+      "/practices/agent-instructions.html"
+    ]
   },
   {
-    "listing": "/ai-in-research/index.html",
-    "items": []
+    "listing": "/index.html",
+    "items": [
+      "/guidelines/cheac-dmp.html",
+      "/practices/nanostructure-group.html",
+      "/practices/onboarding.html",
+      "/practices/git-workflow.html",
+      "/guidelines/ku-guidelines.html",
+      "/practices/agent-instructions.html"
+    ]
   },
   {
     "listing": "/guidelines/index.html",
@@ -19,22 +31,12 @@
     ]
   },
   {
-    "listing": "/index.html",
-    "items": [
-      "/guidelines/cheac-dmp.html",
-      "/practices/onboarding.html",
-      "/practices/git-workflow.html",
-      "/guidelines/ku-guidelines.html",
-      "/practices/agent-instructions.html"
-    ]
+    "listing": "/ai-in-research/index.html",
+    "items": []
   },
   {
-    "listing": "/practices/index.html",
-    "items": [
-      "/practices/onboarding.html",
-      "/practices/git-workflow.html",
-      "/practices/agent-instructions.html"
-    ]
+    "listing": "/news/index.html",
+    "items": []
   },
   {
     "listing": "/suggestions/index.html",

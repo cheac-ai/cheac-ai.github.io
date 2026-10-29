@@ -70,6 +70,202 @@
     "text": "References\n\n\nAnaconda, Inc. 2024. Anaconda Terms of Service. Https://www.anaconda.com/legal/terms/terms-of-service.\n\n\nAnthropic. 2026a. Advanced Setup. Claude Code documentation, https://code.claude.com/docs/en/setup.\n\n\nAnthropic. 2026b. Configure Permissions. Claude Code documentation, https://code.claude.com/docs/en/permissions.\n\n\nAnthropic. 2026c. Manage Sessions. Claude Code documentation, https://code.claude.com/docs/en/sessions.\n\n\nAnthropic. 2026d. Use Claude Code in VS Code. Claude Code documentation, https://code.claude.com/docs/en/vs-code.\n\n\nconda-forge community. 2026. Conda-Forge: A Community-Led Collection of Recipes, Build Infrastructure and Distributions for the Conda Package Manager. Https://conda-forge.org."
   },
   {
+    "objectID": "practices/index.html",
+    "href": "practices/index.html",
+    "title": "Best Practices",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nBest Practices for Nanostructure Group Members\n\n\nThe Nanostructure group’s shared instruction file for AI agents: the CHEAC standard’s data rules plus our git workflow, code style, and figure conventions, ready to copy into your own CLAUDE.md.\n\n\n\n\n\n29 Oct 2026\n\n\nTill Schertenleib\n\n\n\n\n\n\n\n\n\n\n\n\nOnboarding\n\n\nSet up a new computer for research coding at CHEAC: Miniconda with conda-forge, git and Git Bash, VS Code with conda environments, and Claude Code, including how sessions work and how to keep one inside a project folder.\n\n\n\n\n\n28 Oct 2026\n\n\nTill Schertenleib\n\n\n\n\n\n\n\n\n\n\n\n\nOne folder to rule them all: a git workflow for research\n\n\nA practical introduction to git for researchers: keep one working copy of your scripts, find old versions, try things without making a mess, and review what AI agents change.\n\n\n\n\n\n25 Oct 2026\n\n\nFrederik Lizak Johansen\n\n\n\n\n\n\n\n\n\n\n\n\nA  standard for AI agent instructions\n\n\nA shared starting prompt for AI agents and chat assistants, built on the CHEAC Data Management Plan: what instruction files are, how to set one up, and a template to copy.\n\n\n\n\n\n25 Sep 2026\n\n\nFrederik Lizak Johansen\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "practices/agent-instructions.html#why-an-instruction-file",
+    "href": "practices/agent-instructions.html#why-an-instruction-file",
+    "title": "A  standard for AI agent instructions",
+    "section": "Why an instruction file?",
+    "text": "Why an instruction file?\nMost of us meet AI through a chat window: you type a question, the model types an answer. Newer AI tools can do more than answer. Installed on your own computer, they can open the files in a folder you point them to, read your data and scripts, write new scripts, run them, and look at the result. The AI world calls these tools agents. Claude Code, OpenAI Codex, and Gemini CLI are examples.\nEvery conversation with an AI model starts from a blank slate. The model has no memory of your last session, your research group, or the rules you work by, so you end up repeating the same background every time. An instruction file solves this. It is a plain text file with your standing instructions, and the agent reads it automatically at the start of every session, as if you had pasted it in as the first message. Think of it as a starting prompt that you write once.\nThis page proposes a CHEAC standard instruction file: a short list of rules built on the CHEAC Data Management Plan (Center for High Entropy Alloy Catalysis 2026). We suggest that you copy it into your own instruction file and adapt it to your work.\n\n\n\n\n\n\nNoteThis is advisory\n\n\n\nThe council suggests these rules as a starting point. Adapt them to your own work, and share your experience via the contributing page."
+  },
+  {
+    "objectID": "practices/agent-instructions.html#a-few-terms-first",
+    "href": "practices/agent-instructions.html#a-few-terms-first",
+    "title": "A  standard for AI agent instructions",
+    "section": "A few terms first",
+    "text": "A few terms first\nChat. The web page you open at claude.ai, chatgpt.com, or gemini.google.com. You type, the model answers, and nothing happens outside the browser unless you copy it out yourself.\nAgent. A model that can take actions on your computer: open files, edit them, run programs, and read the output, in a loop, until a task is done. You ask “make a plot of the XRD patterns in this folder”, and the agent finds the files, writes a Python script, runs it, looks at the plot, and fixes the script if it fails.\nTerminal and CLI. The terminal is a window where you control the computer by typing commands instead of clicking. A program you use this way has a command-line interface (CLI). Most agents are CLI programs. If you have never used a terminal, start with one of these beginner guides:\n\nmacOS: Apple’s Terminal User Guide.\nWindows: Microsoft’s Windows Terminal overview.\nLinux (and a good general introduction): Ubuntu’s The Linux command line for beginners.\nInside VS Code: Getting started with the terminal in VS Code.\n\nHarness. The program wrapped around the model. The model itself only produces text. The harness gives it tools (read a file, run a command, search the web), asks for your permission before risky actions, and loads your instruction file. Claude Code, Codex, and Gemini CLI are harnesses built by the model companies for their own models, and they also come as extensions for the code editor VS Code. Independent harnesses such as OpenCode and OMP work with models from many providers (Stencil Labs 2026)."
+  },
+  {
+    "objectID": "practices/agent-instructions.html#installing-an-agent",
+    "href": "practices/agent-instructions.html#installing-an-agent",
+    "title": "A  standard for AI agent instructions",
+    "section": "Installing an agent",
+    "text": "Installing an agent\nAn agent has to be installed before you can use it, and each one has its own installation guide and account or subscription. Pick one and follow its official guide from start to finish:\n\n\n\nAgent\nInstallation guide\nAccount\n\n\n\n\nClaude Code\nQuickstart and VS Code extension\nClaude subscription or API key\n\n\nOpenAI Codex\nCodex CLI\nChatGPT subscription or API key\n\n\nGemini CLI\nGet started\nGoogle account\n\n\n\nOnce installed, you open a terminal, move into the folder you want the agent to work in, and start the agent with the command its guide gives you. The guides walk you through each step, including the first login."
+  },
+  {
+    "objectID": "practices/agent-instructions.html#what-goes-in-an-instruction-file",
+    "href": "practices/agent-instructions.html#what-goes-in-an-instruction-file",
+    "title": "A  standard for AI agent instructions",
+    "section": "What goes in an instruction file",
+    "text": "What goes in an instruction file\nAn instruction file is a Markdown file: plain text where # marks a heading and - marks a bullet point (Cone 2026). You can write it in any text editor.\nEach tool looks for a specific file name. Most tools now read the shared name AGENTS.md, an open format supported by more than twenty tools (Agentic AI Foundation 2025):\n\n\n\n\n\n\n\n\nTool\nFile it reads\nDocumentation\n\n\n\n\nClaude Code\nCLAUDE.md (can also read AGENTS.md)\nAnthropic (2026)\n\n\nOpenAI Codex\nAGENTS.md\nOpenAI (2026)\n\n\nGemini CLI\nGEMINI.md\nGoogle (2026)\n\n\nOpenCode\nAGENTS.md (falls back to CLAUDE.md)\nOpenCode (2026b)\n\n\nOMP\nAGENTS.md, and the files of the other tools\nStencil Labs (2026)\n\n\nGitHub Copilot in VS Code\n.github/copilot-instructions.md or AGENTS.md\nMicrosoft (2026)\n\n\n\nFiles live at two levels:\n\nGlobal (personal). Applies to everything you do with that tool, for example ~/.claude/CLAUDE.md for Claude Code or ~/.config/opencode/AGENTS.md for OpenCode (Anthropic 2026; OpenCode 2026b). The ~ means your home folder.\nProject. An AGENTS.md (or CLAUDE.md, GEMINI.md) in the top folder of a project. It applies only when the agent works in that folder, and it describes that project: its purpose, its data, and where things are.\n\nThe CHEAC rules below ideally belong in your global file, since they apply to all your work. Project details go in the project file.\n\n\n\n\n\n\nNoteShort and specific works best\n\n\n\nA study of AI coding agents on real software projects found that an AGENTS.md file cut the agents’ median runtime by about 29 % and the text they produced by about 17 %, with the same rate of completed tasks (Lulla et al. 2026). The Claude Code documentation notes that the more concise and specific the file, the more consistently the model follows it (Anthropic 2026, 2025).\n\n\n\n\n\n\n\n\nWarningInstructions are requests, permissions are locks\n\n\n\nThe model reads the instruction file as advice and can still get it wrong. Actions that must never happen, such as deleting raw data, also belong in the tool’s permission settings. OpenCode, for example, marks every command as allow, ask, or deny (OpenCode 2026a). A sensible start is to deny deleting files, keep everything else on ask, and move commands to allow once you trust them. Claude Code has the same idea in its permission settings."
+  },
+  {
+    "objectID": "practices/agent-instructions.html#setting-it-up",
+    "href": "practices/agent-instructions.html#setting-it-up",
+    "title": "A  standard for AI agent instructions",
+    "section": "Setting it up",
+    "text": "Setting it up\n\nInstall one agent (see Installing an agent).\nCreate the global instruction file for that tool (see the table above).\nPaste in the CHEAC standard below and fill in the About me section.\nFor each research project, add a short AGENTS.md in the project folder that describes the project, the same way the DMP asks for a top-level README.\nStart a session and ask the agent: “Summarise the instructions you have been given.” It should list your rules back to you.\n\n\n\n\n\n\n\nImportantLet the agent edit the file for you\n\n\n\nThe instruction file is an ordinary text file, so your agent can edit it. Ask it directly: “Add a rule to my instruction file that all figures use 300 dpi”, or “Make my AGENTS.md shorter and clearer”. Read the change before you accept it."
+  },
+  {
+    "objectID": "practices/agent-instructions.html#cheac-standard",
+    "href": "practices/agent-instructions.html#cheac-standard",
+    "title": "A  standard for AI agent instructions",
+    "section": "The  standard instruction file",
+    "text": "The  standard instruction file\nCopy the block below with the copy button in its top right corner. The rules follow the C-L-E-A-R standard and the FAIR principles in the DMP (Center for High Entropy Alloy Catalysis 2026; Wilkinson et al. 2016).\n# CHEAC agent instructions (v1, September 2026)\n\n## About me\n- I am a researcher at the Center for High Entropy Alloy Catalysis (CHEAC),\n  University of Copenhagen / University of Bern. My field: &lt;fill in&gt;.\n\n## Research data (follows the CHEAC Data Management Plan)\n- Never modify, move, rename, or delete raw data: instrument output,\n  simulation output, or files from external facilities. Treat them as\n  read-only.\n- Write processed data to a separate, clearly labelled folder\n  (e.g. `processed/`), never next to the raw file under a similar name.\n- Every project folder has a top-level README; every dataset folder has its\n  own README with instrument or software version, parameters, date,\n  responsible researcher, and purpose. Offer to create or update these when\n  you add data or scripts.\n- Save every analysis and figure script in the same folder as the data it\n  uses. A published figure must be reproducible from that folder alone.\n- Prefer plain text and open formats (CSV, JSON, Python scripts) over\n  binary or proprietary formats.\n- Record software versions and random seeds in scripts and READMEs.\n- Do not upload data to any external service without my approval.\n\n## Scientific integrity\n- Never invent data, numbers, references, or DOIs. If you do not know,\n  say so.\n- Every literature claim needs a source I can check. Give the DOI or URL.\n- State units, uncertainties, and assumptions explicitly.\n- When a result looks surprising, say so and suggest how to check it\n  before I rely on it.\n\n## Code\n- Keep scripts short, commented, and runnable from the command line.\n- Ask before installing packages or changing my software environment.\n\n## Actions that need my approval\n- Deleting or overwriting any file.\n- Copying data off my machine (SFTP, cloud upload, git push).\n- Anything involving passwords, keys, or login details. Never print them.\n\n## When you finish a task\n- Summarise what you changed, which files you created, and anything I\n  should check by hand.\nAdd your own habits to the Code section, such as your preferred programming language and plotting style. Keep the file short: every line competes for the model’s attention."
+  },
+  {
+    "objectID": "practices/agent-instructions.html#using-it-in-the-web-chat",
+    "href": "practices/agent-instructions.html#using-it-in-the-web-chat",
+    "title": "A  standard for AI agent instructions",
+    "section": "Using it in the web chat",
+    "text": "Using it in the web chat\nThe same text works as a starting prompt in the web chat versions. There the model cannot touch your files, but the rules still shape its answers:\n\nClaude: create a Project and paste the rules into its instructions.\nChatGPT: paste the rules into the custom instructions in your settings, or into the instructions of a project.\nGemini: create a Gem with the rules as its instructions.\nAny chat: paste the rules as your first message.\n\nThe Scientific integrity section matters in chat as much as in an agent."
+  },
+  {
+    "objectID": "practices/agent-instructions.html#skills-a-topic-for-another-time",
+    "href": "practices/agent-instructions.html#skills-a-topic-for-another-time",
+    "title": "A  standard for AI agent instructions",
+    "section": "Skills: a topic for another time",
+    "text": "Skills: a topic for another time\nInstruction files hold rules that apply to everything. Skills hold know-how for one kind of task, such as “how to write a README for a new dataset”, “how to make a publication-quality figure”, or “how to check a reference list”. A skill is a folder with a Markdown file of instructions and optional scripts, and the agent loads it only when the task calls for it (Agent Skills 2025). Skills deserve their own post. Until then, see agentskills.io and Anthropic’s introduction to skills."
+  },
+  {
+    "objectID": "practices/agent-instructions.html#further-reading",
+    "href": "practices/agent-instructions.html#further-reading",
+    "title": "A  standard for AI agent instructions",
+    "section": "Further reading",
+    "text": "Further reading\n\nagents.md: the shared format and examples (Agentic AI Foundation 2025).\nClaude Code best practices (Anthropic 2025).\nOpenCode rules and permissions (OpenCode 2026b, 2026a).\nGO FAIR: the FAIR principles (Wilkinson et al. 2016).\nThe CHEAC Data Management Plan (Center for High Entropy Alloy Catalysis 2026)."
+  },
+  {
+    "objectID": "practices/agent-instructions.html#references",
+    "href": "practices/agent-instructions.html#references",
+    "title": "A  standard for AI agent instructions",
+    "section": "References",
+    "text": "References\n\n\nAgent Skills. 2025. Agent Skills. Https://agentskills.io.\n\n\nAgentic AI Foundation. 2025. AGENTS.md: A Simple, Open Format for Guiding Coding Agents. Https://agents.md.\n\n\nAnthropic. 2025. Claude Code: Best Practices for Agentic Coding. Https://www.anthropic.com/engineering/claude-code-best-practices.\n\n\nAnthropic. 2026. How Claude Remembers Your Project. Claude Code documentation, https://code.claude.com/docs/en/memory.\n\n\nCenter for High Entropy Alloy Catalysis. 2026. Open Research Data Management Plan (DMP). University of Copenhagen.\n\n\nCone, Matt. 2026. Markdown Guide: Getting Started. Https://www.markdownguide.org/getting-started/.\n\n\nGoogle. 2026. Provide Context with GEMINI.md Files. Gemini CLI documentation, https://geminicli.com/docs/cli/gemini-md/.\n\n\nLulla, Jai Lal, Seyedmoein Mohsenimofidi, Matthias Galster, Jie M. Zhang, Sebastian Baltes, and Christoph Treude. 2026. “On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents.” arXiv Preprint arXiv:2601.20404. https://arxiv.org/abs/2601.20404.\n\n\nMicrosoft. 2026. Use Custom Instructions in VS Code. Visual Studio Code documentation, https://code.visualstudio.com/docs/copilot/customization/custom-instructions.\n\n\nOpenAI. 2026. Custom Instructions with AGENTS.md. Codex documentation, https://learn.chatgpt.com/docs/agent-configuration/agents-md.\n\n\nOpenCode. 2026a. Permissions. OpenCode documentation, https://opencode.ai/docs/permissions/.\n\n\nOpenCode. 2026b. Rules. OpenCode documentation, https://opencode.ai/docs/rules/.\n\n\nStencil Labs. 2026. Oh-My-Pi (OMP): Coding Agent with the IDE Wired in. Https://github.com/can1357/oh-my-pi.\n\n\nWilkinson, Mark D., Michel Dumontier, IJsbrand Jan Aalbersberg, et al. 2016. “The FAIR Guiding Principles for Scientific Data Management and Stewardship.” Scientific Data 3: 160018. https://doi.org/10.1038/sdata.2016.18."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "&#92;btw",
+    "section": "",
+    "text": "\\btw\nAdvisory guidance, best practices, and community case studies for artificial intelligence in research."
+  },
+  {
+    "objectID": "index.html#explore",
+    "href": "index.html#explore",
+    "title": "&#92;btw",
+    "section": "Explore",
+    "text": "Explore\n\n\nBest Practices\nHow to use AI tools well in daily research, from agent instructions to literature search.\n\n\nGuidelines\nKU guidelines on AI use and the CHEAC Data Management Plan.\n\n\nAI in research\nHow AI changes the way we do chemistry and materials science.\n\n\nTransparency\nHow to report AI use in manuscripts, figures, code, and teaching.\n\n\nAI News\nNew tools, policies, and papers worth knowing about.\n\n\nSuggestion box\nTopics the council should discuss next. Add your own."
+  },
+  {
+    "objectID": "index.html#most-recent",
+    "href": "index.html#most-recent",
+    "title": "&#92;btw",
+    "section": "Most recent",
+    "text": "Most recent\n\n\n\n29 Oct 2026 Best Practices for Nanostructure Group Members Best practice\n\n\n28 Oct 2026 Onboarding Best practice\n\n\n25 Oct 2026 One folder to rule them all: a git workflow for research Best practice\n\n\n30 Sep 2026 KU guidelines on AI usage Guideline\n\n\n25 Sep 2026 A CHEAC standard for AI agent instructions Best practice\n\n\nNo matching items\n\n\n\nQuick Actions\n\nHandling research data? Read the official CHEAC Data Management Plan.\nHave a story to share? Check out How to Contribute.\nQuestions or feedback? Contact the council editor at ts@chem.ku.dk."
+  },
+  {
+    "objectID": "guidelines/index.html",
+    "href": "guidelines/index.html",
+    "title": "Guidelines",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nCHEAC Data Management Plan\n\n\nOpen Research Data Management Plan (DMP), version 1, April 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nKU guidelines on AI usage\n\n\n\n\n\nA practical summary of KU guidelines on AI usage for employees and students\n\n\n\n\n\n30 Sep 2026\n\n\nMelissa Jane Marks\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "contributing/contributing.html",
+    "href": "contributing/contributing.html",
+    "title": "Contributing",
+    "section": "",
+    "text": "Everyone at CHEAC can contribute: a best practice that works for you, a guideline you have looked into, an experience from your research, or a piece of AI news."
+  },
+  {
+    "objectID": "contributing/contributing.html#adding-a-page",
+    "href": "contributing/contributing.html#adding-a-page",
+    "title": "Contributing",
+    "section": "Adding a page",
+    "text": "Adding a page\nPlace a new .qmd (or .md) file in the folder of its section:\n\n\n\nSection\nFolder\n\n\n\n\nBest Practices\npractices/\n\n\nGuidelines\nguidelines/\n\n\nAI in research\nai-in-research/\n\n\nTransparency\ntransparency/\n\n\nAI News\nnews/\n\n\n\nA page can also live in its own subfolder, for example news/my-story/index.qmd, next to its figures.\nThe section list, the navbar link, and the Most recent list on the front page pick up new pages automatically. They read the header at the top of the file:\n---\ntitle: \"Short, descriptive title\"\nauthor:\n  - name: Your Name\n    affiliation: \"Position, Group\"\ndate: 2026-10-01\ndescription: \"One sentence shown under the title in the section list.\"\nimage: ../assets/figures/my-figure.svg   # optional cover figure\n---\n\ntitle is required. Without it, the page appears in the lists without a name.\ndate places the page in the lists. Pages without a date sort as the oldest and do not appear under Most recent.\nimage sets the cover figure in the section list. Without it, the list uses the first image on the page, or none."
+  },
+  {
+    "objectID": "contributing/contributing.html#references",
+    "href": "contributing/contributing.html#references",
+    "title": "Contributing",
+    "section": "References",
+    "text": "References\nAdd BibTeX entries to references.bib and cite them with [@key]. End the page with:\n## References {.unnumbered}\n\n::: {#refs}\n:::"
+  },
+  {
+    "objectID": "contributing/contributing.html#the-cheac-wordmark",
+    "href": "contributing/contributing.html#the-cheac-wordmark",
+    "title": "Contributing",
+    "section": "The CHEAC wordmark",
+    "text": "The CHEAC wordmark\nWrite {{&lt; cheac &gt;}} to insert the CHEAC wordmark in running text or a title."
+  },
+  {
+    "objectID": "contributing/contributing.html#previewing-locally",
+    "href": "contributing/contributing.html#previewing-locally",
+    "title": "Contributing",
+    "section": "Previewing locally",
+    "text": "Previewing locally\nInstall Quarto, then run this in the repository folder:\nquarto preview --port 4321\nThe site opens at http://localhost:4321 and reloads when a file is saved."
+  },
+  {
+    "objectID": "ai-in-research/index.html",
+    "href": "ai-in-research/index.html",
+    "title": "AI in research",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "guidelines/cheac-dmp.html",
+    "href": "guidelines/cheac-dmp.html",
+    "title": "CHEAC Data Management Plan",
+    "section": "",
+    "text": "The official CHEAC Data Management Plan describes how research data at the Center for High Entropy Alloy Catalysis is structured, stored, backed up, and released.\nDownload the DMP (PDF)\n\n\nYour browser cannot display the PDF inline. Use the download link above."
+  },
+  {
+    "objectID": "guidelines/ku-guidelines.html",
+    "href": "guidelines/ku-guidelines.html",
+    "title": "KU guidelines on AI usage",
+    "section": "",
+    "text": "This summary will be reviewed periodically as KU updates their guidelines."
+  },
+  {
+    "objectID": "guidelines/ku-guidelines.html#ai-use-by-employees",
+    "href": "guidelines/ku-guidelines.html#ai-use-by-employees",
+    "title": "KU guidelines on AI usage",
+    "section": "1. AI use by employees",
+    "text": "1. AI use by employees\nThe employee guide (found in KUnet) is the most relevant starting point for staff. It includes rules for using AI tools, guidance on choosing tools, and instructions for accessing them securely.\n\nCopilot Chat is KU’s approved AI tool and must be used when handling the personal data covered by the guidance. This includes employee names, KU email addresses, education and employment details, job titles, areas of work, organisational affiliations and work phone numbers. You must be signed in with your KU account when entering this information.\nOther AI tools may be used where there are significant teaching or research reasons for choosing them. According to the guidelines, confidential, personal or copyrighted data must not be entered into these alternative tools.\nAlthough much of our research in  does not involve personal data, these rules may be relevant to consider for administrative tasks, or when sharing working files with an AI agent.\nThe guide includes instructions for securely accessing and using Copilot Chat, and for assessing the security of alternative tools.\n\nKU employee guide: AI"
+  },
+  {
+    "objectID": "guidelines/ku-guidelines.html#ai-use-in-phd-theses",
+    "href": "guidelines/ku-guidelines.html#ai-use-in-phd-theses",
+    "title": "KU guidelines on AI usage",
+    "section": "2. AI use in PhD theses",
+    "text": "2. AI use in PhD theses\nKU permits appropriate use of AI-assisted technologies, provided students carefully check the output and ensure that their use does not compromise the requirements for a PhD.\nThe main points are:\n\nVerify all facts and references. AI has a habit of confidently inventing information and publications. Never include any information provided to you that you cannot verify.\nLimit the freedom given to generative AI. KU recommends limiting the freedom of generative AI by giving specific and appropriate prompts - don’t just provide blocks of text and ask for general improvements.\nDisclose and describe AI use clearly. An exhaustive account of prompts and responses is not necessary, but it is necessary to describe how you have used AI. Analytical AI tools should be described or referenced like other analytical software.\nAI cannot be listed as a co-author. You remain responsible for the accuracy, integrity and originality of the entire work, including any errors or plagiarism.\n\nKU guidance: AI-assisted technologies in PhD theses"
+  },
+  {
+    "objectID": "guidelines/ku-guidelines.html#ai-use-in-teaching-at-science",
+    "href": "guidelines/ku-guidelines.html#ai-use-in-teaching-at-science",
+    "title": "KU guidelines on AI usage",
+    "section": "3. AI use in teaching at SCIENCE",
+    "text": "3. AI use in teaching at SCIENCE\nA compilation of guidelines relating to AI use in the context of teaching, assignments and exams is available (on KUnet) for staff in the SCIENCE faculty. Topics include:\n\nWhat to do if you suspect AI-related cheating\nHow AI use should be documented by students\nGuidance on declarations of AI use in exams and assignments\n\nSCIENCE guidelines on generative AI for teachers"
+  },
+  {
+    "objectID": "guidelines/ku-guidelines.html#general-guidance-on-ai-in-education",
+    "href": "guidelines/ku-guidelines.html#general-guidance-on-ai-in-education",
+    "title": "KU guidelines on AI usage",
+    "section": "4. General guidance on AI in education",
+    "text": "4. General guidance on AI in education\nKU’s Good academic practice and generative AI page sets out broader principles for AI use in education: reliability, honesty, respect and accountability. It emphasises transparency about AI use and students’ responsibility for their work. This provides useful background alongside the more practical guidance above.\nKU guidance: Good academic practice and generative AI"
+  },
+  {
+    "objectID": "news/index.html",
+    "href": "news/index.html",
+    "title": "AI News",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
     "objectID": "practices/git-workflow.html#concerning-folders",
     "href": "practices/git-workflow.html#concerning-folders",
     "title": "One folder to rule them all: a git workflow for research",
@@ -161,200 +357,46 @@
     "text": "References\n\n\nBlischak, John D., Emily R. Davenport, and Greg Wilson. 2016. “A Quick Introduction to Version Control with Git and GitHub.” PLOS Computational Biology 12 (1): e1004668. https://doi.org/10.1371/journal.pcbi.1004668.\n\n\nChacon, Scott, and Ben Straub. 2014. Pro Git. 2nd ed. Apress. https://git-scm.com/book/en/v2.\n\n\nRam, Karthik. 2013. “Git Can Facilitate Greater Reproducibility and Increased Transparency in Science.” Source Code for Biology and Medicine 8: 7. https://doi.org/10.1186/1751-0473-8-7.\n\n\nWilson, Greg, Jennifer Bryan, Karen Cranston, Justin Kitzes, Lex Nederbragt, and Tracy K. Teal. 2017. “Good Enough Practices in Scientific Computing.” PLOS Computational Biology 13 (6): e1005510. https://doi.org/10.1371/journal.pcbi.1005510."
   },
   {
-    "objectID": "news/index.html",
-    "href": "news/index.html",
-    "title": "AI News",
+    "objectID": "practices/nanostructure-group.html",
+    "href": "practices/nanostructure-group.html",
+    "title": "Best Practices for Nanostructure Group Members",
     "section": "",
-    "text": "No matching items"
+    "text": "Just want the file? Jump to the group instruction file. New to agents or VS Code? Read Onboarding first."
   },
   {
-    "objectID": "guidelines/ku-guidelines.html",
-    "href": "guidelines/ku-guidelines.html",
-    "title": "KU guidelines on AI usage",
-    "section": "",
-    "text": "This summary will be reviewed periodically as KU updates their guidelines."
+    "objectID": "practices/nanostructure-group.html#why-a-group-file",
+    "href": "practices/nanostructure-group.html#why-a-group-file",
+    "title": "Best Practices for Nanostructure Group Members",
+    "section": "Why a group file?",
+    "text": "Why a group file?\nThe CHEAC standard for AI agent instructions is deliberately general. It covers data handling and scientific integrity, which apply to everyone at CHEAC. Within the Nanostructure group, we also share conventions for code, git, and figures. An agent should follow those without being told again in every session.\nThis page publishes the instruction file I use day to day, so that everyone in the group can start from the same rules. Copy it, change About me to your own field, and adapt the rest to your work."
   },
   {
-    "objectID": "guidelines/ku-guidelines.html#ai-use-by-employees",
-    "href": "guidelines/ku-guidelines.html#ai-use-by-employees",
-    "title": "KU guidelines on AI usage",
-    "section": "1. AI use by employees",
-    "text": "1. AI use by employees\nThe employee guide (found in KUnet) is the most relevant starting point for staff. It includes rules for using AI tools, guidance on choosing tools, and instructions for accessing them securely.\n\nCopilot Chat is KU’s approved AI tool and must be used when handling the personal data covered by the guidance. This includes employee names, KU email addresses, education and employment details, job titles, areas of work, organisational affiliations and work phone numbers. You must be signed in with your KU account when entering this information.\nOther AI tools may be used where there are significant teaching or research reasons for choosing them. According to the guidelines, confidential, personal or copyrighted data must not be entered into these alternative tools.\nAlthough much of our research in  does not involve personal data, these rules may be relevant to consider for administrative tasks, or when sharing working files with an AI agent.\nThe guide includes instructions for securely accessing and using Copilot Chat, and for assessing the security of alternative tools.\n\nKU employee guide: AI"
+    "objectID": "practices/nanostructure-group.html#how-it-differs-from-the-cheac-standard",
+    "href": "practices/nanostructure-group.html#how-it-differs-from-the-cheac-standard",
+    "title": "Best Practices for Nanostructure Group Members",
+    "section": "How it differs from the CHEAC standard",
+    "text": "How it differs from the CHEAC standard\nKept from the CHEAC standard\n\nAbout me, filled in for our field.\nScientific integrity: no invented data or references, checkable sources, explicit units and assumptions.\nThe two core Research data rules: raw data is read-only, and processed data goes in a separate folder.\nApproval before copying data off your machine or touching credentials, and a summary at the end of each task.\n\nAdded for the group\n\nHonest figures. Claude must report any shift or offset it applies, and must never shift data along an axis that reports a quantity.\nGit workflow. We use a forking workflow: origin is your fork, upstream is the group repository. You always branch from an up-to-date main, never commit to main directly, and use conventional commit messages (feat:, fix:, …). The git workflow post uses a simpler single-remote setup and is the place to learn the basics first.\nNews files. Every pull request comes with a news entry created with package add news.\nConda environments. Packages come from conda-forge, installed from the project’s requirements/ files (see Switch to conda-forge in Onboarding).\npre-commit and code style. flake8, NumPy-style docstrings, pathlib for paths, and compact code.\nFigure style. Nature figure widths, colour-blind-friendly colours, the Billinge colours for PDF and Rietveld fits, and standard font sizes.\n\nLeft out\nThe CHEAC standard’s rules on dataset READMEs, installing packages, and open file formats aren’t in this file. If you want them, copy them over from the CHEAC standard.\nThe group file is also much longer than the CHEAC standard, and the code and figure sections only matter when Claude writes code or makes figures. They’re good candidates to move into a skill later."
   },
   {
-    "objectID": "guidelines/ku-guidelines.html#ai-use-in-phd-theses",
-    "href": "guidelines/ku-guidelines.html#ai-use-in-phd-theses",
-    "title": "KU guidelines on AI usage",
-    "section": "2. AI use in PhD theses",
-    "text": "2. AI use in PhD theses\nKU permits appropriate use of AI-assisted technologies, provided students carefully check the output and ensure that their use does not compromise the requirements for a PhD.\nThe main points are:\n\nVerify all facts and references. AI has a habit of confidently inventing information and publications. Never include any information provided to you that you cannot verify.\nLimit the freedom given to generative AI. KU recommends limiting the freedom of generative AI by giving specific and appropriate prompts - don’t just provide blocks of text and ask for general improvements.\nDisclose and describe AI use clearly. An exhaustive account of prompts and responses is not necessary, but it is necessary to describe how you have used AI. Analytical AI tools should be described or referenced like other analytical software.\nAI cannot be listed as a co-author. You remain responsible for the accuracy, integrity and originality of the entire work, including any errors or plagiarism.\n\nKU guidance: AI-assisted technologies in PhD theses"
+    "objectID": "practices/nanostructure-group.html#how-to-use-it",
+    "href": "practices/nanostructure-group.html#how-to-use-it",
+    "title": "Best Practices for Nanostructure Group Members",
+    "section": "How to use it",
+    "text": "How to use it\n\nOpen your global instruction file, ~/.claude/CLAUDE.md for Claude Code (see What goes in an instruction file). Create it if it doesn’t exist.\nPaste in the file below and change About me to your own field and interests.\nKeep project details (what the project is, where its data lives) in a CLAUDE.md or AGENTS.md in the project folder, not here.\nStart a new session and ask: “Summarise the instructions you have been given.” Claude should list the rules back to you.\n\nThe git and pre-commit sections say applies only to projects that contain git repos, so they don’t get in the way when you work in a plain data folder."
   },
   {
-    "objectID": "guidelines/ku-guidelines.html#ai-use-in-teaching-at-science",
-    "href": "guidelines/ku-guidelines.html#ai-use-in-teaching-at-science",
-    "title": "KU guidelines on AI usage",
-    "section": "3. AI use in teaching at SCIENCE",
-    "text": "3. AI use in teaching at SCIENCE\nA compilation of guidelines relating to AI use in the context of teaching, assignments and exams is available (on KUnet) for staff in the SCIENCE faculty. Topics include:\n\nWhat to do if you suspect AI-related cheating\nHow AI use should be documented by students\nGuidance on declarations of AI use in exams and assignments\n\nSCIENCE guidelines on generative AI for teachers"
+    "objectID": "practices/nanostructure-group.html#group-file",
+    "href": "practices/nanostructure-group.html#group-file",
+    "title": "Best Practices for Nanostructure Group Members",
+    "section": "The group instruction file",
+    "text": "The group instruction file\nCopy the block below with the copy button in its top right corner.\n# Agent instructions — Nanostructure Group (v1, October 2026)\n\n## About me\n- I am a researcher at the Center for High Entropy Alloy Catalysis (CHEAC), University of Copenhagen. My field: Chemistry, materials science, x-ray scattering. I am particularly interested in the nanostructure problem, structure--property relations, and defects and disorder in materials.\n\n\n## Research data (follows the CHEAC Data Management Plan)\n- Never modify, move, rename, or delete raw data: instrument output,\n  simulation output, or files from external facilities. Treat them as\n  read-only.\n- Write processed data to a separate, clearly labelled folder\n  (e.g. `processed/`), never next to the raw file under a similar name.\n-  Ask for approval before before deleting or overwriting files.\n\n\n## Scientific integrity\n- Never invent data, numbers, references, or DOIs. If you do not know,\n  say so.\n- Every literature claim needs a source I can check. Give the DOI or URL.\n- State units, uncertainties, and assumptions explicitly.\n- When a result looks surprising, say so and suggest how to check it\n  before I rely on it.\n- When making figures, always report to me when you apply any shifts and offsets. As a general rule:\n    - never shift anything along an axis that reports a quantity;\n    - horizontal jitter or offsets on categorical axes are fine;\n    - constant offsets of stacked curves are fine.\n\n\n## Git Workflow (applies only to projects that contain git repos)\n\nIf the project folder contains a cloned git repository, explicitly ask if I intend to commit and push changes to the remote, or if I am not actively contributing to the remote repo. In case of the latter, ask if the git tracking should be removed.\n\nI use a **forking workflow**:\n- `origin` = my personal fork\n- `upstream` = canonical/group repo\n\n### Branch discipline — ALWAYS follow this sequence:\n1. `git checkout main`\n2. `git pull upstream main`\n3. `git checkout -b &lt;feature-branch&gt;` — keep branch names short, just enough to recall the topic (e.g. `fix-testpaths`, `feat-build-cli`, not `fix-configure-pytest-testpaths-to-prevent-collection`)\n4. Work and commit on the feature branch\n5. Push to `origin` with `git push -u origin &lt;branch&gt;` on first push (sets upstream tracking so subsequent pushes need only `git push`)\n6. Open a PR from the fork into `upstream` (only when asked)\n\n**Never commit directly to `main`.** Never branch off an existing branch unless explicitly instructed.\n\n### Commit messages\nUse conventional prefixes: `feat:`, `fix:`, `chore:`, `docs:`, `test:`, `refactor:`\n\n## News Files (applies to all projects)\n\nEvery PR requires a news file. Create one immediately after branching using:\n\n```bash\npackage add news &lt;flag&gt; \"Brief user-facing summary (under 72 chars)\"\n```\n\nFlags (mutually exclusive):\n- `-a` — Added (new feature)\n- `-c` — Changed (modification to existing feature)\n- `-d` — Deprecated\n- `-r` — Removed\n- `-f` — Fixed (bug fix)\n- `-s` — Security\n- `-n` — No-news needed (trivial change; reviewer decides if that's appropriate)\n\nThe command reads the current branch name and creates `news/&lt;branch-name&gt;.rst`.\nStage and commit the news file along with the rest of the PR work.\n\nFor no-news, use: `package add news -n \"reason why no news is needed\"`\n\n## Conda Environment Setup (applies to all projects)\n\nWhen setting up or initialising a conda env for a project, install from **conda-forge** everything in:\n- `requirements/conda.txt` (project-level)\n- `requirements/tests.txt` (project-level)\n- `~/dev.txt` (global, in the user's home directory)\n\n```bash\nconda install -n &lt;env&gt; -c conda-forge --file requirements/conda.txt --file requirements/tests.txt --file ~/dev.txt\n```\n\nOnly fall back to pip for packages not on conda-forge.\n\n## pre-commit (applies only to projects that contain git repos)\n\nRun `pre-commit install` at the start of any project so hooks run automatically on every commit.\n\nNever use `git commit --no-verify` (`-n`) except temporarily when auto-fixes need to be committed mid-cleanup. Once all issues are resolved, always commit without `-n`.\n\n## Code Style (group standards)\n\n### Style guide enforcement\nUse flake8 (max line 79, ignore E203)\n\n### Docstrings\nAll docstrings must be in **NumPy format** (Parameters, Returns, etc. sections).\n\n### Docstring parameter descriptions\nAll parameter descriptions in NumPy docstrings must begin with **\"The\"**.\n\n### argparse help strings\nWrite argparse `help=` and `description=` strings to be as informative as possible. Include examples where helpful. Do **not** force them to start with \"The\" — some inputs are actions where that makes no sense.\n\n### Exception message\nAll exception messages must include concise information about 'what is wrong' and 'how to fix it' when they are raised.\n\n### File paths\nAlways use `pathlib.Path` for file and directory paths. Avoid `os.path`, string concatenation, or `open()` with raw strings.\n\n### Code density and comments\n- Prefer self-documenting code over explanatory comments. If a comment is needed, the code may need renaming.\n- Only add blank lines where they semantically separate blocks with very different purposes. Do not add blank lines for visual breathing room.\n- Follow PEP 8, but where PEP 8 is silent, lean compact. Three lines of clear code is better than the same code padded to six.\n- This applies everywhere: source code, tests, config files.\n\n## Actions that need my approval\n- Copying data off my machine (SFTP, cloud upload, git push).\n- Anything involving passwords, keys, or login details. Never print them.\n\n## When you finish a task\n- Summarise what you changed, which files you created, and anything I\n  should check by hand.\n\n\n## Figure making\n- When asked to make a figure, if not specifically instructed otherwise, always use these general style guidelines:\n\n- **Letters**: We want to use a coherent style sheet for publication ready figures. Avoid putting too much text outside of panels. Use bold letters for labeling panels such as **a**, **b**, **c**, etc. Use Arial if available.\n\n- **Syntax**: Start every string with capitalized letters. Format labels as $G(r) \\, / \\, \\mathrm{\\AA}^{-2}$, $I(Q) \\, / \\, \\mathrm{\\AA}^{-1}$, and $r \\, / \\, \\mathrm{\\AA}$\n\n- **Nature colors**: typically, we will use blue and verm in combinations with black and gray shaded lines in figures. Below are the codes needed to define the color shades.\n\n```python\norange = (230/255, 159/255, 0/255)\nskyblue = (86/255, 180/255, 233/255)\ngreen = (0/255, 158/255, 115/255)\nyellow = (240/255, 228/255, 66/255)\nblue = (0/255, 114/255, 178/255)\nverm = (213/255, 94/255, 0/255)\npurple = (204/255, 121/255, 167/255)\nred = '#be1818'\n```\n\n- For plotting a standard PDF or Rietveld refinement fit, use the billinge colors: bg_blue for data (circles), bg_red for the fit (line), and bg_green for the difference curve (line with negative offset). Add a dashed offset zeroline on top of the difference curve.\n\n```python\nbg_blue = '#0B3C5D'\nbg_red = '#B82601'\nbg_green = '#1c6b0a'\n```\n\n- For sequential colors, use:\n\n```python\nplot_color_gradients('Sequential',['Greys', 'Purples', 'Blues', 'Greens', 'Oranges', 'Reds'])\n```\n\n- **Figure size**: Use nature figure width (18 cm (180 mm), page wide) for a two-column figure, and 9 cm (90 mm) width for a one-column figure:\n\n```python\nfw = 9*cm # one-column width\nfh = 0.75 * fw # usual aspect ratio\n```\n\n- **Composite figures**: Most of the times, the final figure imported to overleaf should have a figure width of $width = 2*fw$. We always want to avoid overlapping text, and overcrowding the figure.\n\n- **font sizes**: Typically we use the standard font sizes below, but for composite figures with many sub-panels, we can use the \"tiny-subpanel\" font sizes for small sub-panels.\n\n```python\n##### Standard figure font size\n\nplt.rcParams[\"font.size\"] = 8\nplt.rcParams[\"axes.labelsize\"] = 8\nplt.rcParams[\"xtick.labelsize\"] = 6\nplt.rcParams[\"ytick.labelsize\"] = 6\n```\n```python\n##### Tiny sub-panel font size\n\nplt.rcParams[\"font.size\"] = 6.5\nplt.rcParams[\"axes.labelsize\"] = 6.5\nplt.rcParams[\"xtick.labelsize\"] = 6.0\nplt.rcParams[\"ytick.labelsize\"] = 6.0\n```"
   },
   {
-    "objectID": "guidelines/ku-guidelines.html#general-guidance-on-ai-in-education",
-    "href": "guidelines/ku-guidelines.html#general-guidance-on-ai-in-education",
-    "title": "KU guidelines on AI usage",
-    "section": "4. General guidance on AI in education",
-    "text": "4. General guidance on AI in education\nKU’s Good academic practice and generative AI page sets out broader principles for AI use in education: reliability, honesty, respect and accountability. It emphasises transparency about AI use and students’ responsibility for their work. This provides useful background alongside the more practical guidance above.\nKU guidance: Good academic practice and generative AI"
-  },
-  {
-    "objectID": "guidelines/cheac-dmp.html",
-    "href": "guidelines/cheac-dmp.html",
-    "title": "CHEAC Data Management Plan",
-    "section": "",
-    "text": "The official CHEAC Data Management Plan describes how research data at the Center for High Entropy Alloy Catalysis is structured, stored, backed up, and released.\nDownload the DMP (PDF)\n\n\nYour browser cannot display the PDF inline. Use the download link above."
-  },
-  {
-    "objectID": "ai-in-research/index.html",
-    "href": "ai-in-research/index.html",
-    "title": "AI in research",
-    "section": "",
-    "text": "No matching items"
-  },
-  {
-    "objectID": "contributing/contributing.html",
-    "href": "contributing/contributing.html",
-    "title": "Contributing",
-    "section": "",
-    "text": "Everyone at CHEAC can contribute: a best practice that works for you, a guideline you have looked into, an experience from your research, or a piece of AI news."
-  },
-  {
-    "objectID": "contributing/contributing.html#adding-a-page",
-    "href": "contributing/contributing.html#adding-a-page",
-    "title": "Contributing",
-    "section": "Adding a page",
-    "text": "Adding a page\nPlace a new .qmd (or .md) file in the folder of its section:\n\n\n\nSection\nFolder\n\n\n\n\nBest Practices\npractices/\n\n\nGuidelines\nguidelines/\n\n\nAI in research\nai-in-research/\n\n\nTransparency\ntransparency/\n\n\nAI News\nnews/\n\n\n\nA page can also live in its own subfolder, for example news/my-story/index.qmd, next to its figures.\nThe section list, the navbar link, and the Most recent list on the front page pick up new pages automatically. They read the header at the top of the file:\n---\ntitle: \"Short, descriptive title\"\nauthor:\n  - name: Your Name\n    affiliation: \"Position, Group\"\ndate: 2026-10-01\ndescription: \"One sentence shown under the title in the section list.\"\nimage: ../assets/figures/my-figure.svg   # optional cover figure\n---\n\ntitle is required. Without it, the page appears in the lists without a name.\ndate places the page in the lists. Pages without a date sort as the oldest and do not appear under Most recent.\nimage sets the cover figure in the section list. Without it, the list uses the first image on the page, or none."
-  },
-  {
-    "objectID": "contributing/contributing.html#references",
-    "href": "contributing/contributing.html#references",
-    "title": "Contributing",
-    "section": "References",
-    "text": "References\nAdd BibTeX entries to references.bib and cite them with [@key]. End the page with:\n## References {.unnumbered}\n\n::: {#refs}\n:::"
-  },
-  {
-    "objectID": "contributing/contributing.html#the-cheac-wordmark",
-    "href": "contributing/contributing.html#the-cheac-wordmark",
-    "title": "Contributing",
-    "section": "The CHEAC wordmark",
-    "text": "The CHEAC wordmark\nWrite {{&lt; cheac &gt;}} to insert the CHEAC wordmark in running text or a title."
-  },
-  {
-    "objectID": "contributing/contributing.html#previewing-locally",
-    "href": "contributing/contributing.html#previewing-locally",
-    "title": "Contributing",
-    "section": "Previewing locally",
-    "text": "Previewing locally\nInstall Quarto, then run this in the repository folder:\nquarto preview --port 4321\nThe site opens at http://localhost:4321 and reloads when a file is saved."
-  },
-  {
-    "objectID": "guidelines/index.html",
-    "href": "guidelines/index.html",
-    "title": "Guidelines",
-    "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nCHEAC Data Management Plan\n\n\nOpen Research Data Management Plan (DMP), version 1, April 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nKU guidelines on AI usage\n\n\n\n\n\nA practical summary of KU guidelines on AI usage for employees and students\n\n\n\n\n\n30 Sep 2026\n\n\nMelissa Jane Marks\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "&#92;btw",
-    "section": "",
-    "text": "\\btw\nAdvisory guidance, best practices, and community case studies for artificial intelligence in research."
-  },
-  {
-    "objectID": "index.html#explore",
-    "href": "index.html#explore",
-    "title": "&#92;btw",
-    "section": "Explore",
-    "text": "Explore\n\n\nBest Practices\nHow to use AI tools well in daily research, from agent instructions to literature search.\n\n\nGuidelines\nKU guidelines on AI use and the CHEAC Data Management Plan.\n\n\nAI in research\nHow AI changes the way we do chemistry and materials science.\n\n\nTransparency\nHow to report AI use in manuscripts, figures, code, and teaching.\n\n\nAI News\nNew tools, policies, and papers worth knowing about.\n\n\nSuggestion box\nTopics the council should discuss next. Add your own."
-  },
-  {
-    "objectID": "index.html#most-recent",
-    "href": "index.html#most-recent",
-    "title": "&#92;btw",
-    "section": "Most recent",
-    "text": "Most recent\n\n\n\n28 Oct 2026 Onboarding Best practice\n\n\n25 Oct 2026 One folder to rule them all: a git workflow for research Best practice\n\n\n30 Sep 2026 KU guidelines on AI usage Guideline\n\n\n25 Sep 2026 A CHEAC standard for AI agent instructions Best practice\n\n\nNo matching items\n\n\n\nQuick Actions\n\nHandling research data? Read the official CHEAC Data Management Plan.\nHave a story to share? Check out How to Contribute.\nQuestions or feedback? Contact the council editor at ts@chem.ku.dk."
-  },
-  {
-    "objectID": "practices/agent-instructions.html#why-an-instruction-file",
-    "href": "practices/agent-instructions.html#why-an-instruction-file",
-    "title": "A  standard for AI agent instructions",
-    "section": "Why an instruction file?",
-    "text": "Why an instruction file?\nMost of us meet AI through a chat window: you type a question, the model types an answer. Newer AI tools can do more than answer. Installed on your own computer, they can open the files in a folder you point them to, read your data and scripts, write new scripts, run them, and look at the result. The AI world calls these tools agents. Claude Code, OpenAI Codex, and Gemini CLI are examples.\nEvery conversation with an AI model starts from a blank slate. The model has no memory of your last session, your research group, or the rules you work by, so you end up repeating the same background every time. An instruction file solves this. It is a plain text file with your standing instructions, and the agent reads it automatically at the start of every session, as if you had pasted it in as the first message. Think of it as a starting prompt that you write once.\nThis page proposes a CHEAC standard instruction file: a short list of rules built on the CHEAC Data Management Plan (Center for High Entropy Alloy Catalysis 2026). We suggest that you copy it into your own instruction file and adapt it to your work.\n\n\n\n\n\n\nNoteThis is advisory\n\n\n\nThe council suggests these rules as a starting point. Adapt them to your own work, and share your experience via the contributing page."
-  },
-  {
-    "objectID": "practices/agent-instructions.html#a-few-terms-first",
-    "href": "practices/agent-instructions.html#a-few-terms-first",
-    "title": "A  standard for AI agent instructions",
-    "section": "A few terms first",
-    "text": "A few terms first\nChat. The web page you open at claude.ai, chatgpt.com, or gemini.google.com. You type, the model answers, and nothing happens outside the browser unless you copy it out yourself.\nAgent. A model that can take actions on your computer: open files, edit them, run programs, and read the output, in a loop, until a task is done. You ask “make a plot of the XRD patterns in this folder”, and the agent finds the files, writes a Python script, runs it, looks at the plot, and fixes the script if it fails.\nTerminal and CLI. The terminal is a window where you control the computer by typing commands instead of clicking. A program you use this way has a command-line interface (CLI). Most agents are CLI programs. If you have never used a terminal, start with one of these beginner guides:\n\nmacOS: Apple’s Terminal User Guide.\nWindows: Microsoft’s Windows Terminal overview.\nLinux (and a good general introduction): Ubuntu’s The Linux command line for beginners.\nInside VS Code: Getting started with the terminal in VS Code.\n\nHarness. The program wrapped around the model. The model itself only produces text. The harness gives it tools (read a file, run a command, search the web), asks for your permission before risky actions, and loads your instruction file. Claude Code, Codex, and Gemini CLI are harnesses built by the model companies for their own models, and they also come as extensions for the code editor VS Code. Independent harnesses such as OpenCode and OMP work with models from many providers (Stencil Labs 2026)."
-  },
-  {
-    "objectID": "practices/agent-instructions.html#installing-an-agent",
-    "href": "practices/agent-instructions.html#installing-an-agent",
-    "title": "A  standard for AI agent instructions",
-    "section": "Installing an agent",
-    "text": "Installing an agent\nAn agent has to be installed before you can use it, and each one has its own installation guide and account or subscription. Pick one and follow its official guide from start to finish:\n\n\n\nAgent\nInstallation guide\nAccount\n\n\n\n\nClaude Code\nQuickstart and VS Code extension\nClaude subscription or API key\n\n\nOpenAI Codex\nCodex CLI\nChatGPT subscription or API key\n\n\nGemini CLI\nGet started\nGoogle account\n\n\n\nOnce installed, you open a terminal, move into the folder you want the agent to work in, and start the agent with the command its guide gives you. The guides walk you through each step, including the first login."
-  },
-  {
-    "objectID": "practices/agent-instructions.html#what-goes-in-an-instruction-file",
-    "href": "practices/agent-instructions.html#what-goes-in-an-instruction-file",
-    "title": "A  standard for AI agent instructions",
-    "section": "What goes in an instruction file",
-    "text": "What goes in an instruction file\nAn instruction file is a Markdown file: plain text where # marks a heading and - marks a bullet point (Cone 2026). You can write it in any text editor.\nEach tool looks for a specific file name. Most tools now read the shared name AGENTS.md, an open format supported by more than twenty tools (Agentic AI Foundation 2025):\n\n\n\n\n\n\n\n\nTool\nFile it reads\nDocumentation\n\n\n\n\nClaude Code\nCLAUDE.md (can also read AGENTS.md)\nAnthropic (2026)\n\n\nOpenAI Codex\nAGENTS.md\nOpenAI (2026)\n\n\nGemini CLI\nGEMINI.md\nGoogle (2026)\n\n\nOpenCode\nAGENTS.md (falls back to CLAUDE.md)\nOpenCode (2026b)\n\n\nOMP\nAGENTS.md, and the files of the other tools\nStencil Labs (2026)\n\n\nGitHub Copilot in VS Code\n.github/copilot-instructions.md or AGENTS.md\nMicrosoft (2026)\n\n\n\nFiles live at two levels:\n\nGlobal (personal). Applies to everything you do with that tool, for example ~/.claude/CLAUDE.md for Claude Code or ~/.config/opencode/AGENTS.md for OpenCode (Anthropic 2026; OpenCode 2026b). The ~ means your home folder.\nProject. An AGENTS.md (or CLAUDE.md, GEMINI.md) in the top folder of a project. It applies only when the agent works in that folder, and it describes that project: its purpose, its data, and where things are.\n\nThe CHEAC rules below ideally belong in your global file, since they apply to all your work. Project details go in the project file.\n\n\n\n\n\n\nNoteShort and specific works best\n\n\n\nA study of AI coding agents on real software projects found that an AGENTS.md file cut the agents’ median runtime by about 29 % and the text they produced by about 17 %, with the same rate of completed tasks (Lulla et al. 2026). The Claude Code documentation notes that the more concise and specific the file, the more consistently the model follows it (Anthropic 2026, 2025).\n\n\n\n\n\n\n\n\nWarningInstructions are requests, permissions are locks\n\n\n\nThe model reads the instruction file as advice and can still get it wrong. Actions that must never happen, such as deleting raw data, also belong in the tool’s permission settings. OpenCode, for example, marks every command as allow, ask, or deny (OpenCode 2026a). A sensible start is to deny deleting files, keep everything else on ask, and move commands to allow once you trust them. Claude Code has the same idea in its permission settings."
-  },
-  {
-    "objectID": "practices/agent-instructions.html#setting-it-up",
-    "href": "practices/agent-instructions.html#setting-it-up",
-    "title": "A  standard for AI agent instructions",
-    "section": "Setting it up",
-    "text": "Setting it up\n\nInstall one agent (see Installing an agent).\nCreate the global instruction file for that tool (see the table above).\nPaste in the CHEAC standard below and fill in the About me section.\nFor each research project, add a short AGENTS.md in the project folder that describes the project, the same way the DMP asks for a top-level README.\nStart a session and ask the agent: “Summarise the instructions you have been given.” It should list your rules back to you.\n\n\n\n\n\n\n\nImportantLet the agent edit the file for you\n\n\n\nThe instruction file is an ordinary text file, so your agent can edit it. Ask it directly: “Add a rule to my instruction file that all figures use 300 dpi”, or “Make my AGENTS.md shorter and clearer”. Read the change before you accept it."
-  },
-  {
-    "objectID": "practices/agent-instructions.html#cheac-standard",
-    "href": "practices/agent-instructions.html#cheac-standard",
-    "title": "A  standard for AI agent instructions",
-    "section": "The  standard instruction file",
-    "text": "The  standard instruction file\nCopy the block below with the copy button in its top right corner. The rules follow the C-L-E-A-R standard and the FAIR principles in the DMP (Center for High Entropy Alloy Catalysis 2026; Wilkinson et al. 2016).\n# CHEAC agent instructions (v1, September 2026)\n\n## About me\n- I am a researcher at the Center for High Entropy Alloy Catalysis (CHEAC),\n  University of Copenhagen / University of Bern. My field: &lt;fill in&gt;.\n\n## Research data (follows the CHEAC Data Management Plan)\n- Never modify, move, rename, or delete raw data: instrument output,\n  simulation output, or files from external facilities. Treat them as\n  read-only.\n- Write processed data to a separate, clearly labelled folder\n  (e.g. `processed/`), never next to the raw file under a similar name.\n- Every project folder has a top-level README; every dataset folder has its\n  own README with instrument or software version, parameters, date,\n  responsible researcher, and purpose. Offer to create or update these when\n  you add data or scripts.\n- Save every analysis and figure script in the same folder as the data it\n  uses. A published figure must be reproducible from that folder alone.\n- Prefer plain text and open formats (CSV, JSON, Python scripts) over\n  binary or proprietary formats.\n- Record software versions and random seeds in scripts and READMEs.\n- Do not upload data to any external service without my approval.\n\n## Scientific integrity\n- Never invent data, numbers, references, or DOIs. If you do not know,\n  say so.\n- Every literature claim needs a source I can check. Give the DOI or URL.\n- State units, uncertainties, and assumptions explicitly.\n- When a result looks surprising, say so and suggest how to check it\n  before I rely on it.\n\n## Code\n- Keep scripts short, commented, and runnable from the command line.\n- Ask before installing packages or changing my software environment.\n\n## Actions that need my approval\n- Deleting or overwriting any file.\n- Copying data off my machine (SFTP, cloud upload, git push).\n- Anything involving passwords, keys, or login details. Never print them.\n\n## When you finish a task\n- Summarise what you changed, which files you created, and anything I\n  should check by hand.\nAdd your own habits to the Code section, such as your preferred programming language and plotting style. Keep the file short: every line competes for the model’s attention."
-  },
-  {
-    "objectID": "practices/agent-instructions.html#using-it-in-the-web-chat",
-    "href": "practices/agent-instructions.html#using-it-in-the-web-chat",
-    "title": "A  standard for AI agent instructions",
-    "section": "Using it in the web chat",
-    "text": "Using it in the web chat\nThe same text works as a starting prompt in the web chat versions. There the model cannot touch your files, but the rules still shape its answers:\n\nClaude: create a Project and paste the rules into its instructions.\nChatGPT: paste the rules into the custom instructions in your settings, or into the instructions of a project.\nGemini: create a Gem with the rules as its instructions.\nAny chat: paste the rules as your first message.\n\nThe Scientific integrity section matters in chat as much as in an agent."
-  },
-  {
-    "objectID": "practices/agent-instructions.html#skills-a-topic-for-another-time",
-    "href": "practices/agent-instructions.html#skills-a-topic-for-another-time",
-    "title": "A  standard for AI agent instructions",
-    "section": "Skills: a topic for another time",
-    "text": "Skills: a topic for another time\nInstruction files hold rules that apply to everything. Skills hold know-how for one kind of task, such as “how to write a README for a new dataset”, “how to make a publication-quality figure”, or “how to check a reference list”. A skill is a folder with a Markdown file of instructions and optional scripts, and the agent loads it only when the task calls for it (Agent Skills 2025). Skills deserve their own post. Until then, see agentskills.io and Anthropic’s introduction to skills."
-  },
-  {
-    "objectID": "practices/agent-instructions.html#further-reading",
-    "href": "practices/agent-instructions.html#further-reading",
-    "title": "A  standard for AI agent instructions",
+    "objectID": "practices/nanostructure-group.html#further-reading",
+    "href": "practices/nanostructure-group.html#further-reading",
+    "title": "Best Practices for Nanostructure Group Members",
     "section": "Further reading",
-    "text": "Further reading\n\nagents.md: the shared format and examples (Agentic AI Foundation 2025).\nClaude Code best practices (Anthropic 2025).\nOpenCode rules and permissions (OpenCode 2026b, 2026a).\nGO FAIR: the FAIR principles (Wilkinson et al. 2016).\nThe CHEAC Data Management Plan (Center for High Entropy Alloy Catalysis 2026)."
-  },
-  {
-    "objectID": "practices/agent-instructions.html#references",
-    "href": "practices/agent-instructions.html#references",
-    "title": "A  standard for AI agent instructions",
-    "section": "References",
-    "text": "References\n\n\nAgent Skills. 2025. Agent Skills. Https://agentskills.io.\n\n\nAgentic AI Foundation. 2025. AGENTS.md: A Simple, Open Format for Guiding Coding Agents. Https://agents.md.\n\n\nAnthropic. 2025. Claude Code: Best Practices for Agentic Coding. Https://www.anthropic.com/engineering/claude-code-best-practices.\n\n\nAnthropic. 2026. How Claude Remembers Your Project. Claude Code documentation, https://code.claude.com/docs/en/memory.\n\n\nCenter for High Entropy Alloy Catalysis. 2026. Open Research Data Management Plan (DMP). University of Copenhagen.\n\n\nCone, Matt. 2026. Markdown Guide: Getting Started. Https://www.markdownguide.org/getting-started/.\n\n\nGoogle. 2026. Provide Context with GEMINI.md Files. Gemini CLI documentation, https://geminicli.com/docs/cli/gemini-md/.\n\n\nLulla, Jai Lal, Seyedmoein Mohsenimofidi, Matthias Galster, Jie M. Zhang, Sebastian Baltes, and Christoph Treude. 2026. “On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents.” arXiv Preprint arXiv:2601.20404. https://arxiv.org/abs/2601.20404.\n\n\nMicrosoft. 2026. Use Custom Instructions in VS Code. Visual Studio Code documentation, https://code.visualstudio.com/docs/copilot/customization/custom-instructions.\n\n\nOpenAI. 2026. Custom Instructions with AGENTS.md. Codex documentation, https://learn.chatgpt.com/docs/agent-configuration/agents-md.\n\n\nOpenCode. 2026a. Permissions. OpenCode documentation, https://opencode.ai/docs/permissions/.\n\n\nOpenCode. 2026b. Rules. OpenCode documentation, https://opencode.ai/docs/rules/.\n\n\nStencil Labs. 2026. Oh-My-Pi (OMP): Coding Agent with the IDE Wired in. Https://github.com/can1357/oh-my-pi.\n\n\nWilkinson, Mark D., Michel Dumontier, IJsbrand Jan Aalbersberg, et al. 2016. “The FAIR Guiding Principles for Scientific Data Management and Stewardship.” Scientific Data 3: 160018. https://doi.org/10.1038/sdata.2016.18."
-  },
-  {
-    "objectID": "practices/index.html",
-    "href": "practices/index.html",
-    "title": "Best Practices",
-    "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nOnboarding\n\n\nSet up a new computer for research coding at CHEAC: Miniconda with conda-forge, git and Git Bash, VS Code with conda environments, and Claude Code, including how sessions work and how to keep one inside a project folder.\n\n\n\n\n\n28 Oct 2026\n\n\nTill Schertenleib\n\n\n\n\n\n\n\n\n\n\n\n\nOne folder to rule them all: a git workflow for research\n\n\nA practical introduction to git for researchers: keep one working copy of your scripts, find old versions, try things without making a mess, and review what AI agents change.\n\n\n\n\n\n25 Oct 2026\n\n\nFrederik Lizak Johansen\n\n\n\n\n\n\n\n\n\n\n\n\nA  standard for AI agent instructions\n\n\nA shared starting prompt for AI agents and chat assistants, built on the CHEAC Data Management Plan: what instruction files are, how to set one up, and a template to copy.\n\n\n\n\n\n25 Sep 2026\n\n\nFrederik Lizak Johansen\n\n\n\n\n\nNo matching items"
+    "text": "Further reading\n\nOnboarding: installing conda, git, VS Code, and Claude Code, and how Claude Code sessions work.\nOne folder to rule them all: a git workflow for research: git from scratch, and how to review what an AI agent changed.\nA CHEAC standard for AI agent instructions: what instruction files are, and the general CHEAC version of this file."
   },
   {
     "objectID": "suggestions/index.html",
