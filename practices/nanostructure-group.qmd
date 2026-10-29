@@ -61,13 +61,13 @@ Copy the block below with the copy button in its top right corner.
 - I am a researcher at the Center for High Entropy Alloy Catalysis (CHEAC), University of Copenhagen. My field: Chemistry, materials science, x-ray scattering. I am particularly interested in the nanostructure problem, structure--property relations, and defects and disorder in materials.
 
 
-## Research data (follows the CHEAC Data Management Plan)
+## Research data
 - Never modify, move, rename, or delete raw data: instrument output,
   simulation output, or files from external facilities. Treat them as
   read-only.
 - Write processed data to a separate, clearly labelled folder
   (e.g. `processed/`), never next to the raw file under a similar name.
--  Ask for approval before before deleting or overwriting files.
+- Ask for approval before before deleting or overwriting files.
 
 
 ## Scientific integrity
