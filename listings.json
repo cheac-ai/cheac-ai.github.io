@@ -1,7 +1,34 @@
 [
   {
-    "listing": "/transparency/index.html",
+    "listing": "/suggestions/index.html",
     "items": []
+  },
+  {
+    "listing": "/news/index.html",
+    "items": []
+  },
+  {
+    "listing": "/ai-in-research/index.html",
+    "items": []
+  },
+  {
+    "listing": "/guidelines/index.html",
+    "items": [
+      "/guidelines/cheac-dmp.html",
+      "/guidelines/ku-guidelines.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/guidelines/cheac-dmp.html",
+      "/transparency/the-state-of-ai-disclosure.html",
+      "/practices/nanostructure-group.html",
+      "/practices/onboarding.html",
+      "/practices/git-workflow.html",
+      "/guidelines/ku-guidelines.html",
+      "/practices/agent-instructions.html"
+    ]
   },
   {
     "listing": "/practices/index.html",
@@ -13,33 +40,9 @@
     ]
   },
   {
-    "listing": "/index.html",
+    "listing": "/transparency/index.html",
     "items": [
-      "/guidelines/cheac-dmp.html",
-      "/practices/nanostructure-group.html",
-      "/practices/onboarding.html",
-      "/practices/git-workflow.html",
-      "/guidelines/ku-guidelines.html",
-      "/practices/agent-instructions.html"
+      "/transparency/the-state-of-ai-disclosure.html"
     ]
-  },
-  {
-    "listing": "/guidelines/index.html",
-    "items": [
-      "/guidelines/cheac-dmp.html",
-      "/guidelines/ku-guidelines.html"
-    ]
-  },
-  {
-    "listing": "/ai-in-research/index.html",
-    "items": []
-  },
-  {
-    "listing": "/news/index.html",
-    "items": []
-  },
-  {
-    "listing": "/suggestions/index.html",
-    "items": []
   }
 ]
