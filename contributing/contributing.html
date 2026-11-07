@@ -224,7 +224,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Last updated</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">30 Sep 2026</p>
+      <p class="date-modified">7 Nov 2026</p>
     </div>
   </div>
     
@@ -274,7 +274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p>A page can also live in its own subfolder, for example <code>news/my-story/index.qmd</code>, next to its figures.</p>
+<p>Put the page’s figures in <code>assets/figures/</code>, not next to the page. A single cover figure can go there directly, named after the page (<code>assets/figures/my-page-toc.svg</code>). A page with several figures gets its own subfolder, named like the page (<code>assets/figures/my-page/</code>), and refers to them as <code>../assets/figures/my-page/figure1.png</code>.</p>
 <p>The section list, the navbar link, and the <em>Most recent</em> list on the front page pick up new pages automatically. They read the header at the top of the file:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Short, descriptive title"</span></span>
