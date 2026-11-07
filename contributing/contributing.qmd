@@ -20,7 +20,7 @@ Place a new `.qmd` (or `.md`) file in the folder of its section:
 | Transparency | `transparency/` |
 | AI News | `news/` |
 
-A page can also live in its own subfolder, for example `news/my-story/index.qmd`, next to its figures.
+Put the page's figures in `assets/figures/`, not next to the page. A single cover figure can go there directly, named after the page (`assets/figures/my-page-toc.svg`). A page with several figures gets its own subfolder, named like the page (`assets/figures/my-page/`), and refers to them as `../assets/figures/my-page/figure1.png`.
 
 The section list, the navbar link, and the *Most recent* list on the front page pick up new pages automatically. They read the header at the top of the file:
 

@@ -67,7 +67,7 @@ Copy the block below with the copy button in its top right corner.
   read-only.
 - Write processed data to a separate, clearly labelled folder
   (e.g. `processed/`), never next to the raw file under a similar name.
-- Ask for approval before before deleting or overwriting files.
+- Ask for approval before deleting or overwriting files.
 
 
 ## Scientific integrity
@@ -185,7 +185,7 @@ Always use `pathlib.Path` for file and directory paths. Avoid `os.path`, string 
 
 - **Letters**: We want to use a coherent style sheet for publication ready figures. Avoid putting too much text outside of panels. Use bold letters for labeling panels such as **a**, **b**, **c**, etc. Use Arial if available.
 
-- **Syntax**: Start every string with capitalized letters. Format labels as $G(r) \, / \, \mathrm{\AA}^{-2}$, $I(Q) \, / \, \mathrm{\AA}^{-1}$, and $r \, / \, \mathrm{\AA}$
+- **Syntax**: Start every string with capitalized letters. Format labels as $G(r) \, / \, \mathrm{\AA}^{-2}$, $I(Q) \, / \, \mathrm{a.u.}$, $Q \, / \, \mathrm{\AA}^{-1}$ and $r \, / \, \mathrm{\AA}$
 
 - **Nature colors**: typically, we will use blue and verm in combinations with black and gray shaded lines in figures. Below are the codes needed to define the color shades.
 
