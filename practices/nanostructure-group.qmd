@@ -29,7 +29,7 @@ This page publishes the instruction file I use day to day, so that everyone in t
 **Added for the group**
 
 - **Honest figures.** Claude must report any shift or offset it applies, and must never shift data along an axis that reports a quantity.
-- **Git workflow.** We use a *forking* workflow: `origin` is your fork, `upstream` is the group repository. You always branch from an up-to-date `main`, never commit to `main` directly, and use conventional commit messages (`feat:`, `fix:`, …). The [git workflow post](git-workflow.qmd) uses a simpler single-remote setup and is the place to learn the basics first.
+- **Git workflow.** We use a *forking* workflow: `origin` is your fork, `upstream` is the group repository. You always branch from an up-to-date `main`, never commit to `main` directly, and use conventional commit messages (`feat:`, `fix:`, …). The [git workflow post](git-workflow.qmd) uses a simpler single-remote setup and is the place to learn the basics first. The [git cheat sheet for forks](git-cheat-sheet.qmd) explains the forking workflow and the commands for it.
 - **News files.** Every pull request comes with a news entry created with `package add news`.
 - **Conda environments.** Packages come from conda-forge, installed from the project's `requirements/` files (see [Switch to conda-forge](onboarding.qmd#switch-to-conda-forge) in Onboarding).
 - **pre-commit and code style.** flake8, NumPy-style docstrings, `pathlib` for paths, and compact code.
@@ -247,4 +247,5 @@ plt.rcParams["ytick.labelsize"] = 6.0
 
 - [Onboarding](onboarding.qmd): installing conda, git, VS Code, and Claude Code, and how Claude Code sessions work.
 - [One folder to rule them all: a git workflow for research](git-workflow.qmd): git from scratch, and how to review what an AI agent changed.
+- [Git in a fork: a cheat sheet for working with collaborators](git-cheat-sheet.qmd): origin and upstream, avoiding merge conflicts, and syncing your fork.
 - [A CHEAC standard for AI agent instructions](agent-instructions.qmd): what instruction files are, and the general CHEAC version of this file.
