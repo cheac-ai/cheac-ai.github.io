@@ -1,0 +1,11 @@
+---
+title: "Page not found"
+toc: false
+---
+
+This page does not exist, or it has moved. Pages were reorganised when the site launched; the page you are looking for is probably in one of the sections in the menu above.
+
+- [Home](/index.html)
+- [Best Practices](/practices/index.html)
+- [Guidelines](/guidelines/index.html)
+- [Suggestion box](/suggestions/index.html)

@@ -1,0 +1,13 @@
+---
+title: "AI in research"
+listing:
+  contents:
+    - "**/*.qmd"
+    - "**/*.md"
+  type: default
+  sort: "date desc"
+  date-format: "D MMM YYYY"
+  sort-ui: true
+  filter-ui: true
+include-after-body: ../assets/js/listing.html
+---
