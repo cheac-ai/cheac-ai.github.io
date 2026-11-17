@@ -1,0 +1,27 @@
+name: Pull Request Preview
+
+on:
+  pull_request:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Copy site
+        run: |
+          mkdir preview
+          cp -r * preview/ || true
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./preview
+          destination_dir: pr-${{ github.event.pull_request.number }}
