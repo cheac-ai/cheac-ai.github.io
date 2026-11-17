@@ -101,9 +101,14 @@ The model reads the instruction file as advice and can still get it wrong. Actio
 The instruction file is an ordinary text file, so your agent can edit it. Ask it directly: "Add a rule to my instruction file that all figures use 300 dpi", or "Make my AGENTS.md shorter and clearer". Read the change before you accept it.
 :::
 
-## The {{< cheac >}} standard instruction file {#cheac-standard}
+## The {{< cheac >}} standard instruction files {#cheac-standard}
 
-Copy the block below with the copy button in its top right corner. The rules follow the C-L-E-A-R standard and the FAIR principles in the DMP [@cheacdmp2026; @wilkinson2016fair].
+Copy the block associated with your group with the copy button in its top right corner. All rules follow the C-L-E-A-R standard and the FAIR principles in the DMP [@cheacdmp2026; @wilkinson2016fair]. The group-specific standards are variations of the {{< cheac >}} standard, adapted to suit each group’s workflow. 
+
+
+::: {.panel-tabset}
+
+## {{< cheac >}} standard
 
 ```markdown
 # CHEAC agent instructions (v1, September 2026)
@@ -152,6 +157,51 @@ Copy the block below with the copy button in its top right corner. The rules fol
 ```
 
 Add your own habits to the *Code* section, such as your preferred programming language and plotting style. Keep the file short: every line competes for the model's attention.
+
+## Theory standard
+
+```markdown
+## Research data
+- Never modify, move, rename, or delete raw data. Treat them as
+  read-only.
+- Every file is accompanied by a README with instrument or software version, 
+  parameters, date, responsible researcher, and purpose. Offer to create 
+  or update these when you add data or scripts.
+- Prefer plain text and open formats (CSV, JSON, Python scripts) over
+  binary or proprietary formats.
+- Record software versions and random seeds in scripts and READMEs.
+- Do not upload data to any external service without my approval.
+ 
+## Scientific integrity
+- Never invent data, numbers, references, or DOIs. If you do not know,
+  say so.
+- Every literature claim needs a source I can check. Give the DOI or URL.
+- State units, uncertainties, and assumptions explicitly.
+- When a result looks surprising, say so and suggest how to check it
+  before I rely on it.
+ 
+## Code
+- Keep scripts short, commented, and runnable from the command line.
+- Favor open source packages.
+- When working with atomistic DFT code, default to ASE and GPAW software.
+- Ask before suggesting to install packages or change software.
+ 
+## Actions that need my approval
+- Deleting or overwriting any file.
+- Copying data off my machine (SFTP, cloud upload, git push).
+- Anything involving personal sensitive information such as names, 
+  affiliations, passwords, keys, or login details. Never print nor save them.
+ 
+## When you finish a task
+- Summarise what you changed, which files you created, and anything I
+  should check by hand.
+```
+
+Add your own habits to the *Code* section, such as your preferred programming language and plotting style. Keep the file short: every line competes for the model's attention.
+
+In **Claude** the above instructions are within the character limit and can thus be utilized in the web application in its current form.
+
+:::
 
 ## Using it in the web chat
 
