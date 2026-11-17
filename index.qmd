@@ -65,6 +65,11 @@ New tools, policies, and papers worth knowing about.
 Topics the council should discuss next. Add your own.
 :::
 
+::: {.g-col-12 .g-col-md-6 .g-col-lg-4}
+### [New box for testing](suggestions/index.qmd)
+A whole new interesting box!
+:::
+
 :::
 
 ## Most recent
