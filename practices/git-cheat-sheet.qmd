@@ -58,7 +58,7 @@ The cost is an extra remote to keep in sync. Most of this post is about doing th
 
 ## The group's rules in short
 
-The [Nanostructure group instruction file](nanostructure-group.qmd#group-file) sets out the branch discipline we follow, and that we ask AI agents to follow too. In plain words:
+The Nanostructure group's instruction file (the *Nanostructure standard* tab in [A CHEAC standard for AI agent instructions](agent-instructions.qmd#cheac-standard)) sets out the branch discipline we follow, and that we ask AI agents to follow too. In plain words:
 
 1. Go to `main`.
 2. Update it from `upstream`.
@@ -451,7 +451,7 @@ For anything else, [Oh Shit, Git!?!](https://ohshitgit.com) has a good collectio
 ## Further reading
 
 - [One folder to rule them all: a git workflow for research](git-workflow.qmd): git from scratch, branches, and how to review what an AI agent changed.
-- [Best Practices for Nanostructure Group Members](nanostructure-group.qmd): the group instruction file these rules come from.
+- [A CHEAC standard for AI agent instructions](agent-instructions.qmd#cheac-standard): the group instruction file these rules come from, under the *Nanostructure standard* tab.
 - [Onboarding](onboarding.qmd): installing git, Git Bash, and VS Code.
 - *Pro Git*, [section 5.2, *Contributing to a Project*](https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project), walks through the fork workflow in more detail under *Forked Public Project* [@chacon2014progit].
 - GitHub's documentation on [forks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) [@githubforks], [configuring the `upstream` remote](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-repository-for-a-fork) [@githubforkremote], and [syncing a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) [@githubsyncfork].

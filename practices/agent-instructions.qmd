@@ -8,12 +8,14 @@ date: 2026-09-25
 description: "A shared starting prompt for AI agents and chat assistants, built on the CHEAC Data Management Plan: what instruction files are, how to set one up, and a template to copy."
 image: ../assets/figures/agent-instructions-toc.svg
 image-alt: "One instruction file, AGENTS.md, feeds both a terminal agent and a web chat"
+aliases:
+  - nanostructure-group.html
 ---
 
 ![](../assets/figures/agent-instructions-toc.svg){fig-alt="One instruction file, AGENTS.md, feeds both a terminal agent and a web chat" width="60%" fig-align="center"}
 
 ::: {.callout-tip appearance="simple"}
-**Only using the chat in your browser, or already comfortable with agents?** Skip straight to [the CHEAC standard instruction file](#cheac-standard). Chat users should also read [Using it in the web chat](#using-it-in-the-web-chat).
+**Only using the chat in your browser, or already comfortable with agents?** Skip straight to [the CHEAC standard instruction files](#cheac-standard). Chat users should also read [Using it in the web chat](#using-it-in-the-web-chat).
 :::
 
 ## Why an instruction file?
@@ -92,7 +94,7 @@ The model reads the instruction file as advice and can still get it wrong. Actio
 
 1. Install one agent (see [Installing an agent](#installing-an-agent)).
 2. Create the global instruction file for that tool (see the table above).
-3. Paste in the CHEAC standard below and fill in the *About me* section.
+3. Paste in the CHEAC standard below, or your group's version, and fill in the *About me* section.
 4. For each research project, add a short `AGENTS.md` in the project folder that describes the project, the same way the DMP asks for a top-level README.
 5. Start a session and ask the agent: "Summarise the instructions you have been given." It should list your rules back to you.
 
@@ -200,6 +202,201 @@ Add your own habits to the *Code* section, such as your preferred programming la
 Add your own habits to the *Code* section, such as your preferred programming language and plotting style. Keep the file short: every line competes for the model's attention.
 
 In **Claude** the above instructions are within the character limit and can thus be utilized in the web application in its current form.
+
+## Nanostructure standard
+
+````markdown
+# Agent instructions — Nanostructure Group (v1.1, November 2026)
+
+## About me
+- I am a researcher at the Center for High Entropy Alloy Catalysis (CHEAC), University of Copenhagen. My field: Chemistry, materials science, x-ray scattering. I am particularly interested in the nanostructure problem, structure--property relations, and defects and disorder in materials.
+
+
+## Research data
+- Never modify, move, rename, or delete raw data: instrument output,
+  simulation output, or files from external facilities. Treat them as
+  read-only.
+- Write processed data to a separate, clearly labelled folder
+  (e.g. `processed/`), never next to the raw file under a similar name.
+- Ask for approval before deleting or overwriting files.
+
+
+## Scientific integrity
+- Never invent data, numbers, references, or DOIs. If you do not know,
+  say so.
+- Every literature claim needs a source I can check. Give the DOI or URL.
+- State units, uncertainties, and assumptions explicitly.
+- When a result looks surprising, say so and suggest how to check it
+  before I rely on it.
+- When making figures, always report to me when you apply any shifts and offsets. As a general rule:
+    - never shift anything along an axis that reports a quantity;
+    - horizontal jitter or offsets on categorical axes are fine;
+    - constant offsets of stacked curves are fine.
+
+
+## Git Workflow (applies only to projects that contain git repos)
+
+If the project folder contains a cloned git repository, explicitly ask if I intend to commit and push changes to the remote, or if I am not actively contributing to the remote repo. In case of the latter, ask if the git tracking should be removed.
+
+I use a **forking workflow**:
+- `origin` = my personal fork
+- `upstream` = canonical/group repo
+
+### Branch discipline — ALWAYS follow this sequence:
+1. `git checkout main`
+2. `git pull upstream main`
+3. `git checkout -b <feature-branch>` — keep branch names short, just enough to recall the topic (e.g. `fix-testpaths`, `feat-build-cli`, not `fix-configure-pytest-testpaths-to-prevent-collection`)
+4. Work and commit on the feature branch
+5. Push to `origin` with `git push -u origin <branch>` on first push (sets upstream tracking so subsequent pushes need only `git push`)
+6. Open a PR from the fork into `upstream` (only when asked)
+
+**Never commit directly to `main`.** Never branch off an existing branch unless explicitly instructed.
+
+### Commit messages
+Use conventional prefixes: `feat:`, `fix:`, `chore:`, `docs:`, `test:`, `refactor:`
+
+## News Files (applies to all projects)
+
+Every PR requires a news file. Create one immediately after branching using:
+
+```bash
+package add news <flag> "Brief user-facing summary (under 72 chars)"
+```
+
+Flags (mutually exclusive):
+- `-a` — Added (new feature)
+- `-c` — Changed (modification to existing feature)
+- `-d` — Deprecated
+- `-r` — Removed
+- `-f` — Fixed (bug fix)
+- `-s` — Security
+- `-n` — No-news needed (trivial change; reviewer decides if that's appropriate)
+
+The command reads the current branch name and creates `news/<branch-name>.rst`.
+Stage and commit the news file along with the rest of the PR work.
+
+For no-news, use: `package add news -n "reason why no news is needed"`
+
+## Conda Environment Setup (applies to all projects)
+
+When setting up or initialising a conda env for a project, install from **conda-forge** everything in:
+- `requirements/conda.txt` (project-level)
+- `requirements/tests.txt` (project-level)
+- `~/dev.txt` (global, in the user's home directory)
+
+```bash
+conda install -n <env> -c conda-forge --file requirements/conda.txt --file requirements/tests.txt --file ~/dev.txt
+```
+
+Only fall back to pip for packages not on conda-forge.
+
+## pre-commit (applies only to projects that contain git repos)
+
+Run `pre-commit install` at the start of any project so hooks run automatically on every commit.
+
+Never use `git commit --no-verify` (`-n`) except temporarily when auto-fixes need to be committed mid-cleanup. Once all issues are resolved, always commit without `-n`.
+
+## Code Style (group standards)
+
+### Style guide enforcement
+Use flake8 (max line 79, ignore E203)
+
+### Docstrings
+All docstrings must be in **NumPy format** (Parameters, Returns, etc. sections).
+
+### Docstring parameter descriptions
+All parameter descriptions in NumPy docstrings must begin with **"The"**.
+
+### argparse help strings
+Write argparse `help=` and `description=` strings to be as informative as possible. Include examples where helpful. Do **not** force them to start with "The" — some inputs are actions where that makes no sense.
+
+### Exception message
+All exception messages must include concise information about 'what is wrong' and 'how to fix it' when they are raised.
+
+### File paths
+Always use `pathlib.Path` for file and directory paths. Avoid `os.path`, string concatenation, or `open()` with raw strings.
+
+### Code density and comments
+- Prefer self-documenting code over explanatory comments. If a comment is needed, the code may need renaming.
+- Only add blank lines where they semantically separate blocks with very different purposes. Do not add blank lines for visual breathing room.
+- Follow PEP 8, but where PEP 8 is silent, lean compact. Three lines of clear code is better than the same code padded to six.
+- This applies everywhere: source code, tests, config files.
+
+## Actions that need my approval
+- Copying data off my machine (SFTP, cloud upload, git push).
+- Anything involving passwords, keys, or login details. Never print them.
+
+## When you finish a task
+- Summarise what you changed, which files you created, and anything I
+  should check by hand.
+
+
+## Figure making
+- When asked to make a figure, if not specifically instructed otherwise, always use these general style guidelines:
+
+- **Letters**: We want to use a coherent style sheet for publication ready figures. Avoid putting too much text outside of panels. Use bold letters for labeling panels such as **a**, **b**, **c**, etc. Use Arial if available.
+
+- **Syntax**: Start every string with capitalized letters. Format labels as $G(r) \ / \ \mathrm{\AA}^{-2}$, $I(Q) \ / \ \mathrm{a.u.}$, $Q \ / \ \mathrm{\AA}^{-1}$ and $r \ / \ \mathrm{\AA}$
+
+- **PXRD data**: Sometimes it makes sense to label the y-axis of a diffraction pattern $I(Q)$ or even $I(2\theta)$. Most of the time, though, label the y-axis of PXRD data "Intensity / a.u." unless stated otherwise.
+
+- **Nature colors**: typically, we will use blue and verm in combinations with black and gray shaded lines in figures. Below are the codes needed to define the color shades.
+
+```python
+orange = (230/255, 159/255, 0/255)
+skyblue = (86/255, 180/255, 233/255)
+green = (0/255, 158/255, 115/255)
+yellow = (240/255, 228/255, 66/255)
+blue = (0/255, 114/255, 178/255)
+verm = (213/255, 94/255, 0/255)
+purple = (204/255, 121/255, 167/255)
+red = '#be1818'
+```
+
+- For plotting a standard PDF or Rietveld refinement fit, use the billinge colors: bg_blue for data (circles), bg_red for the fit (line), and bg_green for the difference curve (line with negative offset). Add a dashed offset zeroline on top of the difference curve.
+
+```python
+bg_blue = '#0B3C5D'
+bg_red = '#B82601'
+bg_green = '#1c6b0a'
+```
+
+- For sequential colors, use:
+
+```python
+plot_color_gradients('Sequential',['Greys', 'Purples', 'Blues', 'Greens', 'Oranges', 'Reds'])
+```
+
+- **Figure size**: Use nature figure width (18 cm (180 mm), page wide) for a two-column figure, and 9 cm (90 mm) width for a one-column figure:
+
+```python
+fw = 9*cm # one-column width
+fh = 0.75 * fw # usual aspect ratio
+```
+
+- **Composite figures**: Most of the times, the final figure imported to overleaf should have a figure width of $width = 2*fw$. We always want to avoid overlapping text, and overcrowding the figure.
+
+- **font sizes**: Typically we use the standard font sizes below, but for composite figures with many sub-panels, we can use the "tiny-subpanel" font sizes for small sub-panels.
+
+```python
+##### Standard figure font size
+
+plt.rcParams["font.size"] = 8
+plt.rcParams["axes.labelsize"] = 8
+plt.rcParams["xtick.labelsize"] = 6
+plt.rcParams["ytick.labelsize"] = 6
+```
+```python
+##### Tiny sub-panel font size
+
+plt.rcParams["font.size"] = 6.5
+plt.rcParams["axes.labelsize"] = 6.5
+plt.rcParams["xtick.labelsize"] = 6.0
+plt.rcParams["ytick.labelsize"] = 6.0
+```
+````
+
+The Nanostructure group's version keeps the {{< cheac >}} rules on raw data and scientific integrity, and adds the group's git workflow, news files, conda-forge environments, code style, and figure conventions. Change *About me* to your own field. The git and pre-commit sections apply only in projects that contain a git repository, so they stay out of the way in plain data folders. The [git cheat sheet for forks](git-cheat-sheet.qmd) explains the git workflow.
 
 :::
 
