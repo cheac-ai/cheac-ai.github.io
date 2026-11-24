@@ -4,6 +4,15 @@
     "items": []
   },
   {
+    "listing": "/practices/index.html",
+    "items": [
+      "/practices/git-cheat-sheet.html",
+      "/practices/onboarding.html",
+      "/practices/git-workflow.html",
+      "/practices/agent-instructions.html"
+    ]
+  },
+  {
     "listing": "/news/index.html",
     "items": []
   },
@@ -22,20 +31,11 @@
     "listing": "/index.html",
     "items": [
       "/guidelines/cheac-dmp.html",
+      "/practices/git-cheat-sheet.html",
       "/transparency/the-state-of-ai-disclosure.html",
-      "/practices/nanostructure-group.html",
       "/practices/onboarding.html",
       "/practices/git-workflow.html",
       "/guidelines/ku-guidelines.html",
-      "/practices/agent-instructions.html"
-    ]
-  },
-  {
-    "listing": "/practices/index.html",
-    "items": [
-      "/practices/nanostructure-group.html",
-      "/practices/onboarding.html",
-      "/practices/git-workflow.html",
       "/practices/agent-instructions.html"
     ]
   },

@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Till Schertenleib">
+<meta name="dcterms.date" content="2026-11-11">
+<meta name="description" content="How forks, origin, and upstream fit together, how to avoid merge conflicts, and the commands for three everyday situations: starting a branch, syncing with the group repository, and choosing between git switch and git checkout.">
+
+<title>Git in a fork: a cheat sheet for working with collaborators – \btw</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../assets/logos/cheac-logo-square-transparent.svg" rel="icon" type="image/svg+xml">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-382fb3ba5825fb150db5d5c1bd492eaf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<meta property="og:title" content="Git in a fork: a cheat sheet for working with collaborators – \btw">
+<meta property="og:description" content="How forks, origin, and upstream fit together, how to avoid merge conflicts, and the commands for three everyday situations: starting a branch, syncing with the group repository, and choosing between git switch and git checkout.">
+<meta property="og:image" content="https://cheac-ai.github.io/assets/figures/git-cheat-sheet-toc.svg">
+<meta property="og:site_name" content="\btw">
+<meta property="og:image:alt" content="Three boxes: the group's repository (upstream) and your fork (origin) on GitHub, and your computer (local), connected by arrows labelled fork, pull request, git pull upstream main, and git push origin fix-qrange">
+<meta name="twitter:title" content="Git in a fork: a cheat sheet for working with collaborators – \btw">
+<meta name="twitter:description" content="How forks, origin, and upstream fit together, how to avoid merge conflicts, and the commands for three everyday situations: starting a branch, syncing with the group repository, and choosing between git switch and git checkout.">
+<meta name="twitter:image" content="https://cheac-ai.github.io/assets/figures/git-cheat-sheet-toc.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:alt" content="Three boxes: the group's repository (upstream) and your fork (origin) on GitHub, and your computer (local), connected by arrows labelled fork, pull request, git pull upstream main, and git push origin fix-qrange">
+</head>
+
+<body class="nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../assets/logos/cheac-logo-long-transparent.svg" alt="CHEAC logo" class="navbar-logo light-content">
+    <img src="../assets/logos/cheac-logo-long-transparent.svg" alt="CHEAC logo" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">\btw</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../practices/index.html"> 
+<span class="menu-text">Best Practices</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../guidelines/index.html"> 
+<span class="menu-text">Guidelines</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../ai-in-research/index.html"> 
+<span class="menu-text">AI in research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../transparency/index.html"> 
+<span class="menu-text">Transparency</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../news/index.html"> 
+<span class="menu-text">AI News</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../suggestions/index.html"> 
+<span class="menu-text">Suggestion box</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../contributing/contributing.html"> 
+<span class="menu-text">Contributing</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/cheac-ai/cheac-ai.github.io"> <i class="bi bi-github" role="img" aria-label="GitHub repository">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+            <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#three-copies-of-one-repository" id="toc-three-copies-of-one-repository" class="nav-link active" data-scroll-target="#three-copies-of-one-repository">Three copies of one repository</a></li>
+  <li><a href="#why-a-fork-and-not-branches-in-the-group-repository" id="toc-why-a-fork-and-not-branches-in-the-group-repository" class="nav-link" data-scroll-target="#why-a-fork-and-not-branches-in-the-group-repository">Why a fork and not branches in the group repository?</a></li>
+  <li><a href="#the-groups-rules-in-short" id="toc-the-groups-rules-in-short" class="nav-link" data-scroll-target="#the-groups-rules-in-short">The group’s rules in short</a></li>
+  <li><a href="#avoiding-merge-conflicts" id="toc-avoiding-merge-conflicts" class="nav-link" data-scroll-target="#avoiding-merge-conflicts">Avoiding merge conflicts</a></li>
+  <li><a href="#scenario-1-clone-branch-commit-and-push" id="toc-scenario-1-clone-branch-commit-and-push" class="nav-link" data-scroll-target="#scenario-1-clone-branch-commit-and-push">Scenario 1: clone, branch, commit, and push</a>
+  <ul class="collapse">
+  <li><a href="#once-per-project" id="toc-once-per-project" class="nav-link" data-scroll-target="#once-per-project">Once per project</a></li>
+  <li><a href="#start-a-piece-of-work" id="toc-start-a-piece-of-work" class="nav-link" data-scroll-target="#start-a-piece-of-work">Start a piece of work</a></li>
+  <li><a href="#edit-check-and-commit" id="toc-edit-check-and-commit" class="nav-link" data-scroll-target="#edit-check-and-commit">Edit, check, and commit</a></li>
+  <li><a href="#push-to-your-fork" id="toc-push-to-your-fork" class="nav-link" data-scroll-target="#push-to-your-fork">Push to your fork</a></li>
+  <li><a href="#open-the-pull-request" id="toc-open-the-pull-request" class="nav-link" data-scroll-target="#open-the-pull-request">Open the pull request</a></li>
+  <li><a href="#after-the-pull-request-is-merged" id="toc-after-the-pull-request-is-merged" class="nav-link" data-scroll-target="#after-the-pull-request-is-merged">After the pull request is merged</a></li>
+  </ul></li>
+  <li><a href="#scenario-2-syncing-with-the-remotes" id="toc-scenario-2-syncing-with-the-remotes" class="nav-link" data-scroll-target="#scenario-2-syncing-with-the-remotes">Scenario 2: syncing with the remotes</a>
+  <ul class="collapse">
+  <li><a href="#case-a-youre-on-main" id="toc-case-a-youre-on-main" class="nav-link" data-scroll-target="#case-a-youre-on-main">Case A: you’re on <code>main</code></a></li>
+  <li><a href="#case-b-youre-in-the-middle-of-a-branch" id="toc-case-b-youre-in-the-middle-of-a-branch" class="nav-link" data-scroll-target="#case-b-youre-in-the-middle-of-a-branch">Case B: you’re in the middle of a branch</a></li>
+  <li><a href="#resolving-a-conflict" id="toc-resolving-a-conflict" class="nav-link" data-scroll-target="#resolving-a-conflict">Resolving a conflict</a></li>
+  </ul></li>
+  <li><a href="#scenario-3-git-checkout-vs-git-switch" id="toc-scenario-3-git-checkout-vs-git-switch" class="nav-link" data-scroll-target="#scenario-3-git-checkout-vs-git-switch">Scenario 3: <code>git checkout</code> vs <code>git switch</code></a>
+  <ul class="collapse">
+  <li><a href="#why-the-split-matters" id="toc-why-the-split-matters" class="nav-link" data-scroll-target="#why-the-split-matters">Why the split matters</a></li>
+  <li><a href="#translation-table" id="toc-translation-table" class="nav-link" data-scroll-target="#translation-table">Translation table</a></li>
+  <li><a href="#which-should-i-use" id="toc-which-should-i-use" class="nav-link" data-scroll-target="#which-should-i-use">Which should I use?</a></li>
+  <li><a href="#switching-to-a-branch-thats-only-on-a-remote" id="toc-switching-to-a-branch-thats-only-on-a-remote" class="nav-link" data-scroll-target="#switching-to-a-branch-thats-only-on-a-remote">Switching to a branch that’s only on a remote</a></li>
+  </ul></li>
+  <li><a href="#when-things-go-wrong" id="toc-when-things-go-wrong" class="nav-link" data-scroll-target="#when-things-go-wrong">When things go wrong</a></li>
+  <li><a href="#cheat-sheet" id="toc-cheat-sheet" class="nav-link" data-scroll-target="#cheat-sheet">Cheat sheet</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Git in a fork: a cheat sheet for working with collaborators</h1>
+</div>
+
+<div>
+  <div class="description">
+    How forks, origin, and upstream fit together, how to avoid merge conflicts, and the commands for three everyday situations: starting a branch, syncing with the group repository, and choosing between git switch and git checkout.
+  </div>
+</div>
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Till Schertenleib </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Postdoc, Nanostructure Group
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">11 Nov 2026</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Last updated</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">24 Nov 2026</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>New to git?</strong> Start with <a href="../practices/git-workflow.html">One folder to rule them all</a>, which covers commits, branches, and GitHub from scratch. <strong>Just need the commands?</strong> Jump to the <a href="#cheat-sheet">cheat sheet</a>.</p>
+</div>
+</div>
+</div>
+<section id="three-copies-of-one-repository" class="level2">
+<h2 class="anchored" data-anchor-id="three-copies-of-one-repository">Three copies of one repository</h2>
+<p>When you contribute to a shared project, such as one of the group’s analysis packages, there isn’t one copy of the repository but three.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../assets/figures/git-cheat-sheet-toc.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%" alt="Three boxes: the group's repository (upstream) and your fork (origin) on GitHub, and your computer (local), connected by arrows labelled fork, pull request, git pull upstream main, and git push origin fix-qrange"></p>
+</figure>
+</div>
+<ul>
+<li><strong><code>upstream</code></strong> is the group’s repository on GitHub. It holds the official version of the code. You don’t push to it. Changes get there through pull requests, which a maintainer reviews and merges.</li>
+<li><strong><code>origin</code></strong> is your <strong>fork</strong>: a copy of the group’s repository under your own GitHub account. It has its own settings and permissions but stays connected to the repository it came from <span class="citation" data-cites="githubforks">(<a href="#ref-githubforks" role="doc-biblioref">GitHub 2026b</a>)</span>. That connection lets you propose changes back. You can push whatever you like to your fork.</li>
+<li><strong>local</strong> is the clone on your computer, where you edit, run, and commit.</li>
+</ul>
+<p><code>origin</code> and <code>upstream</code> are <strong>remotes</strong>: short names your local repository uses for the two GitHub addresses. Git calls the repository you cloned from <code>origin</code> automatically, and in a fork workflow you clone your fork. <code>upstream</code> is the name GitHub’s documentation uses for the original repository <span class="citation" data-cites="githubforkremote">(<a href="#ref-githubforkremote" role="doc-biblioref">GitHub 2026a</a>)</span>. To see yours:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>origin    git@github.com:&lt;you&gt;/&lt;project&gt;.git (fetch)
+origin    git@github.com:&lt;you&gt;/&lt;project&gt;.git (push)
+upstream  git@github.com:&lt;group&gt;/&lt;project&gt;.git (fetch)
+upstream  git@github.com:&lt;group&gt;/&lt;project&gt;.git (push)</code></pre>
+<p>Commits travel in a loop:</p>
+<ol type="1">
+<li><strong>From <code>upstream</code> to your computer:</strong> <code>git pull upstream main</code> brings the group’s latest <code>main</code> down.</li>
+<li><strong>From your computer to <code>origin</code>:</strong> <code>git push origin &lt;branch&gt;</code> sends your work branch to your fork.</li>
+<li><strong>From <code>origin</code> to <code>upstream</code>:</strong> a <strong>pull request</strong> on GitHub asks the maintainers to merge that branch from your fork into the group’s <code>main</code>.</li>
+</ol>
+<p>Your own <code>main</code>, on your computer and on your fork, is only a <strong>mirror of the group’s <code>main</code></strong>. You never commit to it. All your work happens on branches. That one rule keeps everything else in this post simple.</p>
+</section>
+<section id="why-a-fork-and-not-branches-in-the-group-repository" class="level2">
+<h2 class="anchored" data-anchor-id="why-a-fork-and-not-branches-in-the-group-repository">Why a fork and not branches in the group repository?</h2>
+<p>In a small private project with two or three people, it’s perfectly fine for everyone to push branches to the same repository. That’s the setup in the <a href="../practices/git-workflow.html#working-with-co-authors">git workflow post</a>. The group’s shared packages work differently, for a few reasons:</p>
+<ul>
+<li><strong>Nobody needs write access</strong> to the group repository to contribute. A new student or a visiting collaborator can fork, change, and open a pull request on their first day.</li>
+<li><strong>The group repository stays tidy.</strong> It holds <code>main</code> and the releases, not dozens of half-finished personal branches called <code>test2</code> that nobody dares to delete.</li>
+<li><strong>Nobody breaks <code>main</code> by accident.</strong> A mistyped <code>git push</code> lands in your fork, not in the code everyone else depends on.</li>
+<li><strong>Your fork is your sandbox.</strong> You can push drafts and experiments, and even rewrite your own branches, without affecting anyone.</li>
+<li><strong>Every change gets reviewed.</strong> The only way into <code>upstream</code> is a pull request, so someone else reads the diff and the automatic tests run before anything is merged.</li>
+</ul>
+<p>The cost is an extra remote to keep in sync. Most of this post is about doing that well.</p>
+</section>
+<section id="the-groups-rules-in-short" class="level2">
+<h2 class="anchored" data-anchor-id="the-groups-rules-in-short">The group’s rules in short</h2>
+<p>The Nanostructure group’s instruction file (the <em>Nanostructure standard</em> tab in <a href="../practices/agent-instructions.html#cheac-standard">A CHEAC standard for AI agent instructions</a>) sets out the branch discipline we follow, and that we ask AI agents to follow too. In plain words:</p>
+<ol type="1">
+<li>Go to <code>main</code>.</li>
+<li>Update it from <code>upstream</code>.</li>
+<li>Start a new branch from it, with a short name (<code>fix-qrange</code>, <code>feat-pdf-export</code>).</li>
+<li>Commit your work on that branch. Start each message with a conventional prefix: <code>feat:</code>, <code>fix:</code>, <code>docs:</code>, <code>test:</code>, <code>refactor:</code>, or <code>chore:</code>.</li>
+<li>Push the branch to your fork. The first time, use <code>git push -u origin &lt;branch&gt;</code>.</li>
+<li>Open a pull request from your fork into <code>upstream</code>.</li>
+</ol>
+<p>Never commit directly to <code>main</code>, and don’t start a branch from another branch unless you mean to. Every pull request also needs a news file, made with <code>package add news</code> right after you create the branch.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span><code>checkout</code> or <code>switch</code>?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The group file writes steps 1 and 3 as <code>git checkout main</code> and <code>git checkout -b &lt;branch&gt;</code>. This post uses <code>git switch main</code> and <code>git switch -c &lt;branch&gt;</code>, which do exactly the same thing. <a href="#scenario-3-git-checkout-vs-git-switch">Scenario 3</a> explains why there are two commands.</p>
+</div>
+</div>
+</section>
+<section id="avoiding-merge-conflicts" class="level2">
+<h2 class="anchored" data-anchor-id="avoiding-merge-conflicts">Avoiding merge conflicts</h2>
+<p>A merge conflict happens when two people change the same lines of the same file and git can’t tell whose version to keep. The <a href="../practices/git-workflow.html#side-quests-branches">git workflow post</a> shows what one looks like. You can’t avoid them completely, but most come from habits you can change:</p>
+<ul>
+<li><strong>Never commit on <code>main</code>.</strong> If your <code>main</code> only ever mirrors the group’s, updating it is always a clean <em>fast-forward</em>: git moves it to the newest commit and there’s nothing to merge.</li>
+<li><strong>Sync often.</strong> Update <code>main</code> at the start of each working day, and always right before you start a branch. The further you drift from <code>upstream</code>, the bigger the merge when you come back.</li>
+<li><strong>Keep branches small and short-lived.</strong> One topic per branch, and a pull request within days rather than months. A branch that lives for a semester will conflict with everything.</li>
+<li><strong>Say what you’re working on.</strong> Open an issue or a <em>draft</em> pull request early, so two people don’t rewrite the same function in parallel. Most conflicts start as a communication problem.</li>
+<li><strong>Don’t mix reformatting with real changes.</strong> Reformatting a whole file touches every line, so it conflicts with everyone else’s work on that file. The group’s pre-commit hooks keep the formatting consistent from the start.</li>
+<li><strong>One news file per branch.</strong> Each pull request adds its own <code>news/&lt;branch&gt;.rst</code> instead of editing a shared changelog, and separate files don’t conflict.</li>
+<li><strong>Don’t commit generated files.</strong> Rendered output, figures made by a script, and notebook outputs change every time someone runs the code. Commit the code that makes them, and list the outputs in <code>.gitignore</code>.</li>
+<li><strong>One sentence per line</strong> in LaTeX and Markdown. Git compares files line by line. If a whole paragraph sits on one line, two people fixing different sentences in it will conflict. With one sentence per line, they won’t.</li>
+<li><strong>Bring <code>main</code> into your branch before you open a pull request,</strong> and again if <code>upstream</code> moves on during the review (<a href="#scenario-2-syncing-with-the-remotes">Scenario 2</a>). Any conflicts then show up on your own computer, where you can run the tests, rather than in the pull request.</li>
+</ul>
+</section>
+<section id="scenario-1-clone-branch-commit-and-push" class="level2">
+<h2 class="anchored" data-anchor-id="scenario-1-clone-branch-commit-and-push">Scenario 1: clone, branch, commit, and push</h2>
+<section id="once-per-project" class="level3">
+<h3 class="anchored" data-anchor-id="once-per-project">Once per project</h3>
+<ol type="1">
+<li><p><strong>Fork</strong> the group repository. Open it on GitHub and click <strong>Fork</strong> (top right). GitHub creates <code>github.com/&lt;you&gt;/&lt;project&gt;</code>.</p></li>
+<li><p><strong>Clone your fork</strong>, not the group repository:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:<span class="op">&lt;</span>you<span class="op">&gt;</span>/<span class="op">&lt;</span>project<span class="op">&gt;</span>.git</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="op">&lt;</span>project<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Git automatically names your fork <code>origin</code>.</p></li>
+<li><p><strong>Add the group repository as <code>upstream</code>:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add upstream git@github.com:<span class="op">&lt;</span>group<span class="op">&gt;</span>/<span class="op">&lt;</span>project<span class="op">&gt;</span>.git</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You should see the four lines <a href="#three-copies-of-one-repository">shown above</a>.</p></li>
+<li><p><strong>Install the pre-commit hooks</strong> with the project’s conda environment active, so the style checks run on every commit:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pre-commit</span> install</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+</ol>
+<p>Copy the addresses from the green <strong>Code</strong> button on each repository’s GitHub page. The examples here use SSH addresses (<code>git@github.com:…</code>). HTTPS addresses (<code>https://github.com/…</code>) work the same way.</p>
+</section>
+<section id="start-a-piece-of-work" class="level3">
+<h3 class="anchored" data-anchor-id="start-a-piece-of-work">Start a piece of work</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch main</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull upstream main</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch <span class="at">-c</span> fix-qrange</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">package</span> add news <span class="at">-f</span> <span class="st">"Default qmax in q_grid is now 25 1/Å"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>git switch -c</code> creates the branch and moves you onto it. Make the news file straight away, while you still remember what the branch is for.</p>
+</section>
+<section id="edit-check-and-commit" class="level3">
+<h3 class="anchored" data-anchor-id="edit-check-and-commit">Edit, check, and commit</h3>
+<p>Make your changes, then look at what you did before committing:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>On branch fix-qrange
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git restore &lt;file&gt;..." to discard changes in working directory)
+        modified:   tools.py</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode diff code-with-copy"><code class="sourceCode diff"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="st">-def q_grid(qmin, qmax):</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="va">+def q_grid(qmin, qmax=25.0):</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>     return qmin, qmax</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>When the diff shows only what you meant to change, commit it together with the news file:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add tools.py news/fix-qrange.rst</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"fix: default qmax to 25 1/A"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Commit as often as it makes sense. Each commit is a step you might later want to explain or undo.</p>
+</section>
+<section id="push-to-your-fork" class="level3">
+<h3 class="anchored" data-anchor-id="push-to-your-fork">Push to your fork</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin fix-qrange</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>branch 'fix-qrange' set up to track 'origin/fix-qrange'.
+To github.com:&lt;you&gt;/&lt;project&gt;.git
+ * [new branch]      fix-qrange -&gt; fix-qrange</code></pre>
+<p><code>-u</code> (short for <code>--set-upstream</code>) links your local branch to <code>origin/fix-qrange</code>. From then on, a plain <code>git push</code> or <code>git pull</code> on this branch knows where to go. Git’s word “upstream” here means “the remote branch this branch tracks”. It has nothing to do with the remote we named <code>upstream</code>. Confusing, but harmless.</p>
+</section>
+<section id="open-the-pull-request" class="level3">
+<h3 class="anchored" data-anchor-id="open-the-pull-request">Open the pull request</h3>
+<p>After the push, GitHub shows a <strong>Compare &amp; pull request</strong> banner for the new branch. Check that the base is <code>main</code> of <code>&lt;group&gt;/&lt;project&gt;</code> and the head is <code>fix-qrange</code> of <code>&lt;you&gt;/&lt;project&gt;</code>. Describe what you changed and why, then create the pull request. If you aren’t finished yet but would like early feedback, open it as a draft.</p>
+<p>Keep pushing to the same branch while the review goes on. New commits show up in the pull request automatically.</p>
+</section>
+<section id="after-the-pull-request-is-merged" class="level3">
+<h3 class="anchored" data-anchor-id="after-the-pull-request-is-merged">After the pull request is merged</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch main</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull upstream main                 <span class="co"># now includes your merged work</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main                   <span class="co"># keep your fork's main in step</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-d</span> fix-qrange               <span class="co"># delete the branch on your computer</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin <span class="at">--delete</span> fix-qrange    <span class="co"># delete it on your fork</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The <strong>Delete branch</strong> button on the merged pull request does the same as the last line.</p>
+<p>If the maintainers used <strong>Squash and merge</strong>, <code>git branch -d</code> may refuse:</p>
+<pre class="text"><code>error: The branch 'fix-qrange' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D fix-qrange'.</code></pre>
+<p>A squash merge combines all the commits in the pull request into a single new commit on <code>main</code> <span class="citation" data-cites="githubmerges">(<a href="#ref-githubmerges" role="doc-biblioref">GitHub 2026c</a>)</span>. Your original commits never appear in <code>main</code>’s history, so git thinks the branch isn’t merged. (If the branch still exists on your fork, git deletes it anyway with a warning.) Check on GitHub that the pull request says <strong>Merged</strong>, then delete it with a capital <code>-D</code>.</p>
+</section>
+</section>
+<section id="scenario-2-syncing-with-the-remotes" class="level2">
+<h2 class="anchored" data-anchor-id="scenario-2-syncing-with-the-remotes">Scenario 2: syncing with the remotes</h2>
+<p>Your computer doesn’t update itself. New commits can arrive from two places:</p>
+<ul>
+<li><strong><code>upstream/main</code></strong> moves whenever the group merges someone’s pull request.</li>
+<li><strong><code>origin/&lt;your-branch&gt;</code></strong> moves when someone else adds commits to your branch on GitHub. That someone might be you, pushing from another computer, or a reviewer who clicks <strong>Commit suggestion</strong>, or GitHub’s <strong>Update branch</strong> button on a pull request.</li>
+</ul>
+<p>GitHub’s <strong>Sync fork</strong> button on your fork’s page brings your fork up to date with <code>upstream</code> <span class="citation" data-cites="githubsyncfork">(<a href="#ref-githubsyncfork" role="doc-biblioref">GitHub 2026d</a>)</span>. It only changes the copy on GitHub, though. Your computer still needs a <code>git pull</code>.</p>
+<section id="case-a-youre-on-main" class="level3">
+<h3 class="anchored" data-anchor-id="case-a-youre-on-main">Case A: you’re on <code>main</code></h3>
+<p>This is the simple case. You’re on <code>main</code> with nothing uncommitted, say at the start of the day or just before starting a new branch:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull upstream main</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>git status</code> should say <code>nothing to commit, working tree clean</code>. The pull then looks like this:</p>
+<pre class="text"><code>From github.com:&lt;group&gt;/&lt;project&gt;
+ * branch            main       -&gt; FETCH_HEAD
+   0610c8b..295d4ab  main       -&gt; upstream/main
+Updating 0610c8b..295d4ab
+Fast-forward
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)</code></pre>
+<p>The word to look for is <strong>Fast-forward</strong>. Git moved your <code>main</code> forward without merging anything, because it had no commits of its own. Afterwards, <code>git status</code> says <code>Your branch is ahead of 'origin/main'</code>, because your fork on GitHub is now behind. <code>git push origin main</code> brings it level again.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Make git refuse to merge on <code>main</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you did commit on <code>main</code> by mistake, <code>git pull upstream main</code> can’t fast-forward. What happens next depends on your git settings. Git either stops with <code>fatal: Need to specify how to reconcile divergent branches</code>, or quietly makes a merge commit on your <code>main</code>. A default Git for Windows install does the second.</p>
+<p>To get the same safe behaviour on every computer, add <code>--ff-only</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull <span class="at">--ff-only</span> upstream main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If <code>main</code> has commits of its own, git then stops with <code>fatal: Not possible to fast-forward, aborting.</code> and leaves everything as it was. <a href="#when-things-go-wrong">When things go wrong</a> shows how to move the stray commit to a branch.</p>
+</div>
+</div>
+</section>
+<section id="case-b-youre-in-the-middle-of-a-branch" class="level3">
+<h3 class="anchored" data-anchor-id="case-b-youre-in-the-middle-of-a-branch">Case B: you’re in the middle of a branch</h3>
+<p>You’ve been working on <code>fix-qrange</code> for a few days. In the meantime, a colleague’s pull request was merged into <code>upstream</code>, and you pushed a commit to the branch from your laptop. Before you continue, you want all of that in your branch.</p>
+<p>The order is: <strong>switch to <code>main</code>, pull, then merge <code>main</code> into your branch.</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Put unfinished work aside</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> stash                  <span class="co"># or commit it</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Get your branch's new commits from your fork</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Update main from the group repository</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch main</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull upstream main</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Merge the new main into your branch</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch fix-qrange</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge main</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Take your unfinished work back, test, and push</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> stash pop</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li>Git won’t switch branches if that would overwrite uncommitted changes. <code>git stash</code> puts them aside and leaves your working folder clean. If the work makes sense as a step of its own, commit it instead. Stashes are easy to forget.</li>
+<li>You only need this if the branch is already on your fork. It brings in the commits that are on <code>origin/fix-qrange</code> but not on your computer. If you skip it, the push in step 5 will be rejected (see <a href="#when-things-go-wrong">When things go wrong</a>).</li>
+<li>This is exactly Case A.</li>
+<li>Git adds the new commits from <code>main</code> to your branch with a merge commit. If you and your colleague changed the same lines, this is where the conflict appears (<a href="#resolving-a-conflict">below</a>).</li>
+<li><code>git stash pop</code> brings back what you put aside in step 1. Run the tests before you push, because the code underneath your changes has moved.</li>
+</ol>
+<p>Afterwards, <code>git log --oneline --graph</code> shows both lines of work joined together:</p>
+<pre class="text"><code>*   5f44b2b Merge branch 'main' into fix-qrange
+|\
+| * 295d4ab docs: add README
+* | deb1571 docs: add q_grid docstring
+* | b2e7425 fix: default qmax to 25 1/A
+|/
+* 0610c8b feat: add q grid</code></pre>
+<p><strong>Why not pull <code>upstream</code> straight into the branch?</strong> You can:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch upstream</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge upstream/main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>git fetch</code> downloads the new commits without changing any of your branches, and <code>git merge upstream/main</code> merges them in. Your branch ends up the same. The catch is that your local <code>main</code> stays behind, and you’ll have to update it anyway before your next branch. Going through <code>main</code> keeps all three copies in step and is harder to get wrong.</p>
+</section>
+<section id="resolving-a-conflict" class="level3">
+<h3 class="anchored" data-anchor-id="resolving-a-conflict">Resolving a conflict</h3>
+<p>If <code>git merge main</code> reports a conflict:</p>
+<pre class="text"><code>Auto-merging tools.py
+CONFLICT (content): Merge conflict in tools.py
+Automatic merge failed; fix conflicts and then commit the result.</code></pre>
+<p>open the file. Git has marked both versions:</p>
+<pre class="text"><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+def q_grid(qmin, qmax=25.0):
+    """Return the Q range in 1/A."""
+=======
+def q_grid(qmin, qmax=30.0):
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; main
+    return qmin, qmax</code></pre>
+<p>Above <code>=======</code> is your branch (<code>HEAD</code>), and below it is what came in from <code>main</code>. Edit the block into what the code should be, delete the three marker lines, then:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add tools.py</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Without <code>-m</code>, <code>git commit</code> opens an editor with a ready-made merge message. Save and close it. If you’d rather deal with the conflict later, <code>git merge --abort</code> puts everything back the way it was before the merge.</p>
+<p>VS Code shows <strong>Accept Current Change</strong>, <strong>Accept Incoming Change</strong>, and <strong>Accept Both Changes</strong> above each conflict, which is often easier than editing the markers by hand. Don’t just click through them, though. In this example, two people chose different default values for <code>qmax</code>. That’s a scientific decision, not a technical one. If you’re not sure which version is right, ask the colleague who wrote the other one.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>What about <code>git rebase</code>?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You’ll often see <code>git rebase main</code> recommended instead of <code>git merge main</code>. A rebase replays your commits on top of the new <code>main</code>, so the history is a straight line without merge commits. The price is that it rewrites your branch’s commits. If you’ve already pushed the branch, you then have to overwrite it on your fork with <code>git push --force-with-lease</code>, and anyone else who has a copy of the branch is now out of step. Stick with merge unless the maintainers ask you to rebase. If the project squash-merges pull requests, the merge commits on your branch disappear anyway.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="scenario-3-git-checkout-vs-git-switch" class="level2">
+<h2 class="anchored" data-anchor-id="scenario-3-git-checkout-vs-git-switch">Scenario 3: <code>git checkout</code> vs <code>git switch</code></h2>
+<p>For most of git’s history, <code>git checkout</code> did two quite different jobs:</p>
+<ul>
+<li><strong>Move between branches:</strong> <code>git checkout main</code>, <code>git checkout -b fix-qrange</code>.</li>
+<li><strong>Overwrite files</strong> with the version from a commit: <code>git checkout -- tools.py</code>, <code>git checkout a1b2c3d -- tools.py</code>.</li>
+</ul>
+<p>Git 2.23 (August 2019) split these jobs between two new commands <span class="citation" data-cites="gitrelnotes223">(<a href="#ref-gitrelnotes223" role="doc-biblioref">The Git Project 2019</a>)</span>:</p>
+<ul>
+<li><strong><code>git switch</code></strong> moves between branches <span class="citation" data-cites="gitswitch">(<a href="#ref-gitswitch" role="doc-biblioref">The Git Project 2026c</a>)</span>.</li>
+<li><strong><code>git restore</code></strong> restores files <span class="citation" data-cites="gitrestore">(<a href="#ref-gitrestore" role="doc-biblioref">The Git Project 2026b</a>)</span>.</li>
+</ul>
+<p><code>git checkout</code> still works as before.</p>
+<section id="why-the-split-matters" class="level3">
+<h3 class="anchored" data-anchor-id="why-the-split-matters">Why the split matters</h3>
+<p>Switching branches is harmless. Both <code>git checkout &lt;branch&gt;</code> and <code>git switch &lt;branch&gt;</code> refuse to switch if that would overwrite uncommitted changes. Restoring files is not harmless. <code>git checkout -- tools.py</code>, or <code>git checkout .</code> for every file, replaces your edits with the committed version immediately, without asking, and git has no undo for work that was never committed. The two uses also look almost the same: <code>git checkout fix-qrange</code> moves you to a branch, while <code>git checkout tools.py</code> throws away your edits to that file.</p>
+<p><code>git switch</code> only ever changes branches, so it can’t wipe your uncommitted edits by accident. It’s explicit in other ways too. To look at an old commit, it wants <code>--detach</code>, so you can’t end up in a detached HEAD without meaning to. When you really do want to throw edits away, <code>git restore</code> says so.</p>
+</section>
+<section id="translation-table" class="level3">
+<h3 class="anchored" data-anchor-id="translation-table">Translation table</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><code>git checkout</code></th>
+<th><code>git switch</code> / <code>git restore</code></th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>git checkout main</code></td>
+<td><code>git switch main</code></td>
+<td>Go to an existing branch</td>
+</tr>
+<tr class="even">
+<td><code>git checkout -b fix-qrange</code></td>
+<td><code>git switch -c fix-qrange</code></td>
+<td>Create a branch and go to it</td>
+</tr>
+<tr class="odd">
+<td><code>git checkout -</code></td>
+<td><code>git switch -</code></td>
+<td>Go back to the previous branch</td>
+</tr>
+<tr class="even">
+<td><code>git checkout a1b2c3d</code></td>
+<td><code>git switch --detach a1b2c3d</code></td>
+<td>Look at an old commit (<a href="../practices/git-workflow.html#the-shadow-of-the-past">detached HEAD</a>)</td>
+</tr>
+<tr class="odd">
+<td><code>git checkout -- tools.py</code></td>
+<td><code>git restore tools.py</code></td>
+<td>Discard uncommitted edits to a file</td>
+</tr>
+<tr class="even">
+<td><code>git checkout a1b2c3d -- tools.py</code></td>
+<td><code>git restore --source=a1b2c3d --staged --worktree tools.py</code></td>
+<td>Get a file from an old commit</td>
+</tr>
+</tbody>
+</table>
+<p>There’s one small difference in the last row. <code>git checkout &lt;commit&gt; -- &lt;file&gt;</code> puts the old version in your working folder <strong>and</strong> stages it for the next commit <span class="citation" data-cites="gitcheckout">(<a href="#ref-gitcheckout" role="doc-biblioref">The Git Project 2026a</a>)</span>. <code>git restore --source=&lt;commit&gt; &lt;file&gt;</code> changes only the working folder <span class="citation" data-cites="gitrestore">(<a href="#ref-gitrestore" role="doc-biblioref">The Git Project 2026b</a>)</span>. That’s usually what you want when you’re looking at or running an old version. Add <code>--staged --worktree</code> to get exactly what <code>checkout</code> does.</p>
+</section>
+<section id="which-should-i-use" class="level3">
+<h3 class="anchored" data-anchor-id="which-should-i-use">Which should I use?</h3>
+<ul>
+<li><strong>Use <code>git switch</code> and <code>git restore</code></strong> in your own work. Their names say what they do, and <code>switch</code> can’t eat your edits.</li>
+<li><strong>Read <code>git checkout</code> as a synonym.</strong> You’ll keep meeting it in older tutorials, Stack Overflow answers, the group instruction file, and commands that AI agents suggest. There, <code>git checkout main</code> means <code>git switch main</code>, and <code>git checkout -b x</code> means <code>git switch -c x</code>. You don’t need to rewrite anything.</li>
+<li><strong>Check your git version</strong> with <code>git --version</code>. Any version from 2.23 on has <code>switch</code> and <code>restore</code>.</li>
+</ul>
+</section>
+<section id="switching-to-a-branch-thats-only-on-a-remote" class="level3">
+<h3 class="anchored" data-anchor-id="switching-to-a-branch-thats-only-on-a-remote">Switching to a branch that’s only on a remote</h3>
+<p>Say you pushed <code>plot-sq</code> from your laptop and now want to work on it on your office computer. After <code>git fetch origin</code>, a plain <code>git switch plot-sq</code> creates a local <code>plot-sq</code> that tracks <code>origin/plot-sq</code>. Git does this automatically when exactly one remote has a branch of that name <span class="citation" data-cites="gitswitch">(<a href="#ref-gitswitch" role="doc-biblioref">The Git Project 2026c</a>)</span>. With two remotes that isn’t guaranteed. If <code>upstream</code> also has a <code>plot-sq</code>, git stops with <code>fatal: 'plot-sq' matched multiple (2) remote tracking branches</code>. Then name the remote yourself:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch <span class="at">-c</span> plot-sq <span class="at">--track</span> origin/plot-sq</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="when-things-go-wrong" class="level2">
+<h2 class="anchored" data-anchor-id="when-things-go-wrong">When things go wrong</h2>
+<p><strong>“I committed to <code>main</code> by mistake.”</strong> Move the commit onto a new branch, then reset <code>main</code> to the group’s version. First make sure <code>git status</code> shows no uncommitted changes, because <code>reset --hard</code> discards them:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch <span class="at">-c</span> fix-oops            <span class="co"># the new branch keeps your commit</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch main</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch upstream</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--hard</span> upstream/main    <span class="co"># main matches the group's main again</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Your commit now lives on <code>fix-oops</code>, which you can push and turn into a pull request as usual. If you had already pushed the stray commit to your fork’s <code>main</code>, finish with <code>git push --force-with-lease origin main</code>. This is one of the few times that overwriting a branch on your fork is the right thing to do.</p>
+<p><strong>“<code>git push</code> was rejected.”</strong></p>
+<pre class="text"><code> ! [rejected]        fix-qrange -&gt; fix-qrange (fetch first)
+error: failed to push some refs to 'github.com:&lt;you&gt;/&lt;project&gt;.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally.</code></pre>
+<p>Your fork’s copy of the branch has commits you don’t have yet, perhaps from another computer or a reviewer’s suggestion. Run <code>git pull</code>, resolve any conflicts, and push again. Don’t reach for <code>git push --force</code>: it would delete those commits from your fork.</p>
+<p><strong>“<code>git pull</code> says <code>Need to specify how to reconcile divergent branches</code>.”</strong> If you’re on <code>main</code>, you committed there; see the first item. If you’re on a work branch, both your computer and your fork have new commits on it. <code>git pull --no-rebase</code> merges them, which is what this post does throughout. To make merging the default, run <code>git config --global pull.rebase false</code> once. For <code>main</code>, keep using <code>--ff-only</code>, which overrides that setting.</p>
+<p><strong>“My pull request contains commits that aren’t mine.”</strong> You probably started the branch from another branch, or from a <code>main</code> that had stray commits of its own. The cleanest fix is to start a fresh branch from an up-to-date <code>main</code> and copy over only your own commits with <code>git cherry-pick &lt;commit&gt;</code>, one at a time, oldest first.</p>
+<p><strong>“<code>git branch -d</code> won’t delete a branch that was merged.”</strong> The pull request was squash-merged. See <a href="#after-the-pull-request-is-merged">After the pull request is merged</a>.</p>
+<p>For anything else, <a href="https://ohshitgit.com">Oh Shit, Git!?!</a> has a good collection of fixes.</p>
+</section>
+<section id="cheat-sheet" class="level2">
+<h2 class="anchored" data-anchor-id="cheat-sheet">Cheat sheet</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>When</th>
+<th>What you want to do</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Once per project</td>
+<td>Clone your fork</td>
+<td><code>git clone git@github.com:&lt;you&gt;/&lt;project&gt;.git</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Add the group repository</td>
+<td><code>git remote add upstream git@github.com:&lt;group&gt;/&lt;project&gt;.git</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Check the remotes</td>
+<td><code>git remote -v</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Install the pre-commit hooks</td>
+<td><code>pre-commit install</code></td>
+</tr>
+<tr class="odd">
+<td>New work</td>
+<td>Update <code>main</code></td>
+<td><code>git switch main</code> then <code>git pull upstream main</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Start a branch</td>
+<td><code>git switch -c &lt;branch&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Add a news file</td>
+<td><code>package add news -f "Summary"</code></td>
+</tr>
+<tr class="even">
+<td>While working</td>
+<td>See what changed</td>
+<td><code>git status</code>, <code>git diff</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Stage and commit</td>
+<td><code>git add &lt;file&gt;</code> then <code>git commit -m "fix: …"</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>First push of a branch</td>
+<td><code>git push -u origin &lt;branch&gt;</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Later pushes</td>
+<td><code>git push</code></td>
+</tr>
+<tr class="even">
+<td>Syncing</td>
+<td>Update <code>main</code>, refusing if it has diverged</td>
+<td><code>git pull --ff-only upstream main</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Update your fork’s <code>main</code></td>
+<td><code>git push origin main</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Get new commits on your branch from your fork</td>
+<td><code>git pull</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Merge the new <code>main</code> into your branch</td>
+<td><code>git switch &lt;branch&gt;</code> then <code>git merge main</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Put unfinished work aside, and back</td>
+<td><code>git stash</code>, <code>git stash pop</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Back out of a conflicted merge</td>
+<td><code>git merge --abort</code></td>
+</tr>
+<tr class="even">
+<td>After the merge</td>
+<td>Delete the branch on your computer</td>
+<td><code>git branch -d &lt;branch&gt;</code> (<code>-D</code> after a squash merge)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Delete the branch on your fork</td>
+<td><code>git push origin --delete &lt;branch&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Moving around</td>
+<td>Go to a branch</td>
+<td><code>git switch &lt;branch&gt;</code> (same as <code>git checkout &lt;branch&gt;</code>)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Go back to the previous branch</td>
+<td><code>git switch -</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Discard uncommitted edits to a file</td>
+<td><code>git restore &lt;file&gt;</code> (same as <code>git checkout -- &lt;file&gt;</code>)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>
+<ul>
+<li><a href="../practices/git-workflow.html">One folder to rule them all: a git workflow for research</a>: git from scratch, branches, and how to review what an AI agent changed.</li>
+<li><a href="../practices/agent-instructions.html#cheac-standard">A CHEAC standard for AI agent instructions</a>: the group instruction file these rules come from, under the <em>Nanostructure standard</em> tab.</li>
+<li><a href="../practices/onboarding.html">Onboarding</a>: installing git, Git Bash, and VS Code.</li>
+<li><em>Pro Git</em>, <a href="https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project">section 5.2, <em>Contributing to a Project</em></a>, walks through the fork workflow in more detail under <em>Forked Public Project</em> <span class="citation" data-cites="chacon2014progit">(<a href="#ref-chacon2014progit" role="doc-biblioref">Chacon and Straub 2014</a>)</span>.</li>
+<li>GitHub’s documentation on <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks">forks</a> <span class="citation" data-cites="githubforks">(<a href="#ref-githubforks" role="doc-biblioref">GitHub 2026b</a>)</span>, <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-repository-for-a-fork">configuring the <code>upstream</code> remote</a> <span class="citation" data-cites="githubforkremote">(<a href="#ref-githubforkremote" role="doc-biblioref">GitHub 2026a</a>)</span>, and <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork">syncing a fork</a> <span class="citation" data-cites="githubsyncfork">(<a href="#ref-githubsyncfork" role="doc-biblioref">GitHub 2026d</a>)</span>.</li>
+<li>The manual pages for <a href="https://git-scm.com/docs/git-switch"><code>git switch</code></a> <span class="citation" data-cites="gitswitch">(<a href="#ref-gitswitch" role="doc-biblioref">The Git Project 2026c</a>)</span> and <a href="https://git-scm.com/docs/git-restore"><code>git restore</code></a> <span class="citation" data-cites="gitrestore">(<a href="#ref-gitrestore" role="doc-biblioref">The Git Project 2026b</a>)</span>.</li>
+</ul>
+</section>
+<section id="references" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-chacon2014progit" class="csl-entry" role="listitem">
+Chacon, Scott, and Ben Straub. 2014. <em>Pro <span>Git</span></em>. 2nd ed. Apress. <a href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a>.
+</div>
+<div id="ref-githubforkremote" class="csl-entry" role="listitem">
+GitHub. 2026a. <em>Configuring a Remote Repository for a Fork</em>. GitHub Docs, <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-repository-for-a-fork" class="uri">https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-repository-for-a-fork</a>.
+</div>
+<div id="ref-githubforks" class="csl-entry" role="listitem">
+GitHub. 2026b. <em>Forks</em>. GitHub Docs, <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks" class="uri">https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks</a>.
+</div>
+<div id="ref-githubmerges" class="csl-entry" role="listitem">
+GitHub. 2026c. <em>Pull Request Merges</em>. GitHub Docs, <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges" class="uri">https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges</a>.
+</div>
+<div id="ref-githubsyncfork" class="csl-entry" role="listitem">
+GitHub. 2026d. <em>Syncing a Fork</em>. GitHub Docs, <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork" class="uri">https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork</a>.
+</div>
+<div id="ref-gitrelnotes223" class="csl-entry" role="listitem">
+The Git Project. 2019. <em><span>Git</span> V2.23 Release Notes</em>. <a href="https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.23.0.adoc" class="uri">Https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.23.0.adoc</a>.
+</div>
+<div id="ref-gitcheckout" class="csl-entry" role="listitem">
+The Git Project. 2026a. <em>Git-Checkout Documentation</em>. Git reference manual, <a href="https://git-scm.com/docs/git-checkout" class="uri">https://git-scm.com/docs/git-checkout</a>.
+</div>
+<div id="ref-gitrestore" class="csl-entry" role="listitem">
+The Git Project. 2026b. <em>Git-Restore Documentation</em>. Git reference manual, <a href="https://git-scm.com/docs/git-restore" class="uri">https://git-scm.com/docs/git-restore</a>.
+</div>
+<div id="ref-gitswitch" class="csl-entry" role="listitem">
+The Git Project. 2026c. <em>Git-Switch Documentation</em>. Git reference manual, <a href="https://git-scm.com/docs/git-switch" class="uri">https://git-scm.com/docs/git-switch</a>.
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/cheac-ai\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>CHEAC AI Council · University of Copenhagen · University of Bern</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
